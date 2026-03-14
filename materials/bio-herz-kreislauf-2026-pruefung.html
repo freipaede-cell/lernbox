@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uebungspruefung — Biologie Pruefung 1 FS26</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #334155;
+  }
+  .header h1 {
+    font-size: 1.8rem;
+    color: #f1f5f9;
+    margin-bottom: 0.5rem;
+  }
+  .header .meta {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+  }
+  .header .meta span {
+    margin: 0 0.5rem;
+  }
+  .hinweis {
+    background: #1e293b;
+    border-left: 4px solid #f59e0b;
+    padding: 0.8rem 1rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+    color: #fbbf24;
+    text-align: left;
+    max-width: 700px;
+    margin: 1rem auto 0;
+  }
+
+  /* Info-Boxen oben */
+  .info-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .info-box {
+    flex: 1;
+    min-width: 180px;
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    text-align: center;
+  }
+  .info-box .label { font-size: 0.8rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; }
+  .info-box .value { font-size: 1.5rem; font-weight: 700; color: #f1f5f9; margin-top: 0.2rem; }
+
+  /* Teil-Header */
+  .teil-header {
+    margin: 2.5rem 0 1.2rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .teil-header.teil1 { background: linear-gradient(135deg, #1e3a5f, #1e293b); border-left: 4px solid #3b82f6; color: #93c5fd; }
+  .teil-header.teil2 { background: linear-gradient(135deg, #1a3d2e, #1e293b); border-left: 4px solid #22c55e; color: #86efac; }
+  .teil-header.teil3 { background: linear-gradient(135deg, #2e1a3d, #1e293b); border-left: 4px solid #a855f7; color: #d8b4fe; }
+
+  /* Fragen */
+  .frage {
+    background: #1e293b;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  .frage-header {
+    padding: 1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  .frage-nummer {
+    font-weight: 700;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+  .frage.teil1 .frage-nummer { color: #60a5fa; }
+  .frage.teil2 .frage-nummer { color: #4ade80; }
+  .frage.teil3 .frage-nummer { color: #c084fc; }
+
+  .frage-punkte {
+    font-size: 0.8rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .frage.teil1 .frage-punkte { background: #1e3a5f; color: #93c5fd; }
+  .frage.teil2 .frage-punkte { background: #1a3d2e; color: #86efac; }
+  .frage.teil3 .frage-punkte { background: #2e1a3d; color: #d8b4fe; }
+
+  .frage-tags {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 0.15rem;
+  }
+
+  .frage-text {
+    padding: 0 1.2rem 1rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* Loesung */
+  .loesung-btn {
+    display: block;
+    width: calc(100% - 2.4rem);
+    margin: 0 1.2rem 1rem;
+    padding: 0.5rem;
+    background: #334155;
+    color: #94a3b8;
+    border: 1px solid #475569;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: inherit;
+    transition: background 0.2s, color 0.2s;
+  }
+  .loesung-btn:hover { background: #475569; color: #e2e8f0; }
+  .loesung-btn.open { background: #475569; color: #e2e8f0; }
+
+  .loesung {
+    display: none;
+    padding: 1rem 1.2rem;
+    border-top: 1px solid #334155;
+    background: #162032;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+  }
+  .loesung.show { display: block; }
+  .loesung strong { color: #e2e8f0; }
+
+  /* Notenschluessel */
+  .notenschluessel {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #334155;
+  }
+  .notenschluessel h2 {
+    font-size: 1.2rem;
+    color: #f1f5f9;
+    margin-bottom: 1rem;
+  }
+  .noten-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  .noten-table th {
+    background: #334155;
+    padding: 0.6rem 1rem;
+    text-align: left;
+    color: #e2e8f0;
+    font-weight: 600;
+  }
+  .noten-table td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #1e293b;
+    color: #cbd5e1;
+  }
+  .noten-table tr:nth-child(even) td { background: #1a2438; }
+  .noten-table tr:nth-child(odd) td { background: #162032; }
+  .noten-table .genuegend td { border-left: 3px solid #22c55e; }
+  .noten-table .ungenuegend td { border-left: 3px solid #ef4444; }
+
+  /* Alle aufdecken */
+  .alle-btn {
+    display: inline-block;
+    margin: 1.5rem 0;
+    padding: 0.6rem 1.2rem;
+    background: #475569;
+    color: #e2e8f0;
+    border: 1px solid #64748b;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+  .alle-btn:hover { background: #64748b; }
+
+  /* Footer */
+  .footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #334155;
+    font-size: 0.8rem;
+    color: #64748b;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 1rem 0.5rem; }
+    .info-bar { flex-direction: column; }
+    .frage-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Uebungspruefung — Biologie Pruefung 1 FS26</h1>
+    <div class="meta">
+      <span>Herz-Kreislaufsystem &amp; Hormone</span> |
+      <span>2. Klasse Kantonsschule</span> |
+      <span>14.03.2026</span>
+    </div>
+    <div class="hinweis">
+      Bearbeite die Pruefung zuerst OHNE Unterlagen. Decke die Loesungen erst danach auf.
+    </div>
+  </div>
+
+  <!-- Info-Bar -->
+  <div class="info-bar">
+    <div class="info-box">
+      <div class="label">Gesamtpunktzahl</div>
+      <div class="value">60 P</div>
+    </div>
+    <div class="info-box">
+      <div class="label">Fragen</div>
+      <div class="value">28</div>
+    </div>
+    <div class="info-box">
+      <div class="label">Dauer</div>
+      <div class="value">45–60 min</div>
+    </div>
+  </div>
+
+  <button class="alle-btn" onclick="toggleAlle()">Alle Loesungen aufdecken / verbergen</button>
+
+  <!-- ==================== TEIL 1 ==================== -->
+  <div class="teil-header teil1">Teil 1: Herz-Kreislaufsystem (18 Fragen, 40 Punkte)</div>
+
+  <!-- Frage 1 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 1</div>
+        <div class="frage-tags">Block A | Definition</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">Erklaere den Begriff <strong>Pulswelle</strong>.</div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      Eine Druckwelle, die bei jeder Herzkontraktion (Systole) entsteht und sich ueber das arterielle Gefaesssystem fortpflanzt. Sie ist als Pulsschlag an koerpernahen Arterien tastbar. Die Pulsfrequenz entspricht der Herzfrequenz.
+    </div>
+  </div>
+
+  <!-- Frage 2 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 2</div>
+        <div class="frage-tags">Block A | Berechnung</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Ein untrainierter Mensch hat einen Ruhepuls von 75 Schlaegen pro Minute und ein Schlagvolumen von 70 ml.<br>
+      <strong>a)</strong> Berechne sein Herzminutenvolumen (HMV).<br>
+      <strong>b)</strong> Ein Ausdauersportler hat ein Ruhe-HMV von ebenfalls 5.6 l/min, aber einen Ruhepuls von nur 40/min. Berechne sein Schlagvolumen.<br>
+      <strong>c)</strong> Erklaere, warum der Ruhepuls des Sportlers tiefer ist.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>a)</strong> HMV = HF x SV = 75/min x 70 ml = 5'250 ml/min ≈ 5.25 l/min. (1P)<br>
+      <strong>b)</strong> SV = HMV / HF = 5'600 ml / 40 = 140 ml. (1P)<br>
+      <strong>c)</strong> Durch Ausdauertraining werden Herzmuskelzellen dicker und Herzinnenraeume groesser → Schlagvolumen verdoppelt sich. Da das Ruhe-HMV gleich bleibt, braucht das Herz weniger Schlaege fuer die gleiche Blutmenge → tieferer Ruhepuls. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 3 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 3</div>
+        <div class="frage-tags">Block A | Zuordnung</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">
+      Ordne die folgenden Begriffe korrekt zu: <strong>systolischer Druck, diastolischer Druck, 120 mmHg, 80 mmHg, Herzkontraktion, Herzerschlaffung</strong>.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>Systolischer Druck</strong> (oberer Wert) = 120 mmHg = entsteht waehrend der Herzkontraktion (Systole). (1P)<br>
+      <strong>Diastolischer Druck</strong> (unterer Wert) = 80 mmHg = entsteht waehrend der Herzerschlaffung (Diastole). (1P)
+    </div>
+  </div>
+
+  <!-- Frage 4 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 4</div>
+        <div class="frage-tags">Block A | Erklaerung</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Erklaere, wie <strong>Bluthochdruck zu einem Herzinfarkt</strong> fuehren kann. Verwende die Begriffe: <em>Arterienverkalkung, Risse, Cholesterin, Verengung</em>.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      Dauerhaft erhoehter Blutdruck verursacht kleine <strong>Risse</strong> in der Gefaessinnenwand (Endothel). In diese Risse lagern sich <strong>Cholesterin</strong>, Blutplaettchen und Kalk ein. Diese Ablagerungen fuehren zu <strong>Arterienverkalkung</strong> (Arteriosklerose). Die Gefaesse werden zunehmend <strong>verengt</strong>. Ist eine Herzkranzarterie betroffen, wird der Herzmuskel nicht mehr ausreichend mit Sauerstoff versorgt → Herzinfarkt. (3P fuer vollstaendige Kausalkette)
+    </div>
+  </div>
+
+  <!-- Frage 5 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 5</div>
+        <div class="frage-tags">Block B | Vergleich</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Vergleiche <strong>Arterien, Kapillaren und Venen</strong> in einer Tabelle mit den Kriterien: Wanddicke, Besonderheit, Hauptfunktion.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>Arterien:</strong> Dicke Wand (alle 3 Schichten, elastisch), kein Spezialfeature, Transport vom Herzen weg unter hohem Druck. (1P)<br>
+      <strong>Kapillaren:</strong> Nur Endothel (duennste Wand), Poren fuer Stoffaustausch, Austausch von O2/Naehrstoffen/Abfallstoffen. (1P)<br>
+      <strong>Venen:</strong> Duenne Wand (duenner als Arterien), Venenklappen, Transport zum Herzen unter niedrigem Druck. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 6 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 6</div>
+        <div class="frage-tags">Block B | Erklaerung</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">
+      Erklaere den <strong>Windkesseleffekt</strong>. Warum ist er wichtig fuer den Blutfluss?
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      Die herznahen Arterien (v.a. Aorta) haben elastische Waende. Waehrend der Systole dehnt der ruckartige Blutauswurf die Arterienwand. Waehrend der Diastole federn die elastischen Fasern zurueck und pressen das Blut weiter. (1P)<br>
+      <strong>Bedeutung:</strong> Der stossweise Herzauswurf wird in einen gleichmaessigeren Blutfluss umgewandelt → kontinuierliche Versorgung der Organe. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 7 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 7</div>
+        <div class="frage-tags">Block B | Erklaerung</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Nenne und erklaere <strong>3 Mechanismen</strong>, die den Blutruecktransport in den Venen ermoeglichen.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>1) Muskelpumpe:</strong> Skelettmuskulatur (z.B. Wadenmuskeln) drueckt duennwandige Venen zusammen → Blut wird herzwaerts gepresst; beim Erschlaffen entsteht Sog. (1P)<br>
+      <strong>2) Venenklappen:</strong> Funktionieren als Ventile, oeffnen sich nur herzwaerts → verhindern Zurueckfliessen. (1P)<br>
+      <strong>3) Sogwirkung des Herzens:</strong> Durch die Pumpaktion wird Blut aus den Venen in die Vorhoefe nachgesogen. <em>ODER: Arterienpumpe: Benachbarte pulsierende Arterie drueckt Vene zusammen.</em> (1P)
+    </div>
+  </div>
+
+  <!-- Frage 8 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 8</div>
+        <div class="frage-tags">Block B | Diagramm-Interpretation</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">
+      In den Kapillaren ist die Fliessgeschwindigkeit des Blutes am geringsten (0.0026 cm/s), obwohl jede einzelne Kapillare nur 8 &micro;m Durchmesser hat. Erklaere diesen scheinbaren <strong>Widerspruch</strong>.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      Entscheidend ist nicht der Einzeldurchmesser, sondern die <strong>Gesamtquerschnittsflaeche</strong> aller Kapillaren zusammen. Diese betraegt ca. 3'500 cm² (vs. 5.3 cm² bei der Aorta). (1P)<br>
+      Das Blut verteilt sich auf diese riesige Flaeche → Geschwindigkeit sinkt drastisch. Analogie: Ein Fluss, der sich in tausende Baechlein aufteilt, fliesst sehr langsam. (1P)<br>
+      <em>Biologischer Sinn: Langsamer Fluss ermoeglicht den Stoffaustausch.</em>
+    </div>
+  </div>
+
+  <!-- Frage 9 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 9</div>
+        <div class="frage-tags">Block C | Erklaerung</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">
+      Erklaere, warum die <strong>linke Herzkammerwand</strong> deutlich dicker ist als die rechte.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      Die linke Kammer pumpt das Blut in den <strong>Koerperkreislauf</strong> — dieser ist lang und hat einen hohen Gefaesswiderstand → dafuer ist ein hoher Druck noetig → die Muskelwand muss dicker (kraeftiger) sein. (1P)<br>
+      Die rechte Kammer pumpt das Blut nur in den kurzen <strong>Lungenkreislauf</strong> → weniger Druck noetig → duennere Wand reicht. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 10 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 10</div>
+        <div class="frage-tags">Block C | Lueckentext</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Ergaenze die Luecken:<br><br>
+      Der Herzzyklus beginnt mit der <strong>_____(a)_____</strong>, bei der die Segelklappen <strong>_____(b)_____</strong> und die Taschenklappen <strong>_____(c)_____</strong> sind. Das Blut stroemt von den Vorhofen in die <strong>_____</strong>. Sobald der Druck in den Kammern steigt, schliessen sich die <strong>_____(d)_____</strong> und die <strong>_____(e)_____</strong> beginnt.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      a) Fuellungsphase (Diastole) (0.5P)<br>
+      b) offen (0.5P)<br>
+      c) geschlossen/zu (0.5P)<br>
+      Luecke 4: Kammern (0.5P)<br>
+      d) Segelklappen (0.5P)<br>
+      e) Anspannungsphase (Systole) (0.5P)
+    </div>
+  </div>
+
+  <!-- Frage 11 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 11</div>
+        <div class="frage-tags">Block D | Wissen</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">
+      Nenne die <strong>4 Hauptaufgaben des Blutes</strong> und ordne jeweils einen Blutbestandteil zu, der diese Aufgabe hauptsaechlich erfuellt.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      1) <strong>Transport</strong> (O2, Naehrstoffe, Hormone) → Plasma + Erythrozyten (0.5P)<br>
+      2) <strong>Waermeregulation</strong> → Plasma (0.5P)<br>
+      3) <strong>Blutgerinnung</strong> → Thrombozyten + Fibrinogen (0.5P)<br>
+      4) <strong>Immunabwehr</strong> → Leukozyten (0.5P)
+    </div>
+  </div>
+
+  <!-- Frage 12 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 12</div>
+        <div class="frage-tags">Block D | Vergleich</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Erstelle eine <strong>Vergleichstabelle der 3 Blutzelltypen</strong> mit den Kriterien: Zellkern (ja/nein), Anzahl pro Mikroliter, Hauptfunktion.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>Erythrozyten:</strong> Kein Kern, 5–6 Mio/&micro;l, Gastransport (O2/CO2 via Haemoglobin). (1P)<br>
+      <strong>Leukozyten:</strong> Mit Kern, 5'000–10'000/&micro;l, Immunabwehr (3 Untergruppen). (1P)<br>
+      <strong>Thrombozyten:</strong> Kein Kern (Zellfragmente), 250'000–400'000/&micro;l, Blutgerinnung/Wundverschluss. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 13 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 13</div>
+        <div class="frage-tags">Block D | Erklaerung</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">
+      Erklaere, warum Erythrozyten <strong>bikonkav</strong> (scheibenfoermig eingedellt) geformt sind und <strong>keinen Zellkern</strong> besitzen.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>Bikonkave Form:</strong> Vergroessert die Oberflaeche im Verhaeltnis zum Volumen → maximaler Gasaustausch (O2/CO2-Diffusion). Gesamtoberflaeche aller Erythrozyten: ca. 3'000 m². (1P)<br>
+      <strong>Kein Zellkern:</strong> Mehr Platz fuer Haemoglobin (den Sauerstoff-Transporter) + bessere Verformbarkeit zum Durchqueren feinster Kapillaren. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 14 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 14</div>
+        <div class="frage-tags">Block D | Sequenz</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Beschreibe die <strong>Blutgerinnung</strong> in der richtigen Reihenfolge. Verwende die Begriffe: <em>Fibrin, weisser Thrombus, Gerinnungskaskade, roter Thrombus, Kontraktion</em>.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      1) Verletzte Gefaesse <strong>kontrahieren</strong> (Kontraktion) → Blutfluss reduziert. (0.5P)<br>
+      2) Thrombozyten lagern sich an der Verletzung an → <strong>weisser Thrombus</strong> (erster Verschluss). (0.5P)<br>
+      3) Gerinnungsfaktoren starten die <strong>Gerinnungskaskade</strong>. (0.5P)<br>
+      4) Fibrinogen wird zu <strong>Fibrin</strong> (unloesliche Proteinfaeden) → Fibrinnetz faengt Blutzellen → <strong>roter Thrombus</strong> (stabiler Verschluss). (1P)<br>
+      5) Zellteilung regeneriert defekte Zellen und bildet neues Gewebe. (0.5P)
+    </div>
+  </div>
+
+  <!-- Frage 15 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 15</div>
+        <div class="frage-tags">Block E | Beschreibung</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Beschreibe den <strong>Vermehrungszyklus eines Virus</strong> in 6 Schritten.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      1) Virus bindet mit Oberflaechenproteinen an Rezeptoren der Wirtszelle (Schluessel-Schloss-Prinzip). (0.5P)<br>
+      2) Genetisches Material des Virus wird in die Wirtszelle eingeschleust. (0.5P)<br>
+      3) Virus uebernimmt den Stoffwechsel der Wirtszelle. (0.5P)<br>
+      4) Wirtszelle produziert neue Virusbestandteile (Huelle, genetisches Material). (0.5P)<br>
+      5) Neue Viruspartikel lagern sich zusammen (Assemblierung). (0.5P)<br>
+      6) Viren verlassen die Zelle (Zellmembran wird zerstoert, Zelle stirbt ab) → infizieren neue Zellen. (0.5P)
+    </div>
+  </div>
+
+  <!-- Frage 16 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 16</div>
+        <div class="frage-tags">Block E | Zuordnung</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Ordne die folgenden Abwehrmechanismen der richtigen <strong>Verteidigungslinie</strong> zu (1., 2. oder 3.):<br>
+      <em>Magensaeure, Antikoerper, Fresszellen (Phagozytose), Hornschicht der Haut, NK-Zellen, B-Lymphozyten</em>.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>1. Verteidigungslinie</strong> (Barrieren): Magensaeure, Hornschicht der Haut. (1P)<br>
+      <strong>2. Verteidigungslinie</strong> (unspezifische Abwehr): Fresszellen (Phagozytose), NK-Zellen. (1P)<br>
+      <strong>3. Verteidigungslinie</strong> (spezifische Abwehr): Antikoerper, B-Lymphozyten. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 17 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 17</div>
+        <div class="frage-tags">Block E | Erklaerung (Hauptfrage)</div>
+      </div>
+      <div class="frage-punkte">4 P</div>
+    </div>
+    <div class="frage-text">
+      Erklaere den Ablauf der <strong>spezifischen Immunabwehr</strong>. Benenne dabei die beteiligten Zelltypen und ihre jeweilige Rolle.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      1) Makrophagen und spezifische B-Zellen phagozytieren das Antigen (Fremdstruktur) und <strong>praesentieren</strong> Bruchstuecke den T-Helferzellen. (1P)<br>
+      2) <strong>T-Helferzellen</strong> werden aktiviert und aktivieren ihrerseits cytotoxische T-Zellen und B-Zellen. Einige T-Helferzellen werden zu T-Gedaechtniszellen. (1P)<br>
+      3) <strong>Cytotoxische T-Zellen</strong> erkennen und zerstoeren virusbefallene Koerperzellen. B-Zellen vermehren sich und werden zu Plasmazellen (einige zu B-Gedaechtniszellen). (1P)<br>
+      4) <strong>Plasmazellen</strong> produzieren spezifische Antikoerper, die sich an die Antigene heften und sie unschaedlich machen. Makrophagen phagozytieren den Antikoerper-Antigen-Komplex. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 18 -->
+  <div class="frage teil1">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 18</div>
+        <div class="frage-tags">Block E | Vergleich + Transfer</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      <strong>a)</strong> Vergleiche die Immunreaktion bei der <strong>1. und 2. Infektion</strong> mit demselben Erreger.<br>
+      <strong>b)</strong> Erklaere darauf aufbauend das <strong>Prinzip der Schutzimpfung</strong>.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>a)</strong> 1. Infektion: Langsame Reaktion (Tage), geringe Antikoerperproduktion, Krankheitssymptome treten auf. Gedaechtniszellen (B und T) entstehen. 2. Infektion: Gedaechtniszellen erkennen Erreger sofort, viel schnellere und staerkere Antikoerperproduktion → Erreger wird beseitigt, bevor Symptome auftreten. (2P)<br>
+      <strong>b)</strong> Impfung: Ungefaehrlicher Erreger/Bestandteil wird injiziert → loest kontrollierte Primaerreaktion aus → Gedaechtniszellen entstehen → bei spaeterem Kontakt mit echtem Erreger sofortige Sekundaerreaktion → Schutz. (1P)
+    </div>
+  </div>
+
+  <!-- ==================== TEIL 2 ==================== -->
+  <div class="teil-header teil2">Teil 2: Hormone (10 Fragen, 20 Punkte)</div>
+
+  <!-- Frage 19 -->
+  <div class="frage teil2">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 19</div>
+        <div class="frage-tags">Block F | Definition</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">
+      Definiere den Begriff <strong>Hormon</strong> und erklaere das <strong>Schluessel-Schloss-Prinzip</strong> im Zusammenhang mit der Hormonwirkung.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      Hormone sind koerpereigene chemische Botenstoffe, die in Druesen produziert und ueber das Blut zu ihren Zielzellen transportiert werden. (1P)<br>
+      <strong>Schluessel-Schloss-Prinzip:</strong> Hormone (Schluessel) binden nur an Zielzellen mit passendem Rezeptor (Schloss). Nur diese Zellen reagieren auf das Hormon. Zellen ohne passenden Rezeptor werden nicht beeinflusst. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 20 -->
+  <div class="frage teil2">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 20</div>
+        <div class="frage-tags">Block F | Vergleich</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Vergleiche <strong>Peptidhormone und Steroidhormone</strong> anhand der Kriterien: chemischer Aufbau, Loeslichkeit, Membrandurchlaessigkeit, Wirkungsweg an der Zielzelle.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>Peptidhormone:</strong> Aminosaeuren-Ketten, hydrophil (wasserloeslich), kann Membran NICHT passieren → Rezeptor auf der Membran → Second Messenger (cAMP) → Enzymaktivierung. (1.5P)<br>
+      <strong>Steroidhormone:</strong> Cholesterin-Abkoemmling, lipophil (fettloeslich), kann Membran passieren → Rezeptor im Cytoplasma → Komplex wandert in Zellkern → Genaktivierung/Proteinsynthese. (1.5P)
+    </div>
+  </div>
+
+  <!-- Frage 21 -->
+  <div class="frage teil2">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 21</div>
+        <div class="frage-tags">Block F | Transfer</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">
+      Erklaere, warum <strong>Insulin gespritzt</strong> werden muss, waehrend die <strong>Anti-Baby-Pille als Tablette</strong> eingenommen werden kann.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      Insulin ist ein <strong>Peptidhormon</strong> (= Protein). Proteine werden von Magensaeure und Verdauungsenzymen zerstoert → Insulin wuerde bei oraler Einnahme wirkungslos → muss gespritzt werden. (1P)<br>
+      Die Pille enthaelt <strong>Steroidhormone</strong> (Oestrogen/Progesteron). Steroide sind lipophil und werden nicht von Verdauungsenzymen abgebaut → koennen geschluckt werden und gelangen intakt ins Blut. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 22 -->
+  <div class="frage teil2">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 22</div>
+        <div class="frage-tags">Block F | Erklaerung</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Erklaere die <strong>Blutzuckerregulation</strong>. Verwende die Begriffe: <em>Insulin, Glukagon, Bauchspeicheldruese, &beta;-Zellen, &alpha;-Zellen, Glykogen, Gegenspielerprinzip</em>.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      Die <strong>Bauchspeicheldruese</strong> (Langerhans'sche Inseln) misst den Blutzuckerspiegel. Bei erhoehtem BZ: <strong>&beta;-Zellen</strong> produzieren <strong>Insulin</strong> → oeffnet Glukosekanaele in Zellmembranen → Zellen nehmen Glukose auf, Glukose wird zu <strong>Glykogen</strong> (Speicherform) → BZ sinkt. (1P)<br>
+      Bei zu niedrigem BZ: <strong>&alpha;-Zellen</strong> produzieren <strong>Glukagon</strong> → Glykogen wird zu Glukose abgebaut und ins Blut abgegeben → BZ steigt. (1P)<br>
+      <strong>Gegenspielerprinzip:</strong> Insulin und Glukagon wirken entgegengesetzt auf den BZ → Schwankungen durch Nahrung/Aktivitaet werden ausgeglichen → stabiler Blutzuckerspiegel. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 23 -->
+  <div class="frage teil2">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 23</div>
+        <div class="frage-tags">Block F | Vergleich</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Vergleiche <strong>Diabetes mellitus Typ 1 und Typ 2</strong> anhand der Kriterien: Ursache, typisches Erkrankungsalter, Therapie.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>Typ 1:</strong> Autoimmunerkrankung — Immunsystem zerstoert &beta;-Zellen → absoluter Insulinmangel. Meist Kinder/Jugendliche. Therapie: lebenslang Insulin spritzen. (1.5P)<br>
+      <strong>Typ 2:</strong> Insulinresistenz — Zielzellen reagieren nicht mehr ausreichend auf Insulin. Hauptursachen: Uebergewicht, Bewegungsmangel, falsche Ernaehrung. Meist Aeltere (zunehmend auch Juengere). Therapie: Lebensstilaenderung (Ernaehrung + Bewegung), Tabletten, spaeter evtl. Insulin. (1.5P)
+    </div>
+  </div>
+
+  <!-- Frage 24 -->
+  <div class="frage teil2">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 24</div>
+        <div class="frage-tags">Block F | Erklaerung</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">
+      Erklaere die <strong>Hierarchie des Hormonsystems</strong> (vom Grosshirn bis zur Zielzelle) und den <strong>negativen Rueckkopplungsmechanismus</strong>.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>Hierarchie:</strong> Grosshirn (Reize) → Hypothalamus (Releasing-/Inhibiting-Hormone) → Hypophyse (Steuerhormone) → periphere Hormondruese (Effektorhormone) → Zielzelle. (1P)<br>
+      <strong>Negativer Rueckkopplungsmechanismus:</strong> Das Endprodukt (Hormon) meldet an Hypothalamus/Hypophyse zurueck. Je hoeher der Hormonspiegel, desto staerker wird die weitere Ausschuettung gehemmt. Sinkt der Spiegel, wird die Hemmung aufgehoben → Produktion steigt wieder. So wird der Hormonspiegel konstant gehalten. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 25 -->
+  <div class="frage teil2">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 25</div>
+        <div class="frage-tags">Block F | Transfer</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">
+      Ein Patient hat einen dauerhaft erhoehten Blutzuckerspiegel von <strong>180 mg/100 ml</strong> (Normalwert: 60–110 mg/100 ml). Nenne <strong>zwei moegliche Ursachen</strong> und erklaere jeweils kurz, warum der BZ erhoeht ist.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>1) Diabetes Typ 1:</strong> Immunsystem hat die &beta;-Zellen zerstoert → kein Insulin → Zellen koennen Glukose nicht aufnehmen → BZ bleibt hoch. (1P)<br>
+      <strong>2) Diabetes Typ 2:</strong> Zielzellen sind resistent gegen Insulin → obwohl Insulin vorhanden ist, reagieren die Zellen nicht ausreichend → Glukose bleibt im Blut. (1P)
+    </div>
+  </div>
+
+  <!-- ==================== TEIL 3 ==================== -->
+  <div class="teil-header teil3">Teil 3: Vernetzungsfragen (3 Fragen, 7 Punkte)</div>
+
+  <!-- Frage 26 -->
+  <div class="frage teil3">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 26</div>
+        <div class="frage-tags">Block A+B+C | Vernetzung</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">
+      Erklaere den Zusammenhang zwischen <strong>Systole, Windkesseleffekt und Blutdruck</strong>.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      Waehrend der <strong>Systole</strong> wird Blut ruckartig aus der linken Herzkammer in die Aorta gepumpt → erzeugt den systolischen Druck (oberer Wert). (0.5P)<br>
+      Der <strong>Windkesseleffekt</strong> der elastischen Aortenwand daempft diesen Stoss: die Wand dehnt sich und federt in der Diastole zurueck → haelt den diastolischen Druck (unterer Wert) aufrecht. (1P)<br>
+      Ohne Windkessel wuerde der Blutdruck in der Diastole auf Null fallen und das Blut nur stossweise fliessen. (0.5P)
+    </div>
+  </div>
+
+  <!-- Frage 27 -->
+  <div class="frage teil3">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 27</div>
+        <div class="frage-tags">Block D+E | Vernetzung</div>
+      </div>
+      <div class="frage-punkte">2 P</div>
+    </div>
+    <div class="frage-text">
+      Erklaere, warum die <strong>Leukozyten</strong> gleichzeitig zum Thema "Blut" und zum Thema "Immunsystem" gehoeren.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      Leukozyten sind <strong>Blutzellen</strong> — sie werden im Knochenmark gebildet und im Blut transportiert (→ Thema Blut: 3. Zelltyp neben Erythrozyten und Thrombozyten). (1P)<br>
+      Gleichzeitig sind sie die <strong>Traeger des Immunsystems</strong>: Granulozyten und Monozyten/Makrophagen sind fuer die unspezifische Abwehr (Phagozytose) zustaendig, B- und T-Lymphozyten fuer die spezifische Abwehr (Antikoerper, Zellzerstoerung). Das Blut ist ihr Transportmedium zum Einsatzort im Gewebe. (1P)
+    </div>
+  </div>
+
+  <!-- Frage 28 -->
+  <div class="frage teil3">
+    <div class="frage-header">
+      <div>
+        <div class="frage-nummer">Frage 28</div>
+        <div class="frage-tags">Block E+F+D | Vernetzung (Schlussfrage)</div>
+      </div>
+      <div class="frage-punkte">3 P</div>
+    </div>
+    <div class="frage-text">
+      Das <strong>Schluessel-Schloss-Prinzip</strong> kommt in mehreren Bereichen der Biologie vor. Nenne <strong>3 verschiedene Beispiele</strong> aus dem Pruefungsstoff, bei denen dieses Prinzip eine Rolle spielt, und erklaere jeweils kurz den Zusammenhang.
+    </div>
+    <button class="loesung-btn" onclick="toggleLoesung(this)">Loesung anzeigen</button>
+    <div class="loesung">
+      <strong>1) Hormone:</strong> Hormon (Schluessel) bindet an spezifischen Rezeptor der Zielzelle (Schloss) → nur Zellen mit passendem Rezeptor reagieren auf das Hormon. Z.B. Insulin bindet an Insulin-Rezeptor → Glukosekanaele oeffnen sich. (1P)<br>
+      <strong>2) Viren:</strong> Oberflaechenproteine des Virus (Schluessel) binden an Rezeptoren der Wirtszelle (Schloss) → Virus kann nur bestimmte Zelltypen infizieren (z.B. Lungenzellen vs. Darmzellen). (1P)<br>
+      <strong>3) Immunsystem/Antikoerper:</strong> Antikoerper (Schluessel) binden spezifisch an ein bestimmtes Antigen (Schloss) → machen es unschaedlich und markieren es fuer Phagozytose durch Makrophagen. Jeder Antikoerper passt nur auf ein bestimmtes Antigen. (1P)
+    </div>
+  </div>
+
+  <!-- ==================== NOTENSCHLUESSEL ==================== -->
+  <div class="notenschluessel">
+    <h2>Notenschluessel (Schweizer System)</h2>
+    <table class="noten-table">
+      <thead>
+        <tr>
+          <th>Note</th>
+          <th>Punkte</th>
+          <th>Prozent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="genuegend"><td><strong>6.0</strong></td><td>57–60</td><td>95–100%</td></tr>
+        <tr class="genuegend"><td><strong>5.5</strong></td><td>51–56</td><td>85–93%</td></tr>
+        <tr class="genuegend"><td><strong>5.0</strong></td><td>45–50</td><td>75–83%</td></tr>
+        <tr class="genuegend"><td><strong>4.5</strong></td><td>39–44</td><td>65–73%</td></tr>
+        <tr class="genuegend"><td><strong>4.0</strong></td><td>33–38</td><td>55–63%</td></tr>
+        <tr class="ungenuegend"><td>3.5</td><td>27–32</td><td>45–53%</td></tr>
+        <tr class="ungenuegend"><td>3.0</td><td>21–26</td><td>35–43%</td></tr>
+        <tr class="ungenuegend"><td>2.5</td><td>15–20</td><td>25–33%</td></tr>
+        <tr class="ungenuegend"><td>2.0</td><td>9–14</td><td>15–23%</td></tr>
+        <tr class="ungenuegend"><td>1.5</td><td>3–8</td><td>5–13%</td></tr>
+        <tr class="ungenuegend"><td>1.0</td><td>0–2</td><td>0–3%</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 0.8rem; font-size: 0.85rem; color: #64748b;">Note 4.0 = genuegend (Bestehensgrenze)</p>
+  </div>
+
+  <div class="footer">
+    Uebungspruefung Biologie FS26 — Herz-Kreislaufsystem &amp; Hormone | Version 1.0 | 14.03.2026
+  </div>
+
+</div>
+
+<script>
+function toggleLoesung(btn) {
+  const loesung = btn.nextElementSibling;
+  const isOpen = loesung.classList.contains('show');
+  if (isOpen) {
+    loesung.classList.remove('show');
+    btn.classList.remove('open');
+    btn.textContent = 'Loesung anzeigen';
+  } else {
+    loesung.classList.add('show');
+    btn.classList.add('open');
+    btn.textContent = 'Loesung verbergen';
+  }
+}
+
+let alleOffen = false;
+function toggleAlle() {
+  alleOffen = !alleOffen;
+  const btns = document.querySelectorAll('.loesung-btn');
+  btns.forEach(btn => {
+    const loesung = btn.nextElementSibling;
+    if (alleOffen) {
+      loesung.classList.add('show');
+      btn.classList.add('open');
+      btn.textContent = 'Loesung verbergen';
+    } else {
+      loesung.classList.remove('show');
+      btn.classList.remove('open');
+      btn.textContent = 'Loesung anzeigen';
+    }
+  });
+  const alleBtn = document.querySelector('.alle-btn');
+  alleBtn.textContent = alleOffen ? 'Alle Loesungen verbergen' : 'Alle Loesungen aufdecken / verbergen';
+}
+</script>
+</body>
+</html>

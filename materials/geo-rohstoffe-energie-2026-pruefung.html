@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uebungspruefung — Rohstoffe & Energie</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f7fafc; color: #1a202c; line-height: 1.5; font-size: 14px; padding: 20px; }
+  .container { max-width: 850px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, #c53030 0%, #e53e3e 50%, #fc8181 100%); color: #fff; padding: 22px 26px; border-radius: 16px; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5em; font-weight: 800; }
+  .header .sub { font-size: 0.88em; opacity: 0.9; margin-top: 4px; }
+
+  .instructions { background: #fff5f5; border: 2px solid #feb2b2; border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; font-size: 0.92em; }
+  .instructions strong { color: #c53030; }
+
+  .controls { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .ctrl-btn { padding: 8px 18px; border-radius: 20px; border: 2px solid #feb2b2; background: #fff; color: #c53030; font-weight: 600; font-size: 0.85em; cursor: pointer; transition: all 0.2s; }
+  .ctrl-btn:hover, .ctrl-btn.active { background: #c53030; color: #fff; border-color: #c53030; }
+
+  /* Questions */
+  .q-section { margin-bottom: 24px; }
+  .q-section-title { font-size: 1.1em; font-weight: 700; padding: 10px 16px; border-radius: 10px; margin-bottom: 12px; }
+  .qt-green { background: #f0fff4; color: #276749; border-left: 4px solid #38a169; }
+  .qt-orange { background: #fffaf0; color: #c05621; border-left: 4px solid #dd6b20; }
+  .qt-yellow { background: #fffff0; color: #975a16; border-left: 4px solid #d69e2e; }
+  .qt-purple { background: #faf5ff; color: #6b21a8; border-left: 4px solid #805ad5; }
+  .qt-blue { background: #ebf8ff; color: #2b6cb0; border-left: 4px solid #3182ce; }
+
+  .question { background: #fff; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; overflow: hidden; }
+  .q-header { padding: 12px 18px; display: flex; align-items: flex-start; gap: 12px; }
+  .q-nr { background: #e2e8f0; color: #4a5568; width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.82em; flex-shrink: 0; margin-top: 1px; }
+  .q-text { flex: 1; font-weight: 500; }
+  .q-pts { font-size: 0.8em; color: #a0aec0; font-weight: 600; white-space: nowrap; margin-top: 2px; }
+  .q-lz { font-size: 0.72em; color: #a0aec0; display: block; margin-top: 2px; }
+
+  /* Answer reveal */
+  .answer { padding: 0 18px 14px 58px; display: none; }
+  .answer-inner { background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 8px; padding: 10px 14px; font-size: 0.92em; }
+  .answer-inner strong { color: #276749; }
+  .answer-inner ul { padding-left: 16px; }
+  .answer-inner li { margin-bottom: 3px; }
+
+  .question.show .answer { display: block; }
+  .reveal-btn { background: none; border: 1px dashed #cbd5e0; color: #718096; padding: 6px 14px; border-radius: 6px; font-size: 0.82em; cursor: pointer; margin: 0 18px 12px 58px; transition: all 0.2s; }
+  .reveal-btn:hover { background: #edf2f7; color: #4a5568; }
+  .question.show .reveal-btn { display: none; }
+
+  /* Score tracker */
+  .score-box { background: #fff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 16px 20px; margin-top: 24px; text-align: center; }
+  .score-box h3 { color: #4a5568; margin-bottom: 8px; }
+  .score-display { font-size: 2em; font-weight: 800; color: #2b6cb0; }
+  .score-bar { height: 10px; background: #edf2f7; border-radius: 5px; margin-top: 10px; overflow: hidden; }
+  .score-fill { height: 100%; background: linear-gradient(90deg, #38a169, #68d391); border-radius: 5px; transition: width 0.5s; }
+  .score-label { font-size: 0.85em; color: #718096; margin-top: 6px; }
+
+  .footer { text-align: center; font-size: 0.75em; color: #a0aec0; margin-top: 20px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+
+  @media print {
+    .answer { display: block !important; }
+    .reveal-btn, .controls, .score-box { display: none !important; }
+    .question { box-shadow: none; break-inside: avoid; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>Uebungspruefung — Rohstoffe & Energie</h1>
+  <div class="sub">20 Fragen | Alle 8 Lernziele abgedeckt | Loesungen zum Aufklappen</div>
+</div>
+
+<div class="instructions">
+  <strong>So gehst du vor:</strong> Beantworte jede Frage zuerst <em>im Kopf</em> oder auf Papier. Klicke dann auf „Loesung zeigen", um zu pruefen. Zaehle deine Punkte zusammen — Ziel: mindestens 35 von 47 Punkten.
+</div>
+
+<div class="controls">
+  <button class="ctrl-btn" onclick="showAll()">Alle Loesungen zeigen</button>
+  <button class="ctrl-btn" onclick="hideAll()">Alle verbergen</button>
+</div>
+
+<!-- ===== GRUNDLAGEN ===== -->
+<div class="q-section">
+  <div class="q-section-title qt-blue">Grundlagen (Lernziele 1–4)</div>
+
+  <div class="question" id="q1">
+    <div class="q-header">
+      <div class="q-nr">1</div>
+      <div class="q-text">Erklaere den Unterschied zwischen <strong>erneuerbaren</strong> und <strong>nicht erneuerbaren</strong> Rohstoffen. Nenne je zwei Beispiele.<span class="q-lz">LZ 2</span></div>
+      <div class="q-pts">3 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q1')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <strong>Erneuerbar:</strong> Erneuern sich innerhalb eines Menschenlebens oder sind unendlich vorhanden. <em>Beispiele: Holz, Getreide, Sonnenlicht, Wolle</em><br>
+      <strong>Nicht erneuerbar:</strong> Entstehung dauert Tausende/Millionen Jahre. <em>Beispiele: Erdoel, Kupfer, Kohle, Sand</em>
+    </div></div>
+  </div>
+
+  <div class="question" id="q2">
+    <div class="q-header">
+      <div class="q-nr">2</div>
+      <div class="q-text">Nenne <strong>drei Gruende</strong>, warum weltweit fast alle Rohstoffe knapp werden.<span class="q-lz">LZ 4</span></div>
+      <div class="q-pts">3 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q2')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <ul>
+        <li>Immer <strong>mehr Menschen</strong> auf der Welt (Bevoelkerungswachstum)</li>
+        <li>Immer <strong>hoehere Ansprueche</strong> / mehr Konsum</li>
+        <li>Vorkommen und verfuegbare Mengen <strong>veraendern sich</strong> / sind begrenzt</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="question" id="q3">
+    <div class="q-header">
+      <div class="q-nr">3</div>
+      <div class="q-text">Erklaere den Begriff <strong>„nachhaltig"</strong> in einem Satz.<span class="q-lz">LZ 2</span></div>
+      <div class="q-pts">1 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q3')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      So produzieren und konsumieren, dass die Natur erhalten bleibt — nicht mehr verbrauchen, als nachwachsen oder sich erneuern kann.
+    </div></div>
+  </div>
+</div>
+
+<!-- ===== PALMOEL ===== -->
+<div class="q-section">
+  <div class="q-section-title qt-green">Palmoel (Lernziel 5)</div>
+
+  <div class="question" id="q4">
+    <div class="q-header">
+      <div class="q-nr">4</div>
+      <div class="q-text">Nenne <strong>vier Produkte</strong>, die Palmoel enthalten.<span class="q-lz">LZ 3, 5</span></div>
+      <div class="q-pts">2 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q4')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      Z.B. Nutella, Schokolade, Glace, Fertigpizza, Brot, Margarine, Kosmetik, Waschmittel, Lippenbalsam, Duschgel, Reinigungsmittel
+    </div></div>
+  </div>
+
+  <div class="question" id="q5">
+    <div class="q-header">
+      <div class="q-nr">5</div>
+      <div class="q-text">Warum hat die Oelpalme einen <strong>„hohen Ertrag"</strong>? Vergleiche mit einer anderen Pflanze.<span class="q-lz">LZ 2, 5a</span></div>
+      <div class="q-pts">2 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q5')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      1 Hektar Oelpalmen liefert bis zu <strong>8'000 kg Oel</strong> — das ist z.B. 8× mehr als Raps (1'000 kg) oder ueber 20× mehr als Soja (375 kg). Auf kleiner Flaeche wird sehr viel Oel produziert.
+    </div></div>
+  </div>
+
+  <div class="question" id="q6">
+    <div class="q-header">
+      <div class="q-nr">6</div>
+      <div class="q-text">Nenne <strong>zwei Vorteile</strong> von Palmoel.<span class="q-lz">LZ 5a</span></div>
+      <div class="q-pts">2 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q6')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <ul>
+        <li>Sehr hoher Ertrag pro Flaeche (bis 8× mehr als andere Oelpflanzen)</li>
+        <li>Vielseitig einsetzbar (Nahrung, Kosmetik, Energie)</li>
+        <li>Guenstiger Preis / schwer zu ersetzen</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="question" id="q7">
+    <div class="q-header">
+      <div class="q-nr">7</div>
+      <div class="q-text">Erklaere, was <strong>Brandrodung</strong> ist und welche <strong>drei Folgen</strong> sie fuer die Umwelt hat.<span class="q-lz">LZ 2, 5b</span></div>
+      <div class="q-pts">3 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q7')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <strong>Brandrodung:</strong> Wald wird absichtlich abgebrannt, um Platz fuer Plantagen zu schaffen.<br><br>
+      <strong>Folgen:</strong>
+      <ul>
+        <li>Regenwald geht verloren (Borneo: dramatischer Rueckgang seit 1950)</li>
+        <li>Bedrohte Tiere (z.B. Orang-Utan) verlieren Lebensraum</li>
+        <li>Landnutzungsrechte der Einwohner werden missachtet</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="question" id="q8">
+    <div class="q-header">
+      <div class="q-nr">8</div>
+      <div class="q-text">Was ist der <strong>RSPO</strong> und warum wurde er gegruendet?<span class="q-lz">LZ 2, 5c</span></div>
+      <div class="q-pts">2 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q8')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      RSPO = <strong>Roundtable on Sustainable Palm Oil</strong> (Runder Tisch fuer nachhaltiges Palmoel). Er legt Mindeststandards fuer den Anbau von Palmoel fest: rechtmaessig, umweltfreundlich, wirtschaftlich tragbar und sozialvertraeglich. Gegruendet, um die negativen Folgen des Palmoel-Anbaus zu reduzieren.
+    </div></div>
+  </div>
+
+  <div class="question" id="q9">
+    <div class="q-header">
+      <div class="q-nr">9</div>
+      <div class="q-text">In welchen <strong>zwei Laendern</strong> wird am meisten Palmoel produziert? Erklaere, warum gerade dort.<span class="q-lz">LZ 1, 5</span></div>
+      <div class="q-pts">2 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q9')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <strong>Indonesien und Malaysia</strong> (zusammen ueber 85% der Weltproduktion).<br>
+      Weil dort <strong>tropisches Klima</strong> herrscht: hohe Temperaturen und viel Niederschlag — ideale Bedingungen fuer Oelpalmen. Ausserdem: viel Platz (besonders auf Borneo), guenstige politische Rahmenbedingungen.
+    </div></div>
+  </div>
+</div>
+
+<!-- ===== KUPFER ===== -->
+<div class="q-section">
+  <div class="q-section-title qt-orange">Kupfer (Lernziel 6)</div>
+
+  <div class="question" id="q10">
+    <div class="q-header">
+      <div class="q-nr">10</div>
+      <div class="q-text">Beschreibe die <strong>Prozesskette</strong> der Kupferproduktion in 4–5 Schritten (vom Erz bis zum fertigen Kupfer).<span class="q-lz">LZ 6a</span></div>
+      <div class="q-pts">3 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q10')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <ol style="padding-left: 18px;">
+        <li><strong>Abbau:</strong> Kupfererz wird mit Baggern im Tagebau ausgegraben</li>
+        <li><strong>Transport:</strong> Mit Lastwagen abtransportiert</li>
+        <li><strong>Gewinnung:</strong> Wasser mit Chemikalien loest das Kupfer aus dem Gestein (Auswaschen)</li>
+        <li><strong>Reinigung:</strong> Kupfer wird erhitzt, damit sich andere Metalle abspalten</li>
+        <li><strong>Weiterverarbeitung:</strong> Reines, gereinigtes Kupfer fuer Produkte</li>
+      </ol>
+    </div></div>
+  </div>
+
+  <div class="question" id="q11">
+    <div class="q-header">
+      <div class="q-nr">11</div>
+      <div class="q-text">Erklaere die Begriffe <strong>Tagebau</strong> und <strong>Erz</strong>.<span class="q-lz">LZ 2</span></div>
+      <div class="q-pts">2 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q11')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <strong>Tagebau:</strong> Abbau von Rohstoffen direkt an der Erdoberflaeche in grossen, offenen Gruben (nicht unterirdisch).<br>
+      <strong>Erz:</strong> Gestein, das Metalle enthaelt (z.B. Kupfererz). Das Metall muss durch chemische Verfahren herausgeloest werden.
+    </div></div>
+  </div>
+
+  <div class="question" id="q12">
+    <div class="q-header">
+      <div class="q-nr">12</div>
+      <div class="q-text">Nenne je <strong>zwei Nachteile</strong> des Kupferabbaus fuer (a) die Umwelt und (b) die Menschen.<span class="q-lz">LZ 6b</span></div>
+      <div class="q-pts">4 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q12')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <strong>(a) Umwelt:</strong>
+      <ul>
+        <li>Gigantische Tagebauloecher, Landschaft zerstoert</li>
+        <li>Wasser durch Chemikalien vergiftet (kein Trinkwasser mehr)</li>
+        <li>Staub in der Luft (Luftverschmutzung)</li>
+      </ul>
+      <strong>(b) Menschen:</strong>
+      <ul>
+        <li>Harte Arbeit, Staublungen, Gesundheitsschaeden</li>
+        <li>Familien koennen nicht an Bergbauorten leben, werden getrennt</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="question" id="q13">
+    <div class="q-header">
+      <div class="q-nr">13</div>
+      <div class="q-text">Nenne <strong>drei Vorteile</strong> von Kupfer-Recycling gegenueber Neuabbau.<span class="q-lz">LZ 6c</span></div>
+      <div class="q-pts">3 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q13')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <ul>
+        <li><strong>Umweltschutz:</strong> Keine Luftbelastung und keine Wasserverschmutzung</li>
+        <li><strong>Billiger:</strong> Recyceln kostet weniger als neues Kupfer abbauen</li>
+        <li><strong>Schont Ressourcen:</strong> Weniger Abbau, Vorrat haelt laenger</li>
+        <li><strong>Spart Energie:</strong> Nur 15% der Energie des Neuabbaus</li>
+      </ul>
+    </div></div>
+  </div>
+</div>
+
+<!-- ===== SAND ===== -->
+<div class="q-section">
+  <div class="q-section-title qt-yellow">Sand (Lernziel 7)</div>
+
+  <div class="question" id="q14">
+    <div class="q-header">
+      <div class="q-nr">14</div>
+      <div class="q-text">Warum wird zum Bauen <strong>nicht Wuestensand</strong> verwendet?<span class="q-lz">LZ 7a</span></div>
+      <div class="q-pts">1 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q14')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      Wuestensand ist zu fein und zu rund geschliffen — er haelt nicht zusammen und eignet sich nicht fuer Beton. Deshalb braucht man Sand vom Meeresboden oder von Straenden.
+    </div></div>
+  </div>
+
+  <div class="question" id="q15">
+    <div class="q-header">
+      <div class="q-nr">15</div>
+      <div class="q-text">Nenne <strong>drei Arten</strong> der Sandgewinnung und beschreibe eine davon.<span class="q-lz">LZ 7a</span></div>
+      <div class="q-pts">3 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q15')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <ul>
+        <li><strong>Kiesgruben:</strong> Sand und Kies werden aus dem Boden gesammelt und weiterverarbeitet</li>
+        <li><strong>Meeresboden-Baggerung:</strong> Sand wird vom Meeresgrund abgesaugt</li>
+        <li><strong>Landaufschuettung:</strong> Neue Landflaechen werden mit Sand aufgebaut (z.B. Dubai)</li>
+        <li><strong>Sand-Diebstahl:</strong> Menschen stehlen Sand am Strand und verkaufen ihn</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="question" id="q16">
+    <div class="q-header">
+      <div class="q-nr">16</div>
+      <div class="q-text">Nenne je <strong>eine Auswirkung</strong> der Sandgewinnung auf (a) Umwelt, (b) Menschen und (c) Wirtschaft.<span class="q-lz">LZ 7b</span></div>
+      <div class="q-pts">3 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q16')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <ul>
+        <li><strong>(a) Umwelt:</strong> Oekosysteme am Meeresboden werden zerstoert, Tiere und Pflanzen verlieren Lebensraum</li>
+        <li><strong>(b) Menschen:</strong> Straende verschwinden, Inseln rutschen ins Meer (Malediven), Haeuser stuerzen ab</li>
+        <li><strong>(c) Wirtschaft:</strong> Sand wird teurer (Bauboom), Tourismus leidet unter fehlenden Straenden</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="question" id="q17">
+    <div class="q-header">
+      <div class="q-nr">17</div>
+      <div class="q-text">Nenne <strong>zwei Loesungsvorschlaege</strong> fuer das Sandproblem.<span class="q-lz">LZ 7c</span></div>
+      <div class="q-pts">2 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q17')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <ul>
+        <li><strong>Beton recyceln</strong> — Sand zurueck in den Kreislauf fuehren</li>
+        <li><strong>Glas zerkleinern</strong> und als Sand verwenden (aehnliche Eigenschaften)</li>
+      </ul>
+      Problem: Recycelter Sand ist noch viel teurer als Meeressand.
+    </div></div>
+  </div>
+</div>
+
+<!-- ===== PET & RECYCLING ===== -->
+<div class="q-section">
+  <div class="q-section-title qt-purple">PET & Recycling (Lernziel 8)</div>
+
+  <div class="question" id="q18">
+    <div class="q-header">
+      <div class="q-nr">18</div>
+      <div class="q-text">Beschreibe den <strong>PET-Kreislauf</strong> in 4 Schritten (von der Herstellung bis zur Wiederverwertung).<span class="q-lz">LZ 8a</span></div>
+      <div class="q-pts">3 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q18')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <ol style="padding-left: 18px;">
+        <li><strong>Herstellung:</strong> Aus Erdoel wird PET-Kunststoff produziert (61'000 t Erdoel → 32'000 t PET)</li>
+        <li><strong>Verbrauch:</strong> PET-Flaschen werden benutzt (43'000 t)</li>
+        <li><strong>Sammlung:</strong> Leere Flaschen werden an 45'000 Sammelstellen zurueckgebracht (32'000 t = 80%)</li>
+        <li><strong>Verwertung:</strong> Flaschen werden nach Farben sortiert, zu PET-Flocken zerkleinert und zu neuen PET-Flaschen (11'000 t) oder Textilien (21'000 t) verarbeitet</li>
+      </ol>
+      11'000 t landen trotzdem im Abfall.
+    </div></div>
+  </div>
+
+  <div class="question" id="q19">
+    <div class="q-header">
+      <div class="q-nr">19</div>
+      <div class="q-text">Nenne je <strong>zwei Vorteile und zwei Nachteile</strong> von Recycling.<span class="q-lz">LZ 8b</span></div>
+      <div class="q-pts">4 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q19')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      <strong>Vorteile:</strong>
+      <ul>
+        <li>Rohstoffe (Erdoel) bleiben im Kreislauf — Wiederverwertung statt Entsorgung</li>
+        <li>Umweltfreundlicher: spart Erdoel, reduziert Treibhausgase</li>
+      </ul>
+      <strong>Nachteile:</strong>
+      <ul>
+        <li>Nur ca. die Haelfte der Rohstoffe kann tatsaechlich verwendet werden</li>
+        <li>Transport (z.B. nach China) verbraucht viel Energie — kann mehr Energie kosten als Neuproduktion</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="question" id="q20">
+    <div class="q-header">
+      <div class="q-nr">20</div>
+      <div class="q-text">Bewerte die Aussage: <strong>„Unser Konsum wirkt sich weltweit aus."</strong> Nenne zwei Beispiele aus dem Unterricht, die das zeigen.<span class="q-lz">LZ 8c</span></div>
+      <div class="q-pts">4 P.</div>
+    </div>
+    <button class="reveal-btn" onclick="reveal('q20')">Loesung zeigen</button>
+    <div class="answer"><div class="answer-inner">
+      Die Aussage stimmt, weil unser taeglicher Konsum direkte Auswirkungen in anderen Laendern hat:<br><br>
+      <strong>Beispiel 1 — Palmoel:</strong> Wenn wir Nutella, Fertigpizza oder Kosmetik kaufen, braucht es Palmoel → dafuer wird in Indonesien/Malaysia Regenwald gerodet → Orang-Utans verlieren ihren Lebensraum.<br><br>
+      <strong>Beispiel 2 — Sand:</strong> Unser Bedarf an Beton (Bau von Haeusern, Strassen) fuehrt dazu, dass auf den Malediven Sand vom Meeresboden gestohlen wird → Inseln rutschen ins Meer, Menschen verlieren ihre Heimat.<br><br>
+      <strong>Weitere:</strong> Kupferabbau in Chile zerstoert die Umwelt fuer unsere Kabel/Handys. PET-Abfall gelangt in die Meere.
+    </div></div>
+  </div>
+</div>
+
+<!-- Score -->
+<div class="score-box">
+  <h3>Selbstbewertung</h3>
+  <div class="score-display" id="scoreDisplay">— / 47</div>
+  <div style="display: flex; gap: 8px; justify-content: center; margin-top: 12px; flex-wrap: wrap;">
+    <input type="number" id="scoreInput" min="0" max="47" placeholder="Deine Punkte" style="width: 120px; padding: 6px 10px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1em; text-align: center;">
+    <button onclick="updateScore()" style="padding: 6px 16px; background: #2b6cb0; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">Auswerten</button>
+  </div>
+  <div class="score-bar"><div class="score-fill" id="scoreFill" style="width: 0%;"></div></div>
+  <div class="score-label" id="scoreLabel"></div>
+</div>
+
+<div class="footer">
+  Uebungspruefung | Geografie: Rohstoffe & Energie | 20 Fragen, 47 Punkte | Stand: 14.03.2026
+</div>
+
+</div>
+
+<script>
+function reveal(id) {
+  document.getElementById(id).classList.add('show');
+}
+function showAll() {
+  document.querySelectorAll('.question').forEach(q => q.classList.add('show'));
+}
+function hideAll() {
+  document.querySelectorAll('.question').forEach(q => q.classList.remove('show'));
+}
+function updateScore() {
+  const val = parseInt(document.getElementById('scoreInput').value);
+  if (isNaN(val) || val < 0 || val > 47) return;
+  const pct = Math.round(val / 47 * 100);
+  document.getElementById('scoreDisplay').textContent = val + ' / 47 (' + pct + '%)';
+  document.getElementById('scoreFill').style.width = pct + '%';
+  const fill = document.getElementById('scoreFill');
+  const label = document.getElementById('scoreLabel');
+  if (pct >= 90) { fill.style.background = 'linear-gradient(90deg, #38a169, #68d391)'; label.textContent = 'Ausgezeichnet! Du bist bestens vorbereitet.'; }
+  else if (pct >= 75) { fill.style.background = 'linear-gradient(90deg, #3182ce, #63b3ed)'; label.textContent = 'Gut! Wiederhole die Fragen, die du nicht wusstest.'; }
+  else if (pct >= 60) { fill.style.background = 'linear-gradient(90deg, #d69e2e, #ecc94b)'; label.textContent = 'Befriedigend. Lies das Wissens-Kompakt nochmals durch.'; }
+  else { fill.style.background = 'linear-gradient(90deg, #e53e3e, #fc8181)'; label.textContent = 'Hier muss noch geuebt werden. Gehe alle Abschnitte nochmals durch.'; }
+}
+</script>
+</body>
+</html>

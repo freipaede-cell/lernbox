@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rohstoffe & Energie — Wissens-Kompakt</title>
+<style>
+  @page { size: A4; margin: 10mm 12mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f0f4f8; color: #1a202c; line-height: 1.5; font-size: 14px; padding: 20px; }
+  .container { max-width: 900px; margin: 0 auto; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 50%, #2c7a7b 100%); color: #fff; padding: 24px 28px; border-radius: 16px; margin-bottom: 20px; position: relative; overflow: hidden; }
+  .header::after { content: ''; position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(255,255,255,0.08); border-radius: 50%; }
+  .header h1 { font-size: 1.6em; font-weight: 800; letter-spacing: -0.5px; }
+  .header .sub { font-size: 0.9em; opacity: 0.85; margin-top: 4px; }
+
+  /* Navigation */
+  .nav { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .nav a { background: #fff; color: #2b6cb0; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.85em; border: 2px solid #bee3f8; transition: all 0.2s; }
+  .nav a:hover { background: #2b6cb0; color: #fff; border-color: #2b6cb0; }
+  .nav a.palm { border-color: #c6f6d5; color: #276749; } .nav a.palm:hover { background: #276749; color: #fff; }
+  .nav a.kupfer { border-color: #fed7aa; color: #c05621; } .nav a.kupfer:hover { background: #c05621; color: #fff; }
+  .nav a.sand { border-color: #fefcbf; color: #975a16; } .nav a.sand:hover { background: #975a16; color: #fff; }
+  .nav a.pet { border-color: #c4b5fd; color: #6b21a8; } .nav a.pet:hover { background: #6b21a8; color: #fff; }
+
+  /* Sections */
+  .section { background: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }
+  .section h2 { font-size: 1.2em; margin-bottom: 14px; padding-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+  .section h2 .icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2em; flex-shrink: 0; }
+  .section h3 { font-size: 1em; margin: 14px 0 8px; color: #2d3748; }
+
+  /* Color themes */
+  .theme-blue h2 { color: #2b6cb0; border-bottom: 3px solid #bee3f8; }
+  .theme-blue .icon { background: #ebf8ff; }
+  .theme-green h2 { color: #276749; border-bottom: 3px solid #c6f6d5; }
+  .theme-green .icon { background: #f0fff4; }
+  .theme-orange h2 { color: #c05621; border-bottom: 3px solid #fed7aa; }
+  .theme-orange .icon { background: #fffaf0; }
+  .theme-yellow h2 { color: #975a16; border-bottom: 3px solid #fefcbf; }
+  .theme-yellow .icon { background: #fffff0; }
+  .theme-purple h2 { color: #6b21a8; border-bottom: 3px solid #c4b5fd; }
+  .theme-purple .icon { background: #faf5ff; }
+
+  /* Fact boxes */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+  .fact-box { padding: 12px 14px; border-radius: 10px; font-size: 0.92em; }
+  .fact-green { background: #f0fff4; border-left: 4px solid #38a169; }
+  .fact-red { background: #fff5f5; border-left: 4px solid #e53e3e; }
+  .fact-blue { background: #ebf8ff; border-left: 4px solid #3182ce; }
+  .fact-orange { background: #fffaf0; border-left: 4px solid #dd6b20; }
+  .fact-yellow { background: #fffff0; border-left: 4px solid #d69e2e; }
+  .fact-purple { background: #faf5ff; border-left: 4px solid #805ad5; }
+  .fact-box strong { display: block; margin-bottom: 3px; font-size: 0.95em; }
+  .fact-full { grid-column: 1 / -1; }
+
+  /* Process chain */
+  .process { display: flex; align-items: center; gap: 0; margin: 12px 0; flex-wrap: wrap; justify-content: center; }
+  .process-step { background: #ebf8ff; border: 2px solid #90cdf4; border-radius: 10px; padding: 8px 14px; text-align: center; font-size: 0.85em; font-weight: 600; min-width: 100px; }
+  .process-arrow { font-size: 1.4em; color: #90cdf4; margin: 0 4px; font-weight: 700; }
+
+  /* Key numbers */
+  .key-number { display: inline-flex; align-items: baseline; gap: 5px; background: #edf2f7; padding: 3px 10px; border-radius: 6px; font-size: 0.9em; margin: 2px 0; }
+  .key-number .num { font-weight: 800; color: #2b6cb0; font-size: 1.1em; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.9em; }
+  th { padding: 8px 12px; text-align: left; font-weight: 700; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.03em; }
+  td { padding: 7px 12px; border-bottom: 1px solid #e2e8f0; }
+  tr:last-child td { border-bottom: none; }
+
+  .table-green th { background: #f0fff4; color: #276749; border-bottom: 2px solid #c6f6d5; }
+  .table-green tr:nth-child(even) { background: #f7faf8; }
+  .table-orange th { background: #fffaf0; color: #c05621; border-bottom: 2px solid #fed7aa; }
+  .table-orange tr:nth-child(even) { background: #fefaf5; }
+  .table-yellow th { background: #fffff0; color: #975a16; border-bottom: 2px solid #fefcbf; }
+  .table-yellow tr:nth-child(even) { background: #fefef5; }
+  .table-purple th { background: #faf5ff; color: #6b21a8; border-bottom: 2px solid #c4b5fd; }
+  .table-purple tr:nth-child(even) { background: #fcfaff; }
+  .table-blue th { background: #ebf8ff; color: #2b6cb0; border-bottom: 2px solid #bee3f8; }
+  .table-blue tr:nth-child(even) { background: #f7fbff; }
+
+  /* Cycle diagram */
+  .cycle { background: #faf5ff; border: 2px solid #c4b5fd; border-radius: 14px; padding: 18px; margin: 12px 0; text-align: center; }
+  .cycle-steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 0; align-items: center; }
+  .cycle-step { background: #fff; border: 2px solid #805ad5; border-radius: 10px; padding: 8px 14px; font-size: 0.85em; font-weight: 600; color: #553c9a; }
+  .cycle-arrow { font-size: 1.3em; color: #805ad5; margin: 0 6px; }
+  .cycle-note { font-size: 0.82em; color: #6b46c1; margin-top: 10px; font-style: italic; }
+
+  /* Highlight */
+  .highlight { background: linear-gradient(135deg, #ebf8ff, #f0fff4); border: 2px solid #4299e1; border-radius: 12px; padding: 14px 18px; margin: 12px 0; }
+  .highlight h3 { color: #2b6cb0; margin-bottom: 6px; }
+
+  /* Map info */
+  .map-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin: 10px 0; }
+  .map-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 12px; font-size: 0.85em; }
+  .map-card .country { font-weight: 700; color: #2d3748; }
+  .map-card .info { color: #718096; margin-top: 2px; }
+
+  ul { padding-left: 18px; }
+  li { margin-bottom: 4px; }
+  .emoji { font-style: normal; }
+
+  .footer { text-align: center; font-size: 0.75em; color: #a0aec0; margin-top: 20px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+
+  @media print {
+    body { background: #fff; padding: 0; font-size: 11px; }
+    .section { box-shadow: none; break-inside: avoid; page-break-inside: avoid; margin-bottom: 10px; }
+    .nav { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>Rohstoffe & Energie — Wissens-Kompakt</h1>
+  <div class="sub">Alles Wichtige auf einen Blick | Geografie-Pruefung | Themenbuch S. 64–73</div>
+</div>
+
+<div class="nav">
+  <a href="#grundlagen">Grundlagen</a>
+  <a href="#palmoel" class="palm">Palmoel</a>
+  <a href="#kupfer" class="kupfer">Kupfer</a>
+  <a href="#sand" class="sand">Sand</a>
+  <a href="#pet" class="pet">PET & Recycling</a>
+  <a href="#karte">Weltkarte</a>
+</div>
+
+<!-- ===== GRUNDLAGEN ===== -->
+<div class="section theme-blue" id="grundlagen">
+  <h2><span class="icon">🌍</span> Rohstoffe — Grundlagen des Lebens</h2>
+
+  <p>Alles, was wir zum Leben brauchen, stammt von der Erde. Diese <strong>Lebensgrundlagen</strong> werden aus dem Boden, dem Gesteinsuntergrund, der Luft, den Pflanzen und Tieren oder dem Wasser gewonnen. Sie werden auch <strong>Ressourcen</strong> oder <strong>Rohstoffe</strong> genannt.</p>
+
+  <div class="fact-grid" style="margin-top: 12px;">
+    <div class="fact-box fact-green">
+      <strong>Erneuerbare Rohstoffe</strong>
+      Erneuern sich innerhalb eines Menschenlebens oder sind unendlich vorhanden.<br>
+      <em>Beispiele: Getreide, Fleisch, Wolle, Holz, Sonnenlicht, Luft, Wasser</em>
+    </div>
+    <div class="fact-box fact-red">
+      <strong>Nicht erneuerbare Rohstoffe</strong>
+      Entstehung dauert Tausende oder Millionen von Jahren.<br>
+      <em>Beispiele: Erdoel, Kohle, Kupfer, Sand (geologisch), Erdgas</em>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <h3>Warum werden Rohstoffe knapp?</h3>
+    <ul>
+      <li>Immer <strong>mehr Menschen</strong> auf der Welt</li>
+      <li>Immer <strong>hoehere Ansprueche</strong> an den Alltag (mehr Konsum)</li>
+      <li>Vorkommen und verfuegbare Mengen veraendern sich</li>
+      <li>Deshalb werden weltweit <strong>fast alle Rohstoffe knapp</strong></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== PALMOEL ===== -->
+<div class="section theme-green" id="palmoel">
+  <h2><span class="icon">🌴</span> Ueberall ist Palmoel drin</h2>
+
+  <h3>Was ist Palmoel und wo steckt es drin?</h3>
+  <p>Palmoel steckt in unzaehligen Alltagsprodukten:</p>
+  <div class="fact-grid">
+    <div class="fact-box fact-green fact-full">
+      <strong>Produkte mit Palmoel</strong>
+      Glace, Schokolade, Nutella, Fertigpizza, Brot, Margarine, Kosmetik, Reinigungsmittel, Waschmittel, Lippenbalsam, Fertigsuppe, Duschgel — und als Biokraftstoff / Stromgewinnung
+    </div>
+  </div>
+
+  <table class="table-green">
+    <tr><th>Verwendung weltweit</th><th>Anteil</th></tr>
+    <tr><td>Nahrungsmittel</td><td><strong>68%</strong></td></tr>
+    <tr><td>Kosmetika, Wasch- und Reinigungsmittel</td><td><strong>27%</strong></td></tr>
+    <tr><td>Energiegewinnung</td><td><strong>5%</strong></td></tr>
+  </table>
+
+  <h3>Anbau — Die wichtigsten Fakten</h3>
+  <div class="fact-grid">
+    <div class="fact-box fact-blue">
+      <strong>Anbauflaeche</strong>
+      Ueber <span class="key-number"><span class="num">17 Mio.</span> Hektar</span> weltweit = 4× die Flaeche der Schweiz
+    </div>
+    <div class="fact-box fact-blue">
+      <strong>Hauptlaender</strong>
+      <span class="key-number"><span class="num">Indonesien & Malaysia</span></span> = ueber 85% der Weltproduktion (Borneo!)
+    </div>
+    <div class="fact-box fact-green">
+      <strong>Hoher Ertrag = Vorteil</strong>
+      1 Hektar Oelpalmen: bis zu <strong>8'000 kg</strong> Oel<br>
+      Raps: 1'000 kg | Sonnenblumen: 800 kg | Soja: 375 kg
+    </div>
+    <div class="fact-box fact-blue">
+      <strong>Klima</strong>
+      Oelpalmen brauchen <strong>tropisches Klima</strong> (hohe Temperatur, viel Niederschlag)
+    </div>
+  </div>
+
+  <h3>Vorteile von Palmoel</h3>
+  <ul>
+    <li><strong>Sehr hoher Ertrag</strong> pro Flaeche (bis 8× mehr als andere Oelpflanzen)</li>
+    <li><strong>Vielseitig einsetzbar</strong> (Nahrung, Kosmetik, Energie)</li>
+    <li><strong>Guenstiger Preis</strong> durch hohe Ertraege</li>
+    <li>Schwer zu ersetzen — es gibt wenig gleichwertige Alternativen</li>
+  </ul>
+
+  <h3>Folgen fuer die Umwelt</h3>
+  <div class="fact-grid">
+    <div class="fact-box fact-red">
+      <strong>Brandrodung</strong>
+      Regenwald wird abgebrannt, um Platz fuer Plantagen zu schaffen
+    </div>
+    <div class="fact-box fact-red">
+      <strong>Verlust von Lebensraum</strong>
+      Bedrohte Arten wie der Orang-Utan werden vertrieben oder sterben aus
+    </div>
+    <div class="fact-box fact-red">
+      <strong>Landnutzungsrechte</strong>
+      Rechte der Einwohner werden oft missachtet
+    </div>
+    <div class="fact-box fact-red">
+      <strong>Regenwald-Verlust auf Borneo</strong>
+      Drastische Abholzung seit 1950 — Karten zeigen enormen Rueckgang
+    </div>
+  </div>
+
+  <h3>Moegliche Loesungen</h3>
+  <div class="fact-box fact-green" style="margin: 8px 0;">
+    <strong>RSPO — Roundtable on Sustainable Palm Oil</strong>
+    <ul>
+      <li>Legt <strong>Mindeststandards</strong> fuer nachhaltigen Anbau fest</li>
+      <li>Palmoel soll rechtmaessig, umweltfreundlich, wirtschaftlich tragbar und sozialvertraeglich angebaut werden</li>
+      <li>60% von 43 befragten Unternehmen (2013) verwenden zertifiziertes Palmoel</li>
+      <li>RSPO-Label = zertifiziert nachhaltiges Palmoel</li>
+    </ul>
+  </div>
+  <ul>
+    <li>Bewusst konsumieren — Produkte mit RSPO-Label bevorzugen</li>
+    <li>Kein Palmoel kaufen/essen wo moeglich</li>
+    <li>Sparsam mit Holz sein</li>
+  </ul>
+</div>
+
+<!-- ===== KUPFER ===== -->
+<div class="section theme-orange" id="kupfer">
+  <h2><span class="icon">🔧</span> Ohne Kupfer geht es nicht</h2>
+
+  <h3>Warum ist Kupfer so wichtig?</h3>
+  <p>Kupfer ist eines der beliebtesten und am meisten gehandelten Metalle der Welt. Es <strong>leitet Waerme und Strom hervorragend</strong>.</p>
+  <div class="fact-box fact-orange" style="margin: 8px 0;">
+    <strong>Verwendung von Kupfer</strong>
+    Stromkabel, Rohre, Daecher, Windkraftanlagen, Praezisionsteile, Muenzen, Besteck, Kunstgegenstaende, Musikinstrumente, Knoepfe, Schmuck
+  </div>
+
+  <h3>Kupferabbau weltweit</h3>
+  <div class="fact-grid">
+    <div class="fact-box fact-orange">
+      <strong>Abbauorte</strong>
+      Weltweit an fast <strong>3'000 Orten</strong> nachgewiesen
+    </div>
+    <div class="fact-box fact-orange">
+      <strong>Top-Produzent</strong>
+      <strong>Chile</strong> = groesster Produzent (5.6 Mio. Tonnen/Jahr, Tagebau)
+    </div>
+    <div class="fact-box fact-blue">
+      <strong>Nr. 2: Peru</strong>
+      Zweitgroesster Kupferproduzent
+    </div>
+    <div class="fact-box fact-blue">
+      <strong>Weitere</strong>
+      China, USA, Australien, Kongo, Sambia, Mexiko, Indonesien, Kanada
+    </div>
+  </div>
+
+  <h3>Prozesskette: Vom Erz zum Kupfer</h3>
+  <p>Kupfer kommt in <strong>Erzen</strong>, Sanden oder Kiesen vor. In 1'000 Tonnen Erz sind ca. 6 Tonnen Kupfer enthalten.</p>
+  <div class="process">
+    <div class="process-step">1. Abbau<br><small>Kupfererz mit Baggern ausgraben (Tagebau)</small></div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">2. Transport<br><small>Mit Lastwagen abtransportieren</small></div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">3. Gewinnung<br><small>Wasser + Chemikalien loesen Kupfer aus Gestein</small></div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">4. Reinigung<br><small>Erhitzen, andere Metalle abspalten</small></div>
+    <div class="process-arrow">→</div>
+    <div class="process-step">5. Weiter&shy;verarbeitung<br><small>Reines Kupfer fuer Produkte</small></div>
+  </div>
+
+  <h3>Auswirkungen des Kupferabbaus</h3>
+  <table class="table-orange">
+    <tr><th>Betrifft</th><th>Auswirkungen</th></tr>
+    <tr><td><strong>Umwelt</strong></td><td>Gigantische Tagebauloecher, Berge aus Gestein, Staub in der Luft, Wasser durch Chemikalien vergiftet (kein Trinkwasser mehr), Landschaftszerstoerung</td></tr>
+    <tr><td><strong>Arbeiter</strong></td><td>Harte Arbeit, Staublungen, Gesundheitsverschlechterung, fordern bessere Bedingungen durch Streiks</td></tr>
+    <tr><td><strong>Familien</strong></td><td>Koennen nicht an Bergbauorten leben, Familien werden getrennt</td></tr>
+    <tr><td><strong>Konsumenten</strong></td><td>Preis steigt bei Streiks oder Mangel</td></tr>
+    <tr><td><strong>Unternehmer</strong></td><td>Konkurrenzdruck</td></tr>
+  </table>
+
+  <h3>Recycling von Kupfer — Die Loesung</h3>
+  <div class="fact-grid">
+    <div class="fact-box fact-green">
+      <strong>Ca. 40% des Kupfers wird recycelt</strong>
+      <ul>
+        <li><strong>Entlastet die Umwelt:</strong> Keine Luftbelastung (Staub), keine Wasserverschmutzung</li>
+        <li><strong>Guenstiger:</strong> Recyceln ist billiger als Neuabbau, keine Entsorgungskosten</li>
+        <li><strong>Schont Ressourcen:</strong> Weniger Abbau noetig, Vorrat haelt laenger</li>
+        <li><strong>Spart Energie:</strong> Nur 15% der Energie des Neuabbaus noetig</li>
+      </ul>
+    </div>
+    <div class="fact-box fact-red">
+      <strong>Nachteil Recycling</strong>
+      Das recycelte Kupfer hat nicht mehr die gleiche Qualitaet wie neues Kupfer
+    </div>
+  </div>
+  <p style="margin-top: 8px;"><strong>Merksatz:</strong> <em>„Kupferminen sind Fenster in die Erde"</em> — sie zeigen, wie tief und gewaltig der Mensch in die Natur eingreift.</p>
+</div>
+
+<!-- ===== SAND ===== -->
+<div class="section theme-yellow" id="sand">
+  <h2><span class="icon">🏖️</span> Das Geschaeft mit dem Sand</h2>
+
+  <h3>Warum ist Sand so wichtig?</h3>
+  <div class="fact-box fact-yellow" style="margin: 8px 0;">
+    <strong>Sand = nach Wasser der weltweit begehrteste Rohstoff!</strong>
+    In ueber <strong>200 Produkten</strong> enthalten: Beton, Glas, Farben, Zahnpasta, Computerchips, Solarzellen, Kosmetik, Duenger, Spiegel, Handy
+  </div>
+
+  <div class="fact-grid">
+    <div class="fact-box fact-blue">
+      <strong>Hauptverwendung: Bauindustrie</strong>
+      Beton wird aus Sand hergestellt. Jaehrlich ueber <strong>15 Milliarden Tonnen</strong> Sand abgebaut
+    </div>
+    <div class="fact-box fact-blue">
+      <strong>Mengenbeispiele</strong>
+      Mittelgrosses Haus: <strong>200 Tonnen</strong> Sand (5 Lastwagen)<br>
+      1 km Autobahn: <strong>30'000 Tonnen</strong> (750 Lastwagen!)
+    </div>
+  </div>
+
+  <div class="highlight">
+    <h3>Warum nicht Wuestensand?</h3>
+    <p>Wuestensand ist zu fein und zu rund geschliffen — er eignet sich <strong>nicht</strong> zum Bauen. Deshalb wird Sand vom Meeresboden oder von Straenden geholt.</p>
+  </div>
+
+  <h3>Arten der Sandgewinnung</h3>
+  <table class="table-yellow">
+    <tr><th>Methode</th><th>Beschreibung</th></tr>
+    <tr><td><strong>Kiesgruben / Lagerstaetten</strong></td><td>Sand und Kies werden gesammelt und weiterverarbeitet</td></tr>
+    <tr><td><strong>Landaufschuettung</strong></td><td>Neue Landflaechen mit Sand gebaut (Dubai, China, Holland). Schutz vor Erosion noetig.</td></tr>
+    <tr><td><strong>Meeresboden-Baggerung</strong></td><td>Sand vom Meeresgrund abgesaugt — zerstoert Oekosysteme</td></tr>
+    <tr><td><strong>Sand-Diebstahl</strong></td><td>Menschen stehlen Sand am Strand, um ihn teuer zu verkaufen</td></tr>
+  </table>
+
+  <h3>Auswirkungen auf Mensch, Umwelt & Wirtschaft</h3>
+  <table class="table-yellow">
+    <tr><th>Bereich</th><th>Folgen</th></tr>
+    <tr><td><strong>Umwelt</strong></td><td>Beeintraechtigung von Oekosystemen, Verlust von Lebensraeumen, Tiere und Pflanzen verlieren Lebensraum auf Meeresboden</td></tr>
+    <tr><td><strong>Menschen / Gesellschaft</strong></td><td>Verlust von Lebensraeumen, unbemerkte Rueckgaenge von Strand, keine Kuesten mehr, Inseln rutschen ins Meer, Haeuser stuerzen ab</td></tr>
+    <tr><td><strong>Wirtschaft</strong></td><td>Bauboom, Sand wird teurer, hoher Bedarf durch Beton und Glas, Tourismus leidet unter fehlenden Straenden</td></tr>
+  </table>
+
+  <div class="fact-grid">
+    <div class="fact-box fact-yellow">
+      <strong>Schweiz</strong>
+      40 Mio. Tonnen/Jahr, 90% aus CH-Kiesgruben und Flussbetten, 10% Import (D, F). Streng ueberwacht.
+    </div>
+    <div class="fact-box fact-yellow">
+      <strong>Singapur</strong>
+      Landflaeche um 20% (130 km²) vergroessert in 40 Jahren — kauft Sand aus Kambodscha, Vietnam, Malaysia, Indonesien (dort inzwischen verboten)
+    </div>
+    <div class="fact-box fact-red">
+      <strong>Malediven</strong>
+      Strandtaucher stehlen Sand vom Meeresboden → Straende rutschen ins Meer → Inseln muessen evakuiert werden
+    </div>
+    <div class="fact-box fact-red">
+      <strong>Sardinien</strong>
+      Ueberwachungskameras an Straenden, Strafen bis 9'300 Euro fuer Sanddiebstahl
+    </div>
+  </div>
+
+  <h3>Moegliche Loesungen</h3>
+  <ul>
+    <li><strong>Beton recyceln</strong> — Sand zurueck in den Kreislauf fuehren</li>
+    <li><strong>Glas zerkleinern</strong> und als Sand verwenden (aehnliche Eigenschaften)</li>
+    <li>Problem: Recycelter Sand ist viel teurer als Meeressand → lohnt sich bislang noch nicht</li>
+    <li><strong>Zukunft:</strong> Sandverbrauch wird vermutlich weiter zunehmen</li>
+  </ul>
+</div>
+
+<!-- ===== PET & RECYCLING ===== -->
+<div class="section theme-purple" id="pet">
+  <h2><span class="icon">♻️</span> Die PET-Flasche — Recycling von Abfall</h2>
+
+  <h3>Was ist PET?</h3>
+  <div class="fact-box fact-purple" style="margin: 8px 0;">
+    <strong>PET = Polyethylenterephthalat</strong>
+    Ein Kunststoff, hergestellt aus <strong>Erdoel</strong>. Fuer 1 kg PET braucht man 2 kg Rohoel. PET ist formbestaendig, bruchsicher, leicht und verschleisst wenig. Verwendung: Getraenkeflaschen, Textilfasern, Folien, Verpackungen.
+  </div>
+
+  <div class="fact-grid">
+    <div class="fact-box fact-blue">
+      <strong>Schweiz: 1.6 Milliarden</strong> PET-Flaschen pro Jahr
+    </div>
+    <div class="fact-box fact-blue">
+      <strong>45'000 Sammelstellen</strong> in der Schweiz (seit 1990)
+    </div>
+    <div class="fact-box fact-green">
+      <strong>Ruecklaufquote: ca. 80%</strong>
+    </div>
+    <div class="fact-box fact-green">
+      <strong>Spart 47 Mio. Liter Erdoel</strong> und 152'000 Tonnen Treibhausgase pro Jahr
+    </div>
+  </div>
+
+  <h3>Der PET-Kreislauf</h3>
+  <div class="cycle">
+    <div class="cycle-steps">
+      <div class="cycle-step">Erdoel<br><small>61'000 t → 32'000 t PET</small></div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-step">Verbrauch<br><small>43'000 t</small></div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-step">Sammlung<br><small>32'000 t gesammeltes PET</small></div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-step">Sortierung<br><small>35'000 Flaschen/h, nach Farben</small></div>
+      <div class="cycle-arrow">→</div>
+      <div class="cycle-step">PET-Flocken<br><small>Zerkleinert, gereinigt</small></div>
+    </div>
+    <div style="margin-top: 10px;">
+      <div class="cycle-steps">
+        <div class="cycle-step">11'000 t<br><small>→ neues PET (zurueck in Kreislauf)</small></div>
+        <div class="cycle-arrow" style="color: #38a169;">↺</div>
+        <div class="cycle-step" style="border-color: #38a169; color: #276749;">21'000 t<br><small>→ Textilien & Diverses</small></div>
+        <div class="cycle-arrow" style="color: #e53e3e;">|</div>
+        <div class="cycle-step" style="border-color: #e53e3e; color: #c53030;">11'000 t<br><small>→ Abfall</small></div>
+      </div>
+    </div>
+    <div class="cycle-note">Recycling = re (zurueck) + cycling (Zyklus) = Wiederverwertung</div>
+  </div>
+
+  <h3>Neue Produkte aus PET</h3>
+  <ul>
+    <li><strong>Textilfasern / Faserpelze:</strong> PET-Flocken → Faeden → verwoben → 25 PET-Flaschen = 1 Jacke (Weltmarktfuehrer: China)</li>
+    <li><strong>SODIS-Verfahren:</strong> PET-Flaschen mit Wasser 6h in die Sonne → UVA-Strahlen toeten Krankheitserreger → Trinkwasser</li>
+    <li><strong>Lampen:</strong> Kuenstler in Kolumbien stellt Lampen aus PET-Flaschen her → beseitigt Muell, schafft Arbeitsplaetze</li>
+  </ul>
+
+  <h3>Vorteile und Nachteile von Recycling</h3>
+  <div class="fact-grid">
+    <div class="fact-box fact-green">
+      <strong>Vorteile</strong>
+      <ul>
+        <li>Erdoel (Rohstoff) bleibt im Kreislauf</li>
+        <li>Wiederverwertung statt Entsorgung</li>
+        <li>Umweltfreundlicher und guenstiger</li>
+        <li>Weniger Treibhausgase</li>
+        <li>Weniger Abfall auf Deponien</li>
+      </ul>
+    </div>
+    <div class="fact-box fact-red">
+      <strong>Nachteile</strong>
+      <ul>
+        <li>Nur ca. die Haelfte der Rohstoffe kann verwendet werden</li>
+        <li>Transport (z.B. nach China) verbraucht viel Energie</li>
+        <li>Kann teilweise mehr Energie verbrauchen als Neuproduktion</li>
+        <li>Nicht alles kann endlos recycelt werden</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <h3>Abfallentsorgung Schweiz</h3>
+    <ul>
+      <li>Schweiz hat <strong>hohen Abfall pro Kopf</strong> — aber auch hohe Recyclingquote</li>
+      <li><strong>Keine Abfalldeponien</strong> mehr — stattdessen KVA (Kehrichtverbrennungsanlage) mit Energiegewinn</li>
+      <li>Getrennte Sammlung: Papier, Glas, PET, Batterien, Kompost, Elektrogeraete</li>
+    </ul>
+  </div>
+
+  <h3>Eigenes Konsumverhalten reflektieren</h3>
+  <div class="fact-box fact-purple" style="margin: 8px 0;">
+    <strong>Fragen an dich selbst:</strong>
+    <ul>
+      <li>Brauche ich wirklich alle 2 Jahre ein neues Handy?</li>
+      <li>Kann ich Geraete reparieren statt wegwerfen?</li>
+      <li>Trenne ich meinen Abfall konsequent?</li>
+      <li><em>„Unser Konsum wirkt sich weltweit aus."</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== WELTKARTE ===== -->
+<div class="section theme-blue" id="karte">
+  <h2><span class="icon">🗺️</span> Mitwachsende Karte — Laender & Rohstoffe</h2>
+  <p>Diese Laender musst du auf der Karte kennen und einem Rohstoff zuordnen koennen:</p>
+  <div class="map-grid">
+    <div class="map-card" style="border-left: 3px solid #276749;">
+      <div class="country">Indonesien & Malaysia</div>
+      <div class="info">Palmoel — ueber 85% der Weltproduktion, Borneo, Regenwald-Rodung</div>
+    </div>
+    <div class="map-card" style="border-left: 3px solid #c05621;">
+      <div class="country">Chile</div>
+      <div class="info">Kupfer — groesster Produzent weltweit, Chuquicamata-Mine, 5.6 Mio. t/Jahr</div>
+    </div>
+    <div class="map-card" style="border-left: 3px solid #c05621;">
+      <div class="country">Peru</div>
+      <div class="info">Kupfer — zweitgroesster Produzent</div>
+    </div>
+    <div class="map-card" style="border-left: 3px solid #975a16;">
+      <div class="country">Dubai / VAE</div>
+      <div class="info">Sand — kuenstliche Inseln (The Palm), importiert Sand aus Australien</div>
+    </div>
+    <div class="map-card" style="border-left: 3px solid #975a16;">
+      <div class="country">Singapur</div>
+      <div class="info">Sand — Landflaeche um 20% vergroessert mit importiertem Sand</div>
+    </div>
+    <div class="map-card" style="border-left: 3px solid #975a16;">
+      <div class="country">Malediven</div>
+      <div class="info">Sand — Inseln bedroht durch Sanddiebstahl vom Meeresboden</div>
+    </div>
+    <div class="map-card" style="border-left: 3px solid #975a16;">
+      <div class="country">Frankreich (Bretagne)</div>
+      <div class="info">Sand — Hunderte setzen sich fuer den Erhalt der Straende ein</div>
+    </div>
+    <div class="map-card" style="border-left: 3px solid #975a16;">
+      <div class="country">Sardinien (Italien)</div>
+      <div class="info">Sand — Kameras, Strafen bis 9'300 EUR gegen Sanddiebstahl</div>
+    </div>
+    <div class="map-card" style="border-left: 3px solid #6b21a8;">
+      <div class="country">Kolumbien</div>
+      <div class="info">PET — Kuenstler macht Lampen aus PET-Flaschen vom Amazonas</div>
+    </div>
+    <div class="map-card" style="border-left: 3px solid #6b21a8;">
+      <div class="country">China</div>
+      <div class="info">PET/Kupfer — Weltmarktfuehrer PET-Textilien, Top-3 Kupferproduzent</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Wissens-Kompakt | Geografie: Rohstoffe & Energie | Themenbuch S. 64–73 | Stand: 14.03.2026
+</div>
+
+</div>
+</body>
+</html>

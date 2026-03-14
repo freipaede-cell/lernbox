@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wissens-Kompakt — Biologie Pruefung 1 FS26</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0f172a;
+    color: #e2e8f0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    padding: 2rem 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.9rem;
+    color: #f1f5f9;
+    border-bottom: 3px solid #3b82f6;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+  .meta {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+    color: #60a5fa;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid #1e3a5f;
+  }
+  h3 {
+    font-size: 1.15rem;
+    color: #93c5fd;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  h4 {
+    font-size: 1rem;
+    color: #a5b4fc;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  p { margin-bottom: 0.7rem; }
+  ul, ol {
+    margin-left: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  li { margin-bottom: 0.3rem; }
+  strong { color: #f1f5f9; }
+  em { color: #fbbf24; font-style: normal; }
+
+  /* Tabellen */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1rem 0 1.5rem 0;
+    background: #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.9rem;
+  }
+  thead { background: #334155; }
+  th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    color: #93c5fd;
+    font-weight: 600;
+    border-bottom: 2px solid #475569;
+  }
+  td {
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid #334155;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #253347; }
+
+  /* Inhaltsverzeichnis */
+  .toc {
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .toc h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    border-bottom: none;
+    margin-bottom: 0.5rem;
+  }
+  .toc ol {
+    margin-left: 1.2rem;
+    margin-bottom: 0;
+  }
+  .toc a {
+    color: #60a5fa;
+    text-decoration: none;
+  }
+  .toc a:hover { text-decoration: underline; }
+
+  /* Merkregel-Box */
+  .merkregel {
+    background: #1e3a2a;
+    border-left: 4px solid #22c55e;
+    border-radius: 0 8px 8px 0;
+    padding: 0.7rem 1rem;
+    margin: 0.8rem 0;
+    font-size: 0.95rem;
+  }
+
+  /* Block-Header */
+  .block-ref {
+    display: inline-block;
+    background: #334155;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.3rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    body { padding: 1rem; }
+    table { font-size: 0.8rem; }
+    th, td { padding: 0.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Wissens-Kompakt &mdash; Biologie Pruefung 1 FS26</h1>
+<p class="meta">Herz-Kreislaufsystem &amp; Hormone &nbsp;|&nbsp; 2. Klasse Kantonsschule &nbsp;|&nbsp; Version 1.0, 14.03.2026</p>
+
+<!-- INHALTSVERZEICHNIS -->
+<nav class="toc">
+  <h2>Inhaltsverzeichnis</h2>
+  <ol>
+    <li><a href="#block-a">Block A &mdash; Puls und Blutdruck</a></li>
+    <li><a href="#block-b">Block B &mdash; Blutgefaesse</a></li>
+    <li><a href="#block-c">Block C &mdash; Herz: Bau und Funktion</a></li>
+    <li><a href="#block-d">Block D &mdash; Blut</a></li>
+    <li><a href="#block-e">Block E &mdash; Immunsystem und Viren</a></li>
+    <li><a href="#block-f">Block F &mdash; Hormone</a></li>
+  </ol>
+</nav>
+
+<!-- ============================================================ -->
+<!-- BLOCK A -->
+<!-- ============================================================ -->
+<h2 id="block-a">Block A &mdash; Puls und Blutdruck</h2>
+
+<h3>Puls</h3>
+<ul>
+  <li><strong>Pulswelle</strong> = Druckwelle bei jeder Herzkontraktion, pflanzt sich ueber das Gefaesssystem fort</li>
+  <li><strong>Pulsfrequenz</strong> = Herzschlaege pro Minute (in Arterien gemessen)</li>
+  <li><strong>HMV (Herzminutenvolumen)</strong> = Herzfrequenz &times; Schlagvolumen</li>
+</ul>
+
+<h3>Trainiert vs. Untrainiert</h3>
+<table>
+  <thead>
+    <tr><th>Wert</th><th>Untrainiert</th><th>Ausdauertrainiert</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Ruhepuls</td><td>80/min</td><td>40/min</td></tr>
+    <tr><td>Max. Herzfrequenz</td><td>180/min</td><td>180/min</td></tr>
+    <tr><td>Schlagvolumen Ruhe</td><td>70 ml</td><td>140 ml</td></tr>
+    <tr><td>Schlagvolumen max.</td><td>100 ml</td><td>190 ml</td></tr>
+    <tr><td>HMV Ruhe</td><td>5.6 l/min</td><td>5.6 l/min <em>(gleich!)</em></td></tr>
+    <tr><td>HMV max.</td><td>18 l/min</td><td>35 l/min</td></tr>
+    <tr><td>Herzgewicht</td><td>300 g</td><td>500 g</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Trainingseffekte:</strong> Herzmuskelzellen werden dicker, Herzinnenraeume bis doppelt so gross, Schlagvolumen verdoppelt &rarr; gleiche Leistung mit halber Schlagzahl &rarr; Ruhepuls sinkt.</p>
+
+<h3>Blutdruck</h3>
+<ul>
+  <li>Druck des Blutes auf Gefaesswaende, entsteht durch Systole/Diastole-Wechsel</li>
+  <li><strong>Systolischer Wert</strong> = oberer Wert = Druck waehrend Herzkontraktion</li>
+  <li><strong>Diastolischer Wert</strong> = unterer Wert = Druck waehrend Herzerschlaffung</li>
+</ul>
+
+<h4>Richtwerte WHO</h4>
+<table>
+  <thead>
+    <tr><th>Kategorie</th><th>Systolisch (mmHg)</th><th>Diastolisch (mmHg)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Optimal</td><td>&lt;120</td><td>&lt;80</td></tr>
+    <tr><td>Normal</td><td>&lt;130</td><td>&lt;85</td></tr>
+    <tr><td>Hypertonie</td><td>&gt;140</td><td>&gt;90</td></tr>
+  </tbody>
+</table>
+
+<h4>Blutdruckmessung (3 Schritte)</h4>
+<ol>
+  <li><strong>Manschettendruck ueber systolischem Wert</strong> &rarr; Blutfluss unterbrochen &rarr; kein Geraeusch</li>
+  <li><strong>Druck zwischen systolisch und diastolisch</strong> &rarr; Verwirbelungen &rarr; Geraeusche hoerbar &rarr; <em>systolischer Wert</em></li>
+  <li><strong>Druck unter diastolischem Wert</strong> &rarr; laminare Stroemung &rarr; keine Geraeusche &rarr; <em>diastolischer Wert</em></li>
+</ol>
+
+<h4>Bluthochdruck</h4>
+<p>Dauerhaft erhoehter Druck &rarr; Risse in Gefaessinnenwand &rarr; Cholesterin-/Kalk-Ablagerungen &rarr; <strong>Arterienverkalkung</strong> &rarr; Verengung &rarr; Herzinfarkt / Schlaganfall / Nierenversagen.</p>
+<p><strong>Ursachen:</strong> Uebergewicht, Erbanlagen, selten Nierenerkrankungen/Diabetes.</p>
+
+<!-- ============================================================ -->
+<!-- BLOCK B -->
+<!-- ============================================================ -->
+<h2 id="block-b">Block B &mdash; Blutgefaesse</h2>
+
+<h3>3 Wandschichten</h3>
+<ol>
+  <li><strong>Endothel</strong> (innerste): glatte Oberflaeche, reibungsfreies Fliessen</li>
+  <li><strong>Muskelschicht</strong> (mittlere): reguliert Durchblutung</li>
+  <li><strong>Bindegewebeschicht</strong> (aeussere): Stabilisierung</li>
+</ol>
+
+<h3>Gefaesstypen-Vergleich</h3>
+<table>
+  <thead>
+    <tr><th>Typ</th><th>Durchmesser</th><th>Wanddicke</th><th>Besonderheit</th><th>Funktion</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Arterie</strong></td><td>4 mm</td><td>1 mm</td>
+      <td>Dick, elastisch, alle 3 Schichten</td>
+      <td>Transport vom Herzen weg, hoher Druck</td>
+    </tr>
+    <tr>
+      <td><strong>Kapillare</strong></td><td>8 &mu;m</td><td>0.5 &mu;m</td>
+      <td>NUR Endothel (1 Zellschicht)</td>
+      <td>Stoffaustausch</td>
+    </tr>
+    <tr>
+      <td><strong>Vene</strong></td><td>5 mm</td><td>0.5 mm</td>
+      <td>Duennwandig, Venenklappen</td>
+      <td>Transport zum Herzen, niedriger Druck</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Stoffaustausch in Kapillaren</h3>
+<ul>
+  <li>Kapillarwaende haben <strong>Poren</strong></li>
+  <li>Durchlaessig fuer: Plasma, O<sub>2</sub>, Naehrstoffe</li>
+  <li>Nicht durchlaessig fuer: Erythrozyten, grosse Proteine</li>
+  <li>20 Liter Plasma/Tag treten aus &rarr; Zwischenzellfluessigkeit = Lymphe</li>
+  <li><strong>3 Voraussetzungen:</strong> duenne Wand, grosse Flaeche, langsamer Blutstrom</li>
+</ul>
+
+<h3>4 Mechanismen des Blutflusses</h3>
+<ol>
+  <li><strong>Windkesseleffekt</strong> (Arterien): Systole dehnt elastische Aortenwand &rarr; Diastole federt zurueck &rarr; gleichmaessiger Fluss</li>
+  <li><strong>Muskelpumpe</strong> (Venen): Skelettmuskulatur drueckt duennwandige Venen zusammen &rarr; Blut herzwaerts</li>
+  <li><strong>Arterienpumpe</strong> (Venen): Benachbarte Arterie pulsiert, drueckt Vene zusammen (gemeinsame Bindegewebshuelle)</li>
+  <li><strong>Venenklappen:</strong> Ventile, oeffnen nur herzwaerts. Defekt &rarr; Krampfadern.</li>
+</ol>
+<p>+ <strong>Sogwirkung des Herzens:</strong> Blut wird aus Venen in Vorhoefe nachgesogen.</p>
+
+<h3>Druck, Geschwindigkeit, Querschnitt</h3>
+<table>
+  <thead>
+    <tr><th>Gefaess</th><th>Geschwindigkeit</th><th>Gesamtquerschnitt</th><th>Druck</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Aorta</td><td>30 cm/s</td><td>5.3 cm&sup2;</td><td>~120 mmHg</td></tr>
+    <tr><td>Kapillaren</td><td>0.0026 cm/s</td><td>3500 cm&sup2;</td><td>Sehr niedrig</td></tr>
+  </tbody>
+</table>
+<p><strong>Zusammenhang:</strong> Mehr Querschnitt = weniger Geschwindigkeit (und umgekehrt). Druck nimmt von Arterien zu Venen stetig ab.</p>
+
+<!-- ============================================================ -->
+<!-- BLOCK C -->
+<!-- ============================================================ -->
+<h2 id="block-c">Block C &mdash; Herz: Bau und Funktion</h2>
+
+<h3>Herzbau</h3>
+<ul>
+  <li>Kegelfoermiger Hohlmuskel, ca. 1.5&times; Faustgroesse</li>
+  <li>Gewicht: <strong>300 g</strong> (untrainiert) / <strong>500 g</strong> (trainiert)</li>
+  <li><strong>Herzbeutel (Perikard):</strong> zweischichtig, Fluessigkeit fuer reibungsloses Gleiten</li>
+  <li><strong>4 Raeume:</strong> 2 Vorhoefe (duennwandig, empfangen Blut) + 2 Kammern (dickwandig, pumpen)</li>
+  <li><strong>Herzscheidewand</strong> trennt rechte und linke Haelfte</li>
+  <li>Linke Kammerwand <strong>dicker</strong> als rechte (Koerperkreislauf = laenger, mehr Druck noetig)</li>
+  <li><strong>Grosse Gefaesse:</strong> Aorta (links raus), Lungenarterie (rechts raus), Hohlvenen (rechts rein), Lungenvenen (links rein)</li>
+  <li><strong>Herzkranzarterien</strong> versorgen Herzmuskel selbst; Verstopfung = <em>Herzinfarkt</em></li>
+</ul>
+
+<h3>Herzklappen (2 Typen)</h3>
+<h4>Segelklappen (zwischen Vorhof und Kammer)</h4>
+<ul>
+  <li><strong>Mitralklappe</strong> (2-teilig, links)</li>
+  <li><strong>Tricuspidalklappe</strong> (3-teilig, rechts)</li>
+  <li>Sehnenfaeden verhindern Zurueckschlagen</li>
+</ul>
+<h4>Taschenklappen (zwischen Kammer und Arterie)</h4>
+<ul>
+  <li><strong>Aortenklappe</strong> (links)</li>
+  <li><strong>Pulmonalklappe</strong> (rechts)</li>
+  <li>Blaeht sich bei Rueckfluss auf &rarr; schliesst</li>
+</ul>
+<p><strong>Ventilprinzip:</strong> Blut fliesst nur in eine Richtung.</p>
+
+<h3>Herzzyklus (4 Phasen)</h3>
+<table>
+  <thead>
+    <tr><th>Phase</th><th>Segelklappen</th><th>Taschenklappen</th><th>Was passiert</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1. Fuellungsphase</strong> (Diastole)</td><td>Offen</td><td>Zu</td>
+      <td>Blut stroemt von Vorhofen in Kammern</td>
+    </tr>
+    <tr>
+      <td><strong>2. Anspannungsphase</strong> (Systole)</td><td>Zu</td><td>Zu</td>
+      <td>Druck steigt in Kammern</td>
+    </tr>
+    <tr>
+      <td><strong>3. Austreibungsphase</strong> (Systole)</td><td>Zu</td><td>Offen</td>
+      <td>Blut wird in Aorta / Lungenarterie gepumpt</td>
+    </tr>
+    <tr>
+      <td><strong>4. Entspannungsphase</strong> (Diastole)</td><td>Zu</td><td>Zu</td>
+      <td>Herzmuskel erschlafft, Druck sinkt</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Erregungsleitung</h3>
+<ul>
+  <li><strong>Sinusknoten</strong> (Schrittmacher): 60&ndash;80 Impulse/min</li>
+  <li>AV-Knoten &rarr; His-Buendel &rarr; Kammerschenkel &rarr; Kammermuskulatur (von Herzspitze aus)</li>
+  <li><strong>EKG:</strong> P-Welle (Vorhoferregung), QRS-Komplex (Kammererregung), T-Welle (Erregungsrueckbildung)</li>
+  <li>1 Herzzyklus &asymp; 0.8&ndash;1 Sekunde</li>
+</ul>
+
+<h3>Herztoene</h3>
+<ul>
+  <li><strong>1. Herzton:</strong> dumpf &mdash; Anspannung der Kammermuskulatur</li>
+  <li><strong>2. Herzton:</strong> hell &mdash; Schliessen der Taschenklappen</li>
+</ul>
+
+<!-- ============================================================ -->
+<!-- BLOCK D -->
+<!-- ============================================================ -->
+<h2 id="block-d">Block D &mdash; Blut</h2>
+
+<h3>Zusammensetzung</h3>
+<ul>
+  <li><strong>Blutplasma (55%):</strong> 90% Wasser, 7% Eiweisse, Rest Naehrstoffe/Hormone/Ionen</li>
+  <li><strong>Zellulaere Bestandteile (45%):</strong> Erythrozyten, Leukozyten, Thrombozyten</li>
+  <li><strong>Blutvolumen:</strong> 70&ndash;80 ml/kg = ca. 4.5&ndash;6 Liter</li>
+  <li><strong>Blutserum</strong> = Plasma OHNE Gerinnungsfaktoren</li>
+</ul>
+
+<h3>4 Hauptaufgaben</h3>
+<p>Transport (O<sub>2</sub>, CO<sub>2</sub>, Naehrstoffe, Hormone, Abfall) &bull; Waermeregulation &bull; Blutgerinnung &bull; Immunabwehr</p>
+
+<h3>3 Blutzelltypen</h3>
+<table>
+  <thead>
+    <tr><th>Zelltyp</th><th>Anzahl/&mu;l</th><th>Groesse</th><th>Kern?</th><th>Hauptfunktion</th><th>Lebensdauer</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Erythrozyten</strong></td><td>5&ndash;6 Mio</td><td>7&ndash;8 &mu;m</td><td>NEIN</td>
+      <td>Gastransport (O<sub>2</sub>/CO<sub>2</sub> via Haemoglobin)</td><td>120 Tage</td>
+    </tr>
+    <tr>
+      <td><strong>Leukozyten</strong></td><td>5'000&ndash;10'000</td><td>7&ndash;15 &mu;m</td><td>JA</td>
+      <td>Immunabwehr (3 Untergruppen)</td><td>Tage&ndash;Jahre</td>
+    </tr>
+    <tr>
+      <td><strong>Thrombozyten</strong></td><td>250'000&ndash;400'000</td><td>2&ndash;3 &mu;m</td><td>NEIN</td>
+      <td>Blutgerinnung, Wundverschluss</td><td>8&ndash;12 Tage</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Erythrozyten Detail</h4>
+<p>Bikonkave Scheiben, kein Kern / Mitochondrien / Ribosomen, gefuellt mit Haemoglobin. 3000 m&sup2; Gesamtoberflaeche. Abbau in der Milz.</p>
+
+<h4>Gastransport</h4>
+<p>O<sub>2</sub> und CO<sub>2</sub> an Haemoglobin gebunden. In der Lunge: hohe O<sub>2</sub>-Konzentration &rarr; Bindung. Im Gewebe: niedrige O<sub>2</sub>-Konzentration &rarr; Abgabe (Diffusion). <strong>Myoglobin</strong> = O<sub>2</sub>-Speicher in Muskelzellen.</p>
+
+<h3>Leukozyten-Untergruppen</h3>
+<ul>
+  <li><strong>Granulozyten (65%):</strong> unspezifische Abwehr, Phagozytose</li>
+  <li><strong>Monozyten (5%):</strong> werden zu Makrophagen im Gewebe, &laquo;grosse Fresser&raquo;</li>
+  <li><strong>Lymphozyten (30%):</strong> B-Lymphozyten (Antikoerper) + T-Lymphozyten (spezifische Abwehr)</li>
+</ul>
+
+<h3>Blutgerinnung (5 Schritte)</h3>
+<ol>
+  <li>Verletzte Gefaesse <strong>kontrahieren</strong> &rarr; weniger Blutfluss</li>
+  <li>Thrombozyten werden angelockt, lagern sich an &rarr; <strong>weisser Thrombus</strong> (erster Verschluss)</li>
+  <li>Gerinnungsfaktoren starten <strong>Gerinnungskaskade</strong></li>
+  <li>Fibrinogen &rarr; <strong>Fibrin</strong> (unloesliche Faeden) &rarr; <strong>roter Thrombus</strong> (Fibrinnetz + Blutzellen)</li>
+  <li>Zellteilung ersetzt defekte Zellen, neues Gewebe</li>
+</ol>
+
+<h4>Stoerungen</h4>
+<ul>
+  <li><strong>Thrombose:</strong> Gerinnsel verstopft Gefaess</li>
+  <li><strong>Embolie:</strong> Gerinnsel loest sich, wandert in Lunge</li>
+  <li><strong>Haemophilie:</strong> Erbkrankheit (X-chromosomal), Gerinnungsfaktoren fehlen</li>
+</ul>
+
+<!-- ============================================================ -->
+<!-- BLOCK E -->
+<!-- ============================================================ -->
+<h2 id="block-e">Block E &mdash; Immunsystem und Viren</h2>
+
+<h3>Virenbau</h3>
+<ul>
+  <li>Proteinhuelle + genetisches Material (DNA oder RNA) + Oberflaechenproteine</li>
+  <li>Kein eigener Stoffwechsel &rarr; auf Wirtszelle angewiesen</li>
+  <li>Oberflaechenproteine binden nach <strong>Schluessel-Schloss-Prinzip</strong> an Wirtszell-Rezeptoren</li>
+  <li><strong>Bakteriophagen</strong> = Viren, die nur Bakterien befallen</li>
+</ul>
+
+<h3>Virusvermehrung (6 Schritte)</h3>
+<ol>
+  <li>Virus bindet an Wirtszelle (Schluessel-Schloss)</li>
+  <li>Genetisches Material wird eingeschleust</li>
+  <li>Virus uebernimmt Zellstoffwechsel</li>
+  <li>Wirtszelle produziert neue Virusbestandteile</li>
+  <li>Neue Viren lagern sich zusammen</li>
+  <li>Viren verlassen Zelle (Zelle stirbt) &rarr; infizieren weitere Zellen</li>
+</ol>
+
+<p><strong>Mutationen:</strong> Bei Verdoppelung des genetischen Materials &rarr; spontane Veraenderungen &rarr; neue Varianten. Rekombination bei Doppelinfektion.</p>
+
+<h3>3 Verteidigungslinien</h3>
+
+<h4>1. Barrieren (physisch/chemisch)</h4>
+<ul>
+  <li>Hornschicht der Haut</li>
+  <li>Schleimhaeute mit Sekreten (Traenen, Speichel: bakterizide Enzyme)</li>
+  <li>Magensaeure</li>
+  <li>Natuerliche Bakterienflora</li>
+  <li>Schweiss, Urin (Spuelung)</li>
+</ul>
+
+<h4>2. Unspezifische Immunabwehr (angeboren, schnell)</h4>
+<ul>
+  <li><strong>Fresszellen</strong> (Granulozyten, Makrophagen): Phagozytose &mdash; umschliessen und verdauen Erreger</li>
+  <li><strong>Natuerliche Killerzellen (NK-Zellen):</strong> erkennen und zerstoeren virusbefallene/entartete Zellen</li>
+  <li>Reagiert auf ALLES Fremde, nicht spezifisch</li>
+</ul>
+
+<h4>3. Spezifische Immunabwehr (erworben, gezielt)</h4>
+<ul>
+  <li>Nur bei Wirbeltieren</li>
+  <li>Traeger: Lymphozyten + Antikoerper</li>
+  <li>Hat <strong>immunologisches Gedaechtnis</strong></li>
+</ul>
+
+<h3>Ablauf spezifische Abwehr (6 Schritte)</h3>
+<ol>
+  <li>a) Makrophagen + spezifische B-Zellen phagozytieren Antigen. b) Beide praesentieren Bruchstuecke den T-Helferzellen.</li>
+  <li>T-Helferzellen aktivieren cytotoxische T-Zellen + B-Zellen; einige werden <em>T-Gedaechtniszellen</em>.</li>
+  <li>Cytotoxische T-Zellen zerstoeren virusbefallene Koerperzellen.</li>
+  <li>B-Zellen vermehren sich &rarr; Plasmazellen; einige werden <em>B-Gedaechtniszellen</em>.</li>
+  <li>Plasmazellen produzieren spezifische Antikoerper.</li>
+  <li>Antikoerper heften sich an Antigen &rarr; Makrophagen phagozytieren den Komplex.</li>
+</ol>
+
+<h3>1. vs. 2. Infektion</h3>
+<table>
+  <thead>
+    <tr><th>Merkmal</th><th>1. Infektion (Primaerreaktion)</th><th>2. Infektion (Sekundaerreaktion)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Geschwindigkeit</td><td>Langsam, dauert Tage</td><td>Sofortige Reaktion durch Gedaechtniszellen</td></tr>
+    <tr><td>Antikoerper</td><td>Weniger, spaeter</td><td>Viel schneller + staerker</td></tr>
+    <tr><td>Symptome</td><td>Krankheitssymptome treten auf</td><td>Erreger beseitigt BEVOR Symptome &rarr; <em>Immunitaet</em></td></tr>
+  </tbody>
+</table>
+
+<h3>Impfung (aktive Immunisierung)</h3>
+<ul>
+  <li>Ungefaehrlicher Erreger/Bestandteil wird injiziert</li>
+  <li>Loest Primaerreaktion aus &rarr; Gedaechtniszellen entstehen</li>
+  <li>Bei spaeterem Kontakt mit echtem Erreger &rarr; sofortige Sekundaerreaktion &rarr; Schutz</li>
+</ul>
+
+<!-- ============================================================ -->
+<!-- BLOCK F -->
+<!-- ============================================================ -->
+<h2 id="block-f">Block F &mdash; Hormone</h2>
+
+<h3>Definition</h3>
+<p>Koerpereigene chemische Botenstoffe, in Druesen/Geweben produziert, ueber Blut transportiert, wirken auf Zielzellen mit passendem Rezeptor (<strong>Schluessel-Schloss-Prinzip</strong>). Bereits kleinste Mengen genuegen. <em>Wirkungsspezifisch, nicht artspezifisch.</em></p>
+
+<p><strong>Hormonsystem vs. Nervensystem:</strong> Hormone wirken langsamer, dafuer laenger andauernd und auf viele Zielzellen gleichzeitig. Verknuepfung ueber Hypothalamus.</p>
+
+<h3>2 Hormonklassen</h3>
+<table>
+  <thead>
+    <tr><th>Eigenschaft</th><th>Peptidhormone</th><th>Steroidhormone</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Aufbau</td><td>Aminosaeuren-Ketten</td><td>Abgeleitet von Cholesterin</td></tr>
+    <tr><td>Loeslichkeit</td><td>Hydrophil (wasserloeslich)</td><td>Lipophil (fettloeslich)</td></tr>
+    <tr><td>Transport</td><td>Frei im Blut</td><td>An Transportproteine gebunden</td></tr>
+    <tr><td>Membran</td><td>Kann NICHT passieren</td><td>Kann passieren</td></tr>
+    <tr><td>Rezeptor-Lage</td><td>Auf der Zellmembran</td><td>Im Cytoplasma</td></tr>
+    <tr><td>Wirkungsweg</td><td>Membranrezeptor &rarr; cAMP (2nd messenger) &rarr; Enzymaktivierung</td><td>Diffusion durch Membran &rarr; Rezeptor im Cytoplasma &rarr; Zellkern &rarr; Genaktivierung</td></tr>
+    <tr><td>Beispiele</td><td>Insulin, Glukagon, Adrenalin</td><td>Oestradiol, Testosteron, Cortisol</td></tr>
+  </tbody>
+</table>
+
+<div class="merkregel">
+  <strong>Merkregel:</strong> &laquo;Fett geht durch (Membran), Wasser bleibt draussen.&raquo;<br>
+  <strong>Anwendung:</strong> Insulin (Peptid) muss gespritzt werden (wuerde im Magen verdaut). Pille (Steroid) kann geschluckt werden.
+</div>
+
+<h3>Hierarchie des Hormonsystems</h3>
+<p>Grosshirn &rarr; <strong>Hypothalamus</strong> (Releasing-/Inhibiting-Hormone) &rarr; <strong>Hypophyse</strong> (Steuerhormone) &rarr; Hormonduese &rarr; Zielzelle</p>
+<p><strong>Negativer Rueckkopplungsmechanismus:</strong> Hormon meldet an Hypothalamus/Hypophyse zurueck &rarr; Hemmung bei hohem Spiegel.</p>
+<p><strong>Ausnahme:</strong> Bauchspeicheldruese steuert sich selbst (ohne Hypothalamus).</p>
+
+<h3>Blutzuckerregulation</h3>
+<ul>
+  <li><strong>Sollwert:</strong> 60&ndash;110 mg Glukose / 100 ml Blut</li>
+  <li><strong>Bauchspeicheldruese (Pankreas):</strong> Langerhans'sche Inseln mit 2 Zelltypen</li>
+</ul>
+
+<h4>Insulin (&beta;-Zellen) &mdash; senkt Blutzucker</h4>
+<ul>
+  <li>Oeffnet Glukosekanaele (Schluessel-Schloss) &rarr; Zellen nehmen Glukose auf</li>
+  <li>Glukose &rarr; Glykogen (Speicherform) in Leber/Muskel</li>
+  <li>Aktiviert Fettsynthese in Leber</li>
+</ul>
+
+<h4>Glukagon (&alpha;-Zellen) &mdash; hebt Blutzucker</h4>
+<ul>
+  <li>Glykogen &rarr; Glukose in Leber/Muskel</li>
+  <li>Aktiviert Glukose-Neubildung</li>
+  <li>Abbau von Fett zu Glukose</li>
+</ul>
+
+<div class="merkregel">
+  <strong>Gegenspielerprinzip (Antagonismus):</strong> Insulin und Glukagon wirken entgegengesetzt auf den Blutzucker &rarr; Schwankungen werden ausgeglichen.
+</div>
+
+<p><strong>Adrenalin</strong> (Nebennieren): Hemmt Insulin, steigert Glukagon, steigert Glukoseaufnahme in Muskeln, steigert Energiegewinnung.</p>
+
+<h3>Diabetes mellitus</h3>
+<table>
+  <thead>
+    <tr><th>Kriterium</th><th>Typ 1</th><th>Typ 2</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Haeufigkeit</td><td>ca. 400'000 (DE)</td><td>Ueber 90% aller Diabetiker</td></tr>
+    <tr><td>Alter</td><td>Meist Kinder/Jugendliche</td><td>Frueher Aeltere, heute auch Juengere</td></tr>
+    <tr><td>Ursache</td><td>Autoimmun: Immunsystem zerstoert &beta;-Zellen &rarr; Insulinmangel</td><td>Insulinresistenz der Zielzellen; Uebergewicht, Ernaehrung, Bewegungsmangel</td></tr>
+    <tr><td>Symptome</td><td>Stark: Durst, Harndrang, Gewichtsverlust</td><td>Schleichend, oft lange unentdeckt</td></tr>
+    <tr><td>Therapie</td><td>Lebenslang Insulin spritzen</td><td>Ernaehrung + Bewegung; Tabletten; spaeter evtl. Insulin</td></tr>
+    <tr><td>Heilbar?</td><td>Nein</td><td>Behandelbar, in Fruehphase reversibel</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Spaetfolgen (beide Typen):</strong> Arteriosklerose, Herzinfarkt, Schlaganfall, Nierenschaeden, Nervenschaeden, Blindheit, diabetischer Fuss.</p>
+
+</body>
+</html>

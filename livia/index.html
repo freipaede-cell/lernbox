@@ -90,6 +90,13 @@ body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg);
 .btn-archive-topic { background: transparent; color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); margin-top: 8px; }
 .due-info { text-align: center; font-size: 14px; color: var(--green); font-weight: 600; }
 
+/* MATERIALS */
+.materials-section { margin-top: 4px; }
+.materials-title { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.btn-material { width: 100%; padding: 14px 16px; border: 1px solid rgba(56,189,248,0.25); border-radius: var(--radius-sm); background: rgba(56,189,248,0.08); color: var(--accent); font-size: 15px; font-weight: 600; cursor: pointer; transition: transform 0.15s, background 0.2s; text-align: left; display: flex; align-items: center; gap: 10px; margin-bottom: 8px; text-decoration: none; }
+.btn-material:active { transform: scale(0.97); background: rgba(56,189,248,0.15); }
+.btn-material-icon { font-size: 18px; flex-shrink: 0; }
+
 /* LEARN VIEW */
 #screen-learn, #screen-exam { justify-content: center; align-items: center; padding: 0 16px; gap: 20px; }
 .flashcard-container { width: 100%; max-width: 400px; aspect-ratio: 3 / 4; max-height: 50vh; perspective: 1200px; cursor: pointer; position: relative; }
@@ -755,8 +762,20 @@ body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg);
     if (favs.length > 0) {
       html += '<button class="btn-action btn-favorites-only" id="btn-start-favorites">Schwierige ueben (' + favs.length + ')</button>';
     }
-    html += '<button class="btn-action btn-archive-topic" id="btn-archive">Als erledigt markieren</button>';
     html += '</div>';
+
+    // Materials section
+    if (info.materials && info.materials.length > 0) {
+      html += '<div class="materials-section"><div class="materials-title">Lernmaterial</div>';
+      info.materials.forEach(mat => {
+        const icon = mat.type === 'wissen' ? '&#128214;' : mat.type === 'pruefung' ? '&#9998;' : '&#128196;';
+        html += '<a class="btn-material" href="../' + mat.file + '" target="_blank" rel="noopener">' +
+          '<span class="btn-material-icon">' + icon + '</span>' + esc(mat.title) + '</a>';
+      });
+      html += '</div>';
+    }
+
+    html += '<button class="btn-action btn-archive-topic" id="btn-archive" style="margin-top:12px;">Als erledigt markieren</button>';
 
     topicContent.innerHTML = html;
 
