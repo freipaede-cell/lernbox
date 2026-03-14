@@ -3,10 +3,11 @@
     {
       "id": "bio-herz-kreislauf-2026",
       "file": "sets/bio-herz-kreislauf-2026.json",
-      "title": "Biologie — Herz-Kreislauf & Hormone",
+      "title": "Herz-Kreislauf & Hormone",
       "subject": "Biologie",
       "cardCount": 30,
-      "profiles": ["yannick"]
+      "profiles": ["yannick"],
+      "examDate": ""
     }
   ]
 }

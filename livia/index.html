@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Livia Lernbox</title>
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Livia Lernbox">
+<link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
+<meta name="theme-color" content="#0f172a">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0f172a; --card: #1e293b; --card-hover: #263549;
+  --text: #e2e8f0; --text-muted: #94a3b8; --accent: #38bdf8;
+  --green: #4ade80; --red: #f87171; --yellow: #fbbf24; --pink: #f472b6;
+  --radius: 16px; --radius-sm: 10px; --shadow: 0 4px 24px rgba(0,0,0,0.3);
+  --safe-top: env(safe-area-inset-top, 0px); --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+html, body { height: 100%; overflow: hidden; }
+body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none; }
+.app { height: 100%; display: flex; flex-direction: column; padding-top: var(--safe-top); padding-bottom: var(--safe-bottom); }
+
+/* HEADER */
+.header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; min-height: 56px; flex-shrink: 0; }
+.header-left { display: flex; align-items: center; gap: 10px; }
+.header-logo { font-size: 20px; font-weight: 700; color: var(--accent); letter-spacing: -0.5px; }
+.header-right { display: flex; align-items: center; gap: 8px; }
+.btn-icon { width: 40px; height: 40px; border-radius: 50%; border: none; background: rgba(255,255,255,0.08); color: var(--text); font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
+.btn-icon:active { background: rgba(255,255,255,0.15); }
+.header-back { font-size: 22px; }
+.header-progress { font-size: 14px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.header-subtitle { font-size: 14px; color: var(--text-muted); }
+
+/* SCREENS */
+.screen { display: none; flex: 1; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 0 16px 24px; }
+.screen.active { display: flex; flex-direction: column; }
+.screen.no-scroll { overflow: hidden; }
+
+/* COCKPIT */
+#screen-cockpit { gap: 8px; padding-top: 8px; }
+.streak-bar { text-align: center; padding: 10px; font-weight: 700; font-size: 15px; color: var(--yellow); }
+.due-bar { text-align: center; padding: 6px; font-size: 14px; color: var(--green); margin-bottom: 8px; }
+.due-bar.done { color: var(--green); }
+.subject-tile { background: var(--card); border-radius: var(--radius); padding: 16px; cursor: pointer; transition: transform 0.2s, background 0.2s; box-shadow: var(--shadow); display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.subject-tile:active { transform: scale(0.98); background: var(--card-hover); }
+.subject-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.subject-info { flex: 1; }
+.subject-name { font-size: 16px; font-weight: 600; }
+.subject-meta { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+.subject-arrow { color: var(--text-muted); font-size: 20px; }
+
+/* SUBJECT VIEW */
+#screen-subject { gap: 8px; padding-top: 8px; }
+.topic-card { background: var(--card); border-radius: var(--radius); padding: 16px; margin-bottom: 8px; cursor: pointer; transition: transform 0.2s; box-shadow: var(--shadow); }
+.topic-card:active { transform: scale(0.98); }
+.topic-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.topic-meta { font-size: 13px; color: var(--text-muted); }
+.topic-exam { font-size: 12px; color: var(--yellow); margin-top: 4px; font-weight: 600; }
+.topic-bar { height: 5px; background: rgba(255,255,255,0.08); border-radius: 3px; margin-top: 10px; overflow: hidden; }
+.topic-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--red), var(--yellow), var(--green)); transition: width 0.5s; }
+.topic-progress-text { font-size: 12px; color: var(--text-muted); margin-top: 4px; text-align: right; }
+.archive-section { margin-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px; }
+.archive-toggle { font-size: 14px; color: var(--text-muted); cursor: pointer; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.archive-toggle:active { color: var(--text); }
+.archive-list { margin-top: 8px; }
+.archive-item { font-size: 13px; color: #64748b; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; justify-content: space-between; align-items: center; }
+.archive-item:last-child { border-bottom: none; }
+.archive-restore { font-size: 12px; color: var(--accent); cursor: pointer; padding: 4px 8px; }
+.empty-subject { text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 15px; }
+
+/* TOPIC DETAIL */
+#screen-topic { gap: 12px; padding-top: 8px; }
+.topic-detail-header { text-align: center; padding: 16px 0; }
+.topic-detail-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.topic-detail-subject { font-size: 14px; color: var(--text-muted); }
+.exam-date-row { background: var(--card); border-radius: var(--radius-sm); padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; }
+.exam-date-label { font-size: 14px; color: var(--text-muted); }
+.exam-date-value { font-size: 14px; font-weight: 600; color: var(--yellow); cursor: pointer; }
+.exam-date-input { background: transparent; border: 1px solid var(--accent); border-radius: 6px; padding: 4px 8px; color: var(--text); font-size: 14px; font-family: inherit; }
+.topic-actions { display: flex; flex-direction: column; gap: 10px; }
+.btn-action { width: 100%; padding: 15px; border: none; border-radius: var(--radius-sm); font-size: 15px; font-weight: 600; cursor: pointer; transition: transform 0.15s; text-align: center; }
+.btn-action:active { transform: scale(0.97); }
+.btn-learn { background: var(--accent); color: var(--bg); }
+.btn-exam { background: rgba(251,191,36,0.15); color: var(--yellow); border: 1px solid rgba(251,191,36,0.3); }
+.btn-reverse { background: rgba(74,222,128,0.15); color: var(--green); border: 1px solid rgba(74,222,128,0.3); }
+.btn-favorites-only { background: rgba(244,114,182,0.15); color: var(--pink); border: 1px solid rgba(244,114,182,0.3); }
+.btn-archive-topic { background: transparent; color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); margin-top: 8px; }
+.due-info { text-align: center; font-size: 14px; color: var(--green); font-weight: 600; }
+
+/* LEARN VIEW */
+#screen-learn, #screen-exam { justify-content: center; align-items: center; padding: 0 16px; gap: 20px; }
+.flashcard-container { width: 100%; max-width: 400px; aspect-ratio: 3 / 4; max-height: 50vh; perspective: 1200px; cursor: pointer; position: relative; }
+.flashcard { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.5s cubic-bezier(0.4,0.0,0.2,1); }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: var(--radius); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 28px; text-align: center; box-shadow: var(--shadow); overflow-y: auto; }
+.flashcard-front { background: var(--card); border: 1px solid rgba(255,255,255,0.08); }
+.flashcard-back { background: linear-gradient(135deg, #1e3a5f, #1e293b); border: 1px solid rgba(56,189,248,0.2); transform: rotateY(180deg); }
+.flashcard-label { position: absolute; top: 16px; left: 0; right: 0; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); text-align: center; }
+.flashcard-text { font-size: 18px; line-height: 1.5; word-break: break-word; }
+.flashcard-front .flashcard-text { font-weight: 600; font-size: 20px; }
+.flashcard-img { max-width: 90%; max-height: 40%; border-radius: 8px; margin: 8px 0; object-fit: contain; }
+.flashcard-box-indicator { position: absolute; bottom: 16px; font-size: 11px; color: var(--text-muted); }
+.btn-favorite { position: absolute; top: 12px; right: 12px; background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-muted); z-index: 5; padding: 4px; }
+.btn-favorite.active { color: var(--pink); }
+.answer-buttons { display: flex; gap: 16px; width: 100%; max-width: 400px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.answer-buttons.visible { opacity: 1; pointer-events: auto; }
+.btn-answer { flex: 1; padding: 16px; border: none; border-radius: var(--radius-sm); font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.15s; min-height: 54px; color: #fff; }
+.btn-answer:active { transform: scale(0.95); }
+.btn-nochmal { background: var(--red); }
+.btn-gewusst { background: var(--green); color: var(--bg); }
+.flashcard-slide-left { animation: slideLeft 0.3s ease forwards; }
+.flashcard-slide-right { animation: slideRight 0.3s ease forwards; }
+@keyframes slideLeft { to { transform: translateX(-120%) rotate(-8deg); opacity: 0; } }
+@keyframes slideRight { to { transform: translateX(120%) rotate(8deg); opacity: 0; } }
+.flashcard-enter { animation: cardEnter 0.3s ease forwards; }
+@keyframes cardEnter { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* SESSION SUMMARY */
+.session-summary { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 20px; width: 100%; max-width: 400px; }
+.summary-title { font-size: 24px; font-weight: 700; }
+.summary-stats { display: flex; gap: 24px; }
+.summary-stat { text-align: center; }
+.summary-stat-value { font-size: 36px; font-weight: 700; }
+.summary-stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+.btn-primary { width: 100%; max-width: 400px; padding: 16px; border: none; border-radius: var(--radius-sm); font-size: 16px; font-weight: 600; cursor: pointer; background: var(--accent); color: var(--bg); transition: transform 0.15s; }
+.btn-primary:active { transform: scale(0.97); }
+
+/* STATS */
+#screen-stats { gap: 20px; padding-top: 8px; }
+.stats-chart-container { display: flex; justify-content: center; padding: 16px 0; }
+.stats-chart { position: relative; width: 180px; height: 180px; }
+.stats-chart svg { transform: rotate(-90deg); }
+.stats-chart-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.stats-chart-percent { font-size: 28px; font-weight: 700; }
+.stats-chart-label { font-size: 12px; color: var(--text-muted); }
+.stats-legend { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.stats-legend-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); }
+.stats-legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+.stats-table { width: 100%; background: var(--card); border-radius: var(--radius); overflow: hidden; }
+.stats-table-header { display: grid; grid-template-columns: 1fr 60px 70px; padding: 12px 16px; font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.stats-table-row { display: grid; grid-template-columns: 1fr 60px 70px; padding: 12px 16px; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.04); align-items: center; }
+.stats-table-row:last-child { border-bottom: none; }
+.stats-table-question { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding-right: 8px; }
+.stats-table-box { text-align: center; font-weight: 600; font-size: 13px; }
+.stats-table-status { text-align: center; font-size: 12px; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+.status-new { background: rgba(148,163,184,0.15); color: #94a3b8; }
+.status-learning { background: rgba(251,191,36,0.15); color: var(--yellow); }
+.status-mastered { background: rgba(74,222,128,0.15); color: var(--green); }
+.btn-danger { width: 100%; padding: 14px; border: 2px solid var(--red); border-radius: var(--radius-sm); background: transparent; color: var(--red); font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 8px; transition: background 0.2s; }
+.btn-danger:active { background: rgba(248,113,113,0.15); }
+
+/* SETTINGS */
+#screen-settings { gap: 12px; padding-top: 8px; }
+.settings-section { background: var(--card); border-radius: var(--radius); padding: 16px; }
+.settings-title { font-size: 14px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+.btn-settings { width: 100%; padding: 14px; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm); background: transparent; color: var(--text); font-size: 15px; font-weight: 600; cursor: pointer; margin-bottom: 8px; text-align: center; }
+.btn-settings:active { background: rgba(255,255,255,0.05); }
+
+/* CONFIRM DIALOG */
+.dialog-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 100; align-items: center; justify-content: center; padding: 24px; }
+.dialog-overlay.visible { display: flex; }
+.dialog-box { background: var(--card); border-radius: var(--radius); padding: 28px 24px; max-width: 320px; width: 100%; text-align: center; box-shadow: 0 8px 40px rgba(0,0,0,0.5); }
+.dialog-title { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.dialog-text { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; }
+.dialog-buttons { display: flex; gap: 12px; }
+.dialog-btn { flex: 1; padding: 12px; border: none; border-radius: var(--radius-sm); font-size: 15px; font-weight: 600; cursor: pointer; }
+.dialog-btn-cancel { background: rgba(255,255,255,0.08); color: var(--text); }
+.dialog-btn-confirm { background: var(--red); color: #fff; }
+
+/* CONFETTI */
+.confetti-canvas { position: fixed; inset: 0; z-index: 200; pointer-events: none; }
+
+/* LOADING */
+.loading { display: flex; align-items: center; justify-content: center; padding: 60px; color: var(--text-muted); font-size: 15px; }
+.spinner { width: 24px; height: 24px; border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 12px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* EXAM BADGE */
+.exam-mode-badge { font-size: 12px; font-weight: 600; color: var(--yellow); background: rgba(251,191,36,0.15); padding: 4px 10px; border-radius: 20px; }
+.reverse-badge { font-size: 12px; font-weight: 600; color: var(--green); background: rgba(74,222,128,0.15); padding: 4px 10px; border-radius: 20px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header" id="app-header">
+    <div class="header-left">
+      <button class="btn-icon header-back" id="btn-back" style="display:none;" aria-label="Zurueck">&#8249;</button>
+      <span class="header-logo" id="header-logo">Lernbox</span>
+      <span class="header-subtitle" id="header-subtitle"></span>
+    </div>
+    <div class="header-right">
+      <span class="header-progress" id="header-progress"></span>
+      <span id="header-badge"></span>
+      <button class="btn-icon" id="btn-stats" style="display:none;" aria-label="Statistik">&#9432;</button>
+      <button class="btn-icon" id="btn-settings" aria-label="Einstellungen">&#9881;</button>
+    </div>
+  </header>
+
+  <!-- COCKPIT -->
+  <div class="screen active" id="screen-cockpit">
+    <div class="streak-bar" id="streak-bar"></div>
+    <div class="due-bar" id="due-bar"></div>
+    <div id="cockpit-content"></div>
+  </div>
+
+  <!-- SUBJECT -->
+  <div class="screen" id="screen-subject">
+    <div id="subject-content"></div>
+  </div>
+
+  <!-- TOPIC DETAIL -->
+  <div class="screen" id="screen-topic">
+    <div id="topic-content"></div>
+  </div>
+
+  <!-- LEARN -->
+  <div class="screen no-scroll" id="screen-learn">
+    <div class="flashcard-container" id="flashcard-container">
+      <div class="flashcard" id="flashcard">
+        <div class="flashcard-face flashcard-front">
+          <span class="flashcard-label">Frage</span>
+          <button class="btn-favorite" id="btn-favorite">&#9734;</button>
+          <img class="flashcard-img" id="flashcard-img-front" style="display:none;">
+          <div class="flashcard-text" id="flashcard-question"></div>
+          <span class="flashcard-box-indicator" id="flashcard-box-front"></span>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <span class="flashcard-label">Antwort</span>
+          <img class="flashcard-img" id="flashcard-img-back" style="display:none;">
+          <div class="flashcard-text" id="flashcard-answer"></div>
+          <span class="flashcard-box-indicator" id="flashcard-box-back"></span>
+        </div>
+      </div>
+    </div>
+    <div class="answer-buttons" id="answer-buttons">
+      <button class="btn-answer btn-nochmal" id="btn-nochmal">Nochmal</button>
+      <button class="btn-answer btn-gewusst" id="btn-gewusst">Gewusst!</button>
+    </div>
+    <div class="session-summary" id="session-summary" style="display:none;">
+      <div class="summary-title" id="summary-title">Session fertig!</div>
+      <div class="summary-stats">
+        <div class="summary-stat"><div class="summary-stat-value" id="summary-correct" style="color:var(--green)">0</div><div class="summary-stat-label">Gewusst</div></div>
+        <div class="summary-stat"><div class="summary-stat-value" id="summary-wrong" style="color:var(--red)">0</div><div class="summary-stat-label">Nochmal</div></div>
+        <div class="summary-stat"><div class="summary-stat-value" id="summary-total" style="color:var(--text-muted)">0</div><div class="summary-stat-label">Total</div></div>
+      </div>
+      <div id="summary-score" style="display:none; font-size:20px; font-weight:700; color:var(--yellow);"></div>
+      <button class="btn-primary" id="btn-back-from-learn">Zurueck</button>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="screen" id="screen-stats">
+    <div class="stats-chart-container"><div class="stats-chart"><svg viewBox="0 0 180 180" width="180" height="180" id="stats-svg"></svg><div class="stats-chart-center"><span class="stats-chart-percent" id="stats-percent">0%</span><span class="stats-chart-label">gemeistert</span></div></div></div>
+    <div class="stats-legend" id="stats-legend"></div>
+    <div class="stats-table" id="stats-table"></div>
+    <button class="btn-danger" id="btn-reset-progress">Fortschritt zuruecksetzen</button>
+  </div>
+
+  <!-- SETTINGS -->
+  <div class="screen" id="screen-settings">
+    <div class="settings-section">
+      <div class="settings-title">Daten</div>
+      <button class="btn-settings" id="btn-export">Fortschritt exportieren</button>
+      <button class="btn-settings" id="btn-import">Fortschritt importieren</button>
+      <input type="file" id="import-file" accept=".json" style="display:none;">
+    </div>
+    <div class="settings-section" style="margin-top:12px;">
+      <div class="settings-title">Info</div>
+      <p style="font-size:13px; color:var(--text-muted);">Lernbox v2.0 — Livia</p>
+    </div>
+  </div>
+
+  <!-- DIALOG -->
+  <div class="dialog-overlay" id="dialog-overlay">
+    <div class="dialog-box">
+      <div class="dialog-title" id="dialog-title">Bist du sicher?</div>
+      <div class="dialog-text" id="dialog-text"></div>
+      <div class="dialog-buttons">
+        <button class="dialog-btn dialog-btn-cancel" id="dialog-cancel">Abbrechen</button>
+        <button class="dialog-btn dialog-btn-confirm" id="dialog-confirm">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ===== CONFIG =====
+  const PROFILE = 'livia';
+  const PROFILE_COLOR = '#f472b6';
+  const SUBJECTS = [
+    { name: 'Deutsch', color: '#fb923c' },
+    { name: 'Englisch', color: '#2dd4bf' },
+    { name: 'Franzoesisch', color: '#22d3ee' },
+    { name: 'Mathematik', color: '#f87171' },
+    { name: 'RZG', color: '#fbbf24' }
+  ];
+  const SESSION_SIZE = 15;
+  const SETS_INDEX_URL = '../sets/index.json';
+  const LEITNER_INTERVALS = { 1: 1, 2: 2, 3: 4, 4: 8, 5: 16 };
+
+  // ===== STATE =====
+  let setsIndex = [];
+  let setsCache = {};
+  let currentSubject = null;
+  let currentSetId = null;
+  let currentSetData = null;
+  let sessionCards = [];
+  let sessionIndex = 0;
+  let sessionCorrect = 0;
+  let sessionWrong = 0;
+  let isFlipped = false;
+  let isAnimating = false;
+  let isExamMode = false;
+  let isReverseMode = false;
+  let dialogCallback = null;
+
+  // ===== DOM =====
+  const $ = id => document.getElementById(id);
+  const header = $('app-header');
+  const btnBack = $('btn-back');
+  const btnStats = $('btn-stats');
+  const btnSettings = $('btn-settings');
+  const headerLogo = $('header-logo');
+  const headerSubtitle = $('header-subtitle');
+  const headerProgress = $('header-progress');
+  const headerBadge = $('header-badge');
+
+  const screenCockpit = $('screen-cockpit');
+  const screenSubject = $('screen-subject');
+  const screenTopic = $('screen-topic');
+  const screenLearn = $('screen-learn');
+  const screenStats = $('screen-stats');
+  const screenSettings = $('screen-settings');
+
+  const streakBar = $('streak-bar');
+  const dueBar = $('due-bar');
+  const cockpitContent = $('cockpit-content');
+  const subjectContent = $('subject-content');
+  const topicContent = $('topic-content');
+
+  const flashcardContainer = $('flashcard-container');
+  const flashcard = $('flashcard');
+  const flashcardQuestion = $('flashcard-question');
+  const flashcardAnswer = $('flashcard-answer');
+  const flashcardBoxFront = $('flashcard-box-front');
+  const flashcardBoxBack = $('flashcard-box-back');
+  const flashcardImgFront = $('flashcard-img-front');
+  const flashcardImgBack = $('flashcard-img-back');
+  const btnFavorite = $('btn-favorite');
+  const answerButtons = $('answer-buttons');
+
+  const sessionSummary = $('session-summary');
+  const summaryTitle = $('summary-title');
+  const summaryCorrect = $('summary-correct');
+  const summaryWrong = $('summary-wrong');
+  const summaryTotal = $('summary-total');
+  const summaryScore = $('summary-score');
+
+  const dialogOverlay = $('dialog-overlay');
+  const dialogTitle = $('dialog-title');
+  const dialogText = $('dialog-text');
+  const dialogCancel = $('dialog-cancel');
+  const dialogConfirm = $('dialog-confirm');
+
+  const allScreens = [screenCockpit, screenSubject, screenTopic, screenLearn, screenStats, screenSettings];
+
+  // ===== NAVIGATION =====
+  let navStack = [];
+
+  function showScreen(name) {
+    navStack.push(name);
+    activateScreen(name);
+  }
+
+  function activateScreen(name) {
+    allScreens.forEach(s => s.classList.remove('active'));
+
+    const showBack = name !== 'cockpit';
+    btnBack.style.display = showBack ? 'block' : 'none';
+    btnStats.style.display = name === 'learn' ? 'block' : 'none';
+    btnSettings.style.display = name === 'cockpit' ? 'block' : 'none';
+    headerProgress.textContent = '';
+    headerBadge.innerHTML = '';
+    headerSubtitle.textContent = '';
+
+    if (name === 'cockpit') {
+      headerLogo.textContent = 'Lernbox';
+    } else if (name === 'subject') {
+      headerLogo.textContent = currentSubject || '';
+      headerSubtitle.textContent = '';
+    } else if (name === 'topic') {
+      const info = setsIndex.find(s => s.id === currentSetId);
+      headerLogo.textContent = info ? info.title : '';
+    } else if (name === 'learn') {
+      headerLogo.textContent = 'Lernen';
+      if (isExamMode) headerBadge.innerHTML = '<span class="exam-mode-badge">Pruefung</span>';
+      if (isReverseMode) headerBadge.innerHTML = '<span class="reverse-badge">Umgekehrt</span>';
+    } else if (name === 'stats') {
+      headerLogo.textContent = 'Statistik';
+    } else if (name === 'settings') {
+      headerLogo.textContent = 'Einstellungen';
+    }
+
+    switch (name) {
+      case 'cockpit': screenCockpit.classList.add('active'); break;
+      case 'subject': screenSubject.classList.add('active'); break;
+      case 'topic': screenTopic.classList.add('active'); break;
+      case 'learn': screenLearn.classList.add('active'); break;
+      case 'stats': screenStats.classList.add('active'); break;
+      case 'settings': screenSettings.classList.add('active'); break;
+    }
+  }
+
+  function goBack() {
+    if (navStack.length > 1) {
+      navStack.pop();
+      const prev = navStack[navStack.length - 1];
+      activateScreen(prev);
+      if (prev === 'cockpit') renderCockpit();
+      if (prev === 'subject') renderSubject(currentSubject);
+      if (prev === 'topic') renderTopicDetail(currentSetId);
+    }
+  }
+
+  // ===== HELPERS =====
+  function esc(str) { const d = document.createElement('div'); d.textContent = str; return d.innerHTML; }
+  function formatText(str) { return esc(str).replace(/\\n/g, '<br>').replace(/\n/g, '<br>'); }
+  function todayStr() { return new Date().toISOString().split('T')[0]; }
+  function daysBetween(d1, d2) { return Math.ceil((new Date(d2) - new Date(d1)) / 86400000); }
+
+  // ===== LOCALSTORAGE =====
+  function lsKey(suffix) { return 'lernbox_' + PROFILE + '_' + suffix; }
+  function lsGet(key) { try { return JSON.parse(localStorage.getItem(key)); } catch { return null; } }
+  function lsSet(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
+
+  function loadProgress(setId) { return lsGet(lsKey(setId)); }
+  function saveProgress(setId, data) { lsSet(lsKey(setId), data); }
+  function resetProgress(setId) { localStorage.removeItem(lsKey(setId)); }
+
+  function getCardProgress(setId, cardIndex) {
+    const prog = loadProgress(setId);
+    if (!prog || !prog.cards || !prog.cards[cardIndex]) return { box: 1, lastSeen: 0, correctCount: 0 };
+    return prog.cards[cardIndex];
+  }
+
+  function setCardProgress(setId, cardIndex, cardProg) {
+    let prog = loadProgress(setId) || { cards: {} };
+    if (!prog.cards) prog.cards = {};
+    prog.cards[cardIndex] = cardProg;
+    saveProgress(setId, prog);
+  }
+
+  // ===== STREAK =====
+  function getStreak() { return lsGet(lsKey('streak')) || { current: 0, best: 0, lastDate: '' }; }
+  function saveStreak(s) { lsSet(lsKey('streak'), s); }
+
+  function updateStreak() {
+    const s = getStreak();
+    const today = todayStr();
+    if (s.lastDate === today) return s;
+    const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+    const yStr = yesterday.toISOString().split('T')[0];
+    if (s.lastDate === yStr) {
+      s.current++;
+    } else if (s.lastDate !== today) {
+      s.current = 1;
+    }
+    s.lastDate = today;
+    s.best = Math.max(s.best, s.current);
+    saveStreak(s);
+    return s;
+  }
+
+  function renderStreak() {
+    const s = getStreak();
+    if (s.current > 0) {
+      streakBar.innerHTML = '&#128293; ' + s.current + ' Tag' + (s.current > 1 ? 'e' : '') + ' in Folge';
+    } else {
+      streakBar.innerHTML = 'Starte deine Lernserie!';
+      streakBar.style.color = 'var(--text-muted)';
+    }
+  }
+
+  // ===== DUE CARDS =====
+  function isCardDue(setId, cardIndex) {
+    const prog = getCardProgress(setId, cardIndex);
+    if (prog.box >= 5 && prog.correctCount >= 2) return false;
+    if (!prog.lastSeen) return true;
+    const interval = LEITNER_INTERVALS[prog.box] || 1;
+    const lastDate = new Date(prog.lastSeen);
+    const dueDate = new Date(lastDate.getTime() + interval * 86400000);
+    return new Date() >= dueDate;
+  }
+
+  function countDueCards(setId, cardCount) {
+    let due = 0;
+    for (let i = 0; i < cardCount; i++) {
+      if (isCardDue(setId, i)) due++;
+    }
+    return due;
+  }
+
+  function getTotalDue() {
+    let total = 0;
+    const archived = getArchived();
+    const profileSets = getProfileSets();
+    profileSets.forEach(set => {
+      if (!archived.includes(set.id)) {
+        total += countDueCards(set.id, set.cardCount);
+      }
+    });
+    return total;
+  }
+
+  function renderDueBar() {
+    const due = getTotalDue();
+    if (due > 0) {
+      dueBar.textContent = 'Heute ' + due + ' Karte' + (due > 1 ? 'n' : '') + ' faellig';
+      dueBar.style.color = 'var(--green)';
+    } else {
+      dueBar.textContent = 'Alles erledigt!';
+      dueBar.classList.add('done');
+    }
+  }
+
+  // ===== ARCHIVE =====
+  function getArchived() { return lsGet(lsKey('archived')) || []; }
+  function saveArchived(list) { lsSet(lsKey('archived'), list); }
+  function archiveSet(setId) { const a = getArchived(); if (!a.includes(setId)) { a.push(setId); saveArchived(a); } }
+  function unarchiveSet(setId) { const a = getArchived().filter(id => id !== setId); saveArchived(a); }
+
+  // ===== EXAM DATES =====
+  function getExamDates() { return lsGet(lsKey('examDates')) || {}; }
+  function setExamDate(setId, date) { const d = getExamDates(); d[setId] = date; lsSet(lsKey('examDates'), d); }
+  function getExamDate(setId) {
+    const custom = getExamDates()[setId];
+    if (custom) return custom;
+    const info = setsIndex.find(s => s.id === setId);
+    return info ? info.examDate || '' : '';
+  }
+
+  // ===== FAVORITES =====
+  function getFavorites(setId) { return lsGet(lsKey('fav_' + setId)) || []; }
+  function saveFavorites(setId, list) { lsSet(lsKey('fav_' + setId), list); }
+  function toggleFavorite(setId, cardIndex) {
+    const favs = getFavorites(setId);
+    const idx = favs.indexOf(cardIndex);
+    if (idx >= 0) favs.splice(idx, 1); else favs.push(cardIndex);
+    saveFavorites(setId, favs);
+    return favs.includes(cardIndex);
+  }
+
+  // ===== SETS =====
+  function getProfileSets() {
+    return setsIndex.filter(set => {
+      if (!set.profiles || !set.profiles.length) return true;
+      return set.profiles.some(p => p.toLowerCase() === PROFILE);
+    });
+  }
+
+  function getSubjectSets(subjectName) {
+    return getProfileSets().filter(s => s.subject === subjectName);
+  }
+
+  async function loadSetsIndex() {
+    try {
+      const resp = await fetch(SETS_INDEX_URL);
+      const data = await resp.json();
+      setsIndex = data.sets || [];
+    } catch (e) {
+      setsIndex = [];
+    }
+  }
+
+  async function loadSetData(setInfo) {
+    if (setsCache[setInfo.id]) return setsCache[setInfo.id];
+    try {
+      const resp = await fetch('../' + setInfo.file);
+      const data = await resp.json();
+      setsCache[setInfo.id] = data;
+      return data;
+    } catch (e) { return null; }
+  }
+
+  // ===== SET STATS =====
+  function getSetStats(setId, cardCount) {
+    const prog = loadProgress(setId);
+    if (!prog || !prog.cards) return { mastered: 0, learning: 0, newCards: cardCount, percent: 0 };
+    let mastered = 0, learning = 0;
+    for (let i = 0; i < cardCount; i++) {
+      const c = prog.cards[i];
+      if (c) { if (c.box >= 4) mastered++; else if (c.box > 1) learning++; }
+    }
+    return { mastered, learning, newCards: cardCount - mastered - learning, percent: cardCount > 0 ? Math.round((mastered / cardCount) * 100) : 0 };
+  }
+
+  // ===== COCKPIT =====
+  function renderCockpit() {
+    renderStreak();
+    renderDueBar();
+
+    const archived = getArchived();
+    let html = '';
+    SUBJECTS.forEach(sub => {
+      const sets = getSubjectSets(sub.name);
+      const activeSets = sets.filter(s => !archived.includes(s.id));
+      const totalCards = activeSets.reduce((sum, s) => sum + s.cardCount, 0);
+      const topicCount = activeSets.length;
+      const meta = topicCount > 0
+        ? topicCount + ' Thema' + (topicCount > 1 ? 'en' : '') + ' · ' + totalCards + ' Karten'
+        : 'Noch keine Themen';
+
+      html += '<div class="subject-tile" data-subject="' + esc(sub.name) + '">' +
+        '<div class="subject-icon" style="background:' + sub.color + '">' + sub.name[0] + '</div>' +
+        '<div class="subject-info"><div class="subject-name">' + esc(sub.name) + '</div>' +
+        '<div class="subject-meta">' + meta + '</div></div>' +
+        '<div class="subject-arrow">&#8250;</div></div>';
+    });
+    cockpitContent.innerHTML = html;
+
+    cockpitContent.querySelectorAll('.subject-tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        currentSubject = tile.dataset.subject;
+        renderSubject(currentSubject);
+        showScreen('subject');
+      });
+    });
+  }
+
+  // ===== SUBJECT VIEW =====
+  function renderSubject(subjectName) {
+    const sets = getSubjectSets(subjectName);
+    const archived = getArchived();
+    const activeSets = sets.filter(s => !archived.includes(s.id));
+    const archivedSets = sets.filter(s => archived.includes(s.id));
+
+    let html = '';
+    if (!activeSets.length && !archivedSets.length) {
+      html = '<div class="empty-subject">Noch keine Themen in diesem Fach.<br>Papa erstellt neue Lernkarten mit Claude.</div>';
+    } else {
+      activeSets.forEach(set => {
+        const stats = getSetStats(set.id, set.cardCount);
+        const due = countDueCards(set.id, set.cardCount);
+        const examDate = getExamDate(set.id);
+        let examHtml = '';
+        if (examDate) {
+          const days = daysBetween(todayStr(), examDate);
+          if (days > 0) examHtml = '<div class="topic-exam">Pruefung in ' + days + ' Tag' + (days > 1 ? 'en' : '') + ' (' + formatDate(examDate) + ')</div>';
+          else if (days === 0) examHtml = '<div class="topic-exam" style="color:var(--red);">Pruefung HEUTE!</div>';
+          else examHtml = '<div class="topic-exam" style="color:var(--text-muted);">Pruefung war am ' + formatDate(examDate) + '</div>';
+        }
+        html += '<div class="topic-card" data-set-id="' + set.id + '">' +
+          '<div class="topic-title">' + esc(set.title) + '</div>' +
+          '<div class="topic-meta">' + set.cardCount + ' Karten · ' + due + ' faellig</div>' +
+          examHtml +
+          '<div class="topic-bar"><div class="topic-bar-fill" style="width:' + stats.percent + '%"></div></div>' +
+          '<div class="topic-progress-text">' + stats.percent + '% gemeistert</div></div>';
+      });
+
+      if (archivedSets.length) {
+        html += '<div class="archive-section"><div class="archive-toggle" id="archive-toggle">&#9660; Archiv (' + archivedSets.length + ')</div>' +
+          '<div class="archive-list" id="archive-list" style="display:none;">';
+        archivedSets.forEach(set => {
+          html += '<div class="archive-item"><span>' + esc(set.title) + '</span><span class="archive-restore" data-set-id="' + set.id + '">Wiederherstellen</span></div>';
+        });
+        html += '</div></div>';
+      }
+    }
+
+    subjectContent.innerHTML = html;
+
+    subjectContent.querySelectorAll('.topic-card').forEach(card => {
+      card.addEventListener('click', () => {
+        currentSetId = card.dataset.setId;
+        renderTopicDetail(currentSetId);
+        showScreen('topic');
+      });
+    });
+
+    const toggleBtn = document.getElementById('archive-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        const list = document.getElementById('archive-list');
+        if (list.style.display === 'none') {
+          list.style.display = 'block';
+          toggleBtn.innerHTML = '&#9650; Archiv (' + archivedSets.length + ')';
+        } else {
+          list.style.display = 'none';
+          toggleBtn.innerHTML = '&#9660; Archiv (' + archivedSets.length + ')';
+        }
+      });
+    }
+
+    subjectContent.querySelectorAll('.archive-restore').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        unarchiveSet(btn.dataset.setId);
+        renderSubject(subjectName);
+      });
+    });
+  }
+
+  function formatDate(dateStr) {
+    const d = new Date(dateStr);
+    return d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear();
+  }
+
+  // ===== TOPIC DETAIL =====
+  function renderTopicDetail(setId) {
+    const info = setsIndex.find(s => s.id === setId);
+    if (!info) return;
+
+    const stats = getSetStats(setId, info.cardCount);
+    const due = countDueCards(setId, info.cardCount);
+    const examDate = getExamDate(setId);
+    const favs = getFavorites(setId);
+
+    let html = '<div class="topic-detail-header">' +
+      '<div class="topic-detail-title">' + esc(info.title) + '</div>' +
+      '<div class="topic-detail-subject">' + esc(info.subject) + ' · ' + info.cardCount + ' Karten</div></div>';
+
+    // Exam date
+    html += '<div class="exam-date-row"><span class="exam-date-label">Pruefungsdatum</span>';
+    if (examDate) {
+      html += '<span class="exam-date-value" id="exam-date-display">' + formatDate(examDate) + '</span>';
+    } else {
+      html += '<span class="exam-date-value" id="exam-date-display" style="color:var(--text-muted);">Eintragen</span>';
+    }
+    html += '<input type="date" class="exam-date-input" id="exam-date-input" value="' + (examDate || '') + '" style="display:none;"></div>';
+
+    // Due info
+    if (due > 0) {
+      html += '<div class="due-info">' + due + ' Karte' + (due > 1 ? 'n' : '') + ' faellig</div>';
+    } else {
+      html += '<div class="due-info" style="color:var(--text-muted);">Keine Karten faellig</div>';
+    }
+
+    // Stats mini
+    html += '<div style="display:flex; justify-content:center; gap:20px; padding:8px 0;">' +
+      '<div style="text-align:center;"><div style="font-size:24px; font-weight:700; color:var(--green);">' + stats.percent + '%</div><div style="font-size:12px; color:var(--text-muted);">Gemeistert</div></div>' +
+      '<div style="text-align:center;"><div style="font-size:24px; font-weight:700; color:var(--yellow);">' + stats.learning + '</div><div style="font-size:12px; color:var(--text-muted);">Lernt</div></div>' +
+      '<div style="text-align:center;"><div style="font-size:24px; font-weight:700; color:var(--text-muted);">' + stats.newCards + '</div><div style="font-size:12px; color:var(--text-muted);">Neu</div></div></div>';
+
+    // Action buttons
+    html += '<div class="topic-actions">';
+    html += '<button class="btn-action btn-learn" id="btn-start-learn">Lernen' + (due > 0 ? ' (' + due + ' faellig)' : '') + '</button>';
+    html += '<button class="btn-action btn-exam" id="btn-start-exam">Pruefung simulieren</button>';
+    html += '<button class="btn-action btn-reverse" id="btn-start-reverse">Umgekehrt lernen</button>';
+    if (favs.length > 0) {
+      html += '<button class="btn-action btn-favorites-only" id="btn-start-favorites">Schwierige ueben (' + favs.length + ')</button>';
+    }
+    html += '<button class="btn-action btn-archive-topic" id="btn-archive">Als erledigt markieren</button>';
+    html += '</div>';
+
+    topicContent.innerHTML = html;
+
+    // Exam date edit
+    const dateDisplay = document.getElementById('exam-date-display');
+    const dateInput = document.getElementById('exam-date-input');
+    dateDisplay.addEventListener('click', () => {
+      dateDisplay.style.display = 'none';
+      dateInput.style.display = 'inline-block';
+      dateInput.focus();
+    });
+    dateInput.addEventListener('change', () => {
+      setExamDate(setId, dateInput.value);
+      dateDisplay.textContent = dateInput.value ? formatDate(dateInput.value) : 'Eintragen';
+      dateDisplay.style.color = dateInput.value ? 'var(--yellow)' : 'var(--text-muted)';
+      dateDisplay.style.display = 'inline';
+      dateInput.style.display = 'none';
+    });
+    dateInput.addEventListener('blur', () => {
+      dateDisplay.style.display = 'inline';
+      dateInput.style.display = 'none';
+    });
+
+    // Button events
+    document.getElementById('btn-start-learn').addEventListener('click', () => {
+      isExamMode = false;
+      isReverseMode = false;
+      startLearning(setId, 'due');
+    });
+    document.getElementById('btn-start-exam').addEventListener('click', () => {
+      isExamMode = true;
+      isReverseMode = false;
+      startLearning(setId, 'all');
+    });
+    document.getElementById('btn-start-reverse').addEventListener('click', () => {
+      isExamMode = false;
+      isReverseMode = true;
+      startLearning(setId, 'due');
+    });
+    const btnFavOnly = document.getElementById('btn-start-favorites');
+    if (btnFavOnly) {
+      btnFavOnly.addEventListener('click', () => {
+        isExamMode = false;
+        isReverseMode = false;
+        startLearning(setId, 'favorites');
+      });
+    }
+    document.getElementById('btn-archive').addEventListener('click', () => {
+      showDialog('Thema abschliessen?', 'Das Thema wird ins Archiv verschoben. Du kannst es jederzeit wiederherstellen.', () => {
+        archiveSet(setId);
+        goBack();
+      });
+    });
+  }
+
+  // ===== DIALOG =====
+  function showDialog(title, text, onConfirm) {
+    dialogTitle.textContent = title;
+    dialogText.textContent = text;
+    dialogCallback = onConfirm;
+    dialogOverlay.classList.add('visible');
+  }
+
+  // ===== LEARNING =====
+  async function startLearning(setId, mode) {
+    const setInfo = setsIndex.find(s => s.id === setId);
+    if (!setInfo) return;
+
+    const data = await loadSetData(setInfo);
+    if (!data || !data.cards) return;
+
+    currentSetId = setId;
+    currentSetData = data;
+
+    let cardEntries = data.cards.map((card, idx) => {
+      const prog = getCardProgress(setId, idx);
+      return { index: idx, card, prog };
+    });
+
+    if (mode === 'due') {
+      cardEntries = cardEntries.filter(e => isCardDue(setId, e.index));
+      cardEntries.sort((a, b) => {
+        if (a.prog.box !== b.prog.box) return a.prog.box - b.prog.box;
+        return Math.random() - 0.5;
+      });
+      cardEntries = cardEntries.slice(0, SESSION_SIZE);
+    } else if (mode === 'favorites') {
+      const favs = getFavorites(setId);
+      cardEntries = cardEntries.filter(e => favs.includes(e.index));
+      cardEntries.sort(() => Math.random() - 0.5);
+    } else {
+      // all (exam mode)
+      cardEntries.sort(() => Math.random() - 0.5);
+    }
+
+    if (!cardEntries.length) {
+      showDialog('Keine Karten', mode === 'favorites' ? 'Du hast keine Karten als schwierig markiert.' : 'Keine Karten faellig. Komm spaeter wieder!', null);
+      dialogConfirm.style.display = 'none';
+      return;
+    }
+
+    sessionCards = cardEntries;
+    sessionIndex = 0;
+    sessionCorrect = 0;
+    sessionWrong = 0;
+
+    showScreen('learn');
+    sessionSummary.style.display = 'none';
+    summaryScore.style.display = 'none';
+    flashcardContainer.style.display = 'block';
+    answerButtons.classList.remove('visible');
+    showCurrentCard();
+  }
+
+  function showCurrentCard() {
+    if (sessionIndex >= sessionCards.length) {
+      showSessionSummary();
+      return;
+    }
+
+    const entry = sessionCards[sessionIndex];
+    isFlipped = false;
+    isAnimating = false;
+    flashcard.classList.remove('flipped');
+    answerButtons.classList.remove('visible');
+
+    const front = entry.card.front || entry.card.question || entry.card.q || '';
+    const back = entry.card.back || entry.card.answer || entry.card.a || '';
+    const frontImg = entry.card.frontImage || '';
+    const backImg = entry.card.backImage || '';
+
+    if (isReverseMode) {
+      flashcardQuestion.innerHTML = formatText(back);
+      flashcardAnswer.innerHTML = formatText(front);
+      showImg(flashcardImgFront, backImg);
+      showImg(flashcardImgBack, frontImg);
+    } else {
+      flashcardQuestion.innerHTML = formatText(front);
+      flashcardAnswer.innerHTML = formatText(back);
+      showImg(flashcardImgFront, frontImg);
+      showImg(flashcardImgBack, backImg);
+    }
+
+    const boxLabel = isExamMode ? '' : 'Box ' + entry.prog.box;
+    flashcardBoxFront.textContent = boxLabel;
+    flashcardBoxBack.textContent = boxLabel;
+
+    // Favorite
+    const favs = getFavorites(currentSetId);
+    btnFavorite.innerHTML = favs.includes(entry.index) ? '&#9733;' : '&#9734;';
+    btnFavorite.classList.toggle('active', favs.includes(entry.index));
+
+    headerProgress.textContent = (sessionIndex + 1) + '/' + sessionCards.length;
+
+    flashcardContainer.classList.remove('flashcard-slide-left', 'flashcard-slide-right', 'flashcard-enter');
+    void flashcardContainer.offsetWidth;
+    flashcardContainer.classList.add('flashcard-enter');
+  }
+
+  function showImg(el, src) {
+    if (src) {
+      el.src = '../' + src;
+      el.style.display = 'block';
+    } else {
+      el.style.display = 'none';
+      el.src = '';
+    }
+  }
+
+  function flipCard() {
+    if (isFlipped || isAnimating) return;
+    isFlipped = true;
+    flashcard.classList.add('flipped');
+    setTimeout(() => answerButtons.classList.add('visible'), 300);
+  }
+
+  function answerCard(correct) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    const entry = sessionCards[sessionIndex];
+
+    if (!isExamMode) {
+      const prog = entry.prog;
+      if (correct) {
+        prog.box = Math.min(prog.box + 1, 5);
+        prog.correctCount = (prog.correctCount || 0) + 1;
+      } else {
+        prog.box = 1;
+      }
+      prog.lastSeen = Date.now();
+      setCardProgress(currentSetId, entry.index, prog);
+    }
+
+    if (correct) sessionCorrect++; else sessionWrong++;
+
+    const animClass = correct ? 'flashcard-slide-right' : 'flashcard-slide-left';
+    flashcardContainer.classList.add(animClass);
+    answerButtons.classList.remove('visible');
+
+    setTimeout(() => {
+      flashcardContainer.classList.remove(animClass);
+      sessionIndex++;
+      showCurrentCard();
+    }, 300);
+  }
+
+  function showSessionSummary() {
+    // Update streak
+    updateStreak();
+
+    flashcardContainer.style.display = 'none';
+    answerButtons.classList.remove('visible');
+    headerProgress.textContent = '';
+    btnStats.style.display = 'none';
+
+    summaryCorrect.textContent = sessionCorrect;
+    summaryWrong.textContent = sessionWrong;
+    summaryTotal.textContent = sessionCards.length;
+
+    if (isExamMode) {
+      summaryTitle.textContent = 'Pruefung fertig!';
+      const pct = sessionCards.length > 0 ? Math.round((sessionCorrect / sessionCards.length) * 100) : 0;
+      const grade = pct >= 92 ? '6' : pct >= 80 ? '5.5' : pct >= 68 ? '5' : pct >= 56 ? '4.5' : pct >= 44 ? '4' : pct >= 32 ? '3.5' : pct >= 20 ? '3' : '2';
+      summaryScore.textContent = pct + '% — Note ' + grade;
+      summaryScore.style.display = 'block';
+    } else {
+      summaryTitle.textContent = 'Session fertig!';
+      summaryScore.style.display = 'none';
+    }
+
+    sessionSummary.style.display = 'flex';
+
+    // Confetti if all mastered
+    const info = setsIndex.find(s => s.id === currentSetId);
+    if (info) {
+      const stats = getSetStats(currentSetId, info.cardCount);
+      if (stats.percent === 100) fireConfetti();
+    }
+  }
+
+  // ===== STATS =====
+  function renderStats() {
+    if (!currentSetData || !currentSetId) return;
+    const cards = currentSetData.cards;
+    const total = cards.length;
+    let mastered = 0, learning = 0, newCount = 0;
+    const rows = [];
+
+    cards.forEach((card, idx) => {
+      const prog = getCardProgress(currentSetId, idx);
+      let status, statusClass;
+      if (prog.box >= 4) { mastered++; status = 'Gemeistert'; statusClass = 'status-mastered'; }
+      else if (prog.box > 1) { learning++; status = 'Lernt'; statusClass = 'status-learning'; }
+      else { newCount++; status = 'Neu'; statusClass = 'status-new'; }
+      const q = card.front || card.question || card.q || '';
+      rows.push({ question: q, box: prog.box, status, statusClass });
+    });
+
+    const percent = total > 0 ? Math.round((mastered / total) * 100) : 0;
+    $('stats-percent').textContent = percent + '%';
+
+    const r = 75, cx = 90, cy = 90, strokeW = 18;
+    const circ = 2 * Math.PI * r;
+    const segments = [{ count: mastered, color: '#4ade80' }, { count: learning, color: '#fbbf24' }, { count: newCount, color: '#475569' }];
+    let svg = '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="#1e293b" stroke-width="' + strokeW + '"/>';
+    let offset = 0;
+    segments.forEach(seg => {
+      if (!seg.count) return;
+      const len = (seg.count / total) * circ;
+      svg += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + seg.color + '" stroke-width="' + strokeW + '" stroke-dasharray="' + len + ' ' + (circ - len) + '" stroke-dashoffset="' + (-offset) + '" stroke-linecap="round"/>';
+      offset += len;
+    });
+    $('stats-svg').innerHTML = svg;
+    $('stats-legend').innerHTML = '<div class="stats-legend-item"><span class="stats-legend-dot" style="background:#4ade80"></span>Gemeistert (' + mastered + ')</div><div class="stats-legend-item"><span class="stats-legend-dot" style="background:#fbbf24"></span>Lernt (' + learning + ')</div><div class="stats-legend-item"><span class="stats-legend-dot" style="background:#475569"></span>Neu (' + newCount + ')</div>';
+
+    let tableHtml = '<div class="stats-table-header"><span>Frage</span><span style="text-align:center">Box</span><span style="text-align:center">Status</span></div>';
+    rows.forEach(row => {
+      tableHtml += '<div class="stats-table-row"><span class="stats-table-question">' + esc(row.question) + '</span><span class="stats-table-box">' + row.box + '</span><span class="stats-table-status ' + row.statusClass + '">' + row.status + '</span></div>';
+    });
+    $('stats-table').innerHTML = tableHtml;
+  }
+
+  // ===== CONFETTI =====
+  function fireConfetti() {
+    const canvas = document.createElement('canvas');
+    canvas.className = 'confetti-canvas';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    const particles = [];
+    const colors = ['#4ade80', '#38bdf8', '#fbbf24', '#f472b6', '#a78bfa', '#fb923c'];
+    for (let i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: -10 - Math.random() * 100,
+        w: 6 + Math.random() * 6,
+        h: 4 + Math.random() * 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 4,
+        vy: 2 + Math.random() * 4,
+        rot: Math.random() * 360,
+        rotV: (Math.random() - 0.5) * 10
+      });
+    }
+    let frame = 0;
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.rotV;
+        p.vy += 0.1;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot * Math.PI / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      });
+      frame++;
+      if (frame < 120) requestAnimationFrame(draw);
+      else canvas.remove();
+    }
+    draw();
+  }
+
+  // ===== EXPORT / IMPORT =====
+  function exportData() {
+    const data = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key.startsWith('lernbox_' + PROFILE + '_')) {
+        data[key] = localStorage.getItem(key);
+      }
+    }
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'lernbox_' + PROFILE + '_backup.json';
+    a.click();
+  }
+
+  function importData(file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = JSON.parse(e.target.result);
+        Object.entries(data).forEach(([key, val]) => {
+          if (key.startsWith('lernbox_' + PROFILE + '_')) {
+            localStorage.setItem(key, val);
+          }
+        });
+        showDialog('Import erfolgreich', Object.keys(data).length + ' Eintraege importiert.', null);
+        dialogConfirm.style.display = 'none';
+      } catch {
+        showDialog('Fehler', 'Datei konnte nicht gelesen werden.', null);
+        dialogConfirm.style.display = 'none';
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  // ===== EVENT LISTENERS =====
+  btnBack.addEventListener('click', goBack);
+  btnSettings.addEventListener('click', () => showScreen('settings'));
+
+  flashcardContainer.addEventListener('click', (e) => {
+    if (e.target === btnFavorite || btnFavorite.contains(e.target)) return;
+    if (!isFlipped) flipCard();
+  });
+
+  btnFavorite.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (!sessionCards.length) return;
+    const entry = sessionCards[sessionIndex];
+    const isFav = toggleFavorite(currentSetId, entry.index);
+    btnFavorite.innerHTML = isFav ? '&#9733;' : '&#9734;';
+    btnFavorite.classList.toggle('active', isFav);
+  });
+
+  $('btn-nochmal').addEventListener('click', () => answerCard(false));
+  $('btn-gewusst').addEventListener('click', () => answerCard(true));
+
+  $('btn-back-from-learn').addEventListener('click', () => {
+    isExamMode = false;
+    isReverseMode = false;
+    goBack();
+  });
+
+  btnStats.addEventListener('click', () => {
+    renderStats();
+    showScreen('stats');
+  });
+
+  $('btn-reset-progress').addEventListener('click', () => {
+    showDialog('Fortschritt zuruecksetzen?', 'Der gesamte Lernfortschritt fuer dieses Thema wird geloescht.', () => {
+      if (currentSetId) {
+        resetProgress(currentSetId);
+        renderStats();
+      }
+    });
+  });
+
+  dialogCancel.addEventListener('click', () => {
+    dialogOverlay.classList.remove('visible');
+    dialogConfirm.style.display = '';
+  });
+
+  dialogConfirm.addEventListener('click', () => {
+    dialogOverlay.classList.remove('visible');
+    dialogConfirm.style.display = '';
+    if (dialogCallback) dialogCallback();
+    dialogCallback = null;
+  });
+
+  dialogOverlay.addEventListener('click', (e) => {
+    if (e.target === dialogOverlay) {
+      dialogOverlay.classList.remove('visible');
+      dialogConfirm.style.display = '';
+    }
+  });
+
+  $('btn-export').addEventListener('click', exportData);
+  $('btn-import').addEventListener('click', () => $('import-file').click());
+  $('import-file').addEventListener('change', (e) => {
+    if (e.target.files.length) importData(e.target.files[0]);
+    e.target.value = '';
+  });
+
+  // ===== INIT =====
+  async function init() {
+    await loadSetsIndex();
+    navStack = ['cockpit'];
+    activateScreen('cockpit');
+    renderCockpit();
+  }
+
+  init();
+})();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
+</body>
+</html>
