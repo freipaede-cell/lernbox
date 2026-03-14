@@ -1115,8 +1115,8 @@ body {
     flashcard.classList.remove('flipped');
     answerButtons.classList.remove('visible');
 
-    flashcardQuestion.innerHTML = formatText(entry.card.question || entry.card.q || '');
-    flashcardAnswer.innerHTML = formatText(entry.card.answer || entry.card.a || '');
+    flashcardQuestion.innerHTML = formatText(entry.card.front || entry.card.question || entry.card.q || '');
+    flashcardAnswer.innerHTML = formatText(entry.card.back || entry.card.answer || entry.card.a || '');
 
     const boxLabel = 'Box ' + entry.prog.box;
     flashcardBoxFront.textContent = boxLabel;
@@ -1195,7 +1195,7 @@ body {
       if (prog.box >= 4) { mastered++; status = 'Gemeistert'; statusClass = 'status-mastered'; }
       else if (prog.box > 1) { learning++; status = 'Lernt'; statusClass = 'status-learning'; }
       else { newCount++; status = 'Neu'; statusClass = 'status-new'; }
-      rows.push({ question: card.question || card.q || '', box: prog.box, status, statusClass });
+      rows.push({ question: card.front || card.question || card.q || '', box: prog.box, status, statusClass });
     });
 
     const percent = total > 0 ? Math.round((mastered / total) * 100) : 0;
