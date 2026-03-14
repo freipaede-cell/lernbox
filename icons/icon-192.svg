@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="40" fill="#0f172a"/>
+  <rect x="16" y="16" width="160" height="160" rx="30" fill="#1e293b"/>
+  <rect x="36" y="50" width="120" height="85" rx="12" fill="#38bdf8" opacity="0.9"/>
+  <rect x="44" y="58" width="104" height="69" rx="8" fill="#0f172a"/>
+  <text x="96" y="100" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#38bdf8">LB</text>
+  <rect x="56" y="135" width="80" height="8" rx="4" fill="#4ade80" opacity="0.8"/>
+  <rect x="56" y="148" width="50" height="6" rx="3" fill="#38bdf8" opacity="0.4"/>
+</svg>
