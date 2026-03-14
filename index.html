@@ -1031,12 +1031,17 @@ body {
   }
 
   function renderLibrary() {
-    if (!setsIndex.length) {
-      libraryContent.innerHTML = '<div class="library-empty">Keine Lernsets gefunden.<br>Lege JSON-Dateien im Ordner <code>sets/</code> ab.</div>';
+    const profileLower = activeProfile ? activeProfile.toLowerCase() : '';
+    const visibleSets = setsIndex.filter(set => {
+      if (!set.profiles || !set.profiles.length) return true;
+      return set.profiles.some(p => p.toLowerCase() === profileLower);
+    });
+    if (!visibleSets.length) {
+      libraryContent.innerHTML = '<div class="library-empty">Keine Lernsets fuer dieses Profil verfuegbar.</div>';
       return;
     }
     let html = '';
-    setsIndex.forEach(set => {
+    visibleSets.forEach(set => {
       const stats = getSetStats(set.id, set.cardCount);
       const progressWidth = stats.percent;
       html += `

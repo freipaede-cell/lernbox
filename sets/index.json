@@ -5,7 +5,8 @@
       "file": "sets/bio-herz-kreislauf-2026.json",
       "title": "Biologie — Herz-Kreislauf & Hormone",
       "subject": "Biologie",
-      "cardCount": 30
+      "cardCount": 30,
+      "profiles": ["yannick"]
     }
   ]
 }
