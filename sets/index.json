@@ -8,6 +8,15 @@
       "cardCount": 30,
       "profiles": ["yannick"],
       "examDate": ""
+    },
+    {
+      "id": "geo-rohstoffe-energie-2026",
+      "file": "sets/geo-rohstoffe-energie-2026.json",
+      "title": "Rohstoffe & Energie",
+      "subject": "RZG",
+      "cardCount": 25,
+      "profiles": ["livia"],
+      "examDate": ""
     }
   ]
 }

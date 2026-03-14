@@ -1,0 +1,106 @@
+{
+  "title": "Rohstoffe & Energie",
+  "subject": "RZG",
+  "cards": [
+    {
+      "front": "Was sind erneuerbare Rohstoffe?",
+      "back": "Rohstoffe, die sich innerhalb eines Menschenlebens erneuern oder in unendlicher Menge vorhanden sind.\nBeispiele: Getreide, Holz, Wolle (wachsen nach) — Sonnenlicht, Luft, Wasser (unendlich)."
+    },
+    {
+      "front": "Was sind nicht erneuerbare Rohstoffe?",
+      "back": "Rohstoffe, deren Entstehung Tausende bis Millionen Jahre dauert.\nBeispiele: Erdoel, Kohle, Kupfer, Sand, Erdgas."
+    },
+    {
+      "front": "Warum werden weltweit fast alle Rohstoffe knapp?",
+      "back": "1. Immer mehr Menschen auf der Welt\n2. Immer hoehere Ansprueche an den Alltag (mehr Konsum)\n3. Vorkommen und verfuegbare Mengen veraendern sich"
+    },
+    {
+      "front": "Wofuer steht RSPO?",
+      "back": "Roundtable on Sustainable Palm Oil = Runder Tisch fuer nachhaltiges Palmoel.\nLegt Mindeststandards fest: Palmoel soll rechtmaessig, umweltfreundlich, wirtschaftlich tragbar und sozialvertraeglich angebaut werden."
+    },
+    {
+      "front": "Warum hat Palmoel einen so hohen Ertrag?",
+      "back": "1 Hektar Oelpalmen liefert bis zu 8'000 kg Oel.\nVergleich: Raps 1'000 kg, Sonnenblumen 800 kg, Soja nur 375 kg.\nPalmoel liefert also bis zu 20x mehr Oel pro Flaeche als Soja."
+    },
+    {
+      "front": "In welchen Produkten steckt Palmoel?",
+      "back": "Nahrungsmittel (68%): Glace, Schokolade, Nutella, Fertigpizza, Margarine\nKosmetik/Reinigung (27%): Duschgel, Waschmittel, Lippenbalsam\nEnergie (5%): Biokraftstoff, Stromgewinnung"
+    },
+    {
+      "front": "Was ist Brandrodung und wo passiert sie?",
+      "back": "Wald wird absichtlich abgebrannt, um Platz fuer Plantagen zu schaffen.\nBesonders auf Borneo (Indonesien/Malaysia).\nFolgen: Regenwald-Verlust, CO2-Ausstoss, Lebensraumverlust fuer Orang-Utans, Missachtung der Landrechte."
+    },
+    {
+      "front": "Welche zwei Laender produzieren ueber 85% des Palmoels weltweit?",
+      "back": "Indonesien und Malaysia — vor allem auf der Insel Borneo."
+    },
+    {
+      "front": "Was bedeutet 'nachhaltig' bei Rohstoffen?",
+      "back": "So produzieren und konsumieren, dass die Natur erhalten bleibt — nicht mehr verbrauchen, als nachwachsen oder sich erneuern kann.\nGegenteil: Raubbau (z.B. Ueberfischung, Abholzung)."
+    },
+    {
+      "front": "Was ist Tagebau?",
+      "back": "Abbau von Rohstoffen direkt an der Erdoberflaeche in riesigen, offenen Gruben.\nGegenteil: Untertagebau (Tunnel/Stollen).\nBeispiel: Kupfermine Chuquicamata in Chile."
+    },
+    {
+      "front": "Was ist Erz?",
+      "back": "Gestein, das Metalle enthaelt (z.B. Kupfer, Eisen, Gold).\nDas Metall muss durch chemische Verfahren aus dem Erz geloest werden.\nIn 1'000 Tonnen Kupfererz sind nur ca. 6 Tonnen Kupfer enthalten."
+    },
+    {
+      "front": "Beschreibe die Prozesskette vom Erz zum Kupfer (5 Schritte).",
+      "back": "1. Abbau: Kupfererz mit Baggern ausgraben (Tagebau)\n2. Transport: Mit Lastwagen abtransportieren\n3. Gewinnung: Wasser + Chemikalien loesen Kupfer aus Gestein\n4. Reinigung: Erhitzen, andere Metalle abspalten\n5. Weiterverarbeitung: Reines Kupfer fuer Produkte"
+    },
+    {
+      "front": "Welches Land ist der groesste Kupferproduzent der Welt?",
+      "back": "Chile — 5.6 Mio. Tonnen pro Jahr.\nZweitgroesster Produzent: Peru.\nWeltweit an fast 3'000 Orten nachgewiesen."
+    },
+    {
+      "front": "Welche Auswirkungen hat der Kupferabbau auf Umwelt und Menschen?",
+      "back": "Umwelt: Gigantische Tagebauloecher, Staub, vergiftetes Wasser\nArbeiter: Harte Arbeit, Staublungen, Gesundheitsschaeden\nFamilien: Koennen nicht am Abbauort leben, werden getrennt\nKonsumenten: Preise steigen bei Streiks oder Mangel"
+    },
+    {
+      "front": "Warum ist Kupfer-Recycling sinnvoll?",
+      "back": "Spart 85% der Energie gegenueber Neuabbau.\nEntlastet die Umwelt (kein Staub, keine Wasserverschmutzung).\nGuenstiger als Neuabbau.\nCa. 40% des Kupfers wird heute recycelt.\nNachteil: Qualitaet ist nicht mehr gleich hoch."
+    },
+    {
+      "front": "Warum ist Sand so wichtig?",
+      "back": "Sand ist nach Wasser der weltweit begehrteste Rohstoff.\nIn ueber 200 Produkten enthalten: Beton, Glas, Zahnpasta, Computerchips, Solarzellen, Kosmetik.\nHauptverwendung: Bauindustrie (Beton)."
+    },
+    {
+      "front": "Warum eignet sich Wuestensand nicht zum Bauen?",
+      "back": "Wuestensand ist zu fein und zu rund geschliffen — die Koerner halten nicht zusammen.\nDeshalb wird Sand vom Meeresboden, aus Flussbetten oder von Straenden geholt."
+    },
+    {
+      "front": "Wie viel Sand braucht man fuer ein Haus und fuer 1 km Autobahn?",
+      "back": "Mittelgrosses Haus: 200 Tonnen Sand (5 Lastwagen)\n1 km Autobahn: 30'000 Tonnen Sand (750 Lastwagen)\nJaehrlich werden ueber 15 Milliarden Tonnen Sand abgebaut."
+    },
+    {
+      "front": "Wie gewinnt die Schweiz ihren Sand?",
+      "back": "40 Mio. Tonnen pro Jahr.\n90% aus Schweizer Kiesgruben und Flussbetten.\n10% Import aus Deutschland und Frankreich.\nStreng ueberwacht."
+    },
+    {
+      "front": "Was hat Singapur mit Sand gemacht?",
+      "back": "Singapur hat seine Landflaeche in 40 Jahren um 20% (130 km2) vergroessert — mit importiertem Sand aus Kambodscha, Vietnam, Malaysia und Indonesien.\nIndonesien hat den Export inzwischen verboten."
+    },
+    {
+      "front": "Was ist eine Kiesgrube?",
+      "back": "Ein Ort, an dem Sand und Kies aus dem Boden abgebaut werden — eine Lagerstaette fuer die Weiterverarbeitung zu Beton und anderen Bauprodukten.\nViele Kiesgruben sind bereits erschoepft."
+    },
+    {
+      "front": "Was ist PET und woraus wird es hergestellt?",
+      "back": "PET = Polyethylenterephthalat — ein Kunststoff aus Erdoel.\nFuer 1 kg PET braucht man 2 kg Rohoel.\nEigenschaften: formbestaendig, bruchsicher, leicht.\nVerwendung: Getraenkeflaschen, Textilien, Folien."
+    },
+    {
+      "front": "Wie hoch ist die PET-Recyclingquote in der Schweiz?",
+      "back": "Ca. 80% Ruecklaufquote.\n1.6 Milliarden PET-Flaschen pro Jahr.\n45'000 Sammelstellen seit 1990.\nSpart 47 Mio. Liter Erdoel und 152'000 Tonnen Treibhausgase jaehrlich."
+    },
+    {
+      "front": "Was bedeutet Recycling und nenne Vorteile und Nachteile.",
+      "back": "Recycling = re (zurueck) + cycling (Kreislauf) = Wiederverwertung von Abfall.\nVorteile: Spart Rohstoffe, Energie, weniger Treibhausgase, weniger Deponie-Abfall.\nNachteile: Nur ca. die Haelfte nutzbar, Transport braucht Energie, nicht endlos wiederholbar."
+    },
+    {
+      "front": "Was ist eine Abfalldeponie und hat die Schweiz noch welche?",
+      "back": "Abfalldeponie = Ort, an dem Abfall dauerhaft gelagert wird (aufgehaeufelt statt verwertet).\nDie Schweiz hat KEINE Abfalldeponien mehr — stattdessen Kehrichtverbrennungsanlagen (KVA) mit Energiegewinn.\nProbleme bei Deponien: Giftstoffe im Grundwasser, Platzbedarf, Rohstoffverlust."
+    }
+  ]
+}
