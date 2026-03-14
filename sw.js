@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lernbox-v1';
+const CACHE_NAME = 'lernbox-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -26,19 +26,29 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Fetch: Cache-first, then network, then cache set JSONs dynamically
+// Fetch: Network-first for HTML/JSON, cache-first for static assets
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) return cached;
-      return fetch(event.request).then((response) => {
-        // Cache set JSON files dynamically
-        if (event.request.url.endsWith('.json')) {
+  const url = event.request.url;
+  if (url.endsWith('.html') || url.endsWith('.json') || url.endsWith('/')) {
+    // Network-first: always get latest, fall back to cache offline
+    event.respondWith(
+      fetch(event.request).then((response) => {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        return response;
+      }).catch(() => caches.match(event.request))
+    );
+  } else {
+    // Cache-first for images, icons etc.
+    event.respondWith(
+      caches.match(event.request).then((cached) => {
+        if (cached) return cached;
+        return fetch(event.request).then((response) => {
           const clone = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-        }
-        return response;
-      });
-    })
-  );
+          return response;
+        });
+      })
+    );
+  }
 });
