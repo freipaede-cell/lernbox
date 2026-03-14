@@ -1,0 +1,220 @@
+{
+  "id": "bio-herz-kreislauf-2026",
+  "title": "Biologie — Herz-Kreislauf & Hormone",
+  "subject": "Biologie",
+  "grade": "2. Klasse Gymnasium",
+  "date": "2026-03-14",
+  "tags": ["Herz", "Blut", "Immunsystem", "Hormone"],
+  "cards": [
+    {
+      "id": 1,
+      "category": "A — Puls & Blutdruck",
+      "front": "Was ist eine Pulswelle?",
+      "back": "Eine Druckwelle, die bei jeder Herzkontraktion (Systole) entsteht und sich ueber das Gefaesssystem fortpflanzt. Der Puls ist die Anzahl dieser Wellen pro Minute.",
+      "image": null
+    },
+    {
+      "id": 2,
+      "category": "A — Puls & Blutdruck",
+      "front": "Wie berechnet man das Herzminutenvolumen (HMV)?",
+      "back": "HMV = Herzfrequenz x Schlagvolumen.\nBeispiel Ruhe (untrainiert): 80/min x 70 ml = 5'600 ml = 5.6 l/min.\nDas Ruhe-HMV ist bei Trainierten und Untrainierten gleich (5.6 l/min) — der Unterschied liegt im Schlagvolumen und der Herzfrequenz.",
+      "image": null
+    },
+    {
+      "id": 3,
+      "category": "A — Puls & Blutdruck",
+      "front": "Warum haben Ausdauersportler einen tieferen Ruhepuls?",
+      "back": "Durch Training werden Herzmuskelzellen dicker und Herzinnenraeume groesser → Schlagvolumen steigt (bis aufs Doppelte: 140 ml statt 70 ml).\nDa das Ruhe-HMV gleich bleibt (5.6 l/min), braucht das Herz nur halb so viele Schlaege → Ruhepuls sinkt auf ca. 40/min statt 80/min.",
+      "image": null
+    },
+    {
+      "id": 4,
+      "category": "A — Puls & Blutdruck",
+      "front": "Was bedeuten systolischer und diastolischer Blutdruck?",
+      "back": "Systolisch (oberer Wert) = Druck waehrend der Herzkontraktion (Systole).\nDiastolisch (unterer Wert) = Druck waehrend der Herzerschlaffung (Diastole).\nOptimal: <120/<80 mmHg.\nHypertonie: >140/>90 mmHg.",
+      "image": null
+    },
+    {
+      "id": 5,
+      "category": "A — Puls & Blutdruck",
+      "front": "Erklaere das Prinzip der Blutdruckmessung (3 Schritte).",
+      "back": "1) Manschettendruck ueber systolischem Wert → Blutfluss unterbrochen → kein Geraeusch.\n2) Druck zwischen systolisch und diastolisch → Verwirbelungen hoerbar → systolischer Wert abgelesen.\n3) Druck unter diastolischem Wert → laminare Stroemung → keine Geraeusche mehr → diastolischer Wert abgelesen.",
+      "image": null
+    },
+    {
+      "id": 6,
+      "category": "B — Blutgefaesse",
+      "front": "Benenne die 3 Wandschichten der Blutgefaesse und ihre Funktionen.",
+      "back": "1) Endothel (innen): glatte Oberflaeche, reibungsfreies Fliessen.\n2) Muskelschicht (Mitte): reguliert Durchblutung/Blutmenge.\n3) Bindegewebeschicht (aussen): Stabilisierung.\nKapillaren haben NUR Endothel (1 Zellschicht) → ermoeglicht Stoffaustausch.",
+      "image": null
+    },
+    {
+      "id": 7,
+      "category": "B — Blutgefaesse",
+      "front": "Vergleiche Arterien, Kapillaren und Venen (Bau und Funktion).",
+      "back": "Arterien: dickwandig, elastisch, hoher Druck, Transport vom Herzen weg.\nKapillaren: nur Endothel, 8 um Durchmesser, Stoffaustausch (Poren).\nVenen: duennwandig, Venenklappen, niedriger Druck, Transport zum Herzen.",
+      "image": null
+    },
+    {
+      "id": 8,
+      "category": "B — Blutgefaesse",
+      "front": "Was ist der Windkesseleffekt?",
+      "back": "Herznahe Arterien (v.a. Aorta) haben elastische Waende.\nSystole: Blut dehnt die Aortenwand.\nDiastole: Elastische Fasern federn zurueck und pressen Blut weiter.\nErgebnis: Stossweiser Herzauswurf wird in gleichmaessigeren Blutfluss umgewandelt.\nTrotzdem bleibt Druckunterschied als Pulsschlag spuerbar.",
+      "image": null
+    },
+    {
+      "id": 9,
+      "category": "B — Blutgefaesse",
+      "front": "Nenne die 4 Mechanismen des venoesen Ruecktransports.",
+      "back": "1) Venenklappen: Ventile, oeffnen nur herzwaerts.\n2) Muskelpumpe: Skelettmuskulatur drueckt Venen zusammen → Blut herzwaerts.\n3) Arterienpumpe: Pulsierende Arterie drueckt benachbarte Vene zusammen.\n4) Sogwirkung des Herzens: Blut wird aus Venen in Vorhoefe nachgesogen.\nProblem: In Kapillaren steht Blut fast still → diese Mechanismen sind noetig.",
+      "image": null
+    },
+    {
+      "id": 10,
+      "category": "B — Blutgefaesse",
+      "front": "Warum fliesst das Blut in den Kapillaren am langsamsten?",
+      "back": "Obwohl jede einzelne Kapillare winzig ist (8 um), ist die Gesamtquerschnittsflaeche aller Kapillaren riesig (3500 cm² vs. 5.3 cm² Aorta).\nDas Blut verteilt sich auf diese riesige Flaeche → Geschwindigkeit sinkt drastisch (0.0026 cm/s vs. 30 cm/s in der Aorta).\nAnalogie: Ein Fluss, der sich in tausende Baechlein aufteilt, fliesst langsam.\nBiologischer Sinn: Langsamer Fluss ermoeglicht den Stoffaustausch.",
+      "image": null
+    },
+    {
+      "id": 11,
+      "category": "C — Herz",
+      "front": "Beschreibe den Bau des Herzens (4 Raeume, Gefaesse, Klappen).",
+      "back": "Kegelfoermiger Hohlmuskel im Herzbeutel.\n4 Raeume: 2 Vorhoefe (duennwandig, empfangen Blut) + 2 Kammern (dickwandig, pumpen).\nHerzscheidewand trennt links/rechts.\nLinke Kammerwand dicker (Koerperkreislauf).\nGefaesse: Aorta + Lungenarterie (raus), Hohlvenen + Lungenvenen (rein).\n4 Klappen (2 Segel-, 2 Taschenklappen).",
+      "image": null
+    },
+    {
+      "id": 12,
+      "category": "C — Herz",
+      "front": "Was ist der Unterschied zwischen Segel- und Taschenklappen?",
+      "back": "Segelklappen: zwischen Vorhof und Kammer. Mitralklappe (2 Segel, links) + Tricuspidalklappe (3 Segel, rechts). Ueber Sehnenfaeden an Kammerwand befestigt → verhindern Zurueckschlagen.\nTaschenklappen: zwischen Kammer und Arterie. Aortenklappe (links) + Pulmonalklappe (rechts). Blaeht sich bei Rueckfluss auf und verschliesst Durchgang.",
+      "image": null
+    },
+    {
+      "id": 13,
+      "category": "C — Herz",
+      "front": "Beschreibe die 4 Phasen des Herzzyklus.",
+      "back": "1) Fuellungsphase (Diastole): Segelklappen offen, Taschenklappen zu → Blut stroemt in Kammern.\n2) Anspannungsphase (Systole): Alle Klappen zu → Druck steigt.\n3) Austreibungsphase (Systole): Segelklappen zu, Taschenklappen offen → Blut in Aorta/Lungenarterie.\n4) Entspannungsphase (Diastole): Alle Klappen zu → Herzmuskel erschlafft.\nDauer: ca. 0.8-1 Sekunde.",
+      "image": null
+    },
+    {
+      "id": 14,
+      "category": "C — Herz",
+      "front": "Warum ist die linke Kammerwand dicker als die rechte?",
+      "back": "Die linke Kammer pumpt Blut in den Koerperkreislauf (lang, hoher Widerstand) → braucht mehr Druck → dickere Muskelwand.\nDie rechte Kammer pumpt nur in den kurzen Lungenkreislauf → weniger Druck noetig → duennere Wand.\nAnalog: Vorhoefe sind duennwandiger als Kammern (nehmen nur Blut auf, pumpen nicht aktiv).",
+      "image": null
+    },
+    {
+      "id": 15,
+      "category": "D — Blut",
+      "front": "Nenne die 4 Hauptaufgaben des Blutes.",
+      "back": "1) Transport: O2, CO2, Naehrstoffe, Hormone, Abfallstoffe.\n2) Waermeregulation: Abwaerme aus Organen verteilen, ueber Haut abstrahlen.\n3) Blutgerinnung: Wundverschluss bei Verletzungen.\n4) Immunabwehr: Abwehr von Krankheitserregern.\nBlutvolumen: ca. 5-6 Liter (70-80 ml/kg).",
+      "image": null
+    },
+    {
+      "id": 16,
+      "category": "D — Blut",
+      "front": "Vergleiche die 3 Blutzelltypen (Erythrozyten, Leukozyten, Thrombozyten).",
+      "back": "Erythrozyten (5-6 Mio/ul): bikonkave Scheiben, KEIN Kern, Haemoglobin → Gastransport (O2/CO2), 120 Tage.\nLeukozyten (5-10'000/ul): MIT Kern, 3 Untergruppen → Immunabwehr, Tage-Jahre.\nThrombozyten (250-400'000/ul): Zellfragmente, KEIN Kern → Blutgerinnung, 8-12 Tage.",
+      "image": null
+    },
+    {
+      "id": 17,
+      "category": "D — Blut",
+      "front": "Wie funktioniert der Gastransport im Blut?",
+      "back": "O2 und CO2 loesen sich schlecht in Blut → werden an Haemoglobin in Erythrozyten gebunden.\nIn der Lunge: hohe O2-Konzentration → O2 bindet an Haemoglobin.\nIm Gewebe: niedrige O2-Konzentration → O2 wird abgegeben (Diffusion/Konzentrationsgefaelle).\nMyoglobin = O2-Speicher in Muskelzellen.\nGesamtoberflaeche aller Erythrozyten: ca. 3000 m².",
+      "image": null
+    },
+    {
+      "id": 18,
+      "category": "D — Blut",
+      "front": "Beschreibe die 5 Schritte der Blutgerinnung.",
+      "back": "1) Verletzte Gefaesse kontrahieren → weniger Blutfluss.\n2) Thrombozyten lagern sich an → weisser Thrombus (erster Verschluss).\n3) Gerinnungskaskade wird gestartet (Gerinnungsfaktoren).\n4) Fibrinogen → Fibrin (unloesliche Faeden) → roter Thrombus (Fibrinnetz faengt Blutzellen).\n5) Zellteilung regeneriert Gewebe.\nMerke: \"Erst weiss (Plaettchen), dann rot (Netz faengt alles).\"",
+      "image": null
+    },
+    {
+      "id": 19,
+      "category": "E — Immunsystem",
+      "front": "Beschreibe den Aufbau eines Virus.",
+      "back": "3 Bestandteile:\n1) Proteinhuelle (Schutz)\n2) Genetisches Material (DNA oder RNA, im Inneren)\n3) Oberflaechenproteine (binden nach Schluessel-Schloss-Prinzip an Wirtszell-Rezeptoren)\nWichtig: Viren haben KEINEN eigenen Stoffwechsel → brauchen Wirtszelle zur Vermehrung.\nBakteriophagen = Viren, die nur Bakterien befallen.",
+      "image": null
+    },
+    {
+      "id": 20,
+      "category": "E — Immunsystem",
+      "front": "Erklaere den Vermehrungszyklus eines Virus (6 Schritte).",
+      "back": "1) Virus bindet an Wirtszelle (Schluessel-Schloss).\n2) Genetisches Material wird eingeschleust.\n3) Virus uebernimmt Zellstoffwechsel.\n4) Wirtszelle produziert neue Virusbestandteile.\n5) Neue Viren lagern sich zusammen (Assemblierung).\n6) Viren verlassen die Zelle (Zelle stirbt ab) → infizieren naechste Zellen.",
+      "image": null
+    },
+    {
+      "id": 21,
+      "category": "E — Immunsystem",
+      "front": "Nenne die 3 Verteidigungslinien des Immunsystems mit je 2 Beispielen.",
+      "back": "1. Barrieren: Hornschicht der Haut, Magensaeure, Schleimhaeute mit bakteriziden Enzymen, natuerliche Bakterienflora.\n2. Unspezifische Abwehr (angeboren): Fresszellen (Granulozyten, Makrophagen → Phagozytose), NK-Zellen (toeten virusbefallene/entartete Zellen).\n3. Spezifische Abwehr (erworben): B-Lymphozyten (→ Plasmazellen → Antikoerper), T-Lymphozyten (T-Helfer, cytotoxische T-Zellen). Hat immunologisches Gedaechtnis.",
+      "image": null
+    },
+    {
+      "id": 22,
+      "category": "E — Immunsystem",
+      "front": "Was ist der Unterschied zwischen unspezifischer und spezifischer Immunabwehr?",
+      "back": "Unspezifisch: angeboren, reagiert innerhalb Minuten, greift ALLES Fremde an, keine Erinnerung. Zellen: Fresszellen (Phagozytose), NK-Zellen.\nSpezifisch: erworben, braucht Tage beim Erstkontakt, gezielt gegen BESTIMMTE Erreger, hat Gedaechtniszellen (→ schnellere Reaktion beim 2. Kontakt). Zellen: B-Lymphozyten (Antikoerper), T-Lymphozyten. Nur bei Wirbeltieren.",
+      "image": null
+    },
+    {
+      "id": 23,
+      "category": "E — Immunsystem",
+      "front": "Erklaere den Ablauf der spezifischen Immunabwehr (6 Schritte).",
+      "back": "1) Makrophagen + B-Zellen phagozytieren Antigen, praesentieren Bruchstuecke an T-Helferzellen.\n2) T-Helferzellen aktivieren cytotox. T-Zellen + B-Zellen; einige → T-Gedaechtniszellen.\n3) Cytotoxische T-Zellen zerstoeren virusbefallene Zellen.\n4) B-Zellen → Plasmazellen; einige → B-Gedaechtniszellen.\n5) Plasmazellen produzieren spezifische Antikoerper.\n6) Antikoerper binden an Antigen → Makrophagen phagozytieren Komplex.\nMerke: \"MaT-BP\" (Makrophage → T-Helfer → B-Zelle → Plasmazelle).",
+      "image": null
+    },
+    {
+      "id": 24,
+      "category": "E — Immunsystem",
+      "front": "Was passiert bei der 1. vs. 2. Infektion mit demselben Erreger?",
+      "back": "1. Infektion (Primaerreaktion): Langsame Reaktion (Tage), geringe Antikoerperproduktion, Krankheitssymptome treten auf. Gedaechtniszellen entstehen.\n2. Infektion (Sekundaerreaktion): Gedaechtniszellen erkennen Erreger sofort, VIEL schnellere + staerkere Antikoerperproduktion, Erreger wird beseitigt BEVOR Symptome auftreten → Immunitaet.",
+      "image": null
+    },
+    {
+      "id": 25,
+      "category": "E — Immunsystem",
+      "front": "Erklaere das Prinzip der Schutzimpfung (aktive Immunisierung).",
+      "back": "Ungefaehrlicher Erreger/Bestandteil wird injiziert → loest Primaerreaktion aus → Lymphozyten vermehren sich → Antikoerper + Gedaechtniszellen entstehen.\nBei spaeteren Kontakt mit echtem Erreger → Sekundaerreaktion: Gedaechtniszellen → sofort Plasmazellen → schnelle Antikoerperproduktion → Erreger wird sofort beseitigt, kaum/keine Symptome.\nKoerper bildet Schutz SELBST (aktiv).",
+      "image": null
+    },
+    {
+      "id": 26,
+      "category": "F — Hormone",
+      "front": "Was sind Hormone und wie wirken sie?",
+      "back": "Koerpereigene chemische Botenstoffe, in Druesen produziert, ueber Blut transportiert, wirken auf Zielzellen mit passendem Rezeptor (Schluessel-Schloss-Prinzip). Kleinste Mengen genuegen. Wirkungsspezifisch.\nVs. Nervensystem: Hormone wirken langsamer, dafuer laenger und auf viele Zellen gleichzeitig.",
+      "image": null
+    },
+    {
+      "id": 27,
+      "category": "F — Hormone",
+      "front": "Vergleiche Peptidhormone und Steroidhormone.",
+      "back": "Peptid: Aminosaeuren-Ketten, hydrophil (wasserloeslich), frei im Blut, kann Membran NICHT passieren → bindet an Membranrezeptor → cAMP (2nd messenger) → Enzymaktivierung. Bsp: Insulin, Adrenalin.\nSteroid: Cholesterin-Abkoemmling, lipophil (fettloeslich), an Transportprotein im Blut, KANN Membran passieren → Rezeptor im Cytoplasma → Zellkern → Genaktivierung. Bsp: Testosteron, Oestradiol.\nMerkregel: \"Fett geht durch, Wasser bleibt draussen.\"\nDarum: Insulin spritzen (Peptid), Pille schlucken (Steroid).",
+      "image": null
+    },
+    {
+      "id": 28,
+      "category": "F — Hormone",
+      "front": "Erklaere die Blutzuckerregulation (Insulin und Glukagon).",
+      "back": "Sollwert: 60-110 mg/100 ml.\nBauchspeicheldruese (Langerhans'sche Inseln):\nss-Zellen → Insulin (senkt BZ): oeffnet Glukosekanaele, Glukose → Glykogen.\nalpha-Zellen → Glukagon (hebt BZ): Glykogen → Glukose, Fettabbau.\nGegenspielerprinzip (Antagonismus): Beide wirken entgegengesetzt → Schwankungen werden ausgeglichen.\nAdrenalin: hemmt Insulin, steigert Glukagon → BZ steigt bei Stress.",
+      "image": null
+    },
+    {
+      "id": 29,
+      "category": "F — Hormone",
+      "front": "Vergleiche Diabetes Typ 1 und Typ 2.",
+      "back": "Typ 1: Autoimmunerkrankung, meist Kinder/Jugendliche, Immunsystem zerstoert ss-Zellen → Insulinmangel, starke Symptome, lebenslang Insulin spritzen, nicht heilbar.\nTyp 2: Insulinresistenz der Zielzellen, meist Aeltere (zunehmend auch Juengere), Ursachen: Uebergewicht + Bewegungsmangel, schleichende Symptome, Therapie: Lebensstil + Tabletten, in Fruehphase reversibel.\nBeide: Spaetfolgen = Arteriosklerose, Herzinfarkt, Schlaganfall, Blindheit.",
+      "image": null
+    },
+    {
+      "id": 30,
+      "category": "F — Hormone",
+      "front": "Warum muss Insulin gespritzt werden und kann nicht als Tablette eingenommen werden?",
+      "back": "Insulin ist ein Peptidhormon (= Protein). Proteine werden von der Magensaeure und den Verdauungsenzymen im Magen-Darm-Trakt zerstoert.\nDeshalb muss Insulin die Verdauung umgehen → Injektion direkt ins Unterhautfettgewebe.\nSteroidhormone (z.B. in der Pille) sind dagegen fettloeslich und ueberstehen die Verdauung → koennen geschluckt werden.",
+      "image": null
+    }
+  ]
+}

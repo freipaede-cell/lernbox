@@ -1,0 +1,11 @@
+{
+  "sets": [
+    {
+      "id": "bio-herz-kreislauf-2026",
+      "file": "sets/bio-herz-kreislauf-2026.json",
+      "title": "Biologie — Herz-Kreislauf & Hormone",
+      "subject": "Biologie",
+      "cardCount": 30
+    }
+  ]
+}
