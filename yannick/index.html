@@ -761,6 +761,7 @@ body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg);
     // Action buttons
     html += '<div class="topic-actions">';
     html += '<button class="btn-action btn-learn" id="btn-start-learn">Lernen' + (due > 0 ? ' (' + due + ' faellig)' : '') + '</button>';
+    html += '<button class="btn-action btn-learn" id="btn-start-all" style="background:var(--card);border:2px solid var(--accent);color:var(--accent);">Alle Karten ueben</button>';
     html += '<button class="btn-action btn-exam" id="btn-start-exam">Pruefung simulieren</button>';
     html += '<button class="btn-action btn-reverse" id="btn-start-reverse">Umgekehrt lernen</button>';
     if (favs.length > 0) {
@@ -808,6 +809,11 @@ body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg);
       isExamMode = false;
       isReverseMode = false;
       startLearning(setId, 'due');
+    });
+    document.getElementById('btn-start-all').addEventListener('click', () => {
+      isExamMode = false;
+      isReverseMode = false;
+      startLearning(setId, 'all');
     });
     document.getElementById('btn-start-exam').addEventListener('click', () => {
       isExamMode = true;
