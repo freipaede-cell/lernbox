@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arbeitsblatt — Rohstoffe & Energie</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.6; padding: 20px; }
+  .container { max-width: 800px; margin: 0 auto; }
+
+  .header { background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #0d9488 100%); color: #fff; padding: 24px 28px; border-radius: 16px; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5em; font-weight: 800; }
+  .header .sub { font-size: 0.85em; opacity: 0.85; margin-top: 4px; }
+
+  .intro { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 18px 22px; margin-bottom: 24px; margin-top: 12px; font-size: 0.92em; color: #94a3b8; line-height: 1.7; }
+  .intro strong { color: #38bdf8; }
+
+  .section-title { font-size: 1.1em; font-weight: 700; margin: 28px 0 16px; padding: 10px 16px; border-radius: 10px; }
+  .section-grundlagen { background: rgba(59,130,246,0.15); color: #60a5fa; border-left: 4px solid #3b82f6; }
+  .section-palmoel { background: rgba(34,197,94,0.12); color: #4ade80; border-left: 4px solid #22c55e; }
+  .section-kupfer { background: rgba(249,115,22,0.12); color: #fb923c; border-left: 4px solid #f97316; }
+  .section-sand { background: rgba(234,179,8,0.12); color: #facc15; border-left: 4px solid #eab308; }
+  .section-pet { background: rgba(168,85,247,0.12); color: #c084fc; border-left: 4px solid #a855f7; }
+  .section-vernetzt { background: rgba(236,72,153,0.12); color: #f472b6; border-left: 4px solid #ec4899; }
+
+  .frage { background: #1e293b; border: 1px solid #334155; border-radius: 14px; padding: 20px 22px; margin-bottom: 16px; }
+  .frage-nummer { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; font-weight: 800; font-size: 0.85em; margin-bottom: 10px; flex-shrink: 0; }
+  .nr-blau { background: rgba(59,130,246,0.2); color: #60a5fa; }
+  .nr-gruen { background: rgba(34,197,94,0.15); color: #4ade80; }
+  .nr-orange { background: rgba(249,115,22,0.15); color: #fb923c; }
+  .nr-gelb { background: rgba(234,179,8,0.15); color: #facc15; }
+  .nr-lila { background: rgba(168,85,247,0.15); color: #c084fc; }
+  .nr-pink { background: rgba(236,72,153,0.15); color: #f472b6; }
+
+  .frage-einleitung { font-size: 0.88em; color: #94a3b8; margin-bottom: 8px; font-style: italic; line-height: 1.6; }
+  .frage-text { font-size: 1em; font-weight: 600; color: #f1f5f9; margin-bottom: 14px; line-height: 1.5; }
+  .frage-punkte { font-size: 0.78em; color: #64748b; margin-bottom: 12px; }
+
+  textarea { width: 100%; min-height: 120px; background: #0f172a; border: 2px solid #334155; border-radius: 10px; padding: 14px; color: #e2e8f0; font-family: system-ui, -apple-system, sans-serif; font-size: 0.92em; line-height: 1.6; resize: vertical; transition: border-color 0.2s; }
+  textarea:focus { outline: none; border-color: #38bdf8; }
+  textarea::placeholder { color: #475569; }
+
+  .footer { text-align: center; font-size: 0.75em; color: #475569; margin-top: 32px; padding-top: 16px; border-top: 1px solid #1e293b; }
+
+  .punkte-total { background: #1e293b; border: 2px solid #334155; border-radius: 14px; padding: 18px 22px; margin-top: 28px; text-align: center; }
+  .punkte-total strong { color: #38bdf8; font-size: 1.1em; }
+
+  @media print {
+    body { background: #fff; color: #1a202c; }
+    .frage { border: 1px solid #ccc; break-inside: avoid; }
+    textarea { border: 1px solid #ccc; background: #fff; color: #1a202c; min-height: 80px; }
+    .header { color: #fff; }
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .frage { padding: 16px; }
+    textarea { min-height: 100px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>Arbeitsblatt — Rohstoffe & Energie</h1>
+  <div class="sub">20 Fragen zum Selbst-Erarbeiten | Geografie | Themenbuch S. 64-73</div>
+</div>
+
+<div class="intro">
+  <strong>So gehst du vor:</strong> Lies die Einleitung und die Frage aufmerksam durch. Schreibe deine Antwort in eigenen Worten ins Textfeld. Du darfst das Themenbuch, das Arbeitsheft und die Wissens-Kompakt verwenden. Ziel ist, dass du den Stoff beim Schreiben wirklich verstehst — nicht einfach abschreibst. Formuliere in ganzen Saetzen.
+</div>
+
+<!-- ===== GRUNDLAGEN ===== -->
+<div class="section-title section-grundlagen">Grundlagen: Rohstoffe</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-blau">1</div>
+  <div class="frage-text">Erklaere den Unterschied zwischen erneuerbaren und nicht erneuerbaren Rohstoffen. Nenne je zwei Beispiele.</div>
+  <div class="frage-punkte">4 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-blau">2</div>
+  <div class="frage-einleitung">Auf der Erde leben immer mehr Menschen — und alle brauchen Rohstoffe.</div>
+  <div class="frage-text">Nenne drei Gruende, warum Rohstoffe weltweit knapp werden.</div>
+  <div class="frage-punkte">3 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<!-- ===== PALMOEL ===== -->
+<div class="section-title section-palmoel">Palmoel</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-gruen">3</div>
+  <div class="frage-text">In welchen Alltagsprodukten steckt ueberall Palmoel? Zaehle mindestens sechs verschiedene Produkte auf.</div>
+  <div class="frage-punkte">3 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-gruen">4</div>
+  <div class="frage-einleitung">Oelpalmen wachsen nur in einem bestimmten Klima. Zwei Laender dominieren die Weltproduktion.</div>
+  <div class="frage-text">Wo wird Palmoel hauptsaechlich angebaut und welches Klima brauchen Oelpalmen? Nenne die beiden wichtigsten Laender und die Insel, die besonders betroffen ist.</div>
+  <div class="frage-punkte">4 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-gruen">5</div>
+  <div class="frage-einleitung">Palmoel hat einen riesigen Vorteil gegenueber anderen Pflanzenoelen: den Ertrag pro Flaeche.</div>
+  <div class="frage-text">Wie viel Oel liefert ein Hektar Oelpalmen im Vergleich zu Raps und Soja? Erklaere, warum das ein Vorteil ist, aber gleichzeitig ein Problem fuer die Umwelt.</div>
+  <div class="frage-punkte">4 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-gruen">6</div>
+  <div class="frage-text">Beschreibe drei negative Folgen des Palmoelanbaus fuer die Umwelt und die Menschen vor Ort.</div>
+  <div class="frage-punkte">3 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-gruen">7</div>
+  <div class="frage-einleitung">RSPO steht fuer "Roundtable on Sustainable Palm Oil" — ein Versuch, Palmoel nachhaltiger zu machen.</div>
+  <div class="frage-text">Was ist das Ziel von RSPO und welche Bedingungen muessen erfuellt sein? Was kannst du als Konsumentin tun?</div>
+  <div class="frage-punkte">4 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<!-- ===== KUPFER ===== -->
+<div class="section-title section-kupfer">Kupfer</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-orange">8</div>
+  <div class="frage-text">Warum ist Kupfer eines der wichtigsten Metalle der Welt? Nenne die entscheidende Eigenschaft und mindestens vier Produkte, in denen Kupfer steckt.</div>
+  <div class="frage-punkte">4 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-orange">9</div>
+  <div class="frage-einleitung">Kupfer wird aus Erz gewonnen. In 1'000 Tonnen Erz stecken nur etwa 6 Tonnen Kupfer.</div>
+  <div class="frage-text">Beschreibe die fuenf Schritte der Prozesskette vom Erz zum fertigen Kupfer.</div>
+  <div class="frage-punkte">5 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-orange">10</div>
+  <div class="frage-text">Welches Land ist der groesste Kupferproduzent der Welt? Welche Abbaumethode wird dort verwendet?</div>
+  <div class="frage-punkte">2 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-orange">11</div>
+  <div class="frage-einleitung">Kupferminen veraendern die Landschaft gewaltig. Aber die Folgen reichen weit ueber die Mine hinaus.</div>
+  <div class="frage-text">Beschreibe die Auswirkungen des Kupferabbaus auf: (a) die Umwelt, (b) die Arbeiter, (c) die Familien der Arbeiter.</div>
+  <div class="frage-punkte">6 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-orange">12</div>
+  <div class="frage-text">Nenne drei Vorteile von Kupfer-Recycling. Welchen Nachteil hat es?</div>
+  <div class="frage-punkte">4 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<!-- ===== SAND ===== -->
+<div class="section-title section-sand">Sand</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-gelb">13</div>
+  <div class="frage-einleitung">Sand klingt nach etwas, das es unendlich gibt. In Wirklichkeit ist es der meistgebrauchte Rohstoff nach Wasser.</div>
+  <div class="frage-text">Wofuer wird Sand verwendet? Nenne mindestens fuenf verschiedene Produkte oder Einsatzbereiche. Wie viel Sand wird jaehrlich weltweit abgebaut?</div>
+  <div class="frage-punkte">4 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-gelb">14</div>
+  <div class="frage-text">Erklaere, warum Wuestensand NICHT zum Bauen geeignet ist, obwohl es davon riesige Mengen gibt.</div>
+  <div class="frage-punkte">2 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-gelb">15</div>
+  <div class="frage-einleitung">Singapur hat seine Landflaeche in 40 Jahren um 20% vergroessert. Auf den Malediven verschwinden Inseln.</div>
+  <div class="frage-text">Beschreibe an diesen zwei Beispielen, wie sich die Sandgewinnung auf Mensch und Umwelt auswirkt.</div>
+  <div class="frage-punkte">4 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-gelb">16</div>
+  <div class="frage-text">Wie viel Sand braucht man fuer ein mittelgrosses Haus und fuer einen Kilometer Autobahn? Warum zeigen diese Zahlen, dass Sand ein Problem ist?</div>
+  <div class="frage-punkte">3 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<!-- ===== PET ===== -->
+<div class="section-title section-pet">PET & Recycling</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-lila">17</div>
+  <div class="frage-text">Was bedeutet PET (ausgeschrieben) und aus welchem Rohstoff wird es hergestellt? Wie viel Rohoel braucht man fuer 1 kg PET?</div>
+  <div class="frage-punkte">3 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-lila">18</div>
+  <div class="frage-einleitung">In der Schweiz werden jaehrlich 1.6 Milliarden PET-Flaschen verbraucht. Rund 80% davon werden gesammelt.</div>
+  <div class="frage-text">Beschreibe den PET-Kreislauf: Was passiert mit einer PET-Flasche, nachdem du sie in den Sammelbeh&auml;lter geworfen hast? Was wird daraus hergestellt?</div>
+  <div class="frage-punkte">4 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-lila">19</div>
+  <div class="frage-text">Nenne drei Vorteile und zwei Nachteile von Recycling allgemein.</div>
+  <div class="frage-punkte">5 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<!-- ===== VERNETZT ===== -->
+<div class="section-title section-vernetzt">Vernetzt denken</div>
+
+<div class="frage">
+  <div class="frage-nummer nr-pink">20</div>
+  <div class="frage-einleitung">Alle vier Rohstoffe — Palmoel, Kupfer, Sand und PET — haben etwas gemeinsam: Ihr Abbau hat Folgen fuer Mensch und Umwelt, und bei allen gibt es Loesungsansaetze.</div>
+  <div class="frage-text">Waehle zwei der vier Rohstoffe und vergleiche sie: Welche Probleme haben sie gemeinsam? Wo unterscheiden sich die Loesungsansaetze? Was kannst du persoenlich tun?</div>
+  <div class="frage-punkte">6 Punkte</div>
+  <textarea placeholder="Deine Antwort..."></textarea>
+</div>
+
+<div class="punkte-total">
+  <strong>Total: 73 Punkte</strong><br>
+  <span style="font-size: 0.85em; color: #94a3b8;">Nimm dir genuegend Zeit. Es geht nicht um Geschwindigkeit, sondern um Verstaendnis.</span>
+</div>
+
+<div class="footer">
+  Arbeitsblatt | Geografie: Rohstoffe & Energie | Themenbuch S. 64-73 | Stand: 15.03.2026
+</div>
+
+</div>
+</body>
+</html>
