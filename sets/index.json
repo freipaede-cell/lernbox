@@ -10,7 +10,8 @@
       "examDate": "",
       "materials": [
         { "type": "wissen", "title": "Wissens-Kompakt", "file": "materials/bio-herz-kreislauf-2026-wissen.html" },
-        { "type": "pruefung", "title": "Uebungspruefung", "file": "materials/bio-herz-kreislauf-2026-pruefung.html" }
+        { "type": "pruefung", "title": "Uebungspruefung", "file": "materials/bio-herz-kreislauf-2026-pruefung.html" },
+        { "type": "praesentation", "title": "The Human Heart Engine", "file": "materials/bio-herz-kreislauf-2026-praesentation.pdf" }
       ]
     },
     {
