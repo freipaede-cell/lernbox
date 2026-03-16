@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physik — Hydrostatik | Uebungspruefung</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0f1117;color:#e0e0e0;line-height:1.7;padding:20px;max-width:900px;margin:0 auto}
+h1{font-size:1.8em;color:#7eb8ff;border-bottom:2px solid #7eb8ff;padding-bottom:8px;margin-bottom:8px}
+h2{font-size:1.3em;color:#ff9f43;margin:28px 0 14px;border-left:4px solid #ff9f43;padding-left:12px}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 24px}
+li{margin:4px 0}
+.meta{color:#888;font-size:0.85em;margin-bottom:20px}
+.info-box{background:#1e293b;border:1px solid #334;border-radius:10px;padding:16px 20px;margin:16px 0}
+.aufgabe{background:#161b24;border:1px solid #334;border-radius:10px;padding:16px 20px;margin:16px 0}
+.aufgabe .nr{font-weight:700;color:#ff9f43;font-size:1.05em}
+.aufgabe .punkte{color:#888;font-size:0.9em;float:right}
+.aufgabe .text{margin:8px 0}
+details{margin-top:10px}
+summary{cursor:pointer;color:#4ade80;font-weight:600;padding:6px 0}
+summary:hover{color:#86efac}
+.loesung{background:#1e2a1e;border-left:3px solid #4ade80;padding:12px 16px;margin-top:8px;border-radius:0 8px 8px 0}
+.loesung .ergebnis{color:#4ade80;font-weight:700;margin-top:4px}
+.formel{font-family:'Courier New',monospace;color:#fff}
+strong{color:#fff}
+sub,sup{font-size:0.75em}
+.noten-tabelle{background:#1e293b;border-radius:10px;padding:16px 20px;margin:24px 0}
+.noten-tabelle table{width:100%;border-collapse:collapse}
+.noten-tabelle th{background:#263348;color:#7eb8ff;padding:6px 10px;text-align:center;border:1px solid #334}
+.noten-tabelle td{padding:6px 10px;text-align:center;border:1px solid #334}
+.total{font-size:1.2em;color:#7eb8ff;font-weight:700;text-align:right;margin-top:16px}
+</style>
+</head>
+<body>
+
+<h1>Physik — Hydrostatik | Uebungspruefung</h1>
+<p class="meta">Pruefungssimulation | Yannick | 16.03.2026</p>
+
+<div class="info-box">
+<strong>Pruefungsinformationen</strong>
+<ul>
+<li>Thema: Hydrostatik (Kapitel 7.1–7.5)</li>
+<li>Dauer: 45 Minuten</li>
+<li>Total: 50 Punkte</li>
+<li>Hilfsmittel: Taschenrechner, Formelsammlung</li>
+<li>Wichtige Konstanten: g = 9.81 m/s&sup2;, &rho;<sub>Wasser</sub> = 1000 kg/m&sup3;</li>
+</ul>
+</div>
+
+<!-- ===== TEIL A: WISSEN ===== -->
+<h2>Teil A — Wissen (12 Punkte)</h2>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 1 <span class="punkte">[3 P]</span></div>
+<div class="text">
+a) Schreiben Sie die Formel fuer den Druck auf und benennen Sie alle Groessen mit Einheiten. [1 P]<br>
+b) Schreiben Sie die Formel fuer den Schweredruck auf und benennen Sie alle Groessen. [1 P]<br>
+c) Schreiben Sie die Formel fuer die Auftriebskraft auf und benennen Sie alle Groessen. [1 P]
+</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>a) p = F / A &nbsp;|&nbsp; p: Druck [Pa = N/m&sup2;], F: Kraft [N], A: Flaeche [m&sup2;]</p>
+<p>b) p = &rho; &middot; g &middot; h &nbsp;|&nbsp; &rho;: Dichte [kg/m&sup3;], g: Fallbeschleunigung [m/s&sup2;], h: Tiefe [m]</p>
+<p>c) F<sub>A</sub> = &rho;<sub>Fl</sub> &middot; g &middot; V &nbsp;|&nbsp; &rho;<sub>Fl</sub>: Dichte der Fluessigkeit [kg/m&sup3;], V: verdraengtes Volumen [m&sup3;]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 2 <span class="punkte">[2 P]</span></div>
+<div class="text">Erklaeren Sie den Unterschied zwischen «absolutem Druck» und «Ueberdruck». Geben Sie ein Beispiel.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Absoluter Druck = Druck gegenueber dem Vakuum. Ueberdruck = Druck gegenueber dem aeusseren Luftdruck. [1 P]</p>
+<p>Beispiel: Autoreifen mit 2 bar Ueberdruck → absolut: 2 + 1 = 3 bar. [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 3 <span class="punkte">[2 P]</span></div>
+<div class="text">Formulieren Sie den Satz von Pascal und den Satz des Archimedes je in einem Satz.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>Pascal:</strong> In ruhenden, inkompressiblen Fluessigkeiten herrscht ueberall derselbe Druck (abgesehen von der Schwerkraft). [1 P]</p>
+<p><strong>Archimedes:</strong> Die Auftriebskraft entspricht der Gewichtskraft der vom Koerper verdraengten Fluessigkeit. [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 4 <span class="punkte">[3 P]</span></div>
+<div class="text">Rechnen Sie um:<br>
+a) 4.5 bar = ? Pa [1 P]<br>
+b) 250'000 Pa = ? bar [1 P]<br>
+c) 1520 mbar = ? hPa [1 P]</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>a) 4.5 &middot; 100'000 = <strong>450'000 Pa</strong></p>
+<p>b) 250'000 / 100'000 = <strong>2.5 bar</strong></p>
+<p>c) 1 mbar = 1 hPa → <strong>1520 hPa</strong></p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 5 <span class="punkte">[2 P]</span></div>
+<div class="text">Was ist der Unterschied zwischen Gasen und Fluessigkeiten bezueglich Kompressibilitaet? Nennen Sie je ein Beispiel aus dem Alltag.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Gase sind komprimierbar (Luft in Fahrradpumpe zusammendrueckbar), Fluessigkeiten sind inkompressibel (Wasser in Spritze laesst sich nicht zusammendruecken). [1 P + 1 P]</p>
+</div>
+</details>
+</div>
+
+<!-- ===== TEIL B: VERSTÄNDNIS ===== -->
+<h2>Teil B — Verstaendnis (18 Punkte)</h2>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 6 <span class="punkte">[3 P]</span></div>
+<div class="text">Erklaeren Sie mit physikalischen Begriffen, warum ein Schokokuss unter einer Vakuumglocke aufgeht und platzt.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Im Schaumzucker sind kleine Luftblaeschen eingeschlossen [1 P]. Normal haelt der aeussere Luftdruck sie zusammen. Beim Abpumpen sinkt der aeussere Druck auf nahezu 0 [1 P]. Der Innendruck der Blaeschen ist nun groesser als der Aussendruck → sie dehnen sich aus → der Schokokuss blaest sich auf und platzt [1 P].</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 7 <span class="punkte">[3 P]</span></div>
+<div class="text">Erklaeren Sie das Prinzip einer hydraulischen Presse. Warum kann man mit wenig Kraft ein Auto heben? Was ist der «Preis» dafuer?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Der Druck pflanzt sich in der inkompressiblen Fluessigkeit gleichmaessig fort (Pascal) [1 P]. Eine kleine Kraft auf kleiner Flaeche erzeugt denselben Druck wie eine grosse Kraft auf grosser Flaeche: F<sub>2</sub> = (A<sub>2</sub>/A<sub>1</sub>) &middot; F<sub>1</sub> [1 P]. Der «Preis»: Der kleine Kolben muss eine viel groessere Strecke zuruecklegen (A<sub>1</sub>&middot;s<sub>1</sub> = A<sub>2</sub>&middot;s<sub>2</sub>) — die Arbeit bleibt gleich [1 P].</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 8 <span class="punkte">[3 P]</span></div>
+<div class="text">
+a) Wie muss der Querschnitt einer Staumauer geformt sein? [1 P]<br>
+b) Begruenden Sie Ihre Antwort mit Ihrem Wissen ueber den Schweredruck. [2 P]</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>a) Unten breit, oben schmal (trapez-/keilfoermig) [1 P].</p>
+<p>b) Der Schweredruck nimmt mit der Tiefe linear zu (p = &rho;&middot;g&middot;h) [1 P]. Unten wirkt der groesste Druck und somit die groesste Kraft auf die Mauer → sie muss dort am dicksten/stabilsten sein [1 P].</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 9 <span class="punkte">[3 P]</span></div>
+<div class="text">Eisenschiffe schwimmen, obwohl Eisen 8x dichter ist als Wasser. Erklaeren Sie, wie das moeglich ist.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Das Schiff ist eine hohle Struktur mit viel Luft [1 P]. Die mittlere Dichte (Eisen + Luft + Ladung) ist geringer als die von Wasser [1 P]. Das Schiff verdraengt genug Wasser, sodass die Auftriebskraft seine Gewichtskraft traegt (Archimedes) [1 P].</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 10 <span class="punkte">[3 P]</span></div>
+<div class="text">Ein Fisch kann mithilfe seiner Schwimmblase steigen, schweben und sinken. Erklaeren Sie den Mechanismus fuer alle drei Faelle.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>Steigen:</strong> Schwimmblase vergroessern → Volumen steigt → mittlere Dichte sinkt → F<sub>A</sub> &gt; F<sub>G</sub> [1 P].</p>
+<p><strong>Schweben:</strong> Schwimmblase so, dass &rho;<sub>Fisch</sub> = &rho;<sub>Wasser</sub> → F<sub>A</sub> = F<sub>G</sub> [1 P].</p>
+<p><strong>Sinken:</strong> Schwimmblase verkleinern → Volumen sinkt → mittlere Dichte steigt → F<sub>A</sub> &lt; F<sub>G</sub> [1 P].</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 11 <span class="punkte">[3 P]</span></div>
+<div class="text">Erklaeren Sie mit physikalischen Begriffen, wie die Zwerchfellatmung funktioniert. Gehen Sie auf Einatmung und Ausatmung ein.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>Einatmung:</strong> Zwerchfell kontrahiert → Brustkorb-Volumen vergroessert sich → Druck in Lunge sinkt unter Luftdruck (Unterdruck) → Luft stroemt ein [1.5 P].</p>
+<p><strong>Ausatmung:</strong> Zwerchfell entspannt sich → Volumen verkleinert sich → Druck steigt ueber Luftdruck (Ueberdruck) → Luft wird herausgedrueckt [1.5 P].</p>
+</div>
+</details>
+</div>
+
+<!-- ===== TEIL C: ANWENDUNG ===== -->
+<h2>Teil C — Anwendung / Rechnen (20 Punkte)</h2>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 12 <span class="punkte">[3 P]</span></div>
+<div class="text">Ein Wanderer (75 kg) steht auf einem zugefrorenen See. Seine Schuhsohlen haben zusammen eine Flaeche von 500 cm&sup2;. Berechnen Sie den Auflagedruck in Pa und bar.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>F = m &middot; g = 75 &middot; 9.81 = 735.75 N [1 P]</p>
+<p>A = 500 cm&sup2; = 500 &middot; 10<sup>-4</sup> m&sup2; = 0.05 m&sup2; [0.5 P]</p>
+<p>p = F/A = 735.75 / 0.05 [0.5 P]</p>
+<p class="ergebnis">p = 14'715 Pa = 0.147 bar [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 13 <span class="punkte">[3 P]</span></div>
+<div class="text">Ein Taucher schwimmt in einem Bergsee in 15 m Tiefe. Der Luftdruck auf dieser Hoehe betraegt 850 hPa. Berechnen Sie den absoluten Druck auf den Taucher.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Schweredruck: p<sub>W</sub> = &rho; &middot; g &middot; h = 1000 &middot; 9.81 &middot; 15 = 147'150 Pa [1 P]</p>
+<p>Luftdruck: p<sub>L</sub> = 850 hPa = 85'000 Pa [0.5 P]</p>
+<p>p<sub>abs</sub> = p<sub>L</sub> + p<sub>W</sub> = 85'000 + 147'150 [0.5 P]</p>
+<p class="ergebnis">p<sub>abs</sub> = 232'150 Pa &asymp; 2.32 bar [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 14 <span class="punkte">[4 P]</span></div>
+<div class="text">Bei einer hydraulischen Hebebuehne hat der Pumpkolben eine Flaeche von 5 cm&sup2; und der Presskolben 400 cm&sup2;.<br>
+a) Welche Kraft muss man am Pumpkolben aufbringen, um ein Auto von 1500 kg zu heben? [2 P]<br>
+b) Wie weit senkt sich der Pumpkolben, wenn sich das Auto um 1 cm hebt? [2 P]</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>a)</strong></p>
+<p>F<sub>G</sub> = 1500 &middot; 9.81 = 14'715 N [0.5 P]</p>
+<p>F<sub>1</sub> = (A<sub>1</sub>/A<sub>2</sub>) &middot; F<sub>2</sub> = (5/400) &middot; 14'715 [1 P]</p>
+<p class="ergebnis">F<sub>1</sub> = 183.9 N &asymp; 184 N [0.5 P]</p>
+<p><strong>b)</strong></p>
+<p>A<sub>1</sub> &middot; s<sub>1</sub> = A<sub>2</sub> &middot; s<sub>2</sub> [0.5 P]</p>
+<p>s<sub>1</sub> = (A<sub>2</sub>/A<sub>1</sub>) &middot; s<sub>2</sub> = (400/5) &middot; 1 cm [1 P]</p>
+<p class="ergebnis">s<sub>1</sub> = 80 cm [0.5 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 15 <span class="punkte">[4 P]</span></div>
+<div class="text">Ein Aluminiumblock (m = 2.7 kg, V = 1000 cm&sup3;) wird vollstaendig in Wasser getaucht.<br>
+a) Berechnen Sie die Auftriebskraft. [2 P]<br>
+b) Wie gross ist die scheinbare Gewichtskraft unter Wasser? [1 P]<br>
+c) Schwimmt, schwebt oder sinkt der Block? Begruenden Sie. [1 P]</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>a)</strong></p>
+<p>V = 1000 cm&sup3; = 0.001 m&sup3; [0.5 P]</p>
+<p>F<sub>A</sub> = &rho;<sub>W</sub> &middot; g &middot; V = 1000 &middot; 9.81 &middot; 0.001 [1 P]</p>
+<p class="ergebnis">F<sub>A</sub> = 9.81 N [0.5 P]</p>
+<p><strong>b)</strong></p>
+<p>F<sub>G</sub> = 2.7 &middot; 9.81 = 26.49 N</p>
+<p class="ergebnis">F<sub>scheinbar</sub> = F<sub>G</sub> - F<sub>A</sub> = 26.49 - 9.81 = 16.68 N [1 P]</p>
+<p><strong>c)</strong></p>
+<p>&rho;<sub>Alu</sub> = m/V = 2.7/0.001 = 2700 kg/m&sup3; &gt; &rho;<sub>W</sub> = 1000 kg/m&sup3; → der Block <strong>sinkt</strong>. [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 16 <span class="punkte">[3 P]</span></div>
+<div class="text">Ein Holzblock (&rho;<sub>Holz</sub> = 0.75 g/cm&sup3;) mit den Massen 10 cm &times; 10 cm &times; 20 cm schwimmt in Wasser. Wie viele Zentimeter ragen aus dem Wasser?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Eintauchverhaeltnis: h<sub>ein</sub>/h<sub>ges</sub> = &rho;<sub>Holz</sub>/&rho;<sub>W</sub> = 750/1000 = 0.75 [1 P]</p>
+<p>Annahme: Block schwimmt mit 20 cm Hoehe senkrecht:</p>
+<p>h<sub>ein</sub> = 0.75 &middot; 20 = 15 cm [1 P]</p>
+<p class="ergebnis">Aus dem Wasser ragen: 20 - 15 = 5 cm [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 17 <span class="punkte">[3 P]</span></div>
+<div class="text">Im Keller eines Hauses zeigt der Wasserdruckmesser 4.2 bar. Wie gross ist der Druck im 3. Obergeschoss (10 m hoeher)?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>&Delta;p = &rho; &middot; g &middot; h = 1000 &middot; 9.81 &middot; 10 = 98'100 Pa = 0.981 bar [1.5 P]</p>
+<p>p<sub>3.OG</sub> = 4.2 - 0.981 [0.5 P]</p>
+<p class="ergebnis">p<sub>3.OG</sub> = 3.22 bar [1 P]</p>
+</div>
+</details>
+</div>
+
+<!-- ===== NOTENSCHLÜSSEL ===== -->
+<div class="total">Total: 50 Punkte</div>
+
+<div class="noten-tabelle">
+<strong>Notenschluessel (CH, Note 1–6)</strong>
+<table>
+<tr><th>Note</th><th>6</th><th>5.5</th><th>5</th><th>4.5</th><th>4</th><th>3.5</th><th>3</th></tr>
+<tr><td>Punkte</td><td>47–50</td><td>43–46</td><td>38–42</td><td>33–37</td><td>28–32</td><td>23–27</td><td>18–22</td></tr>
+<tr><td>Prozent</td><td>94–100%</td><td>86–92%</td><td>76–84%</td><td>66–74%</td><td>56–64%</td><td>46–54%</td><td>36–44%</td></tr>
+</table>
+</div>
+
+<p style="text-align:center;color:#666;margin-top:40px;font-size:0.85em;">Uebungspruefung | Physik Hydrostatik | Version 1.0 | 16.03.2026</p>
+
+</body>
+</html>

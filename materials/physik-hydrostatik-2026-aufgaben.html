@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physik — Hydrostatik | Aufgabensammlung mit Loesungen</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0f1117;color:#e0e0e0;line-height:1.7;padding:20px;max-width:900px;margin:0 auto}
+h1{font-size:1.8em;color:#7eb8ff;border-bottom:2px solid #7eb8ff;padding-bottom:8px;margin-bottom:24px}
+h2{font-size:1.4em;color:#ff9f43;margin:32px 0 16px;border-left:4px solid #ff9f43;padding-left:12px}
+h3{font-size:1.1em;color:#a8d8ea;margin:20px 0 10px}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 24px}
+li{margin:4px 0}
+.aufgabe{background:#161b24;border:1px solid #334;border-radius:10px;padding:16px 20px;margin:16px 0}
+.aufgabe .nr{font-weight:700;color:#ff9f43;font-size:1.05em}
+.aufgabe .text{margin:8px 0}
+details{margin-top:10px}
+summary{cursor:pointer;color:#4ade80;font-weight:600;padding:6px 0}
+summary:hover{color:#86efac}
+.loesung{background:#1e2a1e;border-left:3px solid #4ade80;padding:12px 16px;margin-top:8px;border-radius:0 8px 8px 0}
+.loesung .schritt{color:#a0cfb0;margin:4px 0}
+.loesung .ergebnis{color:#4ade80;font-weight:700;font-size:1.05em;margin-top:8px}
+.formel{font-family:'Courier New',monospace;color:#fff;background:#1a2332;padding:4px 10px;border-radius:4px;display:inline-block;margin:4px 0}
+.meta{color:#888;font-size:0.85em;margin-bottom:20px}
+.toc{background:#161b24;border-radius:10px;padding:16px 24px;margin:16px 0}
+.toc a{color:#7eb8ff;text-decoration:none}
+.toc a:hover{text-decoration:underline}
+.toc ol{margin-left:20px}
+.toc li{margin:4px 0}
+strong{color:#fff}
+sub,sup{font-size:0.75em}
+</style>
+</head>
+<body>
+
+<h1>Physik — Hydrostatik | Aufgabensammlung</h1>
+<p class="meta">Alle Aufgaben aus den Dokumenten 1–5 mit vollstaendigen Loesungen | 16.03.2026</p>
+
+<div class="toc">
+<strong>Inhaltsverzeichnis</strong>
+<ol>
+<li><a href="#ab1">Aufgabenblatt Druck</a> (5 Aufgaben)</li>
+<li><a href="#ab2">Aufgabenblatt Luftdruck</a> (5 Aufgaben)</li>
+<li><a href="#ab3">Aufgabe Druck in Fluessigkeiten</a> (1 Aufgabe, 4 Teile)</li>
+<li><a href="#ab4">Aufgabenblatt Schweredruck</a> (12 Aufgaben)</li>
+<li><a href="#ab5">Aufgabenblatt Auftrieb</a> (9 Aufgaben)</li>
+</ol>
+</div>
+
+<!-- ===== AUFGABENBLATT 1: DRUCK ===== -->
+<h2 id="ab1">Aufgabenblatt 1: Druck</h2>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 1 — Einheiten umrechnen</div>
+<div class="text">
+a) 1.02 mN/mm&sup2; = ? Pa<br>
+b) 63 kN/m&sup2; = ? bar<br>
+c) 1327 Pa = ? mbar
+</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>a)</strong></p>
+<p class="schritt">1 mN = 10&sup3; N &middot; 10<sup>-3</sup> = 0.001 N</p>
+<p class="schritt">1 mm&sup2; = (10<sup>-3</sup> m)&sup2; = 10<sup>-6</sup> m&sup2;</p>
+<p class="schritt">1.02 mN/mm&sup2; = 1.02 &middot; 10<sup>-3</sup> N / 10<sup>-6</sup> m&sup2; = 1.02 &middot; 10&sup3; Pa</p>
+<p class="ergebnis">= 1020 Pa</p>
+
+<p><strong>b)</strong></p>
+<p class="schritt">63 kN/m&sup2; = 63'000 N/m&sup2; = 63'000 Pa</p>
+<p class="schritt">1 bar = 100'000 Pa</p>
+<p class="ergebnis">= 63'000 / 100'000 = 0.63 bar</p>
+
+<p><strong>c)</strong></p>
+<p class="schritt">1 mbar = 100 Pa → 1 Pa = 0.01 mbar</p>
+<p class="ergebnis">1327 Pa = 1327 &middot; 0.01 = 13.27 mbar</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 2 — Dampfkochtopf</div>
+<div class="text">Auf den Deckel eines Dampfkochtopfes wirkt von Innen eine Kraft von 6000 N. Der Deckel hat eine Flaeche von 5 dm&sup2;. Welcher Ueberdruck herrscht im Innern?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">A = 5 dm&sup2; = 5 &middot; (0.1 m)&sup2; = 5 &middot; 0.01 m&sup2; = 0.05 m&sup2;</p>
+<p class="schritt">p = F / A = 6000 N / 0.05 m&sup2;</p>
+<p class="ergebnis">p = 120'000 Pa = 1.2 bar Ueberdruck</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 3 — Wasserleitung</div>
+<div class="text">In einer Wasserleitung herrscht ein Druck von 5.3 bar. Welche Kraft braucht man, um die Oeffnung eines Wasserhahns (A = 1.4 cm&sup2;) zuzuhalten?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">p = 5.3 bar = 5.3 &middot; 10&sup5; Pa = 530'000 Pa</p>
+<p class="schritt">A = 1.4 cm&sup2; = 1.4 &middot; 10<sup>-4</sup> m&sup2;</p>
+<p class="schritt">F = p &middot; A = 530'000 &middot; 1.4 &middot; 10<sup>-4</sup></p>
+<p class="ergebnis">F = 74.2 N (entspricht ca. 7.6 kg Gewichtskraft)</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 4 — Gondel und Trommelfell</div>
+<div class="text">Sie fahren mit einer Gondel zu Tal. Der Luftdruck steigt von 915 mbar auf 1005 mbar. Um wieviel aendert sich die Kraft auf das Trommelfell (A = 0.8 cm&sup2;)?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">&Delta;p = 1005 - 915 = 90 mbar = 9000 Pa</p>
+<p class="schritt">A = 0.8 cm&sup2; = 0.8 &middot; 10<sup>-4</sup> m&sup2;</p>
+<p class="schritt">&Delta;F = &Delta;p &middot; A = 9000 &middot; 0.8 &middot; 10<sup>-4</sup></p>
+<p class="ergebnis">&Delta;F = 0.72 N</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 5 — Tango-Taenzerin (Auflagedruck)</div>
+<div class="text">Eine 62 kg schwere Taenzerin tritt auf die Tanzflaeche.<br>
+1) Druck mit Stiletto-Absatz (A = 49 mm&sup2;)?<br>
+2) Druck mit Sneakers (A = 1600 mm&sup2;)?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">F<sub>G</sub> = m &middot; g = 62 &middot; 9.81 = 608.2 N</p>
+<p><strong>1) Stiletto:</strong></p>
+<p class="schritt">A = 49 mm&sup2; = 49 &middot; 10<sup>-6</sup> m&sup2;</p>
+<p class="schritt">p = 608.2 / (49 &middot; 10<sup>-6</sup>)</p>
+<p class="ergebnis">p &asymp; 12.4 &middot; 10&sup6; Pa = 124 bar</p>
+<p><strong>2) Sneakers:</strong></p>
+<p class="schritt">A = 1600 mm&sup2; = 1600 &middot; 10<sup>-6</sup> m&sup2;</p>
+<p class="schritt">p = 608.2 / (1600 &middot; 10<sup>-6</sup>)</p>
+<p class="ergebnis">p &asymp; 380'000 Pa = 3.8 bar</p>
+<p class="schritt">Der Stiletto erzeugt rund 33x mehr Druck als der Sneaker!</p>
+</div>
+</details>
+</div>
+
+<!-- ===== AUFGABENBLATT 2: LUFTDRUCK ===== -->
+<h2 id="ab2">Aufgabenblatt 2: Luftdruck</h2>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 1 — Heronsball</div>
+<div class="text">Erklaeren Sie die Beobachtung beim Heronsball (Werkstatt-Versuch 2) mit physikalischen Begriffen.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Beim Hineinblasen von Luft in die Flasche wird der Luftdruck im Innern ueber den aeusseren Luftdruck erhoehte (Ueberdruck entsteht). Da der Innendruck groesser ist als der Aussendruck, wirkt eine Nettokraft auf die Wasseroberflaeche im Innern. Diese Kraft drueckt das Wasser durch das Roehrchen nach oben und aussen. Je groesser der Ueberdruck, desto hoeher/weiter spritzt das Wasser (Springbrunnen-Effekt).</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 2 — Druckmessgeraete / Manometer</div>
+<div class="text">Wie funktioniert das Manometer-Modell (Werkstatt-Versuch 5)? Verwenden Sie physikalische Begriffe.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Das Manometer arbeitet nach dem Bourdon-Rohr-Prinzip: Ein gebogenes, flaches Metallrohr (aehnlich dem Papier-Ruessel) ist am einen Ende geschlossen und am anderen Ende mit dem zu messenden Druck verbunden. Steigt der Druck, streckt sich das Rohr (wie ein Papier-Ruessel beim Hineinblasen). Diese Verformung wird ueber ein Zahnradsystem auf einen Zeiger uebertragen. Je groesser der Druck, desto staerker die Streckung und desto weiter der Zeigerausschlag auf der Skala.</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 3 — Zwerchfellatmung</div>
+<div class="text">Erklaeren Sie mit physikalischen Begriffen, wie die Zwerchfellatmung beim Menschen funktioniert (Werkstatt-Versuch 9).</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>Einatmung:</strong> Das Zwerchfell kontrahiert (zieht sich zusammen) und bewegt sich nach unten. Dadurch vergroessert sich das Volumen des Brustkorbs. Der Druck in der Lunge sinkt unter den aeusseren Luftdruck (Unterdruck entsteht). Die Druckdifferenz zwischen aussen und innen bewirkt, dass Luft durch Nase/Mund in die Lunge stroemt.</p>
+<p><strong>Ausatmung:</strong> Das Zwerchfell entspannt sich und woelbt sich wieder nach oben. Das Volumen des Brustkorbs verkleinert sich. Der Druck in der Lunge steigt ueber den aeusseren Luftdruck (Ueberdruck). Die Luft wird aus der Lunge herausgedrueckt.</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 4 — Schokokuss unter Vakuumglocke</div>
+<div class="text">Warum platzt ein Schokokuss, wenn man ihn unter eine Vakuumglocke platziert und die Luft abpumpt?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Im Schaumzucker des Schokokusses sind kleine Luftblaeschen eingeschlossen. Unter normalen Bedingungen werden diese durch den aeusseren Luftdruck (ca. 1 bar) zusammengehalten. Pumpt man die Luft unter der Vakuumglocke ab, sinkt der aeussere Druck auf nahezu 0. Die Luft in den Blaeschen hat aber noch den urspruenglichen Innendruck. Dieser Innendruck ist nun viel groesser als der Aussendruck → die Blaeschen dehnen sich aus → der Schokokuss blaest sich auf und die Schokoladenhuelle platzt.</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 5 — Magdeburger Halbkugeln (Berechnung)</div>
+<div class="text">Wie gross ist die Kraft, die man aufbringen muesste, um die Halbkugeln auseinanderzuziehen? (Innendurchmesser und Luftdruck aus Versuch einsetzen)</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt"><strong>Allgemeine Loesung:</strong></p>
+<p class="schritt">Relevante Flaeche = Querschnittsflaeche (Kreisflaeche): A = &pi; &middot; r&sup2; = &pi; &middot; (d/2)&sup2;</p>
+<p class="schritt">Die Kraft ergibt sich aus: F = p &middot; A</p>
+<p class="schritt"><strong>Beispiel</strong> mit d = 10 cm = 0.1 m und p = 1013 hPa = 101'300 Pa:</p>
+<p class="schritt">A = &pi; &middot; (0.05)&sup2; = 7.85 &middot; 10<sup>-3</sup> m&sup2;</p>
+<p class="schritt">F = 101'300 &middot; 7.85 &middot; 10<sup>-3</sup></p>
+<p class="ergebnis">F &asymp; 795 N &asymp; 81 kg Gewichtskraft</p>
+<p class="schritt">Selbst bei kleinen Halbkugeln ist die Kraft beeindruckend!</p>
+</div>
+</details>
+</div>
+
+<!-- ===== AUFGABENBLATT 3: DRUCK IN FLUESSIGKEITEN ===== -->
+<h2 id="ab3">Aufgabenblatt 3: Druck in Fluessigkeiten (Hydraulik)</h2>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe — Hydraulische Hebebuehne</div>
+<div class="text">Querschnittsflaeche Pumpkolben: A<sub>1</sub> = 2.00 cm&sup2;, Presskolben: A<sub>2</sub> = 240 cm&sup2;.<br><br>
+a) Erklaeren Sie den Ablauf des Hebevorgangs. Wann ist welches Ventil zu/offen?<br>
+b) Um welche Strecke hebt sich der Presskolben, wenn sich der Pumpkolben um 20 cm senkt?<br>
+c) Wie gross muss die Pumpkraft sein, um einen Wagen (m = 1.2 t) zu heben?<br>
+d) Welche Arbeit wird verrichtet, wenn der Wagen um 2 m gehoben wird?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>a) Ablauf mit Ventilen:</strong></p>
+<p class="schritt">1. Pumpkolben wird nach unten gedrueckt: Ventil 1 (zum Vorratsbehaelter) schliesst sich, Ventil 2 (zum Presskolben) oeffnet sich → Fluessigkeit fliesst zum Presskolben → Presskolben steigt.</p>
+<p class="schritt">2. Pumpkolben wird nach oben gezogen: Ventil 2 schliesst sich (Presskolben bleibt oben), Ventil 1 oeffnet sich → neue Fluessigkeit aus Vorratsbehaelter wird angesaugt.</p>
+<p class="schritt">3. Durch wiederholtes Pumpen wird der Presskolben schrittweise angehoben.</p>
+
+<p><strong>b) Hub des Presskolbens:</strong></p>
+<p class="schritt">V<sub>1</sub> = V<sub>2</sub> → A<sub>1</sub> &middot; s<sub>1</sub> = A<sub>2</sub> &middot; s<sub>2</sub></p>
+<p class="schritt">s<sub>2</sub> = (A<sub>1</sub>/A<sub>2</sub>) &middot; s<sub>1</sub> = (2.00/240) &middot; 20 cm</p>
+<p class="ergebnis">s<sub>2</sub> = 0.167 cm &asymp; 1.7 mm pro Pumpstoss</p>
+
+<p><strong>c) Pumpkraft:</strong></p>
+<p class="schritt">F<sub>G</sub> = m &middot; g = 1200 kg &middot; 9.81 m/s&sup2; = 11'772 N</p>
+<p class="schritt">F<sub>1</sub> = (A<sub>1</sub>/A<sub>2</sub>) &middot; F<sub>2</sub> = (2.00/240) &middot; 11'772</p>
+<p class="ergebnis">F<sub>1</sub> = 98.1 N (ca. 10 kg — gut machbar!)</p>
+
+<p><strong>d) Arbeit:</strong></p>
+<p class="schritt">W = F<sub>G</sub> &middot; s = 11'772 N &middot; 2 m</p>
+<p class="ergebnis">W = 23'544 J &asymp; 23.5 kJ</p>
+<p class="schritt">(Alternativ: W = F<sub>1</sub> &middot; s<sub>gesamt</sub>, wobei s<sub>gesamt</sub> = (A<sub>2</sub>/A<sub>1</sub>) &middot; 2 m = 240 m → W = 98.1 &middot; 240 = 23'544 J — gleiches Ergebnis!)</p>
+</div>
+</details>
+</div>
+
+<!-- ===== AUFGABENBLATT 4: SCHWEREDRUCK ===== -->
+<h2 id="ab4">Aufgabenblatt 4: Schweredruck</h2>
+
+<h3>Wissen</h3>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 1 — Kompressibilitaet</div>
+<div class="text">Was ist der grundlegende Unterschied zwischen Fluessigkeiten und Gasen bezueglich Kompressibilitaet?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>Gase</strong> sind <strong>komprimierbar</strong> (zusammendrueckbar): Presst man Luft in einer Spritze zusammen, laesst sich der Kolben einschieben — das Volumen verkleinert sich.</p>
+<p><strong>Fluessigkeiten</strong> sind praktisch <strong>inkompressibel</strong>: Verschliesst man eine mit Wasser gefuellte Spritze und drueckt auf den Kolben, bewegt er sich nicht — das Volumen aendert sich nicht.</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 2 — Einflussfaktoren Schweredruck</div>
+<div class="text">Von welchen Faktoren haengt der Schweredruck in einer Fluessigkeit ab?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>p = &rho; &middot; g &middot; h. Der Schweredruck haengt ab von:</p>
+<ul>
+<li><strong>Dichte &rho;</strong> der Fluessigkeit (je dichter, desto groesser der Druck)</li>
+<li><strong>Tiefe h</strong> (je tiefer, desto groesser)</li>
+<li><strong>Fallbeschleunigung g</strong> (auf der Erde konstant: 9.81 m/s&sup2;)</li>
+</ul>
+<p>NICHT: Gefaessform, Fluessigkeitsmenge, Groesse der Oberflaeche.</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 3 — Technische Anwendungen</div>
+<div class="text">Nennen Sie zwei technische Anwendungen des Schweredrucks.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<ol>
+<li><strong>Wasserversorgung:</strong> Hochbehaelter auf Huegeln → Wasser fliesst durch Schweredruck zu tiefer gelegenen Haushalten (keine Pumpe noetig).</li>
+<li><strong>Fluessigkeitsbarometer:</strong> Der Luftdruck wird durch die Hoehe einer Quecksilbersaeule gemessen (Schweredruck der Saeule = Luftdruck).</li>
+</ol>
+<p>Weitere Beispiele: U-Rohr-Manometer, Geruchssperre (Siphon), Fuellstandsanzeige, Staumauer-Design.</p>
+</div>
+</details>
+</div>
+
+<h3>Verstaendnis</h3>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 4 — Hydraulische Hebebuehne (Skizze)</div>
+<div class="text">Beschreiben Sie anhand einer Skizze und wenigen Saetzen die Funktionsweise einer hydraulischen Hebebuehne.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Zwei Zylinder mit verschiedenen Querschnittsflaechen (klein = Arbeitszylinder, gross = Presszylinder) sind durch eine Fluessigkeit verbunden. Drueckt man auf den kleinen Kolben mit einer Kraft F<sub>1</sub>, erzeugt man einen Druck p = F<sub>1</sub>/A<sub>1</sub>. Dieser Druck pflanzt sich durch die inkompressible Fluessigkeit zum grossen Kolben fort (Satz von Pascal). Am grossen Kolben wirkt dann F<sub>2</sub> = p &middot; A<sub>2</sub> = (A<sub>2</sub>/A<sub>1</sub>) &middot; F<sub>1</sub>. Da A<sub>2</sub> &gt; A<sub>1</sub>, ist F<sub>2</sub> &gt; F<sub>1</sub> → Kraftverstaerkung. Die Wegstrecke des grossen Kolbens ist entsprechend kuerzer.</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 5 — Wasserversorgung</div>
+<div class="text">In welchen Stadtteilen versiegen bei Wassermangel zuerst die Leitungen?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Bei Wassermangel sinkt der Wasserstand im Hochbehaelter. Zuerst versiegen die Leitungen in den <strong>hoechstgelegenen Stadtteilen</strong>, da dort die Hoehenhdifferenz zum Wasserstand am geringsten ist und somit der Schweredruck nicht mehr ausreicht, um Wasser nach oben zu druecken. In tiefer gelegenen Stadtteilen fliesst das Wasser laenger, weil die Druckdifferenz groesser bleibt.</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 6 — Staumauer-Querschnitt</div>
+<div class="text">Wie wuerden Sie mit Ihrem Wissen ueber Schweredruck eine Staumauer bauen?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Die Staumauer muss <strong>unten dicker sein als oben</strong> (keilfoermiger/dreieckiger Querschnitt). Grund: Der Schweredruck nimmt mit der Tiefe linear zu (p = &rho; &middot; g &middot; h). Unten, wo der Druck am groessten ist, wirkt die groesste Kraft auf die Mauer. Daher muss sie dort am stabilsten und dicksten sein, um dem Wasserdruck standzuhalten.</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 7 — U-Rohr-Manometer</div>
+<div class="text">Haengt der Hoehenunterschied in einem U-Rohr-Manometer von der Form und vom Querschnitt der Roehren ab?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>Nein.</strong> Der Hoehenunterschied h haengt gemaess &Delta;p = &rho; &middot; g &middot; h nur von der Druckdifferenz, der Dichte der Fluessigkeit und der Fallbeschleunigung ab. Die Form, der Querschnitt und die Neigung der Roehren haben keinen Einfluss auf h. Dies ist eine Folge des hydrostatischen Paradoxons.</p>
+</div>
+</details>
+</div>
+
+<h3>Anwendung</h3>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 8 — Hydraulische Hebebuehne (Rechnung)</div>
+<div class="text">Arbeitszylinder A<sub>1</sub> = 10 cm&sup2;, Presszylinder A<sub>2</sub> = 800 cm&sup2;. Welche Kraft am Arbeitskolben, um ein Auto (m = 900 kg) zu heben?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">F<sub>G</sub> = m &middot; g = 900 &middot; 9.81 = 8829 N</p>
+<p class="schritt">F<sub>1</sub> = (A<sub>1</sub>/A<sub>2</sub>) &middot; F<sub>2</sub> = (10/800) &middot; 8829</p>
+<p class="ergebnis">F<sub>1</sub> = 110.4 N &asymp; 110 N (ca. 11.2 kg)</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 9 — Tiefster Meeresgrund</div>
+<div class="text">Welcher absolute Druck herrscht ca. 18'000 m unter der Meeresoberflaeche?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">Schweredruck: p<sub>Wasser</sub> = &rho; &middot; g &middot; h = 1030 &middot; 9.81 &middot; 18'000</p>
+<p class="schritt">p<sub>Wasser</sub> = 181'915'400 Pa &asymp; 1819 bar</p>
+<p class="schritt">Absoluter Druck = Luftdruck + Schweredruck = 1 bar + 1819 bar</p>
+<p class="ergebnis">p<sub>abs</sub> &asymp; 1820 bar (das 1820-fache des Luftdrucks!)</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 10 — Quecksilber-Barometer</div>
+<div class="text">Welchen Druck erzeugt eine 760 mm hohe Quecksilbersaeule (&rho;<sub>Hg</sub> = 13'590.5 kg/m&sup3;, g = 9.81 m/s&sup2;)?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">h = 760 mm = 0.760 m</p>
+<p class="schritt">p = &rho; &middot; g &middot; h = 13'590.5 &middot; 9.81 &middot; 0.760</p>
+<p class="ergebnis">p = 101'325 Pa = 1013.25 hPa = 1.013 bar</p>
+<p class="schritt">Dies entspricht exakt dem Normaldruck auf Meereshoehe (1 atm).</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 11 — Wasserleitung im Haus</div>
+<div class="text">Im Keller zeigt der Druckmesser 3.8 bar. Berechnen Sie den Druck im 2. OG (7 m hoeher).</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">Der Druck nimmt nach oben ab (weniger Wassersaeule darueber):</p>
+<p class="schritt">&Delta;p = &rho; &middot; g &middot; h = 1000 &middot; 9.81 &middot; 7 = 68'670 Pa = 0.687 bar</p>
+<p class="schritt">p<sub>2.OG</sub> = p<sub>Keller</sub> - &Delta;p = 3.8 - 0.687</p>
+<p class="ergebnis">p<sub>2.OG</sub> &asymp; 3.11 bar</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 12 — Perlentaucher</div>
+<div class="text">Perlentaucher tauchen auf 30 m Tiefe. Kraft auf Trommelfell (A = 0.8 cm&sup2;)? (&rho;<sub>Meerwasser</sub> = 1.03 kg/dm&sup3;)</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">&rho; = 1.03 kg/dm&sup3; = 1030 kg/m&sup3;</p>
+<p class="schritt">p = &rho; &middot; g &middot; h = 1030 &middot; 9.81 &middot; 30 = 303'129 Pa</p>
+<p class="schritt">A = 0.8 cm&sup2; = 0.8 &middot; 10<sup>-4</sup> m&sup2;</p>
+<p class="schritt">F = p &middot; A = 303'129 &middot; 0.8 &middot; 10<sup>-4</sup></p>
+<p class="ergebnis">F &asymp; 24.3 N (entspricht ca. 2.5 kg auf der winzigen Trommelfell-Flaeche!)</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe (aus Schweredruck-Kapitel) — Herleitung Schweredruck-Formel</div>
+<div class="text">Leiten Sie einen allgemeinen Ausdruck fuer den Schweredruck her. Ausgangspunkte: p = F/A, F<sub>G</sub> = m&middot;g, &rho; = m/V, V = A&middot;h.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">Schritt 1: p = F / A (Definition Druck)</p>
+<p class="schritt">Schritt 2: Die Kraft ist die Gewichtskraft: F = F<sub>G</sub> = m &middot; g</p>
+<p class="schritt">→ p = (m &middot; g) / A</p>
+<p class="schritt">Schritt 3: Masse durch Dichte ausdruecken: m = &rho; &middot; V</p>
+<p class="schritt">→ p = (&rho; &middot; V &middot; g) / A</p>
+<p class="schritt">Schritt 4: Volumen einsetzen: V = A &middot; h</p>
+<p class="schritt">→ p = (&rho; &middot; A &middot; h &middot; g) / A</p>
+<p class="schritt">Schritt 5: A kuerzt sich weg:</p>
+<p class="ergebnis">p = &rho; &middot; g &middot; h</p>
+<p class="schritt">Der Schweredruck haengt nicht von der Flaeche A ab — nur von Dichte, Fallbeschleunigung und Tiefe.</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe — Merkregel Tauchen (Staumauer)</div>
+<div class="text">Wie muss der Querschnitt einer Staumauer aussehen?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Der Querschnitt muss <strong>trapez-/dreieckfoermig</strong> sein: oben schmal, unten breit. Der Schweredruck steigt linear mit der Tiefe. Die groesste Kraft wirkt unten auf die Mauer. Daher muss sie unten am massivsten sein, um dem Wasserdruck standzuhalten.</p>
+</div>
+</details>
+</div>
+
+<!-- ===== AUFGABENBLATT 5: AUFTRIEB ===== -->
+<h2 id="ab5">Aufgabenblatt 5: Auftrieb</h2>
+
+<h3>Wissen</h3>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 1 — Schwimmbedingung Holzwuerfel</div>
+<div class="text">Welche Bedingung muss fuer die Dichte eines Holzwuerfels erfuellt sein, damit er an die Wasseroberflaeche schwimmt?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="ergebnis">&rho;<sub>Holz</sub> &lt; &rho;<sub>Wasser</sub> (= 1000 kg/m&sup3;)</p>
+<p>Die Dichte des Holzes muss kleiner sein als die Dichte von Wasser. Dann ist die Auftriebskraft (bei vollstaendigem Eintauchen) groesser als die Gewichtskraft → der Wuerfel steigt nach oben und schwimmt.</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 2 — Satz des Archimedes</div>
+<div class="text">Wie lautet der Satz des Archimedes?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="ergebnis">Die Auftriebskraft F<sub>A</sub> hat den gleichen Betrag wie die Gewichtskraft der vom Koerper verdraengten Fluessigkeit.</p>
+<p>F<sub>A</sub> = &rho;<sub>Fl</sub> &middot; g &middot; V<sub>verdraengt</sub></p>
+</div>
+</details>
+</div>
+
+<h3>Verstaendnis</h3>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 3 — Warum schwimmen Schiffe?</div>
+<div class="text">Eisen hat eine 8x groessere Dichte als Wasser. Wie koennen Kreuzfahrtschiffe trotzdem schwimmen?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p>Ein Schiff ist nicht massives Eisen, sondern eine hohle Struktur mit viel Luft im Innern. Die <strong>mittlere Dichte</strong> des gesamten Schiffs (Eisen + Luft + Ladung + ...) ist viel kleiner als die Dichte von Wasser. Entscheidend ist: Das Schiff verdraengt eine grosse Menge Wasser (wegen seiner Form). Die Auftriebskraft F<sub>A</sub> = &rho;<sub>Wasser</sub> &middot; g &middot; V<sub>verdraengt</sub> ist gross genug, um die Gewichtskraft des Schiffes zu tragen. Solange die mittlere Dichte des Schiffs &lt; &rho;<sub>Wasser</sub>, schwimmt es.</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 4 — Schwimmblase des Fisches</div>
+<div class="text">Erklaeren Sie, wie Fische mithilfe der Schwimmblase in beliebiger Tiefe schweben, sinken oder steigen koennen.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>Schweben:</strong> Die Schwimmblase ist so gefuellt, dass die mittlere Dichte des Fisches = Dichte des Wassers → F<sub>A</sub> = F<sub>G</sub>.</p>
+<p><strong>Steigen:</strong> Der Fisch vergroessert die Schwimmblase (Gas hinein) → sein Volumen steigt, Masse bleibt gleich → mittlere Dichte sinkt unter die Wasserdichte → F<sub>A</sub> &gt; F<sub>G</sub> → er steigt.</p>
+<p><strong>Sinken:</strong> Der Fisch verkleinert die Schwimmblase (Gas heraus) → Volumen sinkt → mittlere Dichte steigt ueber die Wasserdichte → F<sub>A</sub> &lt; F<sub>G</sub> → er sinkt.</p>
+</div>
+</details>
+</div>
+
+<h3>Anwendung</h3>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 5 — Gipsfigur in Benzin</div>
+<div class="text">Gewichtskraft in Luft: 0.14 N. In Benzin: scheinbar 0.04 N. Wie gross ist das Volumen? (&rho;<sub>Benzin</sub> = 0.7 kg/dm&sup3; = 700 kg/m&sup3;)</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">Auftriebskraft: F<sub>A</sub> = F<sub>G,Luft</sub> - F<sub>G,scheinbar</sub> = 0.14 - 0.04 = 0.10 N</p>
+<p class="schritt">F<sub>A</sub> = &rho;<sub>Benzin</sub> &middot; g &middot; V → V = F<sub>A</sub> / (&rho;<sub>Benzin</sub> &middot; g)</p>
+<p class="schritt">V = 0.10 / (700 &middot; 9.81) = 0.10 / 6867</p>
+<p class="ergebnis">V = 1.456 &middot; 10<sup>-5</sup> m&sup3; &asymp; 14.6 cm&sup3;</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 6 — Kinderballon mit Helium</div>
+<div class="text">Huelle: m = 3 g, Volumen: 5 Liter. a) Auftrieb in Luft (&rho;<sub>Luft</sub> = 1.27 kg/m&sup3;)? b) Wieviel Zusatzmasse, damit der Ballon schwebt? (&rho;<sub>He</sub> = 0.18 kg/m&sup3;)</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>Hinweis:</strong> Die Aufgabe gibt &rho;<sub>Luft</sub> = 1.27 g/cm&sup3; an — das waere viel zu hoch. Gemeint ist &rho;<sub>Luft</sub> = 1.27 kg/m&sup3; (= 0.00127 g/cm&sup3;). Ebenso &rho;<sub>He</sub> = 0.18 kg/m&sup3;.</p>
+<p><strong>a) Auftrieb:</strong></p>
+<p class="schritt">V = 5 L = 0.005 m&sup3;</p>
+<p class="schritt">F<sub>A</sub> = &rho;<sub>Luft</sub> &middot; g &middot; V = 1.27 &middot; 9.81 &middot; 0.005</p>
+<p class="ergebnis">F<sub>A</sub> = 0.0623 N &asymp; 62.3 mN</p>
+
+<p><strong>b) Zusatzmasse beim Schweben:</strong></p>
+<p class="schritt">Beim Schweben: F<sub>A</sub> = F<sub>G,gesamt</sub> = (m<sub>Huelle</sub> + m<sub>Helium</sub> + m<sub>Zusatz</sub>) &middot; g</p>
+<p class="schritt">m<sub>Helium</sub> = &rho;<sub>He</sub> &middot; V = 0.18 &middot; 0.005 = 0.0009 kg = 0.9 g</p>
+<p class="schritt">m<sub>Zusatz</sub> = F<sub>A</sub>/g - m<sub>Huelle</sub> - m<sub>Helium</sub></p>
+<p class="schritt">m<sub>Zusatz</sub> = 0.0623/9.81 - 0.003 - 0.0009 = 0.00635 - 0.003 - 0.0009</p>
+<p class="ergebnis">m<sub>Zusatz</sub> &asymp; 2.45 g</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 7 — Badeplattform</div>
+<div class="text">Holzplattform: 5.0 m &times; 4.0 m &times; 35 cm, &rho;<sub>Holz</sub> = 0.60 g/cm&sup3;.<br>
+a) Wie viele cm ragen aus dem Wasser?<br>
+b) Wieviel Masse duerfen Kinder zusammen haben, damit die Plattform gerade vollstaendig eintaucht?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p><strong>a) Eintauchtiefe:</strong></p>
+<p class="schritt">Beim Schwimmen: V<sub>eingetaucht</sub>/V<sub>gesamt</sub> = &rho;<sub>Holz</sub>/&rho;<sub>Wasser</sub></p>
+<p class="schritt">h<sub>eingetaucht</sub>/h<sub>gesamt</sub> = 0.60/1.00 = 0.60</p>
+<p class="schritt">h<sub>eingetaucht</sub> = 0.60 &middot; 35 cm = 21 cm</p>
+<p class="ergebnis">Aus dem Wasser ragen: 35 - 21 = 14 cm</p>
+
+<p><strong>b) Maximale Kindermasse:</strong></p>
+<p class="schritt">Wenn die Plattform gerade vollstaendig eintaucht, gilt: F<sub>A</sub> = F<sub>G,Plattform</sub> + F<sub>G,Kinder</sub></p>
+<p class="schritt">V<sub>Plattform</sub> = 5.0 &middot; 4.0 &middot; 0.35 = 7.0 m&sup3;</p>
+<p class="schritt">m<sub>Plattform</sub> = &rho;<sub>Holz</sub> &middot; V = 600 &middot; 7.0 = 4200 kg</p>
+<p class="schritt">F<sub>A,max</sub> = &rho;<sub>Wasser</sub> &middot; g &middot; V = 1000 &middot; 9.81 &middot; 7.0 = 68'670 N</p>
+<p class="schritt">F<sub>G,Plattform</sub> = 4200 &middot; 9.81 = 41'202 N</p>
+<p class="schritt">F<sub>G,Kinder</sub> = F<sub>A,max</sub> - F<sub>G,Plattform</sub> = 68'670 - 41'202 = 27'468 N</p>
+<p class="schritt">m<sub>Kinder</sub> = 27'468 / 9.81</p>
+<p class="ergebnis">m<sub>Kinder</sub> = 2800 kg = 2.8 t</p>
+<p class="schritt">(Alternativ: m<sub>Kinder</sub> = (&rho;<sub>Wasser</sub> - &rho;<sub>Holz</sub>) &middot; V = (1000-600) &middot; 7.0 = 2800 kg)</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 8 — Eiswuerfel Eintauchtiefe (Gedankenexperiment)</div>
+<div class="text">Eiswuerfel (10 cm Kante, &rho;<sub>Eis</sub> = 910 kg/m&sup3;) schwimmt in Wasser. Wie tief taucht er ein?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">h<sub>ein</sub>/h<sub>ges</sub> = &rho;<sub>Eis</sub>/&rho;<sub>Wasser</sub> = 910/1000 = 0.91</p>
+<p class="schritt">h<sub>ein</sub> = 0.91 &middot; 10 cm</p>
+<p class="ergebnis">h<sub>ein</sub> = 9.1 cm (nur 0.9 cm ragen aus dem Wasser!)</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 9 — Holzfloss mit Ladung</div>
+<div class="text">Holzfloss: A = 80 m&sup2;, Dicke = 20 cm, &rho;<sub>Holz</sub> = 0.6 g/cm&sup3;. Ragt 2.0 cm aus dem Wasser. Berechnen Sie die Zusatzmasse.</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">Eintauchtiefe = 20 - 2.0 = 18 cm = 0.18 m</p>
+<p class="schritt">Verdraengtes Volumen: V<sub>eingetaucht</sub> = 80 &middot; 0.18 = 14.4 m&sup3;</p>
+<p class="schritt">Auftriebskraft: F<sub>A</sub> = &rho;<sub>W</sub> &middot; g &middot; V = 1000 &middot; 9.81 &middot; 14.4 = 141'264 N</p>
+<p class="schritt">Masse Floss: m<sub>Floss</sub> = &rho;<sub>Holz</sub> &middot; V<sub>Floss</sub> = 600 &middot; (80 &middot; 0.20) = 600 &middot; 16 = 9600 kg</p>
+<p class="schritt">Gewicht Floss: F<sub>G,Floss</sub> = 9600 &middot; 9.81 = 94'176 N</p>
+<p class="schritt">Beim Schwimmen: F<sub>A</sub> = F<sub>G,Floss</sub> + F<sub>G,Ladung</sub></p>
+<p class="schritt">F<sub>G,Ladung</sub> = 141'264 - 94'176 = 47'088 N</p>
+<p class="ergebnis">m<sub>Ladung</sub> = 47'088 / 9.81 &asymp; 4800 kg = 4.8 t</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 10 — Zeppelin</div>
+<div class="text">V<sub>Helium</sub> = 5.40 &middot; 10&sup3; m&sup3;, &rho;<sub>Luft</sub> = 1.20 kg/m&sup3;, &rho;<sub>He</sub> = 0.18 kg/m&sup3;. Maximales Gewicht des Zeppelins samt Ladung?</div>
+<details>
+<summary>Loesung anzeigen</summary>
+<div class="loesung">
+<p class="schritt">Auftriebskraft: F<sub>A</sub> = &rho;<sub>Luft</sub> &middot; g &middot; V = 1.20 &middot; 9.81 &middot; 5400 = 63'568.8 N</p>
+<p class="schritt">Gewicht des Heliums: F<sub>G,He</sub> = &rho;<sub>He</sub> &middot; g &middot; V = 0.18 &middot; 9.81 &middot; 5400 = 9535.3 N</p>
+<p class="schritt">Verfuegbar fuer Zeppelin + Ladung: F<sub>netto</sub> = F<sub>A</sub> - F<sub>G,He</sub></p>
+<p class="ergebnis">F<sub>netto</sub> = 63'568.8 - 9535.3 = 54'033.5 N &asymp; 54.0 kN</p>
+<p class="schritt">m<sub>max</sub> = 54'034 / 9.81 &asymp; 5508 kg &asymp; 5.5 t</p>
+</div>
+</details>
+</div>
+
+<p style="text-align:center;color:#666;margin-top:40px;font-size:0.85em;">Aufgabensammlung mit Loesungen | Physik Hydrostatik | Version 1.0 | 16.03.2026</p>
+
+</body>
+</html>

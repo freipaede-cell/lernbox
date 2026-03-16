@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physik — Hydrostatik | Wissens-Kompakt</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0f1117;color:#e0e0e0;line-height:1.7;padding:20px;max-width:900px;margin:0 auto}
+h1{font-size:1.8em;color:#7eb8ff;border-bottom:2px solid #7eb8ff;padding-bottom:8px;margin-bottom:24px}
+h2{font-size:1.4em;color:#ff9f43;margin:32px 0 16px;border-left:4px solid #ff9f43;padding-left:12px}
+h3{font-size:1.15em;color:#a8d8ea;margin:20px 0 10px}
+h4{font-size:1em;color:#c4b5fd;margin:16px 0 8px}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 24px}
+li{margin:4px 0}
+.formel-box{background:#1a2332;border:2px solid #7eb8ff;border-radius:10px;padding:16px 20px;margin:16px 0;text-align:center}
+.formel-box .titel{font-weight:700;color:#7eb8ff;margin-bottom:8px;font-size:1.1em}
+.formel-box .formel{font-size:1.3em;color:#fff;font-family:'Courier New',monospace;margin:8px 0}
+.formel-box .einheit{color:#a0a0a0;font-size:0.9em}
+.satz-box{background:#1e2a1e;border:2px solid #4ade80;border-radius:10px;padding:16px 20px;margin:16px 0}
+.satz-box .titel{font-weight:700;color:#4ade80;margin-bottom:6px;font-size:1.05em}
+.experiment-box{background:#2a1e2e;border:2px solid #c084fc;border-radius:10px;padding:16px 20px;margin:16px 0}
+.experiment-box .titel{font-weight:700;color:#c084fc;margin-bottom:6px;font-size:1.05em}
+.experiment-box .beobachtung{color:#e9d5ff;margin:6px 0}
+.experiment-box .erklaerung{color:#d4d4d4;margin:6px 0;border-top:1px solid #444;padding-top:8px}
+.anwendung-box{background:#1e2630;border:2px solid #38bdf8;border-radius:10px;padding:16px 20px;margin:16px 0}
+.anwendung-box .titel{font-weight:700;color:#38bdf8;margin-bottom:6px;font-size:1.05em}
+.merkregel{background:#332b1e;border:2px solid #fbbf24;border-radius:10px;padding:14px 18px;margin:16px 0}
+.merkregel .titel{font-weight:700;color:#fbbf24;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th{background:#1e293b;color:#7eb8ff;padding:8px 12px;text-align:left;border:1px solid #334}
+td{padding:8px 12px;border:1px solid #334}
+tr:nth-child(even){background:#161b24}
+.toc{background:#161b24;border-radius:10px;padding:16px 24px;margin:16px 0}
+.toc a{color:#7eb8ff;text-decoration:none}
+.toc a:hover{text-decoration:underline}
+.toc ol{margin-left:20px}
+.toc li{margin:4px 0}
+.meta{color:#888;font-size:0.85em;margin-bottom:20px}
+strong{color:#fff}
+.highlight{color:#fbbf24}
+sub,sup{font-size:0.75em}
+</style>
+</head>
+<body>
+
+<h1>Physik — Hydrostatik (Kapitel 7)</h1>
+<p class="meta">Wissens-Kompakt | Yannick | Erstellt: 16.03.2026</p>
+
+<div class="toc">
+<strong>Inhaltsverzeichnis</strong>
+<ol>
+<li><a href="#k1">Der Druck</a></li>
+<li><a href="#k2">Der Luftdruck</a></li>
+<li><a href="#k3">Druck in Fluessigkeiten</a></li>
+<li><a href="#k4">Der Schweredruck</a></li>
+<li><a href="#k5">Der Auftrieb</a></li>
+<li><a href="#formeln">Formelsammlung</a></li>
+</ol>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k1">1. Der Druck (Kap. 7.1)</h2>
+
+<p>Wenn man auf einen mit Luft oder Wasser gefuellten Ballon drueckt, spuert man den Druck ueberall an den Waenden und im Innern. Der Druck hat <strong>keine bestimmte Richtung</strong> — er wirkt nach allen Seiten gleichmaessig. Eine Kraft hingegen hat immer eine Richtung.</p>
+
+<div class="formel-box">
+<div class="titel">Der Druck</div>
+<div class="formel">p = F / A</div>
+<div class="einheit">p = Druck [Pa = N/m&sup2;] &nbsp;|&nbsp; F = Kraft [N] &nbsp;|&nbsp; A = Flaeche [m&sup2;]</div>
+</div>
+
+<h3>Einheiten des Drucks</h3>
+<table>
+<tr><th>Einheit</th><th>Symbol</th><th>Umrechnung</th></tr>
+<tr><td>Pascal</td><td>Pa = N/m&sup2;</td><td>SI-Einheit</td></tr>
+<tr><td>Hektopascal</td><td>hPa</td><td>1 hPa = 100 Pa</td></tr>
+<tr><td>Bar</td><td>bar</td><td>1 bar = 100'000 Pa = 10&sup5; Pa</td></tr>
+<tr><td>Millibar</td><td>mbar</td><td>1 mbar = 100 Pa = 1 hPa</td></tr>
+<tr><td>Atmosphaere</td><td>atm</td><td>1 atm &asymp; 1013 hPa &asymp; 1 bar</td></tr>
+<tr><td>mm Quecksilber</td><td>mmHg</td><td>1 mmHg &asymp; 133.3 Pa &asymp; 1.33 mbar</td></tr>
+</table>
+
+<div class="merkregel">
+<div class="titel">Merkregel: Einheiten umrechnen</div>
+<p>1 N/mm&sup2; = 10&sup6; Pa = 10 bar &nbsp;|&nbsp; 1 kN/m&sup2; = 1000 Pa = 10 mbar &nbsp;|&nbsp; 1 bar = 1000 mbar</p>
+</div>
+
+<h3>Auflagedruck</h3>
+<p>Die Druckformel gilt auch fuer Festkoerper: Wenn ein Objekt mit seinem Gewicht auf einer Flaeche ruht, uebte es einen <strong>Auflagedruck</strong> aus. Je kleiner die Auflageflaeche, desto groesser der Druck bei gleicher Kraft.</p>
+<p><strong>Beispiel:</strong> Ein Stiletto-Absatz (49 mm&sup2;) erzeugt viel mehr Druck als ein Sneaker (1600 mm&sup2;) — obwohl die Person gleich schwer ist.</p>
+
+<h3>Experimente zu Kapitel 1</h3>
+
+<div class="experiment-box">
+<div class="titel">Experiment: Ballon auf Reissnaegel</div>
+<p class="beobachtung"><strong>Aufbau:</strong> Ein Ballon wird auf viele Reissnaegel gelegt vs. auf einen einzelnen Nagel.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Auf vielen Naegeln verteilt sich die Gewichtskraft auf viele Spitzen → die Flaeche A ist gross → der Druck p = F/A ist klein → der Ballon platzt nicht. Auf einem Nagel ist A winzig → p riesig → der Ballon platzt sofort.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Experiment: Nagel zwischen Finger</div>
+<p class="beobachtung"><strong>Aufbau:</strong> Man drueckt einen Nagel zwischen zwei Fingern zusammen.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Die Kraft auf beide Finger ist gleich gross (actio = reactio). Aber die Spitze hat eine viel kleinere Flaeche als der Nagelkopf. Daher spuert man an der Spitze viel mehr Druck (Schmerz), weil p = F/A dort groesser ist.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Posten 1: Spritziger Ballon</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Aus allen Loechern spritzt das Wasser gleichmaessig heraus, wenn man den Ballon zusammendrueckt.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Der Druck in der Fluessigkeit wirkt in alle Richtungen gleich stark (Satz von Pascal). Daher spritzt das Wasser aus jedem Loch gleich weit.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Posten 2: Springbrunnen (Heronsball)</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Blaest man Luft in die Flasche, steigt der Druck im Innern. Gibt man die Oeffnung frei, drueckt der Ueberdruck das Wasser durch das Roehrchen nach oben — ein Springbrunnen entsteht.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Die hineingepresste Luft erhoehte den Druck ueber dem Wasser (Ueberdruck). Da p<sub>innen</sub> &gt; p<sub>aussen</sub>, wird das Wasser durch das Roehrchen herausgedrueckt. Dieses Prinzip wird in Laborspritzflaschen verwendet (Waschflaschen).</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Posten 3: Einseitige Blasen</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Blaest man mit gleicher Kraft Luft durch ein Rohr in Wasser und in Zuckerwasser, steigen die Blasen im Wasser leichter auf als im Zuckerwasser.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Zuckerwasser hat eine hoehere Dichte als reines Wasser. Dadurch ist der Schweredruck am Boden groesser. Die Luftblasen muessen einen groesseren Widerstand ueberwinden.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Posten 4: Schwimmendes Ei</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Im Leitungswasser sinkt das Ei. Im Zuckerwasser schwimmt es.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Die Dichte des Eies liegt zwischen der von Leitungswasser und Zuckerwasser. Im Leitungswasser ist die Dichte des Eies groesser als die des Wassers → es sinkt. Im Zuckerwasser ist die Dichte des Eies kleiner als die der Fluessigkeit → Auftrieb ist groesser als Gewichtskraft → es schwimmt.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Posten 5: Plastik-Handschuh</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Mit Handschuh spuert man den Wasserdruck deutlich — der Handschuh wird eng an die Hand gepresst. Ohne Handschuh spuert man kaum etwas.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Ohne Handschuh herrscht im Koerper der gleiche Druck wie aussen → kein Nettokraft auf die Haut. Mit Handschuh ist Luft zwischen Hand und Handschuh eingeschlossen, die einen geringeren Druck hat als das umgebende Wasser → der Handschuh wird angepresst (Druckdifferenz).</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Posten 6: Druckmessgeraete (Manometer)</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Der Papier-Ruessel entrollt sich, wenn man hineinblaest. Aehnlich funktioniert ein Bourdons-Rohr-Manometer.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Erhoehter Druck im Innern eines gebogenen Rohrs bewirkt, dass sich das Rohr streckt. Diese Bewegung wird auf einen Zeiger uebertragen. Je groesser der Druck, desto staerker die Streckung, desto groesser der Zeigerausschlag.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Posten 7: Hydraulik (verbundene Spritzen)</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Drueckt man den Kolben der kleinen Spritze hinein, faehrt der Kolben der grossen Spritze heraus — aber weniger weit.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Das verdraengte Volumen ist auf beiden Seiten gleich (V<sub>1</sub> = V<sub>2</sub>). Da die grosse Spritze eine groessere Querschnittsflaeche hat, bewegt sich ihr Kolben weniger weit. Die Kraft wird jedoch verstaerkt (Prinzip der hydraulischen Presse).</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Posten 8: Drucksonde mit U-Rohr</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Beim Eintauchen verschiebt sich das gefaerbte Wasser im U-Rohr. Dreht man die Sonde in konstanter Tiefe um 360°, aendert sich nichts.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Der Wasserdruck drueckt auf die Gummimembran der Sonde und verschiebt die Fluessigkeit im U-Rohr. Da der Druck in einer bestimmten Tiefe in alle Richtungen gleich ist, aendert sich beim Drehen nichts. Der Druck hat keine Richtung.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Posten 9: Atmung (Zwerchfell-Modell)</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Zieht man die Gummimembran (= Zwerchfell) nach unten, blaest sich der Ballon im Innern (= Lunge) auf. Drueckt man die Membran nach oben, geht die Luft wieder raus.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Beim Herunterziehen der Membran vergroessert sich das Volumen im Innern der Flasche (= Brustkorb). Dadurch sinkt der Druck im Innern unter den aeusseren Luftdruck. Die Druckdifferenz drueckt Luft von aussen in den Ballon (Einatmung). Beim Hochdruecken ist es umgekehrt (Ausatmung).</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Posten 10: Saugheber</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Der Saugheber haelt fest auf der glatten Oberflaeche. Man muss viel Kraft aufwenden, um ihn abzuloesen.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Beim Herunterklappen des Griffs wird die Luft unter dem Gummi herausgedrueckt. Es entsteht ein Unterdruck (nahezu Vakuum). Der aeussere Luftdruck drueckt den Saugnapf mit grosser Kraft auf die Flaeche: F = p<sub>Luft</sub> &middot; A.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k2">2. Der Luftdruck (Kap. 7.2)</h2>
+
+<p>Die Erde ist von einer Lufthuelle (Atmosphaere) umgeben. Die Gewichtskraft dieser Luft verursacht den <strong>Luftdruck</strong>. Wichtige Eigenschaft: <strong>Gase sind komprimierbar</strong> (zusammendrueckbar), Fluessigkeiten hingegen praktisch nicht (inkompressibel).</p>
+
+<div class="formel-box">
+<div class="titel">Luftdruck auf Meereshoehe</div>
+<div class="formel">p<sub>L</sub> &asymp; 1 atm &asymp; 1013 hPa &asymp; 1 bar</div>
+</div>
+
+<p>Je hoeher man steigt, desto geringer wird der Luftdruck — die Luftsaeule ueber einem wird kuerzer und die Luft duenner. Dieser Zusammenhang ist <strong>nicht linear</strong> (exponentiell abnehmend).</p>
+
+<h3>Ueber- und Unterdruck</h3>
+<ul>
+<li><strong>Absoluter Druck:</strong> Druck gegenueber dem Vakuum (gemessen mit Barometer)</li>
+<li><strong>Ueberdruck:</strong> Druck gegenueber dem aeusseren Luftdruck. Beispiel: Autoreifen mit 2 bar Ueberdruck → absoluter Druck = 3 bar</li>
+<li><strong>Unterdruck:</strong> Druck ist kleiner als der Luftdruck (z.B. unter einem Saugnapf)</li>
+<li><strong>Vakuum:</strong> Luftleerer Raum, Druck = 0 (absolut)</li>
+</ul>
+
+<div class="merkregel">
+<div class="titel">Merkregel</div>
+<p>p<sub>absolut</sub> = p<sub>Luftdruck</sub> + p<sub>Ueberdruck</sub></p>
+</div>
+
+<h3>Experimente zu Kapitel 2</h3>
+
+<div class="experiment-box">
+<div class="titel">Experiment: Weshalb spueren wir nichts vom Luftdruck?</div>
+<p class="beobachtung"><strong>Aufbau:</strong> Ein Becher wird mit einer Ballonmembran abgedeckt. Im normalen Raum bleibt die Membran flach. Unter der Vakuumglocke woelbt sie sich nach aussen.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Normalerweise herrscht innen und aussen der gleiche Luftdruck → keine Nettokraft auf die Membran. Pumpt man die aeussere Luft ab, drueckt nur noch die Luft im Innern nach aussen → Membran woelbt sich. Genauso spueren wir den Luftdruck nicht, weil die Luft in unserem Koerper unter dem gleichen Druck steht wie die aeussere Luft. Bei schnellem Hoehenwechsel (Gondel, Flugzeug) passt sich der Innendruck im Ohr nicht schnell genug an → Druck auf Trommelfell.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Experiment: Magdeburger Halbkugeln (1656, Otto von Guericke)</div>
+<p class="beobachtung"><strong>Aufbau:</strong> Zwei metallische Halbkugeln werden zusammengefuegt und die Luft wird herausgepumpt.</p>
+<p class="beobachtung"><strong>Beobachtung:</strong> Nicht einmal 16 Pferde konnten die Kugeln auseinanderziehen!</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Im Innern herrscht Vakuum (p &asymp; 0). Von aussen drueckt der Luftdruck mit p<sub>L</sub> &asymp; 1 bar auf die gesamte Querschnittsflaeche. Die resultierende Kraft betraegt F = p<sub>L</sub> &middot; A = p<sub>L</sub> &middot; &pi; &middot; r&sup2;. Bei grossen Kugeln wird diese Kraft enorm.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Experiment: Schokokuss unter Vakuumglocke</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Der Schokokuss blaest sich auf und platzt.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Im Innern des Schokokusses befinden sich kleine Luftblaeschen (im Schaumzucker). Normal werden sie durch den aeusseren Luftdruck zusammengehalten. Pumpt man die Luft ab, faellt der aeussere Druck weg, aber der Innendruck der Blaeschen bleibt → die Blaeschen expandieren → der Schokokuss blaest sich auf und platzt.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k3">3. Druck in Fluessigkeiten (Kap. 7.3)</h2>
+
+<div class="satz-box">
+<div class="titel">Satz von Pascal</div>
+<p>In (naeherungsweise) ruhenden und inkompressiblen Fluessigkeiten herrscht — abgesehen vom Einfluss der Schwerkraft — ueberall derselbe Druck.</p>
+</div>
+
+<p>Das bedeutet: Uebt man an einer Stelle Druck auf eine eingeschlossene Fluessigkeit aus, so pflanzt sich dieser Druck unveraendert in alle Richtungen fort.</p>
+
+<h3>Technische Anwendung: Hydraulische Presse</h3>
+
+<p>Zwei Kolben mit verschiedenen Querschnittsflaechen sind durch eine Fluessigkeit verbunden.</p>
+
+<div class="formel-box">
+<div class="titel">Hydraulische Presse — Kraft</div>
+<div class="formel">p<sub>1</sub> = p<sub>2</sub> &nbsp;→&nbsp; F<sub>1</sub>/A<sub>1</sub> = F<sub>2</sub>/A<sub>2</sub> &nbsp;→&nbsp; F<sub>2</sub> = (A<sub>2</sub>/A<sub>1</sub>) &middot; F<sub>1</sub></div>
+<div class="einheit">Groesseres Flaechenverhaeltnis = groessere Kraftverstaerkung</div>
+</div>
+
+<div class="satz-box">
+<div class="titel">Prinzip des hydraulischen Systems</div>
+<p>Mit einer kleinen Kraft auf einen Kolben kleiner Flaeche laesst sich eine grosse Kraft auf einen Kolben grosser Flaeche bewirken.</p>
+</div>
+
+<h4>Der «Preis» der Kraftersparnis</h4>
+<p>Die Kraftersparnis ist nicht gratis! Da die Fluessigkeit inkompressibel ist, gilt:</p>
+
+<div class="formel-box">
+<div class="titel">Hydraulische Presse — Volumen/Weg</div>
+<div class="formel">V<sub>1</sub> = V<sub>2</sub> &nbsp;→&nbsp; A<sub>1</sub> &middot; s<sub>1</sub> = A<sub>2</sub> &middot; s<sub>2</sub></div>
+<div class="einheit">Der kleine Kolben legt eine groessere Strecke zurueck als der grosse.</div>
+</div>
+
+<div class="merkregel">
+<div class="titel">Merkregel: Goldene Regel der Mechanik</div>
+<p>Was man an Kraft spart, muss man an Weg zulegen. Die verrichtete Arbeit (W = F &middot; s) bleibt gleich.</p>
+</div>
+
+<h3>Experimente zu Kapitel 3</h3>
+
+<div class="experiment-box">
+<div class="titel">Experiment: Gelochte Pet-Flasche</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Bei Druck auf den gelochten Ballon spritzt Wasser aus allen Loechern gleich weit.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Gemaess dem Satz von Pascal herrscht in der ruhenden Fluessigkeit ueberall der gleiche Druck. Daher ist die Austrittsgeschwindigkeit an jedem Loch gleich — unabhaengig von der Position des Lochs.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Experiment: Verbundene Spritzen</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Beim Einschieben des kleinen Kolbens um eine Strecke s<sub>1</sub> faehrt der grosse Kolben um eine kleinere Strecke s<sub>2</sub> heraus. Die verdraengten Volumina sind gleich.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Da die Fluessigkeit inkompressibel ist, muss das verdraengte Volumen auf beiden Seiten identisch sein: A<sub>1</sub> &middot; s<sub>1</sub> = A<sub>2</sub> &middot; s<sub>2</sub>. Groessere Flaeche → kleinerer Weg.</p>
+</div>
+
+<h3>Anwendungen der Hydraulik</h3>
+<ul>
+<li><strong>Bagger:</strong> Hydraulische Kolben an den Baggerarmen erzeugen enorme Kraefte</li>
+<li><strong>Autobremsen:</strong> Der Bremsdruck wird hydraulisch von Pedal auf Bremsbelaege uebertragen</li>
+<li><strong>Bustueren:</strong> Hydraulische Systeme steuern das Oeffnen/Schliessen</li>
+<li><strong>Hebebuehnen:</strong> Kleine Pumpkraft hebt schwere Autos</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="k4">4. Der Schweredruck (Kap. 7.4)</h2>
+
+<p>Beim Tauchen spuert man einen Druck auf den Ohren — je tiefer man taucht, desto staerker. Dieser Druck wird durch die Gewichtskraft der darueberliegenden Fluessigkeit verursacht und heisst <strong>Schweredruck</strong>.</p>
+
+<h3>Herleitung der Schweredruck-Formel</h3>
+<p>Ausgehend von: p = F/A und F<sub>G</sub> = m &middot; g und &rho; = m/V und V = A &middot; h:</p>
+<p style="text-align:center;font-family:monospace;color:#fff;">p = F/A = (m&middot;g)/A = (&rho;&middot;V&middot;g)/A = (&rho;&middot;A&middot;h&middot;g)/A = <strong>&rho;&middot;g&middot;h</strong></p>
+
+<div class="formel-box">
+<div class="titel">Der Schweredruck</div>
+<div class="formel">p = &rho; &middot; g &middot; h</div>
+<div class="einheit">&rho; = Dichte der Fluessigkeit [kg/m&sup3;] &nbsp;|&nbsp; g = 9.81 m/s&sup2; &nbsp;|&nbsp; h = Tiefe [m]</div>
+</div>
+
+<div class="merkregel">
+<div class="titel">Merkregel: 10 Meter Wasser = 1 bar</div>
+<p>&rho;<sub>Wasser</sub> &middot; g &middot; 10 m = 1000 &middot; 9.81 &middot; 10 = 98'100 Pa &asymp; 1 bar. Pro 10 m Wassertiefe steigt der Druck um ca. 1 bar. In 10 m Tiefe: Gesamtdruck = 1 bar (Luft) + 1 bar (Wasser) = 2 bar.</p>
+</div>
+
+<h3>Wichtige Eigenschaften des Schweredrucks</h3>
+<ul>
+<li>Der Schweredruck haengt <strong>nur von der Dichte &rho; und der Tiefe h</strong> ab</li>
+<li>Er ist <strong>unabhaengig von der Gefaessform</strong> und der Fluessigkeitsmenge → hydrostatisches Paradoxon</li>
+<li>Er hat <strong>keine Richtung</strong> — in gleicher Tiefe herrscht ueberall derselbe Druck</li>
+</ul>
+
+<div class="satz-box">
+<div class="titel">Hydrostatisches Paradoxon</div>
+<p>Der Schweredruck in einer Fluessigkeit ist unabhaengig von der Gefaessform. Nur die Tiefe h und die Dichte &rho; bestimmen den Druck.</p>
+</div>
+
+<h3>Druckmessgeraete</h3>
+
+<div class="anwendung-box">
+<div class="titel">1. U-Rohr-Manometer</div>
+<p>Misst <strong>Druckdifferenzen</strong>. Zwei Messpunkte sind mit einem U-foermigen Rohr verbunden, das eine Fluessigkeit enthaelt. Eine Druckdifferenz verschiebt die Fluessigkeitssaeule um die Hoehe h:</p>
+<p style="text-align:center;font-family:monospace;color:#fff;">&Delta;p = &rho;<sub>Fl</sub> &middot; g &middot; h</p>
+<p>Die Hoehe h haengt <strong>nicht</strong> von der Form oder dem Querschnitt der Roehren ab.</p>
+</div>
+
+<div class="anwendung-box">
+<div class="titel">2. Fluessigkeitsbarometer</div>
+<p>Misst den <strong>absoluten Luftdruck</strong>. Ein am oberen Ende geschlossenes Rohr steht mit dem offenen Ende in einem Fluessigkeitsvorrat. Ueber der Fluessigkeitssaeule ist Vakuum (p = 0). Der Luftdruck drueckt auf den Vorrat und haelt die Saeule auf einer bestimmten Hoehe:</p>
+<p style="text-align:center;font-family:monospace;color:#fff;">p<sub>L</sub> = &rho;<sub>Fl</sub> &middot; g &middot; h</p>
+<p>Mit Quecksilber (&rho; = 13'590 kg/m&sup3;): Hoehe h &asymp; 760 mm bei normalem Luftdruck.</p>
+</div>
+
+<h3>Verbundene Gefaesse</h3>
+<p>Als Folge des hydrostatischen Paradoxons gilt: In verbundenen Gefaessen steigt der Fluessigkeitsspiegel <strong>ueberall gleich hoch</strong>, unabhaengig von der Form der Gefaesse.</p>
+
+<div class="anwendung-box">
+<div class="titel">Anwendungen verbundener Gefaesse</div>
+<ul>
+<li><strong>Geruchssperre (Siphon):</strong> U-foermiges Abflussrohr — das Wasser in der Biegung haelt Kanalgeruch fern</li>
+<li><strong>Fuellstandsanzeige:</strong> Transparentes Roehrchen am undurchsichtigen Behaelter zeigt den Fuellstand</li>
+<li><strong>Wasserversorgung:</strong> Wasser fliesst vom Hochbehaelter durch Rohre zu tiefer gelegenen Haushalten — ohne Pumpe (Schweredruck genuegt)</li>
+</ul>
+</div>
+
+<h3>Experimente zu Kapitel 4</h3>
+
+<div class="experiment-box">
+<div class="titel">Experiment: Schweredruck (Loecher in verschiedenen Hoehen)</div>
+<p class="beobachtung"><strong>Beobachtung:</strong> Aus einem Behaelter mit Loechern in verschiedenen Hoehen spritzt das Wasser unten weiter als oben.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Je tiefer das Loch, desto groesser die Wassersaeule darueber → groesserer Schweredruck → Wasser spritzt weiter. Deshalb muss eine Staumauer unten dicker sein als oben.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Experiment: Drucksonde in groesserem Gewaesser</div>
+<p class="beobachtung"><strong>Frage:</strong> Haengt der Druck von der Groesse der Wasseroberflaeche ab?</p>
+<p class="erklaerung"><strong>Antwort:</strong> Nein! Der Schweredruck haengt nur von der Tiefe und der Dichte ab, nicht von der Menge des Wassers oder der Groesse der Oberflaeche (hydrostatisches Paradoxon).</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Experiment: Herkunft des Schweredrucks (Zylinder mit Deckel)</div>
+<p class="beobachtung"><strong>Durchfuehrung 1:</strong> Leerer Zylinder, am unteren Ende mit einem Deckel verschlossen (Schnur). Wird in Wasser getaucht → Deckel haelt.</p>
+<p class="beobachtung"><strong>Durchfuehrung 2:</strong> Fuellt man den Zylinder von oben mit Wasser → Deckel faellt ab.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Solange der Zylinder leer ist, drueckt nur das aeussere Wasser von unten gegen den Deckel (Schweredruck). Fuellt man den Zylinder, drueckt die Wassersaeule im Innern mit gleicher Kraft nach unten. Die Kraefte heben sich auf → kein Nettokraft → Deckel faellt.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Experiment: Hydrostatisches Paradoxon</div>
+<p class="beobachtung"><strong>Aufbau:</strong> Drei verschieden geformte, verbundene Gefaesse werden mit gefaerbtem Wasser gefuellt.</p>
+<p class="beobachtung"><strong>Beobachtung:</strong> Der Wasserstand ist in allen drei Gefaessen gleich hoch, obwohl sie verschiedene Formen haben.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> Der Druck am Boden haengt nur von der Hoehe ab, nicht von der Gefaessform. In verbundenen Gefaessen gleicht sich der Druck aus → gleiche Fuellhoehe.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Merkregel beim Tauchen 2: Hoehle</div>
+<p class="beobachtung"><strong>Situation:</strong> Ein Taucher auf 10 m Tiefe (2 bar Gesamtdruck) schwimmt in eine Hoehle, ueber der nur 3 m Wasser liegen.</p>
+<p class="erklaerung"><strong>Antwort:</strong> Der Schweredruck aendert sich NICHT. Die Tiefe von 10 m bezieht sich auf die Wasseroberflaeeche, nicht auf die Decke darueber. Es zaehlt die gesamte Wassersaeule bis zur Oberflaeche. Da der Taucher immer noch 10 m unter der Oberflaeche ist, bleibt der Druck 2 bar.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k5">5. Der Auftrieb (Kap. 7.5)</h2>
+
+<p>Taucht man einen Koerper in eine Fluessigkeit, scheint seine Gewichtskraft kleiner zu werden. Diese Erscheinung heisst <strong>Auftrieb</strong>. Der Auftrieb entsteht durch den Schweredruck: An der Unterseite des Koerpers ist der Druck groesser als an der Oberseite → es resultiert eine Nettokraft nach oben.</p>
+
+<h3>Herleitung der Auftriebskraft</h3>
+<p>Fuer einen Quader (Hoehe h, Grundflaeche A), vollstaendig eingetaucht:</p>
+<ul>
+<li>Kraft auf Deckflaeche (nach unten): F<sub>1</sub> = &rho;<sub>Fl</sub> &middot; g &middot; h<sub>1</sub> &middot; A</li>
+<li>Kraft auf Grundflaeche (nach oben): F<sub>2</sub> = &rho;<sub>Fl</sub> &middot; g &middot; h<sub>2</sub> &middot; A</li>
+<li>Auftriebskraft = F<sub>2</sub> - F<sub>1</sub> = &rho;<sub>Fl</sub> &middot; g &middot; (h<sub>2</sub> - h<sub>1</sub>) &middot; A = &rho;<sub>Fl</sub> &middot; g &middot; h &middot; A</li>
+<li>Da V = h &middot; A (Volumen des eingetauchten Koerpers = verdraengtes Fluessigkeitsvolumen):</li>
+</ul>
+
+<div class="formel-box">
+<div class="titel">Die Auftriebskraft</div>
+<div class="formel">F<sub>A</sub> = &rho;<sub>Fl</sub> &middot; g &middot; V</div>
+<div class="einheit">&rho;<sub>Fl</sub> = Dichte der Fluessigkeit [kg/m&sup3;] &nbsp;|&nbsp; g = 9.81 m/s&sup2; &nbsp;|&nbsp; V = verdraengtes Volumen [m&sup3;]</div>
+</div>
+
+<div class="satz-box">
+<div class="titel">Satz des Archimedes</div>
+<p>Die Auftriebskraft F<sub>A</sub> hat den gleichen Betrag wie die Gewichtskraft der vom Koerper verdraengten Fluessigkeit.</p>
+<p>F<sub>A</sub> = F<sub>G,verdraengt</sub> = m<sub>verdraengt</sub> &middot; g = &rho;<sub>Fl</sub> &middot; V &middot; g</p>
+</div>
+
+<h3>Schwimmen / Schweben / Sinken</h3>
+<table>
+<tr><th>Zustand</th><th>Bedingung</th><th>Was passiert</th></tr>
+<tr><td><strong>Schwimmen</strong></td><td>&rho;<sub>Koerper</sub> &lt; &rho;<sub>Fluessigkeit</sub></td><td>Koerper taucht teilweise ein und schwimmt an der Oberflaeche</td></tr>
+<tr><td><strong>Schweben</strong></td><td>&rho;<sub>Koerper</sub> = &rho;<sub>Fluessigkeit</sub></td><td>Koerper bleibt in beliebiger Tiefe in Schwebe (F<sub>A</sub> = F<sub>G</sub>)</td></tr>
+<tr><td><strong>Sinken</strong></td><td>&rho;<sub>Koerper</sub> &gt; &rho;<sub>Fluessigkeit</sub></td><td>Koerper sinkt zum Boden</td></tr>
+<tr><td><strong>Steigen</strong></td><td>&rho;<sub>Koerper</sub> &lt; &rho;<sub>Fluessigkeit</sub> (vom Boden)</td><td>Koerper steigt nach oben</td></tr>
+</table>
+
+<div class="merkregel">
+<div class="titel">Merkregel: Dichte entscheidet</div>
+<p>Ist die Dichte des Koerpers kleiner als die der Fluessigkeit → er schwimmt. Ist sie groesser → er sinkt. Gleich → er schwebt.</p>
+</div>
+
+<h3>Wie tief taucht ein schwimmender Koerper ein?</h3>
+<p>Beim Schwimmen gilt: F<sub>A</sub> = F<sub>G</sub>. Daraus folgt:</p>
+<p style="text-align:center;font-family:monospace;color:#fff;">&rho;<sub>Fl</sub> &middot; g &middot; V<sub>eingetaucht</sub> = &rho;<sub>Koerper</sub> &middot; g &middot; V<sub>gesamt</sub></p>
+<p style="text-align:center;font-family:monospace;color:#fff;">V<sub>eingetaucht</sub> / V<sub>gesamt</sub> = &rho;<sub>Koerper</sub> / &rho;<sub>Fl</sub></p>
+
+<div class="merkregel">
+<div class="titel">Beispiel: Eiswuerfel in Wasser</div>
+<p>&rho;<sub>Eis</sub> = 910 kg/m&sup3;, &rho;<sub>Wasser</sub> = 1000 kg/m&sup3;. Eintauchtiefe = 910/1000 = 91%. Der Eiswuerfel ragt nur 9% aus dem Wasser — daher der Ausdruck «Spitze des Eisbergs».</p>
+</div>
+
+<h3>Auftrieb in Gasen</h3>
+<p>Der Satz des Archimedes gilt auch fuer Gase! Koerper in Luft erfahren eine (meist kleine) Auftriebskraft.</p>
+<p><strong>Beispiel Mensch:</strong> V &asymp; 75 L = 0.075 m&sup3;, &rho;<sub>Luft</sub> = 1.3 kg/m&sup3; → F<sub>A</sub> = 1.3 &middot; 9.81 &middot; 0.075 = 0.96 N. Wir messen auf der Waage rund 100 g zu wenig.</p>
+<p><strong>Zeppeline/Heissluftballone:</strong> Nutzen den Auftrieb in Luft. Helium oder heisse Luft hat eine geringere Dichte als kalte Luft → Auftriebskraft groesser als Gewichtskraft → der Ballon steigt.</p>
+
+<h3>Experimente zu Kapitel 5</h3>
+
+<div class="experiment-box">
+<div class="titel">Experiment: Balkenwaage im Vakuum</div>
+<p class="beobachtung"><strong>Aufbau:</strong> Grosse Styroporkugel und kleines Bleigewicht haengen im Gleichgewicht an einer Balkenwaage unter einer Glasglocke.</p>
+<p class="beobachtung"><strong>Beobachtung:</strong> Beim Einschalten der Vakuumpumpe senkt sich die Styroporkugel-Seite nach unten.</p>
+<p class="erklaerung"><strong>Erklaerung:</strong> In Luft erfaehrt die grosse Styroporkugel mehr Auftrieb als das kleine Bleigewicht (weil F<sub>A</sub> = &rho;<sub>Luft</sub> &middot; g &middot; V und Styropor viel groesseres Volumen hat). Ohne Luft (Vakuum) faellt der Auftrieb weg. Die Styroporkugel verliert ihren «Bonus» und wird relativ schwerer → sie sinkt.</p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Gedankenexperiment: Schwimmblase des Fisches</div>
+<p class="erklaerung"><strong>Erklaerung:</strong> Der Fisch kann das Volumen seiner Schwimmblase veraendern. Vergroessert er sie (Gas rein), sinkt seine mittlere Dichte → Auftriebskraft &gt; Gewichtskraft → er steigt. Verkleinert er sie (Gas raus), steigt seine Dichte → er sinkt. Bei gleicher Dichte wie Wasser schwebt er.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="formeln">6. Formelsammlung — Alle Formeln auf einen Blick</h2>
+
+<table>
+<tr><th>Formel</th><th>Bedeutung</th><th>Einheiten</th></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">p = F / A</td><td>Druck = Kraft pro Flaeche</td><td>Pa = N/m&sup2;</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">p = &rho; &middot; g &middot; h</td><td>Schweredruck in Tiefe h</td><td>&rho; [kg/m&sup3;], g [m/s&sup2;], h [m]</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">F<sub>A</sub> = &rho;<sub>Fl</sub> &middot; g &middot; V</td><td>Auftriebskraft (Archimedes)</td><td>F<sub>A</sub> [N], V [m&sup3;]</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">F<sub>2</sub> = (A<sub>2</sub>/A<sub>1</sub>) &middot; F<sub>1</sub></td><td>Hydraulische Presse — Kraft</td><td>F [N], A [m&sup2;]</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">A<sub>1</sub> &middot; s<sub>1</sub> = A<sub>2</sub> &middot; s<sub>2</sub></td><td>Hydraulische Presse — Weg</td><td>A [m&sup2;], s [m]</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">&Delta;p = &rho;<sub>Fl</sub> &middot; g &middot; h</td><td>U-Rohr-Manometer</td><td>gleich wie Schweredruck</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">p<sub>L</sub> = &rho;<sub>Fl</sub> &middot; g &middot; h</td><td>Fluessigkeitsbarometer</td><td>gleich wie Schweredruck</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">F<sub>G</sub> = m &middot; g</td><td>Gewichtskraft</td><td>F [N], m [kg]</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">&rho; = m / V</td><td>Dichte</td><td>&rho; [kg/m&sup3;]</td></tr>
+</table>
+
+<h3>Wichtige Dichten</h3>
+<table>
+<tr><th>Stoff</th><th>Dichte</th></tr>
+<tr><td>Wasser</td><td>1000 kg/m&sup3; = 1.0 g/cm&sup3;</td></tr>
+<tr><td>Meerwasser</td><td>1030 kg/m&sup3; = 1.03 g/cm&sup3;</td></tr>
+<tr><td>Eis</td><td>910 kg/m&sup3; = 0.91 g/cm&sup3;</td></tr>
+<tr><td>Luft (Meereshoehe)</td><td>1.3 kg/m&sup3;</td></tr>
+<tr><td>Helium</td><td>0.18 kg/m&sup3;</td></tr>
+<tr><td>Quecksilber</td><td>13'590 kg/m&sup3;</td></tr>
+<tr><td>Benzin</td><td>700 kg/m&sup3; = 0.7 g/cm&sup3;</td></tr>
+<tr><td>Holz (typisch)</td><td>600 kg/m&sup3; = 0.6 g/cm&sup3;</td></tr>
+<tr><td>Eisen</td><td>7'874 kg/m&sup3;</td></tr>
+</table>
+
+<h3>Wichtige Saetze</h3>
+<table>
+<tr><th>Satz</th><th>Aussage</th></tr>
+<tr><td>Satz von Pascal</td><td>In ruhenden, inkompressiblen Fluessigkeiten herrscht ueberall derselbe Druck</td></tr>
+<tr><td>Satz des Archimedes</td><td>Auftriebskraft = Gewichtskraft der verdraengten Fluessigkeit</td></tr>
+<tr><td>Hydrostatisches Paradoxon</td><td>Schweredruck ist unabhaengig von der Gefaessform</td></tr>
+<tr><td>Goldene Regel der Mechanik</td><td>Kraft gespart = Weg dazugelegt (Arbeit bleibt gleich)</td></tr>
+</table>
+
+<p style="text-align:center;color:#666;margin-top:40px;font-size:0.85em;">Wissens-Kompakt | Physik Hydrostatik | Version 1.0 | 16.03.2026</p>
+
+</body>
+</html>

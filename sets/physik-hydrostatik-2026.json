@@ -1,0 +1,325 @@
+{
+  "id": "physik-hydrostatik-2026",
+  "title": "Physik — Hydrostatik (Druck & Auftrieb)",
+  "subject": "Physik",
+  "grade": "2. Klasse Gymnasium",
+  "date": "2026-03-16",
+  "tags": ["Druck", "Luftdruck", "Schweredruck", "Hydraulik", "Auftrieb", "Archimedes", "Pascal"],
+  "cards": [
+    {
+      "id": 1,
+      "category": "A — Druck (Grundlagen)",
+      "front": "Wie ist der Druck definiert? (Formel + Einheiten)",
+      "back": "p = F / A\n\np = Druck [Pa = N/m²]\nF = Kraft [N]\nA = Fläche [m²]\n\nDer Druck hat keine bestimmte Richtung — er wirkt nach allen Seiten.",
+      "image": null
+    },
+    {
+      "id": 2,
+      "category": "A — Druck (Grundlagen)",
+      "front": "Welche Druckeinheiten gibt es und wie rechnet man um?",
+      "back": "1 bar = 100'000 Pa = 10⁵ Pa = 1000 mbar\n1 hPa = 100 Pa = 1 mbar\n1 atm ≈ 1013 hPa ≈ 1 bar\n1 mmHg ≈ 133.3 Pa ≈ 1.33 mbar",
+      "image": null
+    },
+    {
+      "id": 3,
+      "category": "A — Druck (Grundlagen)",
+      "front": "Warum platzt ein Ballon auf einem Nagel, aber nicht auf vielen Reissnägeln?",
+      "back": "Auf vielen Nägeln verteilt sich die Kraft auf viele Spitzen → grosse Gesamtfläche A → kleiner Druck p = F/A → Ballon bleibt heil.\n\nAuf einem Nagel: winzige Fläche → riesiger Druck → Ballon platzt.",
+      "image": null
+    },
+    {
+      "id": 4,
+      "category": "A — Druck (Grundlagen)",
+      "front": "Was ist der Auflagedruck? Beispiel Stiletto vs. Sneaker.",
+      "back": "Wenn ein Objekt mit seinem Gewicht auf einer Fläche ruht, übt es einen Auflagedruck aus: p = F_G / A.\n\nStilettoabsatz (49 mm²): ca. 124 bar\nSneaker (1600 mm²): ca. 3.8 bar\n→ Gleiche Person, aber 33x mehr Druck auf dem Stiletto!",
+      "image": null
+    },
+    {
+      "id": 5,
+      "category": "B — Luftdruck",
+      "front": "Was verursacht den Luftdruck und wie gross ist er?",
+      "back": "Die Gewichtskraft der gesamten Luftsäule über uns verursacht den Luftdruck.\n\nAuf Meereshöhe: p_L ≈ 1 atm ≈ 1013 hPa ≈ 1 bar.\n\nJe höher man steigt, desto geringer wird der Luftdruck (nicht linear, sondern exponentiell abnehmend).",
+      "image": null
+    },
+    {
+      "id": 6,
+      "category": "B — Luftdruck",
+      "front": "Was ist der Unterschied zwischen absolutem Druck und Überdruck?",
+      "back": "Absoluter Druck = Druck gegenüber dem Vakuum (gemessen mit Barometer).\nÜberdruck = Druck gegenüber dem Luftdruck.\n\np_absolut = p_Luftdruck + p_Überdruck\n\nBeispiel: Autoreifen mit 2 bar Überdruck → absolut = 3 bar.",
+      "image": null
+    },
+    {
+      "id": 7,
+      "category": "B — Luftdruck",
+      "front": "Warum spüren wir den Luftdruck normalerweise nicht?",
+      "back": "Weil die Luft in unserem Körper unter demselben Druck steht wie die äussere Luft. Innen und aussen gleicher Druck → keine Nettokraft.\n\nBei schnellem Höhenwechsel (Gondel, Flugzeug) passt sich der Innendruck im Ohr nicht schnell genug an → Druckgefühl auf dem Trommelfell.",
+      "image": null
+    },
+    {
+      "id": 8,
+      "category": "B — Luftdruck",
+      "front": "Erkläre das Experiment 'Magdeburger Halbkugeln' (1656).",
+      "back": "Otto von Guericke fügte zwei metallische Halbkugeln zusammen und pumpte die Luft heraus.\n\nInnen: Vakuum (p ≈ 0). Aussen: Luftdruck drückt auf die Querschnittsfläche.\nF = p_L · A = p_L · π · r²\n\nSelbst 16 Pferde konnten die Kugeln nicht trennen → Beweis für die Existenz des Luftdrucks.",
+      "image": null
+    },
+    {
+      "id": 9,
+      "category": "B — Luftdruck",
+      "front": "Warum platzt ein Schokokuss unter der Vakuumglocke?",
+      "back": "Im Schaumzucker sind kleine Luftbläschen eingeschlossen. Normal hält der äussere Luftdruck sie zusammen.\n\nPumpt man die Luft ab → äusserer Druck fällt auf ≈ 0 → Innendruck der Bläschen > Aussendruck → Bläschen dehnen sich aus → Schokokuss bläst sich auf und platzt.",
+      "image": null
+    },
+    {
+      "id": 10,
+      "category": "B — Luftdruck",
+      "front": "Was ist ein Vakuum?",
+      "back": "Ein luftleerer Raum, in dem der Druck (nahezu) 0 ist.\n\nEntsteht, wenn man mithilfe einer Pumpe die Luft aus einem geschlossenen Behälter entfernt.",
+      "image": null
+    },
+    {
+      "id": 11,
+      "category": "B — Luftdruck",
+      "front": "Wie funktioniert die Zwerchfellatmung? (physikalisch erklärt)",
+      "back": "Einatmung: Zwerchfell kontrahiert → Brustkorb-Volumen vergrössert sich → Druck in Lunge sinkt unter Luftdruck (Unterdruck) → Luft strömt ein.\n\nAusatmung: Zwerchfell entspannt → Volumen verkleinert sich → Druck steigt über Luftdruck (Überdruck) → Luft wird herausgedrückt.",
+      "image": null
+    },
+    {
+      "id": 12,
+      "category": "B — Luftdruck",
+      "front": "Was ist ein Barometer? Was misst es?",
+      "back": "Ein Gerät zur Messung des Luftdrucks. Es misst den absoluten Druck (gegenüber dem Vakuum).\n\nFlüssigkeitsbarometer: geschlossenes Rohr mit Quecksilber. Der Luftdruck drückt auf das Vorratsgefäss und hält die Quecksilbersäule auf einer bestimmten Höhe (ca. 760 mm bei Normaldruck).",
+      "image": null
+    },
+    {
+      "id": 13,
+      "category": "C — Druck in Flüssigkeiten",
+      "front": "Wie lautet der Satz von Pascal?",
+      "back": "In (näherungsweise) ruhenden und inkompressiblen Flüssigkeiten herrscht — abgesehen vom Einfluss der Schwerkraft — überall derselbe Druck.\n\nBedeutung: Übt man an einer Stelle Druck aus, pflanzt er sich unverändert in alle Richtungen fort.",
+      "image": null
+    },
+    {
+      "id": 14,
+      "category": "C — Druck in Flüssigkeiten",
+      "front": "Wie funktioniert eine hydraulische Presse? (Formel)",
+      "back": "Zwei Kolben verschiedener Grösse, verbunden durch Flüssigkeit.\n\np₁ = p₂ → F₁/A₁ = F₂/A₂\n→ F₂ = (A₂/A₁) · F₁\n\nKleine Kraft auf kleinen Kolben → grosse Kraft auf grossen Kolben.\nKraftverstaerkung = Flächenverhältnis A₂/A₁.",
+      "image": null
+    },
+    {
+      "id": 15,
+      "category": "C — Druck in Flüssigkeiten",
+      "front": "Was ist der 'Preis' der hydraulischen Kraftverstärkung?",
+      "back": "Die Kraftersparnis ist nicht gratis!\n\nDa V₁ = V₂ gilt: A₁ · s₁ = A₂ · s₂\n\nDer kleine Kolben muss eine viel grössere Strecke zurücklegen als der grosse.\n\nGoldene Regel der Mechanik: Was man an Kraft spart, muss man an Weg zulegen. Die Arbeit (W = F · s) bleibt gleich.",
+      "image": null
+    },
+    {
+      "id": 16,
+      "category": "C — Druck in Flüssigkeiten",
+      "front": "Was ist der Unterschied zwischen komprimierbar und inkompressibel?",
+      "back": "Komprimierbar = zusammendrückbar → gilt für GASE (z.B. Luft in einer Spritze lässt sich zusammendrücken).\n\nInkompressibel = NICHT zusammendrückbar → gilt für FLÜSSIGKEITEN (z.B. Wasser in geschlossener Spritze lässt sich nicht komprimieren).\n\nDieser Unterschied ist die Grundlage für hydraulische Systeme.",
+      "image": null
+    },
+    {
+      "id": 17,
+      "category": "C — Druck in Flüssigkeiten",
+      "front": "Nenne 4 Anwendungen der Hydraulik im Alltag.",
+      "back": "1. Bagger — hydraulische Kolben an den Armen\n2. Autobremsen — Bremsdruck wird hydraulisch übertragen\n3. Hebebühnen — kleine Pumpkraft hebt schwere Autos\n4. Bustüren — hydraulische Steuerung\n\nAlle nutzen das Prinzip: kleiner Kolben + viel Weg → grosser Kolben + wenig Weg, aber grosse Kraft.",
+      "image": null
+    },
+    {
+      "id": 18,
+      "category": "D — Schweredruck",
+      "front": "Wie lautet die Schweredruck-Formel? Leite sie her.",
+      "back": "p = ρ · g · h\n\nHerleitung:\np = F/A → F = m·g → p = (m·g)/A\nm = ρ·V und V = A·h → p = (ρ·A·h·g)/A\nA kürzt sich → p = ρ · g · h\n\nρ = Dichte [kg/m³], g = 9.81 m/s², h = Tiefe [m]",
+      "image": null
+    },
+    {
+      "id": 19,
+      "category": "D — Schweredruck",
+      "front": "Merkregel: Wieviel bar pro 10 Meter Wassertiefe?",
+      "back": "Pro 10 m Wassertiefe steigt der Schweredruck um ca. 1 bar.\n\np = 1000 · 9.81 · 10 = 98'100 Pa ≈ 1 bar\n\nIn 10 m Tiefe: Gesamtdruck = 1 bar (Luft) + 1 bar (Wasser) = 2 bar\nIn 20 m: 3 bar, in 30 m: 4 bar, usw.",
+      "image": null
+    },
+    {
+      "id": 20,
+      "category": "D — Schweredruck",
+      "front": "Von welchen Faktoren hängt der Schweredruck ab? Von welchen NICHT?",
+      "back": "Hängt ab von:\n• Dichte ρ der Flüssigkeit\n• Tiefe h\n• Fallbeschleunigung g\n\nHängt NICHT ab von:\n• Gefässform (hydrostatisches Paradoxon!)\n• Flüssigkeitsmenge\n• Grösse der Oberfläche",
+      "image": null
+    },
+    {
+      "id": 21,
+      "category": "D — Schweredruck",
+      "front": "Was ist das hydrostatische Paradoxon?",
+      "back": "Der Schweredruck in einer Flüssigkeit ist unabhängig von der Gefässform. Nur Tiefe h und Dichte ρ bestimmen den Druck.\n\nFolge: In verbundenen Gefässen (egal welche Form) steigt der Flüssigkeitsspiegel überall gleich hoch.",
+      "image": null
+    },
+    {
+      "id": 22,
+      "category": "D — Schweredruck",
+      "front": "Was ist ein U-Rohr-Manometer und was misst es?",
+      "back": "Misst Druckdifferenzen. U-förmiges Rohr mit Flüssigkeit.\n\nBei Druckunterschied verschiebt sich die Flüssigkeitssäule um Höhe h:\nΔp = ρ_Fl · g · h\n\nDer Höhenunterschied h hängt NICHT von Form oder Querschnitt der Röhren ab.",
+      "image": null
+    },
+    {
+      "id": 23,
+      "category": "D — Schweredruck",
+      "front": "Nenne 3 Anwendungen verbundener Gefässe.",
+      "back": "1. Geruchssperre (Siphon): U-förmiges Abflussrohr — Wasser in der Biegung blockiert Kanalgeruch.\n\n2. Füllstandsanzeige: Transparentes Röhrchen am Behälter zeigt den Wasserstand.\n\n3. Wasserversorgung: Hochbehälter versorgt tiefer gelegene Häuser — ohne Pumpe (Schweredruck genügt).",
+      "image": null
+    },
+    {
+      "id": 24,
+      "category": "D — Schweredruck",
+      "front": "Warum muss eine Staumauer unten dicker sein als oben?",
+      "back": "Der Schweredruck p = ρ · g · h nimmt mit der Tiefe linear zu. Unten wirkt der grösste Druck → die grösste Kraft auf die Mauer.\n\nDeshalb: Querschnitt keil-/trapezförmig — unten breit und massiv, oben schmal.",
+      "image": null
+    },
+    {
+      "id": 25,
+      "category": "D — Schweredruck",
+      "front": "Taucher in Höhle: 10 m unter der Oberfläche, aber nur 3 m Wasser über ihm. Wie ändert sich der Druck?",
+      "back": "Der Druck ändert sich NICHT.\n\nDer Schweredruck hängt von der Tiefe unter der Wasseroberfläche ab (verbundene Gefässe!), nicht von der Wassermenge direkt über dem Taucher. Da der Taucher weiterhin 10 m unter der Oberfläche ist, bleibt der Gesamtdruck bei ca. 2 bar.",
+      "image": null
+    },
+    {
+      "id": 26,
+      "category": "D — Schweredruck",
+      "front": "Was bedeutet die Einheit mmHg? Umrechnung?",
+      "back": "Millimeter Quecksilbersäule — historische Druckeinheit vom Quecksilber-Barometer.\n\n1 mmHg ≈ 133.3 Pa ≈ 1.33 mbar\n\nNormaler Luftdruck = 760 mmHg ≈ 1013 hPa.\n\nWird heute noch in der Medizin verwendet (Blutdruck, z.B. 120/80 mmHg).",
+      "image": null
+    },
+    {
+      "id": 27,
+      "category": "E — Auftrieb",
+      "front": "Wie lautet der Satz des Archimedes?",
+      "back": "Die Auftriebskraft F_A hat den gleichen Betrag wie die Gewichtskraft der vom Körper verdrängten Flüssigkeit:\n\nF_A = ρ_Fl · g · V\n\nρ_Fl = Dichte der Flüssigkeit [kg/m³]\ng = 9.81 m/s²\nV = Volumen des eingetauchten Körpers [m³]",
+      "image": null
+    },
+    {
+      "id": 28,
+      "category": "E — Auftrieb",
+      "front": "Wie entsteht der Auftrieb? (physikalisch hergeleitet)",
+      "back": "Durch den Schweredruck:\n- Auf die Unterseite des Körpers wirkt ein grösserer Druck als auf die Oberseite (weil unten tiefer).\n- F₂ (unten, nach oben) > F₁ (oben, nach unten)\n- Auftriebskraft = F₂ - F₁ = ρ · g · (h₂ - h₁) · A = ρ · g · h · A = ρ · g · V",
+      "image": null
+    },
+    {
+      "id": 29,
+      "category": "E — Auftrieb",
+      "front": "Wann schwimmt, schwebt oder sinkt ein Körper?",
+      "back": "Schwimmen: ρ_Körper < ρ_Flüssigkeit → teilweise eingetaucht, an der Oberfläche\nSchweben: ρ_Körper = ρ_Flüssigkeit → bleibt in beliebiger Tiefe (F_A = F_G)\nSinken: ρ_Körper > ρ_Flüssigkeit → geht zum Boden\n\nMerkregel: Dichte entscheidet! Leichter als Wasser → schwimmt. Schwerer → sinkt.",
+      "image": null
+    },
+    {
+      "id": 30,
+      "category": "E — Auftrieb",
+      "front": "Wie tief taucht ein schwimmender Körper ein? (Formel)",
+      "back": "Beim Schwimmen gilt F_A = F_G:\nρ_Fl · g · V_ein = ρ_Körper · g · V_ges\n\nV_ein / V_ges = ρ_Körper / ρ_Fl\n\nBeispiel Eis: ρ = 910 kg/m³\n→ 910/1000 = 0.91 → 91% unter Wasser\n→ Nur 9% ragen heraus ('Spitze des Eisbergs')",
+      "image": null
+    },
+    {
+      "id": 31,
+      "category": "E — Auftrieb",
+      "front": "Warum können Eisenschiffe schwimmen?",
+      "back": "Obwohl Eisen ca. 8x dichter ist als Wasser, ist ein Schiff eine hohle Struktur mit viel Luft.\n\nDie mittlere Dichte des gesamten Schiffs (Eisen + Luft + Ladung) ist kleiner als die von Wasser.\n\nDas Schiff verdrängt durch seine Form viel Wasser → grosse Auftriebskraft → es schwimmt.",
+      "image": null
+    },
+    {
+      "id": 32,
+      "category": "E — Auftrieb",
+      "front": "Wie reguliert ein Fisch seine Tiefe? (Schwimmblase)",
+      "back": "Der Fisch ändert das Volumen seiner Schwimmblase:\n\nSteigen: Blase vergrössern → Volumen ↑ → mittlere Dichte ↓ → F_A > F_G\nSchweben: Blase so, dass ρ_Fisch = ρ_Wasser → F_A = F_G\nSinken: Blase verkleinern → Volumen ↓ → mittlere Dichte ↑ → F_A < F_G",
+      "image": null
+    },
+    {
+      "id": 33,
+      "category": "E — Auftrieb",
+      "front": "Gilt der Auftrieb auch in Gasen? Beispiel.",
+      "back": "Ja! Der Satz des Archimedes gilt auch für Körper in Gasen.\n\nBeispiel Mensch: V ≈ 75 L, ρ_Luft = 1.3 kg/m³\nF_A = 1.3 · 9.81 · 0.075 = 0.96 N\n→ Wir messen auf der Waage ca. 100 g zu wenig!\n\nZeppeline/Heissluftballone nutzen den Auftrieb in Luft (Helium/heisse Luft ist leichter als kalte Luft).",
+      "image": null
+    },
+    {
+      "id": 34,
+      "category": "E — Auftrieb",
+      "front": "Experiment: Balkenwaage im Vakuum — was passiert?",
+      "back": "Aufbau: Grosse Styroporkugel + kleines Bleigewicht im Gleichgewicht unter Glasglocke.\n\nBeim Abpumpen: Styropor-Seite senkt sich.\n\nErklärung: In Luft hat Styropor (grosses Volumen) mehr Auftrieb als Blei (kleines Volumen). Ohne Luft fällt der Auftrieb weg → Styropor verliert seinen 'Bonus' und wird relativ schwerer.",
+      "image": null
+    },
+    {
+      "id": 35,
+      "category": "E — Auftrieb",
+      "front": "Warum schwimmt ein Ei in Zuckerwasser, aber nicht in Leitungswasser?",
+      "back": "Die Dichte des Eies liegt zwischen der von Leitungswasser und Zuckerwasser.\n\nLeitungswasser: ρ ≈ 1000 kg/m³ → ρ_Ei > ρ_Wasser → sinkt\nZuckerwasser: ρ > 1000 kg/m³ → ρ_Ei < ρ_Zuckerwasser → schwimmt\n\nDie Auftriebskraft hängt von der Dichte der Flüssigkeit ab!",
+      "image": null
+    },
+    {
+      "id": 36,
+      "category": "F — Experimente",
+      "front": "Experiment: Gelochte PET-Flasche — was beobachtet man?",
+      "back": "Drückt man auf den gelochten Ballon, spritzt Wasser aus ALLEN Löchern gleich weit — egal wo das Loch ist.\n\nErklärung: Satz von Pascal — in der ruhenden Flüssigkeit herrscht überall der gleiche Druck. Die Austrittsgeschwindigkeit ist an jedem Loch gleich.",
+      "image": null
+    },
+    {
+      "id": 37,
+      "category": "F — Experimente",
+      "front": "Experiment: Heronsball / Springbrunnen — wie funktioniert er?",
+      "back": "Man bläst Luft in eine Flasche → Überdruck entsteht über dem Wasser.\n\nGibt man die Öffnung frei: p_innen > p_aussen → die Druckdifferenz drückt das Wasser durch das Röhrchen nach oben = Springbrunnen.\n\nAnwendung: Laborspritzflaschen (Waschflaschen) funktionieren nach demselben Prinzip.",
+      "image": null
+    },
+    {
+      "id": 38,
+      "category": "F — Experimente",
+      "front": "Experiment: Saugheber — warum hält er?",
+      "back": "Beim Herunterklappen wird die Luft unter dem Gummi herausgedrückt → Unterdruck (nahezu Vakuum).\n\nDer äussere Luftdruck drückt den Saugnapf mit grosser Kraft auf die Fläche:\nF = p_Luft · A\n\nJe grösser die Fläche des Saugnapfs, desto grösser die Haltekraft.",
+      "image": null
+    },
+    {
+      "id": 39,
+      "category": "F — Experimente",
+      "front": "Experiment: Schweredruck — warum spritzt Wasser unten weiter als oben?",
+      "back": "Ein Behälter mit Löchern in verschiedenen Höhen: Wasser spritzt unten viel weiter.\n\nErklärung: Je tiefer das Loch, desto grösser die Wassersäule darüber → grösserer Schweredruck p = ρ·g·h → höhere Austrittsgeschwindigkeit.\n\nPraxisbezug: Staumauern müssen unten dicker sein!",
+      "image": null
+    },
+    {
+      "id": 40,
+      "category": "F — Experimente",
+      "front": "Experiment: Plastik-Handschuh im Wasser — warum spürt man den Druck?",
+      "back": "Ohne Handschuh: Druck innen = Druck aussen → keine Nettokraft → nichts spürbar.\n\nMit Handschuh: Luft zwischen Hand und Handschuh hat geringeren Druck als das umgebende Wasser → Druckdifferenz → Handschuh wird an die Hand gepresst → man spürt den Wasserdruck deutlich.",
+      "image": null
+    },
+    {
+      "id": 41,
+      "category": "G — Rechnen",
+      "front": "Rechenbeispiel: Schweredruck in 10 m Wassertiefe?",
+      "back": "p = ρ · g · h = 1000 · 9.81 · 10 = 98'100 Pa ≈ 1 bar\n\nGesamtdruck = Luftdruck + Schweredruck\n= 1 bar + 1 bar = 2 bar\n\nMerkregel: Pro 10 m Tiefe kommt ca. 1 bar dazu.",
+      "image": null
+    },
+    {
+      "id": 42,
+      "category": "G — Rechnen",
+      "front": "Rechenbeispiel: Hydraulische Presse. A₁ = 2 cm², A₂ = 240 cm², F₁ = 98 N. Wie gross ist F₂?",
+      "back": "F₂ = (A₂/A₁) · F₁ = (240/2) · 98 = 120 · 98\n= 11'760 N (ca. 1200 kg!)\n\nKraftverstärkung = A₂/A₁ = 120-fach.\nDafür bewegt sich der grosse Kolben 120x weniger weit.",
+      "image": null
+    },
+    {
+      "id": 43,
+      "category": "G — Rechnen",
+      "front": "Rechenbeispiel: Eiswürfel schwimmt. Wie viel % taucht unter?",
+      "back": "ρ_Eis = 910 kg/m³, ρ_Wasser = 1000 kg/m³\n\nEintauchverhältnis = ρ_Eis / ρ_Wasser = 910/1000 = 0.91 = 91%\n\n→ 91% unter Wasser, nur 9% ragen heraus.\n→ 'Spitze des Eisbergs' = nur ein kleiner Teil sichtbar.",
+      "image": null
+    },
+    {
+      "id": 44,
+      "category": "G — Rechnen",
+      "front": "Wie berechnet man die scheinbare Gewichtskraft unter Wasser?",
+      "back": "F_scheinbar = F_G - F_A\n\nF_G = m · g (echte Gewichtskraft)\nF_A = ρ_Wasser · g · V (Auftriebskraft)\n\nBeispiel: m = 2.7 kg, V = 1000 cm³ = 0.001 m³\nF_G = 26.49 N, F_A = 9.81 N\nF_scheinbar = 26.49 - 9.81 = 16.68 N",
+      "image": null
+    },
+    {
+      "id": 45,
+      "category": "G — Rechnen",
+      "front": "Wie berechnet man den Wasserdruck im 2. OG, wenn man den Kellerdruck kennt?",
+      "back": "Der Druck nimmt nach oben ab:\np_oben = p_Keller - Δp\nΔp = ρ · g · h (Höhenunterschied)\n\nBeispiel: p_Keller = 3.8 bar, h = 7 m\nΔp = 1000 · 9.81 · 7 = 68'670 Pa = 0.69 bar\np_2.OG = 3.8 - 0.69 = 3.11 bar",
+      "image": null
+    }
+  ]
+}
