@@ -51,7 +51,8 @@
       "examDate": "",
       "materials": [
         { "type": "wissen", "title": "Wissens-Kompakt", "file": "materials/geo-kartenkunde-2026-wissen.html" },
-        { "type": "pruefung", "title": "Uebungspruefung", "file": "materials/geo-kartenkunde-2026-pruefung.html" }
+        { "type": "pruefung", "title": "Uebungspruefung", "file": "materials/geo-kartenkunde-2026-pruefung.html" },
+        { "type": "aufgaben", "title": "Interaktives Arbeitsblatt", "file": "materials/geo-kartenkunde-2026-arbeitsblatt.html" }
       ]
     }
   ]

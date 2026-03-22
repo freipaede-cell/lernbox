@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interaktives Arbeitsblatt — Kartenkunde</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #334155;
+  }
+  .header h1 {
+    font-size: 1.7rem;
+    color: #f1f5f9;
+    margin-bottom: 0.4rem;
+  }
+  .header .meta {
+    font-size: 0.9rem;
+    color: #94a3b8;
+  }
+
+  /* Score bar */
+  .score-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+  .score-bar .score-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f1f5f9;
+  }
+  .score-bar .score-text span { color: #4ade80; }
+  .score-bar .progress-wrap {
+    flex: 1;
+    margin: 0 1rem;
+    background: #334155;
+    border-radius: 6px;
+    height: 10px;
+    overflow: hidden;
+  }
+  .score-bar .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #22c55e);
+    border-radius: 6px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .score-bar .reset-btn {
+    background: #475569;
+    color: #e2e8f0;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  .score-bar .reset-btn:hover { background: #64748b; }
+
+  /* Section headers */
+  .section-header {
+    margin: 2rem 0 1rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .section-massstab { background: #1e3a5f; color: #60a5fa; }
+  .section-begriffe { background: #1a3a2a; color: #4ade80; }
+  .section-zuordnung { background: #3b1f4a; color: #c084fc; }
+  .section-anwendung { background: #3d2b1a; color: #fbbf24; }
+
+  /* Task card */
+  .task {
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #334155;
+    transition: border-color 0.3s;
+  }
+  .task.correct { border-left-color: #22c55e; }
+  .task.wrong { border-left-color: #ef4444; }
+
+  .task-nr {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+  }
+  .task-question {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+  }
+  .task-question strong { color: #f1f5f9; }
+
+  /* Input fields */
+  .input-row {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .input-label {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    min-width: 120px;
+  }
+  .task input[type="text"], .task input[type="number"] {
+    background: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 6px;
+    color: #e2e8f0;
+    padding: 0.5rem 0.7rem;
+    font-size: 1rem;
+    width: 140px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .task input:focus { border-color: #3b82f6; }
+  .task input.correct { border-color: #22c55e; background: #0f2a1a; }
+  .task input.wrong { border-color: #ef4444; background: #2a0f0f; }
+
+  .unit {
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+
+  .check-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.8rem;
+    transition: background 0.2s;
+  }
+  .check-btn:hover { background: #2563eb; }
+  .check-btn:disabled { background: #475569; cursor: default; }
+
+  .feedback {
+    margin-top: 0.6rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.correct {
+    background: #0f2a1a;
+    border-left: 3px solid #22c55e;
+    color: #bbf7d0;
+  }
+  .feedback.wrong {
+    background: #2a0f0f;
+    border-left: 3px solid #ef4444;
+    color: #fecaca;
+  }
+
+  /* Drag & Drop / Selection tasks */
+  .options-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .option-btn {
+    background: #334155;
+    color: #e2e8f0;
+    border: 2px solid #475569;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .option-btn:hover { background: #475569; }
+  .option-btn.selected { background: #1e3a5f; border-color: #3b82f6; color: #60a5fa; }
+  .option-btn.correct-choice { background: #0f2a1a; border-color: #22c55e; color: #4ade80; }
+  .option-btn.wrong-choice { background: #2a0f0f; border-color: #ef4444; color: #f87171; }
+
+  /* Table tasks */
+  .task table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.9rem;
+  }
+  .task thead { background: #334155; }
+  .task th {
+    text-align: center;
+    padding: 0.5rem;
+    color: #93c5fd;
+    font-weight: 600;
+    border-bottom: 2px solid #475569;
+  }
+  .task td {
+    text-align: center;
+    padding: 0.4rem;
+    border-bottom: 1px solid #334155;
+    background: #1e293b;
+  }
+  .task td input {
+    width: 90px;
+    text-align: center;
+  }
+
+  /* Reveal solution */
+  .reveal-btn {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 0.3rem;
+    text-decoration: underline;
+  }
+  .reveal-btn:hover { color: #94a3b8; }
+
+  footer {
+    text-align: center;
+    color: #475569;
+    font-size: 0.8rem;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 1rem 0.5rem; }
+    .header h1 { font-size: 1.4rem; }
+    .task { padding: 1rem; }
+    .input-label { min-width: 100px; font-size: 0.85rem; }
+    .task input { width: 110px; font-size: 0.9rem; }
+    .score-bar { flex-wrap: wrap; gap: 0.5rem; }
+    .score-bar .progress-wrap { order: 3; flex-basis: 100%; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>Interaktives Arbeitsblatt — Kartenkunde</h1>
+  <div class="meta">Geografie | Kantonsschule Im Lee | Rechnen, Zuordnen, Anwenden</div>
+</div>
+
+<div class="score-bar">
+  <div class="score-text"><span id="score">0</span> / <span id="total">20</span></div>
+  <div class="progress-wrap"><div class="progress-fill" id="progress"></div></div>
+  <button class="reset-btn" onclick="resetAll()">Zuruecksetzen</button>
+</div>
+
+<!-- ==================== SEKTION 1: MASSSTAB RECHNEN ==================== -->
+<div class="section-header section-massstab">Sektion 1 — Massstab: Strecken berechnen</div>
+
+<!-- Aufgabe 1 -->
+<div class="task" id="t1">
+  <div class="task-nr">Aufgabe 1</div>
+  <div class="task-question">Wie viel Meter im Gelaende entspricht <strong>1 cm</strong> auf einer Karte <strong>1:50'000</strong>?</div>
+  <div class="input-row">
+    <input type="number" id="a1" placeholder="?">
+    <span class="unit">m</span>
+  </div>
+  <button class="check-btn" onclick="checkNum('t1','a1',500)">Pruefen</button>
+  <div class="feedback" id="t1-fb"></div>
+</div>
+
+<!-- Aufgabe 2 -->
+<div class="task" id="t2">
+  <div class="task-nr">Aufgabe 2</div>
+  <div class="task-question">Wie viel <strong>cm auf der Karte</strong> entsprechen <strong>1 km</strong> im Gelaende bei Massstab <strong>1:25'000</strong>?</div>
+  <div class="input-row">
+    <input type="number" id="a2" placeholder="?">
+    <span class="unit">cm</span>
+  </div>
+  <button class="check-btn" onclick="checkNum('t2','a2',4)">Pruefen</button>
+  <div class="feedback" id="t2-fb"></div>
+</div>
+
+<!-- Aufgabe 3 -->
+<div class="task" id="t3">
+  <div class="task-nr">Aufgabe 3</div>
+  <div class="task-question">Eine Strecke misst in der Natur <strong>3 km</strong>. Auf der Karte ist sie <strong>6 cm</strong> lang. Welcher Massstab hat die Karte?</div>
+  <div class="input-row">
+    <span class="input-label">1 :</span>
+    <input type="number" id="a3" placeholder="?">
+  </div>
+  <button class="check-btn" onclick="checkNum('t3','a3',50000)">Pruefen</button>
+  <div class="feedback" id="t3-fb"></div>
+</div>
+
+<!-- Aufgabe 4 -->
+<div class="task" id="t4">
+  <div class="task-nr">Aufgabe 4</div>
+  <div class="task-question">Ein Wanderweg ist auf einer Karte 1:25'000 genau <strong>12 cm</strong> lang. Wie lang ist der Weg in der Natur?</div>
+  <div class="input-row">
+    <input type="number" id="a4" step="0.1" placeholder="?">
+    <span class="unit">km</span>
+  </div>
+  <button class="check-btn" onclick="checkNum('t4','a4',3)">Pruefen</button>
+  <div class="feedback" id="t4-fb"></div>
+</div>
+
+<!-- Aufgabe 5 -->
+<div class="task" id="t5">
+  <div class="task-nr">Aufgabe 5</div>
+  <div class="task-question">Ein <strong>2'400 m</strong> langer Tunnel soll auf einer Karte <strong>1:100'000</strong> dargestellt werden. Wie lang ist er auf der Karte?</div>
+  <div class="input-row">
+    <input type="number" id="a5" step="0.1" placeholder="?">
+    <span class="unit">cm</span>
+  </div>
+  <button class="check-btn" onclick="checkNum('t5','a5',2.4)">Pruefen</button>
+  <div class="feedback" id="t5-fb"></div>
+</div>
+
+<!-- ==================== SEKTION 2: FLAECHEN RECHNEN ==================== -->
+<div class="section-header section-massstab">Sektion 2 — Massstab: Flaechen berechnen</div>
+
+<!-- Aufgabe 6 -->
+<div class="task" id="t6">
+  <div class="task-nr">Aufgabe 6</div>
+  <div class="task-question">Wie gross ist <strong>1 cm²</strong> auf einer Karte <strong>1:50'000</strong> in der Wirklichkeit?</div>
+  <div class="input-row">
+    <input type="number" id="a6" step="0.01" placeholder="?">
+    <span class="unit">km²</span>
+  </div>
+  <button class="check-btn" onclick="checkNum('t6','a6',0.25)">Pruefen</button>
+  <div class="feedback" id="t6-fb"></div>
+</div>
+
+<!-- Aufgabe 7 -->
+<div class="task" id="t7">
+  <div class="task-nr">Aufgabe 7</div>
+  <div class="task-question">Eine Gemeindeflaeche misst auf einer Karte 1:25'000 genau <strong>48 cm²</strong>. Wie gross ist die Gemeinde in Wirklichkeit?</div>
+  <div class="input-row">
+    <input type="number" id="a7" step="0.1" placeholder="?">
+    <span class="unit">km²</span>
+  </div>
+  <button class="check-btn" onclick="checkNum('t7','a7',30)">Pruefen</button>
+  <div class="feedback" id="t7-fb"></div>
+</div>
+
+<!-- Aufgabe 8 -->
+<div class="task" id="t8">
+  <div class="task-nr">Aufgabe 8</div>
+  <div class="task-question">Ein See hat eine reale Flaeche von <strong>8 km²</strong>. Wie gross ist er auf einer Karte <strong>1:200'000</strong>?</div>
+  <div class="input-row">
+    <input type="number" id="a8" step="0.01" placeholder="?">
+    <span class="unit">cm²</span>
+  </div>
+  <button class="check-btn" onclick="checkNum('t8','a8',2)">Pruefen</button>
+  <div class="feedback" id="t8-fb"></div>
+</div>
+
+<!-- ==================== SEKTION 3: BEGRIFFE ZUORDNEN ==================== -->
+<div class="section-header section-begriffe">Sektion 3 — Begriffe zuordnen</div>
+
+<!-- Aufgabe 9: Projektionsarten -->
+<div class="task" id="t9">
+  <div class="task-nr">Aufgabe 9</div>
+  <div class="task-question">Welche Projektion beruehrt die Erdkugel entlang des <strong>Aequators</strong> und erzeugt ein rechtwinkliges Gradnetz?</div>
+  <div class="options-grid">
+    <button class="option-btn" onclick="checkChoice('t9',this,'Zylinderprojektion')">Azimutalprojektion</button>
+    <button class="option-btn" onclick="checkChoice('t9',this,'Zylinderprojektion')">Kegelprojektion</button>
+    <button class="option-btn" onclick="checkChoice('t9',this,'Zylinderprojektion')">Zylinderprojektion</button>
+  </div>
+  <div class="feedback" id="t9-fb"></div>
+</div>
+
+<!-- Aufgabe 10: Projektionsarten -->
+<div class="task" id="t10">
+  <div class="task-nr">Aufgabe 10</div>
+  <div class="task-question">Welche Projektion eignet sich besonders fuer Gebiete mit <strong>kreisfoermiger Gestalt</strong> (z.B. Polgebiete)?</div>
+  <div class="options-grid">
+    <button class="option-btn" onclick="checkChoice('t10',this,'Azimutalprojektion')">Azimutalprojektion</button>
+    <button class="option-btn" onclick="checkChoice('t10',this,'Azimutalprojektion')">Kegelprojektion</button>
+    <button class="option-btn" onclick="checkChoice('t10',this,'Azimutalprojektion')">Zylinderprojektion</button>
+  </div>
+  <div class="feedback" id="t10-fb"></div>
+</div>
+
+<!-- Aufgabe 11: Flaechentreu vs Winkeltreu -->
+<div class="task" id="t11">
+  <div class="task-nr">Aufgabe 11</div>
+  <div class="task-question">Die <strong>Mercator-Projektion</strong> ist...</div>
+  <div class="options-grid">
+    <button class="option-btn" onclick="checkChoice('t11',this,'winkeltreu')">flaechentreu</button>
+    <button class="option-btn" onclick="checkChoice('t11',this,'winkeltreu')">winkeltreu</button>
+  </div>
+  <div class="feedback" id="t11-fb"></div>
+</div>
+
+<!-- Aufgabe 12: Generalisierung -->
+<div class="task" id="t12">
+  <div class="task-nr">Aufgabe 12</div>
+  <div class="task-question">Ordne die vier Massnahmen der <strong>Generalisierung</strong> den Beschreibungen zu. Waehle die richtige Massnahme:</div>
+
+  <div style="margin-bottom:0.6rem;">
+    <div class="input-row">
+      <span class="input-label">Linien glaetten:</span>
+      <select id="a12a" style="background:#0f172a;border:2px solid #334155;border-radius:6px;color:#e2e8f0;padding:0.4rem;font-size:0.9rem;">
+        <option value="">— waehlen —</option>
+        <option value="Vereinfachung">Vereinfachung</option>
+        <option value="Weglassen">Weglassen</option>
+        <option value="Zusammenfassung">Zusammenfassung</option>
+        <option value="Ergaenzung">Ergaenzung</option>
+      </select>
+    </div>
+    <div class="input-row">
+      <span class="input-label">Details entfernen:</span>
+      <select id="a12b" style="background:#0f172a;border:2px solid #334155;border-radius:6px;color:#e2e8f0;padding:0.4rem;font-size:0.9rem;">
+        <option value="">— waehlen —</option>
+        <option value="Vereinfachung">Vereinfachung</option>
+        <option value="Weglassen">Weglassen</option>
+        <option value="Zusammenfassung">Zusammenfassung</option>
+        <option value="Ergaenzung">Ergaenzung</option>
+      </select>
+    </div>
+    <div class="input-row">
+      <span class="input-label">Gebaeude gruppieren:</span>
+      <select id="a12c" style="background:#0f172a;border:2px solid #334155;border-radius:6px;color:#e2e8f0;padding:0.4rem;font-size:0.9rem;">
+        <option value="">— waehlen —</option>
+        <option value="Vereinfachung">Vereinfachung</option>
+        <option value="Weglassen">Weglassen</option>
+        <option value="Zusammenfassung">Zusammenfassung</option>
+        <option value="Ergaenzung">Ergaenzung</option>
+      </select>
+    </div>
+    <div class="input-row">
+      <span class="input-label">Signaturen hinzufuegen:</span>
+      <select id="a12d" style="background:#0f172a;border:2px solid #334155;border-radius:6px;color:#e2e8f0;padding:0.4rem;font-size:0.9rem;">
+        <option value="">— waehlen —</option>
+        <option value="Vereinfachung">Vereinfachung</option>
+        <option value="Weglassen">Weglassen</option>
+        <option value="Zusammenfassung">Zusammenfassung</option>
+        <option value="Ergaenzung">Ergaenzung</option>
+      </select>
+    </div>
+  </div>
+  <button class="check-btn" onclick="checkGeneralisierung()">Pruefen</button>
+  <div class="feedback" id="t12-fb"></div>
+</div>
+
+<!-- ==================== SEKTION 4: ANWENDUNG ==================== -->
+<div class="section-header section-anwendung">Sektion 4 — Anwendung & Verstaendnis</div>
+
+<!-- Aufgabe 13: Signaturen -->
+<div class="task" id="t13">
+  <div class="task-nr">Aufgabe 13</div>
+  <div class="task-question">Ordne zu: Ist eine <strong>Kirche</strong> eine Punkt-, Linien- oder Flaechensignatur?</div>
+  <div class="options-grid">
+    <button class="option-btn" onclick="checkChoice('t13',this,'Punktsignatur')">Punktsignatur</button>
+    <button class="option-btn" onclick="checkChoice('t13',this,'Punktsignatur')">Liniensignatur</button>
+    <button class="option-btn" onclick="checkChoice('t13',this,'Punktsignatur')">Flaechensignatur</button>
+  </div>
+  <div class="feedback" id="t13-fb"></div>
+</div>
+
+<!-- Aufgabe 14: Signaturen -->
+<div class="task" id="t14">
+  <div class="task-nr">Aufgabe 14</div>
+  <div class="task-question">Ordne zu: Ist ein <strong>Wald</strong> eine Punkt-, Linien- oder Flaechensignatur?</div>
+  <div class="options-grid">
+    <button class="option-btn" onclick="checkChoice('t14',this,'Flaechensignatur')">Punktsignatur</button>
+    <button class="option-btn" onclick="checkChoice('t14',this,'Flaechensignatur')">Liniensignatur</button>
+    <button class="option-btn" onclick="checkChoice('t14',this,'Flaechensignatur')">Flaechensignatur</button>
+  </div>
+  <div class="feedback" id="t14-fb"></div>
+</div>
+
+<!-- Aufgabe 15: GNSS -->
+<div class="task" id="t15">
+  <div class="task-nr">Aufgabe 15</div>
+  <div class="task-question">Wie viele Satelliten braucht man <strong>mindestens</strong> fuer eine GNSS-Positionsbestimmung?</div>
+  <div class="input-row">
+    <input type="number" id="a15" placeholder="?">
+    <span class="unit">Satelliten</span>
+  </div>
+  <button class="check-btn" onclick="checkNum('t15','a15',4)">Pruefen</button>
+  <div class="feedback" id="t15-fb"></div>
+</div>
+
+<!-- Aufgabe 16: Koordinaten -->
+<div class="task" id="t16">
+  <div class="task-nr">Aufgabe 16</div>
+  <div class="task-question">Der Ausgangspunkt des Schweizer Koordinatensystems liegt in <strong>Bern</strong>. Welche Koordinaten hat er?</div>
+  <div class="input-row">
+    <span class="input-label">E =</span>
+    <input type="number" id="a16a" placeholder="?">
+  </div>
+  <div class="input-row">
+    <span class="input-label">N =</span>
+    <input type="number" id="a16b" placeholder="?">
+  </div>
+  <button class="check-btn" onclick="checkKoord()">Pruefen</button>
+  <div class="feedback" id="t16-fb"></div>
+</div>
+
+<!-- Aufgabe 17: Pierre du Niton -->
+<div class="task" id="t17">
+  <div class="task-nr">Aufgabe 17</div>
+  <div class="task-question">Wie hoch liegt die <strong>Pierre du Niton</strong> ueber Meer (in Metern)?</div>
+  <div class="input-row">
+    <input type="number" id="a17" step="0.1" placeholder="?">
+    <span class="unit">m ue. M.</span>
+  </div>
+  <button class="check-btn" onclick="checkNum('t17','a17',373.6,0.1)">Pruefen</button>
+  <div class="feedback" id="t17-fb"></div>
+</div>
+
+<!-- Aufgabe 18: Nivellement -->
+<div class="task" id="t18">
+  <div class="task-nr">Aufgabe 18</div>
+  <div class="task-question">Bei einem Nivellement wurden folgende Teilhoehen gemessen: <strong>95 cm, 38 cm, 112 cm, 67 cm</strong>. Wie gross ist die Gesamthoehe H?</div>
+  <div class="input-row">
+    <input type="number" id="a18" step="0.01" placeholder="?">
+    <span class="unit">m</span>
+  </div>
+  <button class="check-btn" onclick="checkNum('t18','a18',3.12,0.01)">Pruefen</button>
+  <div class="feedback" id="t18-fb"></div>
+</div>
+
+<!-- Aufgabe 19: Hoehenkurven -->
+<div class="task" id="t19">
+  <div class="task-nr">Aufgabe 19</div>
+  <div class="task-question">Auf einer Karte liegen die Hoehenkurven <strong>sehr nahe beieinander</strong>. Was bedeutet das fuer das Gelaende?</div>
+  <div class="options-grid">
+    <button class="option-btn" onclick="checkChoice('t19',this,'Das Gelaende ist steil')">Das Gelaende ist flach</button>
+    <button class="option-btn" onclick="checkChoice('t19',this,'Das Gelaende ist steil')">Das Gelaende ist steil</button>
+    <button class="option-btn" onclick="checkChoice('t19',this,'Das Gelaende ist steil')">Man kann es nicht bestimmen</button>
+  </div>
+  <div class="feedback" id="t19-fb"></div>
+</div>
+
+<!-- Aufgabe 20: Massstab-Vergleich -->
+<div class="task" id="t20">
+  <div class="task-nr">Aufgabe 20</div>
+  <div class="task-question">Welcher Massstab zeigt <strong>mehr Details</strong>?</div>
+  <div class="options-grid">
+    <button class="option-btn" onclick="checkChoice('t20',this,'1:25000')">1:25'000</button>
+    <button class="option-btn" onclick="checkChoice('t20',this,'1:25000')">1:100'000</button>
+  </div>
+  <div class="feedback" id="t20-fb"></div>
+</div>
+
+<footer>Interaktives Arbeitsblatt | Geografie Kartenkunde | Erstellt: 22.03.2026 | Lernbox</footer>
+
+</div>
+
+<script>
+let solved = {};
+let totalTasks = 20;
+
+function updateScore() {
+  const count = Object.values(solved).filter(v => v).length;
+  document.getElementById('score').textContent = count;
+  document.getElementById('progress').style.width = (count / totalTasks * 100) + '%';
+}
+
+function showFeedback(taskId, isCorrect, msg) {
+  const fb = document.getElementById(taskId + '-fb');
+  fb.className = 'feedback show ' + (isCorrect ? 'correct' : 'wrong');
+  fb.textContent = msg;
+  const task = document.getElementById(taskId);
+  task.classList.remove('correct', 'wrong');
+  task.classList.add(isCorrect ? 'correct' : 'wrong');
+}
+
+function checkNum(taskId, inputId, answer, tolerance) {
+  if (solved[taskId]) return;
+  const val = parseFloat(document.getElementById(inputId).value);
+  const tol = tolerance || 0.01;
+  if (isNaN(val)) { showFeedback(taskId, false, 'Bitte eine Zahl eingeben.'); return; }
+  const isCorrect = Math.abs(val - answer) <= tol * Math.abs(answer) + 0.001;
+  if (isCorrect) {
+    solved[taskId] = true;
+    document.getElementById(inputId).classList.add('correct');
+    document.getElementById(inputId).disabled = true;
+    document.getElementById(taskId).querySelector('.check-btn').disabled = true;
+    showFeedback(taskId, true, 'Richtig!');
+  } else {
+    showFeedback(taskId, false, 'Nicht ganz. Versuchs nochmal. Tipp: Formel anwenden!');
+    document.getElementById(inputId).classList.add('wrong');
+    setTimeout(() => document.getElementById(inputId).classList.remove('wrong'), 1500);
+  }
+  updateScore();
+}
+
+function checkChoice(taskId, btn, correctText) {
+  if (solved[taskId]) return;
+  const isCorrect = btn.textContent.trim() === correctText;
+  const btns = document.getElementById(taskId).querySelectorAll('.option-btn');
+  if (isCorrect) {
+    solved[taskId] = true;
+    btn.classList.add('correct-choice');
+    btns.forEach(b => { b.style.pointerEvents = 'none'; });
+    showFeedback(taskId, true, 'Richtig!');
+  } else {
+    btn.classList.add('wrong-choice');
+    showFeedback(taskId, false, 'Leider falsch. Versuchs nochmal!');
+    setTimeout(() => btn.classList.remove('wrong-choice'), 1500);
+  }
+  updateScore();
+}
+
+function checkGeneralisierung() {
+  if (solved['t12']) return;
+  const a = document.getElementById('a12a').value;
+  const b = document.getElementById('a12b').value;
+  const c = document.getElementById('a12c').value;
+  const d = document.getElementById('a12d').value;
+  if (!a || !b || !c || !d) {
+    showFeedback('t12', false, 'Bitte alle vier Felder ausfuellen.');
+    return;
+  }
+  const correct = a === 'Vereinfachung' && b === 'Weglassen' && c === 'Zusammenfassung' && d === 'Ergaenzung';
+  if (correct) {
+    solved['t12'] = true;
+    ['a12a','a12b','a12c','a12d'].forEach(id => document.getElementById(id).disabled = true);
+    document.getElementById('t12').querySelector('.check-btn').disabled = true;
+    showFeedback('t12', true, 'Alle vier richtig!');
+  } else {
+    let count = 0;
+    if (a === 'Vereinfachung') count++;
+    if (b === 'Weglassen') count++;
+    if (c === 'Zusammenfassung') count++;
+    if (d === 'Ergaenzung') count++;
+    showFeedback('t12', false, count + ' von 4 richtig. Versuchs nochmal!');
+  }
+  updateScore();
+}
+
+function checkKoord() {
+  if (solved['t16']) return;
+  const e = parseInt(document.getElementById('a16a').value);
+  const n = parseInt(document.getElementById('a16b').value);
+  if (isNaN(e) || isNaN(n)) { showFeedback('t16', false, 'Bitte beide Werte eingeben.'); return; }
+  const isCorrect = e === 2600000 && n === 1200000;
+  if (isCorrect) {
+    solved['t16'] = true;
+    document.getElementById('a16a').classList.add('correct');
+    document.getElementById('a16b').classList.add('correct');
+    document.getElementById('a16a').disabled = true;
+    document.getElementById('a16b').disabled = true;
+    document.getElementById('t16').querySelector('.check-btn').disabled = true;
+    showFeedback('t16', true, 'Richtig! E = 2\'600\'000, N = 1\'200\'000.');
+  } else {
+    showFeedback('t16', false, 'Nicht ganz. Denke an die LV95-Werte fuer Bern.');
+  }
+  updateScore();
+}
+
+function resetAll() {
+  solved = {};
+  document.querySelectorAll('input').forEach(inp => {
+    inp.value = '';
+    inp.disabled = false;
+    inp.classList.remove('correct', 'wrong');
+  });
+  document.querySelectorAll('select').forEach(sel => {
+    sel.value = '';
+    sel.disabled = false;
+  });
+  document.querySelectorAll('.check-btn').forEach(btn => btn.disabled = false);
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.classList.remove('selected', 'correct-choice', 'wrong-choice');
+    btn.style.pointerEvents = '';
+  });
+  document.querySelectorAll('.feedback').forEach(fb => {
+    fb.className = 'feedback';
+    fb.textContent = '';
+  });
+  document.querySelectorAll('.task').forEach(t => t.classList.remove('correct', 'wrong'));
+  updateScore();
+}
+</script>
+</body>
+</html>
