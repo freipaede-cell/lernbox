@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uebungspruefung — Geografie: Kartenkunde</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #334155;
+  }
+  .header h1 {
+    font-size: 1.8rem;
+    color: #f1f5f9;
+    margin-bottom: 0.5rem;
+  }
+  .header .meta {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+  }
+  .header .meta span {
+    margin: 0 0.5rem;
+  }
+  .hinweis {
+    background: #1e293b;
+    border-left: 4px solid #f59e0b;
+    padding: 0.8rem 1rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+    color: #fbbf24;
+    text-align: left;
+    max-width: 700px;
+    margin: 1rem auto 0;
+  }
+
+  .info-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .info-box {
+    flex: 1;
+    min-width: 180px;
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    text-align: center;
+  }
+  .info-box .label { font-size: 0.8rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; }
+  .info-box .value { font-size: 1.5rem; font-weight: 700; color: #f1f5f9; margin-top: 0.2rem; }
+
+  .teil-header {
+    margin: 2.5rem 0 1.2rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .teil-a { background: #1e3a5f; color: #60a5fa; }
+  .teil-b { background: #1a3a2a; color: #4ade80; }
+  .teil-c { background: #3b1f4a; color: #c084fc; }
+
+  .frage {
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .frage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.6rem;
+  }
+  .frage-nr {
+    font-weight: 700;
+    color: #60a5fa;
+    font-size: 0.95rem;
+  }
+  .frage-punkte {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    background: #334155;
+    padding: 0.15rem 0.6rem;
+    border-radius: 12px;
+  }
+  .frage-text {
+    margin-bottom: 0.5rem;
+  }
+  .frage-text p { margin-bottom: 0.4rem; }
+  .frage-text ul, .frage-text ol { margin-left: 1.3rem; margin-bottom: 0.5rem; }
+
+  details {
+    margin-top: 0.6rem;
+  }
+  summary {
+    cursor: pointer;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
+    user-select: none;
+  }
+  summary:hover { color: #60a5fa; }
+  .loesung {
+    background: #0f172a;
+    border-left: 3px solid #22c55e;
+    padding: 0.8rem 1rem;
+    margin-top: 0.5rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+    color: #bbf7d0;
+  }
+  .loesung p { margin-bottom: 0.3rem; }
+  .loesung ul, .loesung ol { margin-left: 1.2rem; margin-bottom: 0.5rem; }
+  .loesung strong { color: #4ade80; }
+
+  .notenskala {
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .notenskala h3 {
+    color: #60a5fa;
+    margin-bottom: 1rem;
+  }
+  .notenskala table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.9rem;
+  }
+  .notenskala thead { background: #334155; }
+  .notenskala th {
+    text-align: center;
+    padding: 0.5rem;
+    color: #93c5fd;
+    font-weight: 600;
+    border-bottom: 2px solid #475569;
+  }
+  .notenskala td {
+    text-align: center;
+    padding: 0.4rem;
+    border-bottom: 1px solid #334155;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 0; }
+    .header h1 { font-size: 1.4rem; }
+    .frage { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>Uebungspruefung — Kartenkunde</h1>
+  <div class="meta">
+    <span>Geografie</span> | <span>Kantonsschule Im Lee</span> | <span>FS 2026</span>
+  </div>
+  <div class="hinweis">
+    Beantworte alle Fragen in ganzen Saetzen, wo nicht anders angegeben. Taschenrechner erlaubt. Hilfsmittel: keine.
+  </div>
+</div>
+
+<div class="info-bar">
+  <div class="info-box">
+    <div class="label">Fragen</div>
+    <div class="value">25</div>
+  </div>
+  <div class="info-box">
+    <div class="label">Punkte Total</div>
+    <div class="value">60</div>
+  </div>
+  <div class="info-box">
+    <div class="label">Zeit</div>
+    <div class="value">45 min</div>
+  </div>
+</div>
+
+<!-- ==================== TEIL A — Begriffe & Verstaendnis ==================== -->
+<div class="teil-header teil-a">Teil A — Begriffe & Verstaendnis (24 Punkte)</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 1</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Erklaere, was eine <strong>Kartenprojektion</strong> ist.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>Eine Kartenprojektion ist die Abbildung der dreidimensionalen Erdoberflaeche (Kugel) auf eine zweidimensionale Ebene (Karte). Dabei kommt es immer zu Verzerrungen, da Flaechen, Strecken und Winkel nicht gleichzeitig korrekt dargestellt werden koennen.</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 2</span>
+    <span class="frage-punkte">4 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Vergleiche <strong>flaechentreue</strong> und <strong>winkeltreue</strong> Projektionen: Nenne je einen Vorteil und einen Nachteil.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p><strong>Flaechentreu</strong> (z.B. Mollweide): Vorteil: Flaechenverhaeltnisse korrekt. Nachteil: Umrissformen werden z.T. stark verzerrt.</p>
+      <p><strong>Winkeltreu</strong> (z.B. Mercator): Vorteil: Winkel und Formen stimmen. Nachteil: Flaechenverhaeltnisse stimmen nicht — Gebiete nahe den Polen erscheinen viel zu gross (z.B. Groenland).</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 3</span>
+    <span class="frage-punkte">3 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Nenne die drei Projektionsarten und beschreibe jeweils in einem Satz, wie die Projektionsflaeche zur Erdkugel steht.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p><strong>Azimutalprojektion:</strong> Eine Ebene beruehrt die Erdkugel an einem Punkt (z.B. Pol) und die Oberflaeche wird darauf projiziert.</p>
+      <p><strong>Kegelprojektion:</strong> Ein Kegel wird ueber die Erdkugel gestuelpt und beruehrt sie entlang eines Breitenkreises.</p>
+      <p><strong>Zylinderprojektion:</strong> Ein Zylinder umschliesst die Erdkugel entlang des Aequators, Breiten- und Laengenkreise werden als parallele Geraden abgebildet.</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 4</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Was bedeutet der Begriff <strong>Massstab</strong> bei einer Karte?</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>Der Massstab gibt das Verkleinerungsverhaeltnis einer Karte an: das Verhaeltnis zwischen einer Strecke auf der Karte und der entsprechenden Strecke in der Wirklichkeit. Beispiel: 1:25'000 bedeutet, dass 1 cm auf der Karte 25'000 cm = 250 m im Gelaende entspricht.</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 5</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Erklaere den Begriff <strong>Generalisierung</strong> und nenne zwei der vier Massnahmen.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>Generalisierung ist die notwendige Anpassung des Karteninhalts beim Wechsel zu einem kleineren Massstab, damit die Karte uebersichtlich bleibt.</p>
+      <p>Massnahmen (2 von 4): Vereinfachung (Linien glaetten), Weglassen (Details entfernen), Zusammenfassung (Gebaeude gruppieren), Ergaenzung (zusaetzliche Signaturen).</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 6</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Was ist ein <strong>Theodolit</strong> und wofuer wird er eingesetzt?</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>Ein Theodolit ist ein Winkelmessinstrument mit einem schwenkbaren Fernrohr und Fadenkreuz. Er wird eingesetzt, um von einem Standort die Winkel zwischen zwei entfernten Zielpunkten zu messen — die Grundlage fuer die Triangulation.</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 7</span>
+    <span class="frage-punkte">3 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Erklaere das Prinzip der <strong>Triangulation</strong> in drei Schritten.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <ol>
+        <li>Eine bekannte Strecke (Basis) zwischen zwei Punkten A und B wird genau gemessen.</li>
+        <li>Mit dem Theodolit werden die Winkel von A und B zu einem dritten Punkt C gemessen.</li>
+        <li>Mit Trigonometrie lassen sich die Laengen der anderen Dreieckseiten und die Koordinaten von C berechnen. Durch Weitermessen entsteht ein Dreiecksnetz.</li>
+      </ol>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 8</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Was ist ein <strong>Nivellement</strong> und welchen Ausgangspunkt hat die Schweizer Hoehenmessung?</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>Das Nivellement ist ein praezises Verfahren zur Hoehenmessung: Ein Nivelliergeraet wird zwischen zwei Messlatten aufgestellt und bestimmt den Hoehenunterschied anhand der horizontalen Ziellinie.</p>
+      <p>Ausgangspunkt: die <strong>Pierre du Niton</strong>, ein Findling im Hafen von Genf, mit einer Hoehe von 373.600 m ue. M. (bezogen auf den Meeresspiegel in Marseille).</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 9</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Erklaere die Begriffe <strong>Aequidistanz</strong> und <strong>Hoehenkurve</strong>.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p><strong>Hoehenkurve</strong> (Isohypse): Eine Linie auf der Karte, die alle Punkte mit gleicher Meereshoehe verbindet.</p>
+      <p><strong>Aequidistanz:</strong> Der senkrechte Hoehenabstand zwischen zwei aufeinanderfolgenden Hoehenkurven. Auf einem Kartenblatt ist die Aequidistanz immer gleich.</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 10</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Wie erkennt man auf einer Karte mit Hoehenkurven, ob ein Gelaende <strong>steil</strong> oder <strong>flach</strong> ist?</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>Liegen die Hoehenkurven <strong>nahe beieinander</strong>, ist das Gelaende steil. Liegen sie <strong>weit auseinander</strong>, ist das Gelaende flach. Die Aequidistanz (Hoehenunterschied) bleibt gleich, aber der horizontale Abstand variiert.</p>
+    </div>
+  </details>
+</div>
+
+<!-- ==================== TEIL B — Berechnungen ==================== -->
+<div class="teil-header teil-b">Teil B — Berechnungen (20 Punkte)</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 11</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Ordne folgende Massstaebe nach <strong>aufsteigender Groesse</strong>: 1:50'000, 1:200'000, 1:25'000, 1:100'000.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>1:200'000 → 1:100'000 → 1:50'000 → 1:25'000 (aufsteigend = immer detaillierter).</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 12</span>
+    <span class="frage-punkte">4 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Vervollstaendige die Tabelle:</p>
+    <table style="width:100%; border-collapse:collapse; margin-top:0.5rem;">
+      <thead><tr><th style="text-align:left; padding:0.4rem; border-bottom:1px solid #475569;">Massstab</th><th style="padding:0.4rem; border-bottom:1px solid #475569;">1:25'000</th><th style="padding:0.4rem; border-bottom:1px solid #475569;">1:50'000</th><th style="padding:0.4rem; border-bottom:1px solid #475569;">1:100'000</th><th style="padding:0.4rem; border-bottom:1px solid #475569;">1:200'000</th></tr></thead>
+      <tbody>
+        <tr><td style="padding:0.4rem;">1 cm Karte → ? Gelaende</td><td style="padding:0.4rem;">250 m</td><td style="padding:0.4rem;">?</td><td style="padding:0.4rem;">?</td><td style="padding:0.4rem;">?</td></tr>
+        <tr><td style="padding:0.4rem;">1 km Gelaende → ? Karte</td><td style="padding:0.4rem;">?</td><td style="padding:0.4rem;">?</td><td style="padding:0.4rem;">1 cm</td><td style="padding:0.4rem;">?</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>Zeile 1: 250 m | <strong>500 m</strong> | <strong>1'000 m (1 km)</strong> | <strong>2'000 m (2 km)</strong></p>
+      <p>Zeile 2: <strong>4 cm</strong> | <strong>2 cm</strong> | 1 cm | <strong>0.5 cm</strong></p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 13</span>
+    <span class="frage-punkte">3 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Eine Strecke misst in der Natur <strong>4.5 km</strong>. In einer Karte misst dieselbe Strecke <strong>1.5 cm</strong>. Berechne den Massstab der Karte.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>4.5 km = 4'500 m = 450'000 cm</p>
+      <p>Massstab = 1.5 cm : 450'000 cm = 1 : 300'000</p>
+      <p>Der Massstab der Karte ist <strong>1:300'000</strong>.</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 14</span>
+    <span class="frage-punkte">3 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Ein <strong>1'300 m langer Skilift</strong> soll auf einer Karte 1:25'000 dargestellt werden. Wie lang ist der Skilift auf der Karte (in cm)?</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>Kartenstrecke = Gelaendestrecke : Massstabszahl</p>
+      <p>= 1'300 m : 25'000 = 0.052 m = <strong>5.2 cm</strong></p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 15</span>
+    <span class="frage-punkte">3 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Die Flaeche des Kantons Wallis betraegt in Wirklichkeit <strong>5'225.8 km²</strong>. Berechne die Flaeche auf einer Karte <strong>1:100'000</strong> (in cm²).</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>5'225.8 km² = 5'225.8 × 10¹⁰ cm² = 52'258'000'000'000 cm²</p>
+      <p>Kartenflaeche = Gelaendeflaeche : Massstabszahl²</p>
+      <p>= 52'258'000'000'000 cm² : (100'000)² = 52'258'000'000'000 : 10'000'000'000</p>
+      <p>= <strong>5'225.8 cm²</strong> (ca. 72 × 73 cm)</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 16</span>
+    <span class="frage-punkte">3 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Eine Gemeindeflaeche misst auf einer Karte 1:50'000 genau <strong>120 mm²</strong>. Wie gross ist diese Flaeche auf einer Karte 1:100'000?</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>Zuerst die reale Flaeche berechnen:</p>
+      <p>120 mm² × 50'000² = 120 × 2'500'000'000 = 300'000'000'000 mm² = 300 km²</p>
+      <p>Dann auf Karte 1:100'000 umrechnen:</p>
+      <p>300 km² = 300 × 10¹² mm². Kartenflaeche = 300 × 10¹² : (100'000)² = 300 × 10¹² : 10¹⁰ = <strong>30 mm²</strong></p>
+      <p>(Oder Abkuerzung: Massstab verdoppelt → Flaeche wird geviertelt: 120 : 4 = 30 mm²)</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 17</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Bei einem Nivellement wurden folgende Teilhoehen gemessen: h1 = 183 cm, h2 = 52 cm, h3 = 27 cm, h4 = 168 cm, h5 = 14 cm. Berechne die Gesamthoehe H.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>H = h1 + h2 + h3 + h4 + h5 = 183 + 52 + 27 + 168 + 14 = <strong>444 cm = 4.44 m</strong></p>
+    </div>
+  </details>
+</div>
+
+<!-- ==================== TEIL C — Anwendung & Transfer ==================== -->
+<div class="teil-header teil-c">Teil C — Anwendung & Transfer (16 Punkte)</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 18</span>
+    <span class="frage-punkte">3 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Nenne je <strong>drei Beispiele</strong> von Punkt-, Linien- und Flaechensignaturen, die man auf einer Schweizer Landeskarte findet.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p><strong>Punktsignaturen:</strong> Kirche, Brunnen, Turm (oder: Baum, Windturbine, Aussichtspunkt)</p>
+      <p><strong>Liniensignaturen:</strong> Strasse, Fluss, Grenze (oder: Bach, Weg, Bahnlinie)</p>
+      <p><strong>Flaechensignaturen:</strong> Wald, See, Obstanlage (oder: Reben, Deponie, Siedlungsflaeche)</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 19</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Erklaere den <strong>Aufbau des Schweizer Koordinatensystems</strong>: Wo liegt der Ausgangspunkt und welche Werte hat er?</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>Der Ausgangspunkt liegt bei der alten Sternwarte in <strong>Bern</strong>. Er hat die Koordinaten E = 2'600'000 m (Ost) und N = 1'200'000 m (Nord). Die Millionenstellen 2 und 1 stammen von der neuen Landesvermessung LV95.</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 20</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Nenne <strong>zwei Vorteile</strong> des Schweizer Koordinatensystems gegenueber dem Gradnetz (Breiten- und Laengengrade).</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>1. Keine negativen Zahlen — alle Koordinaten in der Schweiz sind positiv.</p>
+      <p>2. Keine Verwechslung moeglich — E-Wert (beginnt mit 2) und N-Wert (beginnt mit 1) sind eindeutig unterscheidbar.</p>
+      <p>(Weitere: Metergenau, rechtwinkliges Netz zum Messen)</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 21</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Begruende, warum man fuer eine GNSS-Positionsbestimmung <strong>mindestens 4 Satelliten</strong> benoetigt.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>3 Satelliten genuegen theoretisch fuer eine 3D-Position (Schnitt dreier Kugeln). Der 4. Satellit ist noetig, um den <strong>Uhrzeitfehler</strong> des Empfaengers zu korrigieren — die Uhr im Smartphone ist viel ungenauer als die Atomuhren der Satelliten.</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 22</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Was ist der Unterschied zwischen <strong>GNSS</strong> und <strong>DGPS</strong>? Warum liefert DGPS genauere Resultate?</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>GNSS ist das Standard-Satellitennavigationssystem (Genauigkeit 5–10 m). DGPS (Differentielles GPS) verwendet zusaetzlich <strong>ortsfeste Referenzstationen</strong> mit exakt bekannter Position. Diese berechnen die Abweichung der Satellitensignale und senden Korrektursignale an den Empfaenger. Damit erreicht DGPS eine Genauigkeit von wenigen Millimetern.</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 23</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Erklaere die Begriffe <strong>Geodaten</strong>, <strong>Geometriedaten</strong> und <strong>Sachdaten</strong>.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p><strong>Geodaten</strong> = raumbezogene Informationen.</p>
+      <p><strong>Geometriedaten</strong> = die geographische Lage (Koordinaten) und Hoehe von Objekten.</p>
+      <p><strong>Sachdaten</strong> (Attribute) = zusaetzliche Informationen wie Vegetation, Bodenart, Bevoelkerungsdichte etc.</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 24</span>
+    <span class="frage-punkte">2 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Nenne <strong>zwei Anwendungsbeispiele</strong>, was man mit einem GIS konkret machen kann.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>1. Umweltbehoerden koennen bestimmen, welche Feuchtgebiete in bedrohten Regionen liegen.</p>
+      <p>2. Energiefachleute koennen dokumentieren, welche Hausdaecher sich fuer eine Solaranlage eignen.</p>
+      <p>(Weitere: Baubehoerden koennen archaeologische Strukturen bei Bauvorhaben vorhersehen; Luftliniendistanzen messen; Flaechen berechnen.)</p>
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">Frage 25</span>
+    <span class="frage-punkte">1 P.</span>
+  </div>
+  <div class="frage-text">
+    <p>Erklaere, wie man mittels <strong>trigonometrischer Hoehenmessung</strong> die Hoehe eines Berggipfels bestimmt.</p>
+  </div>
+  <details><summary>Loesung anzeigen</summary>
+    <div class="loesung">
+      <p>Vom Tal (A) wird mit dem Theodolit der Hoehenwinkel α zum Gipfel (B) gemessen. Mit der bekannten Grundrissdistanz (AB') und dem Winkel wird der Hoehenunterschied h berechnet (Trigonometrie). Die Gipfelhoehe ergibt sich aus der Hoehe von A plus h. Dabei muessen Erdkruemmung und Lichtbrechung beruecksichtigt werden.</p>
+    </div>
+  </details>
+</div>
+
+<!-- ==================== NOTENSKALA ==================== -->
+<div class="notenskala">
+  <h3>Notenskala (Schweiz 1–6)</h3>
+  <table>
+    <thead>
+      <tr><th>Note</th><th>6</th><th>5.5</th><th>5</th><th>4.5</th><th>4</th><th>3.5</th><th>3</th></tr>
+    </thead>
+    <tbody>
+      <tr><td style="color:#94a3b8;">Punkte</td><td>57–60</td><td>51–56</td><td>45–50</td><td>39–44</td><td>33–38</td><td>27–32</td><td>21–26</td></tr>
+      <tr><td style="color:#94a3b8;">Prozent</td><td>95–100%</td><td>85–94%</td><td>75–84%</td><td>65–74%</td><td>55–64%</td><td>45–54%</td><td>35–44%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p style="color: #475569; margin-top: 3rem; font-size: 0.8rem; text-align: center;">Uebungspruefung | Geografie Kartenkunde | Erstellt: 22.03.2026 | Lernbox</p>
+
+</div>
+</body>
+</html>

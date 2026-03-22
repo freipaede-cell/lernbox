@@ -1,0 +1,220 @@
+{
+  "id": "geo-kartenkunde-2026",
+  "title": "Geografie — Kartenkunde",
+  "subject": "Geografie",
+  "grade": "2. Klasse Gymnasium",
+  "date": "2026-03-22",
+  "tags": ["Kartenprojektionen", "Massstab", "Generalisierung", "Triangulation", "Hoehenmessung", "GNSS", "Signaturen", "Koordinatensystem", "GIS"],
+  "cards": [
+    {
+      "id": 1,
+      "category": "A — Kartenprojektionen",
+      "front": "Was ist eine Kartenprojektion?",
+      "back": "Die Abbildung der dreidimensionalen Erdoberflaeche (Kugel) auf eine zweidimensionale Ebene (Karte). Dabei kommt es immer zu Verzerrungen — Flaechen, Strecken und Winkel koennen nie gleichzeitig korrekt dargestellt werden.",
+      "image": null
+    },
+    {
+      "id": 2,
+      "category": "A — Kartenprojektionen",
+      "front": "Was ist der Unterschied zwischen flaechentreuen und winkeltreuen Projektionen?",
+      "back": "Flaechentreu (z.B. Mollweide): Flaechenverhaeltnisse stimmen, aber Umrissformen werden verzerrt.\nWinkeltreu (z.B. Mercator): Winkel und Formen stimmen, aber Flaechenverhaeltnisse sind verfaelscht — Polgebiete erscheinen viel zu gross.",
+      "image": null
+    },
+    {
+      "id": 3,
+      "category": "A — Kartenprojektionen",
+      "front": "Erklaere die Azimutalprojektion.",
+      "back": "Eine Ebene beruehrt die Erdkugel senkrecht zur Projektionsachse (z.B. an einem Pol). Laengenkreise erscheinen als gerade Linien, Breitenkreise als konzentrische Kreise. Eignet sich fuer Gebiete mit kreisfoermiger Gestalt.",
+      "image": null
+    },
+    {
+      "id": 4,
+      "category": "A — Kartenprojektionen",
+      "front": "Erklaere die Kegelprojektion.",
+      "back": "Ein Kegel wird ueber die Erdkugel gestuelpt und beruehrt sie entlang eines Breitenkreises (= Beruehrungsbreitenkreis). Dieser ist der einzige Breitenkreis, der laengentreu abgebildet wird. Gut geeignet fuer Gebiete mittlerer Breiten mit grosser Ost-West-Ausdehnung.",
+      "image": null
+    },
+    {
+      "id": 5,
+      "category": "A — Kartenprojektionen",
+      "front": "Erklaere die Zylinderprojektion.",
+      "back": "Ein Zylinder wird ueber die Erdkugel gestuelpt und beruehrt sie am Aequator. Breiten- und Laengenkreise werden als parallele Geraden abgebildet (rechtwinkliges Gradnetz). Mercator-Projektion = bekannteste Zylinderprojektion. Abstaende der Breitenkreise nehmen polwaerts zu.",
+      "image": null
+    },
+    {
+      "id": 6,
+      "category": "A — Kartenprojektionen",
+      "front": "Warum erscheint Groenland auf der Mercator-Karte so gross?",
+      "back": "Die Mercator-Projektion ist winkeltreu, aber nicht flaechentreu. Gebiete nahe den Polen werden in der Flaeche massiv vergroessert. Groenland (2.2 Mio. km²) ist in Wirklichkeit kleiner als die Arabische Halbinsel (3 Mio. km²), erscheint aber gleich gross.",
+      "image": null
+    },
+    {
+      "id": 7,
+      "category": "B — Massstab",
+      "front": "Was ist der Massstab einer Karte?",
+      "back": "Der Massstab gibt das Verkleinerungsverhaeltnis an: das Verhaeltnis zwischen Kartenstrecke und Gelaendestrecke.\n1 : Massstabszahl = Kartenstrecke : Gelaendestrecke\nBeispiel: 1:25'000 → 1 cm auf der Karte = 250 m im Gelaende.",
+      "image": null
+    },
+    {
+      "id": 8,
+      "category": "B — Massstab",
+      "front": "Wie rechnet man Strecken mit dem Massstab um?",
+      "back": "Kartenstrecke = Gelaendestrecke : Massstabszahl\nGelaendestrecke = Kartenstrecke × Massstabszahl\n\nBeispiel 1:50'000: 1 cm Karte = 500 m Gelaende; 1 km Gelaende = 2 cm Karte.",
+      "image": null
+    },
+    {
+      "id": 9,
+      "category": "B — Massstab",
+      "front": "Wie berechnet man Flaechen mit dem Massstab?",
+      "back": "Bei Flaechen wird die Massstabszahl QUADRIERT:\nGelaendeflaeche = Kartenflaeche × Massstabszahl²\n\nBeispiel: 1 cm² auf Karte 1:200'000 = 1 × 200'000² cm² = 4 km².",
+      "image": null
+    },
+    {
+      "id": 10,
+      "category": "B — Massstab",
+      "front": "Was bedeutet 'grosser Massstab' vs. 'kleiner Massstab'?",
+      "back": "Grosser Massstab = kleinere Massstabszahl = mehr Detail.\n1:25'000 ist GROESSER als 1:100'000 (weil 1/25'000 > 1/100'000).\nGrosser Massstab → kleines Gebiet, viel Detail.\nKleiner Massstab → grosses Gebiet, wenig Detail.",
+      "image": null
+    },
+    {
+      "id": 11,
+      "category": "C — Generalisierung",
+      "front": "Was ist Generalisierung?",
+      "back": "Die notwendige Anpassung des Karteninhalts beim Wechsel zu einem kleineren Massstab, damit die Karte uebersichtlich bleibt. Eine Karte 1:100'000 zeigt das gleiche Gebiet 16-mal kleiner als eine Karte 1:25'000.",
+      "image": null
+    },
+    {
+      "id": 12,
+      "category": "C — Generalisierung",
+      "front": "Nenne die vier Massnahmen der Generalisierung.",
+      "back": "1. Vereinfachung — komplizierte Linien und Umrisse glaetten\n2. Weglassen — kleine Objekte und Details entfernen\n3. Zusammenfassung — einzelne Gebaeude zu Gruppen zusammenfassen\n4. Ergaenzung — wichtige Objekte durch zusaetzliche Signaturen betonen",
+      "image": null
+    },
+    {
+      "id": 13,
+      "category": "D — Vermessung & Triangulation",
+      "front": "Was ist ein Theodolit?",
+      "back": "Ein Winkelmessinstrument mit einem schwenkbaren Fernrohr und Fadenkreuz. Man kann damit von einem Standort die Winkel zwischen zwei entfernten Zielpunkten messen. Grundlage fuer die Triangulation.",
+      "image": null
+    },
+    {
+      "id": 14,
+      "category": "D — Vermessung & Triangulation",
+      "front": "Erklaere das Prinzip der Triangulation.",
+      "back": "1. Eine bekannte Strecke (Basis) zwischen Punkt A und B wird gemessen.\n2. Mit dem Theodolit werden die Winkel von A und B zu einem neuen Punkt C gemessen.\n3. Mit Trigonometrie werden die anderen Seitenlaengen und die Koordinaten von C berechnet.\nDurch Weitermessen entsteht ein Dreiecksnetz ueber die ganze Schweiz.",
+      "image": null
+    },
+    {
+      "id": 15,
+      "category": "D — Vermessung & Triangulation",
+      "front": "Was sind Triangulationspunkte?",
+      "back": "Signale (z.B. Pyramiden) auf gut sichtbaren Berggipfeln, die als Zielpunkte fuer die Vermessung dienen. Im Netz 1. Ordnung der Schweiz liegen sie 30-60 km auseinander. 1880 wurden drei Basismessungen durchgefuehrt (Aarberg, Weinfelden, Bellinzona).",
+      "image": null
+    },
+    {
+      "id": 16,
+      "category": "E — Hoehenmessung",
+      "front": "Erklaere das Nivellement.",
+      "back": "Praezises Verfahren fuer Hoehenmessung in der Ebene: Ein Nivelliergeraet wird zwischen zwei Messlatten aufgestellt. Die Ziellinie steht exakt horizontal. Aus den Ablesungen wird der Hoehenunterschied berechnet. Von Messlatte zu Messlatte fortschreitend (\"optische Treppe\"). Genauigkeit: 0.5 mm/km.",
+      "image": null
+    },
+    {
+      "id": 17,
+      "category": "E — Hoehenmessung",
+      "front": "Was ist die Pierre du Niton?",
+      "back": "Ein Granitblock (Findling) im Hafen von Genf — Ausgangspunkt der Schweizer Hoehenmessung. Hoehe: 373.600 m ue. M. (bezogen auf den mittleren Meeresspiegel in Marseille). Alle Hoehen in der Schweiz beziehen sich auf diesen Punkt.",
+      "image": null
+    },
+    {
+      "id": 18,
+      "category": "E — Hoehenmessung",
+      "front": "Wie funktioniert die trigonometrische Hoehenmessung?",
+      "back": "Vom Tal (A) wird mit dem Theodolit der Hoehenwinkel α zum Gipfel (B) gemessen. Mit der bekannten Grundrissdistanz (AB') und dem Winkel berechnet man den Hoehenunterschied h. Gipfelhoehe = Hoehe A + h. Erdkruemmung und Lichtbrechung muessen beruecksichtigt werden.",
+      "image": null
+    },
+    {
+      "id": 19,
+      "category": "F — GNSS",
+      "front": "Was ist GNSS? Nenne die vier Systeme.",
+      "back": "GNSS = Globales Navigationssatellitensystem (Oberbegriff fuer alle Satellitennavigationssysteme).\n\nGPS (USA), GLONASS (Russland), Beidou (China), Galileo (EU, nicht-militaerisch).",
+      "image": null
+    },
+    {
+      "id": 20,
+      "category": "F — GNSS",
+      "front": "Erklaere das Funktionsprinzip von GNSS.",
+      "back": "24-30 Satelliten umkreisen die Erde in ca. 20'000 km Hoehe. Jeder sendet Position und exakte Bordzeit. Der Empfaenger vergleicht Ankunfts- mit Sendezeit und berechnet die Entfernung: Entfernung = Signallaufzeit × Lichtgeschwindigkeit. Aus mehreren Entfernungen wird die Position berechnet.",
+      "image": null
+    },
+    {
+      "id": 21,
+      "category": "F — GNSS",
+      "front": "Warum braucht GNSS mindestens 4 Satelliten?",
+      "back": "3 Satelliten genuegen fuer die 3D-Position (Schnitt dreier Kugeln ergibt einen Punkt). Der 4. Satellit wird benoetigt, um den Uhrzeitfehler des Empfaengers zu korrigieren — die interne Uhr ist viel ungenauer als die Atomuhren der Satelliten.",
+      "image": null
+    },
+    {
+      "id": 22,
+      "category": "F — GNSS",
+      "front": "Was ist DGPS und warum ist es genauer?",
+      "back": "DGPS = Differentielles GPS. Es verwendet ortsfeste Referenzstationen mit exakt bekannter Position. Diese berechnen die Abweichung der Satellitensignale und senden Korrektursignale an Empfaenger in der Umgebung.\nGNSS: 5-10 m Genauigkeit.\nDGPS: wenige Millimeter Genauigkeit.",
+      "image": null
+    },
+    {
+      "id": 23,
+      "category": "G — Gelaendedarstellung",
+      "front": "Erklaere die Begriffe Hoehenkurve und Aequidistanz.",
+      "back": "Hoehenkurve (Isohypse) = Linie, die alle Punkte gleicher Meereshoehe verbindet.\nAequidistanz = senkrechter Hoehenabstand zwischen zwei Hoehenkurven (auf einem Kartenblatt immer gleich).\nKurven nahe beieinander = steil. Kurven weit auseinander = flach.",
+      "image": null
+    },
+    {
+      "id": 24,
+      "category": "G — Gelaendedarstellung",
+      "front": "Nenne 6 Methoden der Gelaendedarstellung in Karten.",
+      "back": "1. Schraegansicht — aelteste Form, Berge wie Maulwurfshuegel\n2. Schattierung — 3D-Eindruck durch Licht/Schatten\n3. Schraffen — keilfoermige Strichlein in Gefaellsrichtung (Dufourkarte)\n4. Schummerung — Schattenton, Lichteinfall von NW\n5. Farbtoene — Hoehenabstufungen farbig\n6. Hoehenkurven — praeziseste Methode",
+      "image": null
+    },
+    {
+      "id": 25,
+      "category": "H — Kartensignaturen",
+      "front": "Welche vier Typen von Kartensignaturen gibt es? Je ein Beispiel.",
+      "back": "1. Punktsignaturen (lokale Objekte): Kirche, Brunnen, Turm\n2. Liniensignaturen (linienfoermig): Strassen, Fluesse, Grenzen\n3. Flaechensignaturen (Flaechenobjekte): Wald, See, Reben\n4. Schriften (Beschriftung): Ortsnamen, Bergnamen, Flussnamen",
+      "image": null
+    },
+    {
+      "id": 26,
+      "category": "I — Koordinatensystem",
+      "front": "Erklaere den Aufbau des Schweizer Koordinatensystems.",
+      "back": "Ausgangspunkt: alte Sternwarte in Bern.\nBern = E 2'600'000 / N 1'200'000 (LV95).\nJeder Punkt wird mit zwei 7-stelligen Zahlen auf den Meter genau angegeben.\nE = Ost-West (beginnt mit 2), N = Sued-Nord (beginnt mit 1).",
+      "image": null
+    },
+    {
+      "id": 27,
+      "category": "I — Koordinatensystem",
+      "front": "Nenne vier Vorteile des Schweizer Koordinatensystems.",
+      "back": "1. Keine negativen Zahlen (Nullpunkt liegt SW der Schweiz)\n2. Keine Verwechslung (E beginnt mit 2, N mit 1)\n3. Metergenau (Zahlen koennen direkt zum Messen verwendet werden)\n4. Rechtwinkliges Netz (auf Landeskarten als 1-km-Gitter eingetragen)",
+      "image": null
+    },
+    {
+      "id": 28,
+      "category": "J — GIS",
+      "front": "Was ist ein GIS? Was sind Geodaten?",
+      "back": "GIS = Geoinformationssystem: Informationssystem zur Erfassung, Bearbeitung, Analyse und Praesentation raeumlicher Daten.\nGeodaten = raumbezogene Informationen, bestehend aus:\n- Geometriedaten (Koordinaten, Hoehe)\n- Sachdaten/Attribute (Vegetation, Bodenart, Bevoelkerung etc.)",
+      "image": null
+    },
+    {
+      "id": 29,
+      "category": "J — GIS",
+      "front": "Was kann man mit einem GIS machen? Nenne drei Beispiele.",
+      "back": "1. Umweltbehoerden: Feuchtgebiete in bedrohten Regionen identifizieren\n2. Energiefachleute: Hausdaecher fuer Solaranlagen bewerten\n3. Baubehoerden: archaeologische Funde bei geplanten Bauvorhaben vorhersehen\nGIS ermoeglicht das Verknuepfen verschiedener Datensaetze und rasche Aktualisierung.",
+      "image": null
+    },
+    {
+      "id": 30,
+      "category": "B — Massstab",
+      "front": "Berechne: Eine Strecke misst in der Natur 4.5 km und auf der Karte 1.5 cm. Welcher Massstab?",
+      "back": "4.5 km = 450'000 cm\nMassstab = 1.5 : 450'000 = 1 : 300'000\n\nDer Massstab der Karte ist 1:300'000.",
+      "image": null
+    }
+  ]
+}

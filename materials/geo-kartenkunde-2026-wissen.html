@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wissens-Kompakt — Geografie: Kartenkunde</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0f172a;
+    color: #e2e8f0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    padding: 2rem 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.9rem;
+    color: #f1f5f9;
+    border-bottom: 3px solid #3b82f6;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+  .meta {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+    color: #60a5fa;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid #1e3a5f;
+  }
+  h3 {
+    font-size: 1.15rem;
+    color: #93c5fd;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  h4 {
+    font-size: 1rem;
+    color: #a5b4fc;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  p { margin-bottom: 0.7rem; }
+  ul, ol {
+    margin-left: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  li { margin-bottom: 0.3rem; }
+  strong { color: #f1f5f9; }
+  em { color: #fbbf24; font-style: normal; }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1rem 0 1.5rem 0;
+    background: #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.9rem;
+  }
+  thead { background: #334155; }
+  th {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    color: #93c5fd;
+    font-weight: 600;
+    border-bottom: 2px solid #475569;
+  }
+  td {
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid #334155;
+  }
+  tr:last-child td { border-bottom: none; }
+
+  .faktenbox {
+    background: #1e293b;
+    border-left: 4px solid #3b82f6;
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 1.5rem 0;
+  }
+  .faktenbox-title {
+    color: #60a5fa;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .merke {
+    background: #1a2e1a;
+    border-left: 4px solid #22c55e;
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 1.5rem 0;
+  }
+  .merke-title {
+    color: #4ade80;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .formel {
+    background: #2d1f3d;
+    border-left: 4px solid #a78bfa;
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 1.5rem 0;
+    font-family: 'Courier New', monospace;
+  }
+  .formel-title {
+    color: #a78bfa;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    font-family: system-ui, sans-serif;
+  }
+
+  .toc {
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .toc-title {
+    color: #60a5fa;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .toc a {
+    color: #94a3b8;
+    text-decoration: none;
+    display: block;
+    padding: 0.2rem 0;
+  }
+  .toc a:hover { color: #60a5fa; }
+
+  @media (max-width: 600px) {
+    body { padding: 1rem; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.25rem; }
+    table { font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Kartenkunde</h1>
+<div class="meta">Geografie | Kantonsschule Im Lee | Obligatorische Lernziele | 22.03.2026</div>
+
+<div class="toc">
+  <div class="toc-title">Inhaltsverzeichnis</div>
+  <a href="#proj">1. Kartenprojektionen</a>
+  <a href="#massstab">2. Kartenmassstab</a>
+  <a href="#gen">3. Generalisierung</a>
+  <a href="#verm">4. Streckenvermessung & Triangulation</a>
+  <a href="#hoehe">5. Hoehenmessung</a>
+  <a href="#gnss">6. GNSS & Satellitennavigation</a>
+  <a href="#relief">7. Gelaendedarstellung in der Karte</a>
+  <a href="#sig">8. Kartensignaturen</a>
+  <a href="#koord">9. Schweizer Koordinatensystem</a>
+  <a href="#gis">10. GIS — Geoinformationssysteme</a>
+</div>
+
+<!-- ==================== 1. KARTENPROJEKTIONEN ==================== -->
+<h2 id="proj">1. Kartenprojektionen</h2>
+
+<p>Einen dreidimensionalen Koerper (die Erdkugel) kann man nicht verzerrungsfrei auf eine zweidimensionale Ebene abbilden. Flaechen, Strecken und Winkel koennen nie gleichzeitig korrekt dargestellt werden. Die geschickte Abbildung der Kugeloberflaeche auf eine Ebene nennt man <em>Projektion</em>.</p>
+
+<h3>Flaechentreu vs. winkeltreu</h3>
+<table>
+  <thead><tr><th>Eigenschaft</th><th>Flaechentreu</th><th>Winkeltreu</th></tr></thead>
+  <tbody>
+    <tr><td>Was stimmt?</td><td>Flaechenverhaeltnisse korrekt</td><td>Winkel und Formen korrekt</td></tr>
+    <tr><td>Was ist verzerrt?</td><td>Umrissformen (z.T. stark)</td><td>Flaechenverhaeltnisse (polwaerts aufgeblasen)</td></tr>
+    <tr><td>Beispiel</td><td>Mollweide-Projektion</td><td>Mercator-Projektion</td></tr>
+    <tr><td>Anwendung</td><td>Darstellung grosser Gebiete (Kontinente)</td><td>Seefahrt, Navigation</td></tr>
+  </tbody>
+</table>
+
+<div class="merke">
+  <div class="merke-title">Merke</div>
+  Bei der Mercator-Projektion erscheinen Groenland und Kanada riesig, obwohl Groenland (2.2 Mio. km²) kleiner ist als die Arabische Halbinsel (3 Mio. km²). Polgebiete werden massiv vergroessert.
+</div>
+
+<h3>Die drei Projektionsarten</h3>
+
+<h4>Azimutalprojektion</h4>
+<ul>
+  <li>Abbildung auf eine Ebene (Projektionsebene), die senkrecht zur Projektionsachse steht</li>
+  <li>Eignet sich fuer Gebiete mit ungefaehr kreisfoermiger Gestalt</li>
+  <li><strong>Normale Lage:</strong> Projektionsebene beruehrt die Erdkugel an einem Pol; Laengenkreise = gerade Linien, Breitenkreise = konzentrische Kreise</li>
+  <li><strong>Schiefachsige Lage:</strong> fuer Gebiete mittlerer geographischer Breite</li>
+</ul>
+
+<h4>Kegelprojektion</h4>
+<ul>
+  <li>Ein Kegel wird ueber die Erdkugel gestuelpt und beruehrt sie entlang eines Breitenkreises (= Beruehrungsbreitenkreis)</li>
+  <li>Kugeloberflaeche wird auf den Kegelmantel projiziert</li>
+  <li>Der Beruehrungsbreitenkreis ist der einzige Breitenkreis, der laengentreu abgebildet wird</li>
+  <li>Gut geeignet fuer Gebiete mittlerer Breiten mit grosser Ost-West-Ausdehnung</li>
+</ul>
+
+<h4>Zylinderprojektion</h4>
+<ul>
+  <li>Ein Zylinder wird ueber die Erdkugel gestuelpt, beruehrt sie am Aequator</li>
+  <li>Breiten- und Laengenkreise werden als parallele Geraden abgebildet (rechtwinkliges Gradnetz)</li>
+  <li>Mercator-Projektion ist eine Zylinderprojektion</li>
+  <li>Abstaende der Breitenkreise nehmen polwaerts zu</li>
+</ul>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Schweizer Landeskarten</div>
+  Die Schweizer Landeskarten verwenden eine <strong>schiefachsige Zylinderprojektion</strong> (auch Mercator-Transversalprojektion), optimiert fuer die geografische Breite der Schweiz.
+</div>
+
+<!-- ==================== 2. MASSSTAB ==================== -->
+<h2 id="massstab">2. Kartenmassstab</h2>
+
+<p>Der <em>Massstab</em> gibt das <strong>Verkleinerungsverhaeltnis</strong> einer Karte an. Er bezieht sich auf Strecken (Kartenstrecke zu Gelaendestrecke).</p>
+
+<div class="formel">
+  <div class="formel-title">Formeln</div>
+  1 : Massstabszahl = Kartenstrecke : Gelaendestrecke<br><br>
+  Kartenstrecke = Gelaendestrecke : Massstabszahl<br>
+  Gelaendestrecke = Kartenstrecke × Massstabszahl
+</div>
+
+<div class="merke">
+  <div class="merke-title">Grosser vs. kleiner Massstab</div>
+  1:25'000 ist ein <strong>groesserer</strong> Massstab als 1:100'000 (die Division 1/25'000 ergibt einen groesseren Wert). Groesserer Massstab = mehr Detail.
+</div>
+
+<h3>Streckenumrechnung</h3>
+<table>
+  <thead><tr><th>Massstab</th><th>1 mm → Gelaende</th><th>1 cm → Gelaende</th><th>1 km → Karte</th></tr></thead>
+  <tbody>
+    <tr><td>1:25'000</td><td>25 m</td><td>250 m</td><td>4 cm</td></tr>
+    <tr><td>1:50'000</td><td>50 m</td><td>500 m</td><td>2 cm</td></tr>
+    <tr><td>1:100'000</td><td>100 m</td><td>1'000 m = 1 km</td><td>1 cm</td></tr>
+    <tr><td>1:200'000</td><td>200 m</td><td>2'000 m = 2 km</td><td>0.5 cm</td></tr>
+  </tbody>
+</table>
+
+<h3>Flaechenberechnung</h3>
+<p>Bei Flaechen muss die Massstabszahl <strong>quadriert</strong> werden:</p>
+<div class="formel">
+  <div class="formel-title">Flaechenformel</div>
+  Gelaendeflaeche = Kartenflaeche × Massstabszahl²<br><br>
+  Beispiel: 1 cm² auf Karte 1:200'000 = 1 cm² × 200'000² = 4 km²
+</div>
+
+<!-- ==================== 3. GENERALISIERUNG ==================== -->
+<h2 id="gen">3. Generalisierung</h2>
+
+<p><em>Generalisierung</em> ist die notwendige Anpassung des Karteninhalts beim Wechsel zu einem kleineren Massstab. Eine Karte 1:100'000 zeigt das gleiche Gebiet 16-mal kleiner als eine Karte 1:25'000.</p>
+
+<h3>Vier Massnahmen der Generalisierung</h3>
+<ol>
+  <li><strong>Vereinfachung</strong> — komplizierte Linien und Umrisse glaetten</li>
+  <li><strong>Weglassen</strong> — kleine Objekte und Details entfernen</li>
+  <li><strong>Zusammenfassung</strong> — einzelne Gebaeude, Flussschlingen etc. zu einem Symbol zusammenfassen</li>
+  <li><strong>Ergaenzung</strong> — Betonung bestimmter Objekte durch zusaetzliche Signaturen</li>
+</ol>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Beispiel</div>
+  Auf einer Karte 1:25'000 ist jedes einzelne Gebaeude eingezeichnet. Auf 1:50'000 werden Gebaeude zu Gruppen zusammengefasst. Auf 1:100'000 werden ganze Siedlungen nur noch als Flaechensignatur dargestellt.
+</div>
+
+<!-- ==================== 4. STRECKENVERMESSUNG ==================== -->
+<h2 id="verm">4. Streckenvermessung & Triangulation</h2>
+
+<p>Die Vermessungskunde heisst <em>Geodaesie</em>. Fuer eine genaue Karte muss das Gelaende exakt vermessen werden.</p>
+
+<h3>Theodolit</h3>
+<p>Ein <em>Theodolit</em> ist ein Winkelmessinstrument mit einem schwenkbaren Fernrohr und Fadenkreuz. Man kann damit von einem Standort die <strong>Winkel</strong> zwischen zwei entfernten Zielpunkten messen.</p>
+
+<h3>Triangulation</h3>
+<ul>
+  <li>Methode basiert auf <strong>Dreiecksnetzen</strong></li>
+  <li>Man misst eine bekannte Strecke (= <em>Basis</em>) und die Winkel zu einem dritten Punkt</li>
+  <li>Mit Trigonometrie lassen sich alle Seitenlaengen und die Koordinaten des neuen Punktes berechnen</li>
+  <li><strong>Triangulationspunkte</strong> (Signale, z.B. Pyramiden) stehen auf gut sichtbaren Berggipfeln</li>
+  <li>Im Netz 1. Ordnung der Schweiz: Punkte 30–60 km voneinander entfernt</li>
+  <li>Drei Basismessungen (Aarberg, Weinfelden, Bellinzona) durch General Ibañez (1880), auf 1 mm genau</li>
+</ul>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Moderne Vermessung</div>
+  Heute werden <strong>elektronische Distanzmesser</strong> (bis 60 km, auf wenige mm genau) und <strong>GNSS-Satelliten</strong> (millimetergenau) eingesetzt.
+</div>
+
+<!-- ==================== 5. HOEHENMESSUNG ==================== -->
+<h2 id="hoehe">5. Hoehenmessung</h2>
+
+<h3>Nivellement</h3>
+<ul>
+  <li>Einfaches, sehr praezises Verfahren fuer die Hoehenmessung in der Ebene und entlang von Strassen</li>
+  <li>Ein <em>Nivelliergeraet</em> wird in der Mitte zwischen zwei <em>Messlatten</em> aufgestellt</li>
+  <li>Die Ziellinie steht exakt horizontal → Hoehenunterschied wird aus den Ablesungen berechnet</li>
+  <li>Von Messlatte zu Messlatte fortschreitend → "optische Treppe"</li>
+  <li>Wichtige Stellen werden mit <em>Hoehenfixpunkten</em> (Metallbolzen) markiert — ueber 13'000 in der Schweiz</li>
+  <li>Genauigkeit: ca. 0.5 mm pro gemessenem Kilometer</li>
+</ul>
+
+<h3>Pierre du Niton</h3>
+<div class="faktenbox">
+  <div class="faktenbox-title">Ausgangspunkt der Schweizer Hoehenmessung</div>
+  Die <em>Pierre du Niton</em> ist ein Granitblock (Findling) im Hafen von Genf. Ihre Hoehe betraegt <strong>373.600 m ue. M.</strong> und bezieht sich auf den mittleren Meeresspiegel im Hafen von Marseille. Alle Hoehen in der Schweiz beziehen sich auf diesen Punkt.
+</div>
+
+<h3>Trigonometrische Hoehenmessung</h3>
+<ul>
+  <li>Fuer Berggipfel, die nicht durch Nivellement erreichbar sind</li>
+  <li>Mit dem Theodolit wird vom Tal (A) der <strong>Hoehenwinkel</strong> (α) zum Gipfel (B) gemessen</li>
+  <li>Mit der bekannten Grundrissdistanz (AB') und dem Winkel laesst sich der Hoehenunterschied h berechnen</li>
+  <li>Gipfelhoehe = Hoehe von A + berechneter Hoehenunterschied h</li>
+  <li>Erdkruemmung und Lichtbrechung muessen beruecksichtigt werden</li>
+</ul>
+
+<!-- ==================== 6. GNSS ==================== -->
+<h2 id="gnss">6. GNSS & Satellitennavigation</h2>
+
+<p><em>GNSS</em> (Globales Navigationssatellitensystem) ist der Oberbegriff fuer alle Satellitennavigationssysteme.</p>
+
+<h3>Systeme</h3>
+<table>
+  <thead><tr><th>System</th><th>Betreiber</th></tr></thead>
+  <tbody>
+    <tr><td>GPS</td><td>USA</td></tr>
+    <tr><td>GLONASS</td><td>Russland</td></tr>
+    <tr><td>Beidou</td><td>China</td></tr>
+    <tr><td>Galileo</td><td>Europaeische Union (nicht-militaerisch)</td></tr>
+  </tbody>
+</table>
+
+<h3>Funktionsprinzip</h3>
+<ol>
+  <li>24–30 Satelliten umkreisen die Erde in ca. 20'000 km Hoehe, 2× taeglich</li>
+  <li>Jeder Satellit sendet staendig seine Position und die exakte Bordzeit</li>
+  <li>Ein <em>Empfaenger</em> (z.B. Smartphone) empfaengt die Signale und vergleicht die Ankunftszeit mit der Sendezeit</li>
+  <li>Aus der Laufzeit wird die <strong>Entfernung</strong> berechnet: Entfernung = Signallaufzeit × Lichtgeschwindigkeit</li>
+</ol>
+
+<h3>Warum 4 Satelliten?</h3>
+<div class="merke">
+  <div class="merke-title">Mindestens 4 Satelliten noetig</div>
+  <ul>
+    <li><strong>3 Satelliten</strong> genuegen fuer die 3D-Position (Laenge, Breite, Hoehe) — drei Kugeln schneiden sich in einem Punkt</li>
+    <li>Der <strong>4. Satellit</strong> wird benoetigt, um den <strong>Uhrzeitfehler</strong> des Empfaengers zu korrigieren (die interne Uhr ist nicht so praezise wie die Atomuhren der Satelliten)</li>
+  </ul>
+</div>
+
+<h3>Genauigkeit</h3>
+<ul>
+  <li>Standard-GNSS: Lagekoordinaten ca. <strong>5–10 Meter</strong>, Hoehe 2–3× schlechter</li>
+  <li><em>DGPS</em> (Differentielles GPS): ortsfeste Referenzstationen mit bekannter Position berechnen Korrektursignale → Genauigkeit <strong>wenige Millimeter</strong></li>
+</ul>
+
+<h3>Anwendungsbereiche</h3>
+<ul>
+  <li>Navigation (Luft-, See-, Strassenverkehr)</li>
+  <li>Wandern und Tourenski (Satellitenempfaenger)</li>
+  <li>Strassenverkehr (Auto-Navi, Smartphones)</li>
+  <li>Landesvermessung (mit DGPS)</li>
+</ul>
+
+<!-- ==================== 7. GELAENDEDARSTELLUNG ==================== -->
+<h2 id="relief">7. Gelaendedarstellung in der Karte</h2>
+
+<h3>Historische Entwicklung</h3>
+<table>
+  <thead><tr><th>Methode</th><th>Beschreibung</th></tr></thead>
+  <tbody>
+    <tr><td><em>Schraegansicht</em></td><td>Aelteste Darstellung — Landschaft von einer Anhoehe betrachtet, Berge wie Maulwurfshuegel</td></tr>
+    <tr><td><em>Schattierung</em></td><td>Ab 17. Jh., Ansicht senkrecht von oben, ermoeglicht Distanzmessung</td></tr>
+    <tr><td><em>Schraffen</em></td><td>Keilfoermige Strichlein in Richtung des groessten Gefaelles (erstmals auf Dufourkarte 1844–1864)</td></tr>
+    <tr><td><em>Schummerung</em></td><td>Schattenton, als ob das Gelaende beleuchtet waere (Lichteinfall von Nordwesten)</td></tr>
+    <tr><td><em>Farbtoene</em></td><td>Relief nach Hoehenstufen farbig gliedern</td></tr>
+    <tr><td><em>Hoehenkurven</em></td><td>Linien, die alle Punkte gleicher Meereshoehe verbinden — praeziseste Methode</td></tr>
+  </tbody>
+</table>
+
+<h3>Hoehenkurven im Detail</h3>
+<ul>
+  <li><em>Hoehenkurven</em> (= Hoehenlinien, Isohypsen) verbinden alle Punkte mit gleicher Meereshoehe</li>
+  <li><strong>Zaehlkurven:</strong> dicker ausgezogen, mit Hoehenangabe</li>
+  <li><strong>Hilfskurven:</strong> punktiert oder gestrichelt, in flachen Gelaendepartien</li>
+  <li><em>Aequidistanz</em> = senkrechter Abstand zwischen zwei Hoehenkurven (auf einem Kartenblatt konstant)</li>
+  <li><strong>Kurven nahe beieinander</strong> = steiles Gelaende | <strong>weit auseinander</strong> = flaches Gelaende</li>
+</ul>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Hoehenpunkte</div>
+  An bestimmten Orten (v.a. Bergspitzen) sind zusaetzlich vermessene <strong>Hoehenpunkte</strong> in die Karte eingetragen.
+</div>
+
+<h3>Profil zeichnen</h3>
+<p>Ein <em>Profil</em> ist ein Querschnitt durch die Landschaft entlang einer Linie (A–B). Man traegt die Hoehenwerte der geschnittenen Hoehenkurven auf und verbindet die Punkte.</p>
+
+<!-- ==================== 8. KARTENSIGNATUREN ==================== -->
+<h2 id="sig">8. Kartensignaturen</h2>
+
+<p><em>Signaturen</em> sind grafische Zeichen, die auf Karten Informationen vermitteln. Sie sind einheitlich, einfach und moeglichst selbsterklaerend — eine Art <strong>Bildersprache</strong>.</p>
+
+<table>
+  <thead><tr><th>Signaturtyp</th><th>Beschreibung</th><th>Beispiele</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Punktsignaturen</strong></td><td>Darstellungen lokaler Objekte</td><td>Baeume, Kirchen, Brunnen, Tuerme, Windturbinen</td></tr>
+    <tr><td><strong>Liniensignaturen</strong></td><td>Objekte mit linienfoermigem Verlauf</td><td>Fluesse, Baeche, Strassen, Wege, Grenzen</td></tr>
+    <tr><td><strong>Flaechensignaturen</strong></td><td>Darstellungen flaechenartiger Objekte</td><td>Waelder, Seen, Obstanlagen, Reben, Deponien</td></tr>
+    <tr><td><strong>Schriften</strong></td><td>Erklaerende Beschriftung</td><td>Ortsnamen, Bergnamen, Flussnamen, Paesse</td></tr>
+  </tbody>
+</table>
+
+<!-- ==================== 9. KOORDINATENSYSTEM ==================== -->
+<h2 id="koord">9. Schweizer Koordinatensystem</h2>
+
+<h3>Aufbau</h3>
+<ul>
+  <li>Ausgangspunkt: alte Sternwarte in <strong>Bern</strong></li>
+  <li>Bern hat die Koordinaten: <strong>E = 2'600'000 m (Ost)</strong> und <strong>N = 1'200'000 m (Nord)</strong></li>
+  <li>Die Millionenstellen 2 und 1 wurden mit der neuen Landesvermessung <em>LV95</em> eingefuehrt</li>
+  <li>Jeder Punkt in der Schweiz wird mit <strong>zwei siebenstelligen Zahlen</strong> auf den Meter genau bezeichnet</li>
+  <li>Erste Zahl (E) = Lage in west-oestlicher Richtung</li>
+  <li>Zweite Zahl (N) = Lage in sued-noerdlicher Richtung</li>
+</ul>
+
+<h3>4 Vorteile des Schweizer Koordinatensystems</h3>
+<ol>
+  <li><strong>Keine negativen Zahlen</strong> — alle Koordinaten in der Schweiz sind positiv (dank dem Nullpunkt suedwestlich der Schweiz)</li>
+  <li><strong>Keine Verwechslung</strong> — E-Wert (7-stellig, beginnt mit 2) und N-Wert (7-stellig, beginnt mit 1) sind eindeutig unterscheidbar</li>
+  <li><strong>Metergenau</strong> — Zahlen koennen direkt zum Messen verwendet werden</li>
+  <li><strong>Rechtwinkliges Netz</strong> — auf Landeskarten als Gitter mit Maschenweite 1 km eingetragen (1:25'000: 4 cm; 1:50'000: 2 cm)</li>
+</ol>
+
+<h3>Koordinaten bestimmen</h3>
+<p>Vom <strong>Schnittpunkt zweier Koordinatenlinien unten links</strong> ausgehen, dann Meteranteile gegen Osten und gegen Norden messen (oder schaetzen).</p>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Beispiel</div>
+  Der Berggipfel Hoganthore hat die Koordinaten: <strong>2'629'390 / 1'159'800</strong>. Am Kartenrand findet man zusaetzlich geografische Koordinaten in Grad und Minuten.
+</div>
+
+<!-- ==================== 10. GIS ==================== -->
+<h2 id="gis">10. GIS — Geoinformationssysteme</h2>
+
+<p><em>Geoinformationssysteme (GIS)</em> sind Informationssysteme zur Erfassung, Bearbeitung, Organisation, Analyse und Praesentation <strong>raeumlicher Daten</strong>.</p>
+
+<h3>Geodaten</h3>
+<p><em>Geodaten</em> sind raumbezogene Informationen. Sie bestehen aus:</p>
+<ul>
+  <li><strong>Geometriedaten</strong> — geographische Lage (Koordinaten) und Hoehe ueber Meer</li>
+  <li><strong>Sachdaten</strong> (Attribute) — z.B. Vegetation, Bodenart, Bevoelkerungsdichte, Klimadaten</li>
+</ul>
+
+<h3>Datenebenen</h3>
+<p>Geodaten werden in <strong>thematischen Ebenen</strong> (Layers) organisiert, z.B. Fixpunkte, Bodenbedeckung, Hoehenmodell, Nomenklatur, Liegenschaften, Rohrleitungen, Hoheitsgrenzen.</p>
+
+<h3>Was kann man mit GIS?</h3>
+<ul>
+  <li>Verschiedene Datensaetze <strong>miteinander verknuepfen</strong> und raeumlich visualisieren</li>
+  <li>Zusammenhaenge ableiten (z.B. Hoehe + Bevoelkerungsdichte + Gewaltverbrechen + Bodenpreise)</li>
+  <li><strong>Rasche Aktualisierung</strong> und Berechnung von Entwicklungen (Zeitreihen)</li>
+  <li>Anwendung: Geographie, Umweltforschung, Archaeologie, Marketing, Kartografie, Stadtplanung</li>
+</ul>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Praktische Beispiele</div>
+  <ul>
+    <li>Umweltbehoerden: Feuchtgebiete in bedrohten Regionen identifizieren</li>
+    <li>Energiefachleute: Hausdaecher fuer Solaranlagen bewerten</li>
+    <li>Baubehoerden: Archaeologische Funde bei geplanten Bauvorhaben vorhersehen</li>
+    <li>GIS-Browser Kanton Zuerich: maps.zh.ch</li>
+  </ul>
+</div>
+
+<p style="color: #475569; margin-top: 3rem; font-size: 0.8rem; text-align: center;">Wissens-Kompakt | Geografie Kartenkunde | Erstellt: 22.03.2026 | Lernbox</p>
+
+</body>
+</html>
