@@ -575,9 +575,14 @@ body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg);
     return getProfileSets().filter(s => s.subject === subjectName);
   }
 
+  function cacheBust(url) {
+    const sep = url.includes('?') ? '&' : '?';
+    return url + sep + '_cb=' + Date.now();
+  }
+
   async function loadSetsIndex() {
     try {
-      const resp = await fetch(SETS_INDEX_URL);
+      const resp = await fetch(cacheBust(SETS_INDEX_URL));
       const data = await resp.json();
       setsIndex = data.sets || [];
     } catch (e) {
@@ -588,7 +593,7 @@ body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg);
   async function loadSetData(setInfo) {
     if (setsCache[setInfo.id]) return setsCache[setInfo.id];
     try {
-      const resp = await fetch('../' + setInfo.file);
+      const resp = await fetch(cacheBust('../' + setInfo.file));
       const data = await resp.json();
       setsCache[setInfo.id] = data;
       return data;

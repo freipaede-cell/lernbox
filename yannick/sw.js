@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lernbox-yannick-v3';
+const CACHE_NAME = 'lernbox-yannick-v4';
 const ASSETS = [
   './',
   './index.html',
@@ -19,8 +19,14 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  const url = event.request.url;
-  if (url.endsWith('.html') || url.endsWith('.json') || url.endsWith('/')) {
+  const url = new URL(event.request.url);
+  const path = url.pathname;
+  const hasCacheBust = url.searchParams.has('_cb');
+  if (hasCacheBust || path.endsWith('.json')) {
+    event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
+    return;
+  }
+  if (path.endsWith('.html') || path.endsWith('/')) {
     event.respondWith(
       fetch(event.request).then((response) => {
         const clone = response.clone();
