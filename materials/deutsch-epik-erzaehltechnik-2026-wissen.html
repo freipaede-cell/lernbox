@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wissens-Kompakt — Deutsch: Epik & Erzähltechnik</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0f172a;
+    color: #e2e8f0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    padding: 2rem 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.9rem;
+    color: #f1f5f9;
+    border-bottom: 3px solid #3b82f6;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+  .meta {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+    color: #60a5fa;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid #1e3a5f;
+  }
+  h3 {
+    font-size: 1.15rem;
+    color: #93c5fd;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  h4 {
+    font-size: 1rem;
+    color: #a5b4fc;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  p { margin-bottom: 0.7rem; }
+  ul, ol {
+    margin-left: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  li { margin-bottom: 0.3rem; }
+  strong { color: #f1f5f9; }
+  em { color: #fbbf24; font-style: normal; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+  }
+  th {
+    background: #1e293b;
+    color: #60a5fa;
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 2px solid #334155;
+  }
+  td {
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid #1e293b;
+  }
+  tr:hover { background: rgba(96, 165, 250, 0.05); }
+
+  .faktenbox {
+    background: #1e293b;
+    border-left: 4px solid #3b82f6;
+    padding: 1rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+  }
+  .faktenbox-title {
+    color: #60a5fa;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .merke {
+    background: #1a2332;
+    border-left: 4px solid #fbbf24;
+    padding: 1rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+  }
+  .merke-title {
+    color: #fbbf24;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .beispiel {
+    background: #162032;
+    border-left: 4px solid #22c55e;
+    padding: 1rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+  }
+  .beispiel-title {
+    color: #22c55e;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .aufsatz {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.2rem 0;
+  }
+  .aufsatz-title {
+    color: #f1f5f9;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+  .aufsatz-meta {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  .aufsatz p {
+    text-indent: 1.5em;
+    margin-bottom: 0.4rem;
+  }
+  .aufsatz p:first-of-type { text-indent: 0; }
+  blockquote {
+    border-left: 3px solid #475569;
+    padding-left: 1rem;
+    color: #94a3b8;
+    font-style: italic;
+    margin: 0.8rem 0;
+  }
+  .toc {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin: 1rem 0;
+  }
+  .toc a { color: #60a5fa; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .toc ol { margin-left: 1.2rem; }
+  .toc li { margin: 0.3rem 0; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .tag-narrativ { background: rgba(96,165,250,0.2); color: #60a5fa; }
+  .tag-dramatisch { background: rgba(239,68,68,0.2); color: #ef4444; }
+  .tag-neutral { background: rgba(34,197,94,0.2); color: #22c55e; }
+</style>
+</head>
+<body>
+
+<h1>Epik & Erzähltechnik</h1>
+<p class="meta">Deutsch | Gymnasium | Quelle: Rotes Heft S. 20–31 | Version 1.0 | 23.03.2026</p>
+
+<div class="toc">
+<strong>Inhaltsverzeichnis</strong>
+<ol>
+<li><a href="#grundlagen">Grundlagen der Epik</a></li>
+<li><a href="#erzaehlerstimme">Die Erzählerstimme</a></li>
+<li><a href="#zeit">Anordnung: die Zeit</a></li>
+<li><a href="#perspektive">Perspektive: Distanz & Nähe</a></li>
+<li><a href="#drei-haltungen">Die drei Erzählhaltungen im Vergleich</a></li>
+<li><a href="#redeformen">Redeformen im Überblick</a></li>
+<li><a href="#stilmittel">Dichterische Bilder & Stilmittel</a></li>
+<li><a href="#aufsaetze">Musteraufsätze (9 Themen)</a></li>
+</ol>
+</div>
+
+<!-- ===== 1. GRUNDLAGEN ===== -->
+<h2 id="grundlagen">1. Grundlagen der Epik</h2>
+
+<p><strong>Epik</strong> (griech. <em>epeín</em> = sagen, sprechen, erzählen) ist die Grundgattung der erzählenden Literatur. Ihre Grundvoraussetzung ist die <strong>Mittelbarkeit</strong>: Die Geschichte gelangt zum Leser über einen <strong>Vermittler</strong> — den <strong>Erzähler</strong>.</p>
+
+<div class="merke">
+<div class="merke-title">Merke: Erzähler ≠ Autor</div>
+<p>Der Erzähler ist eine vom Autor <strong>erfundene, fiktionale Figur</strong>. Er kann manchmal viel, manchmal wenig mit dem Autor gemein haben — muss es aber nicht.</p>
+</div>
+
+<p>Literatur bezieht sich auf Wirklichkeit — entweder auf eine real stattgefundene oder auf eine fiktive. Die Aufgabe des Erzählers ist es, aus dem potentiell unbegrenzten <strong>Geschehen</strong> (Stoff) einen bestimmten Ausschnitt auszuwählen und zu einer <strong>Geschichte</strong> (Plot) zu verarbeiten. Dabei ist jedes Element der Handlung <strong>motiviert</strong> — kausal verknüpft und auf das Ganze bezogen.</p>
+
+<!-- ===== 2. ERZÄHLERSTIMME ===== -->
+<h2 id="erzaehlerstimme">2. Die Erzählerstimme</h2>
+
+<h3>a) Zeitpunkt des Erzählens</h3>
+
+<table>
+<tr><th>Erzählzeitpunkt</th><th>Tempus</th><th>Vorzeitig</th><th>Nachzeitig</th></tr>
+<tr><td><strong>Später</strong> (häufigster Fall)</td><td>Präteritum</td><td>Plusquamperfekt</td><td>Konj. II mit «würde»</td></tr>
+<tr><td><strong>Gleichzeitig</strong></td><td>Präsens</td><td>Perfekt</td><td>—</td></tr>
+<tr><td><strong>Gestaffelt</strong></td><td>wechselnd</td><td colspan="2">je nach Segment</td></tr>
+<tr><td><strong>Früher</strong></td><td>Futur I (evtl. Präsens)</td><td>Futur II (evtl. Perfekt)</td><td>—</td></tr>
+</table>
+
+<div class="faktenbox">
+<div class="faktenbox-title">Wichtig</div>
+<p>Da der Erzähler immer in der «Gegenwart» erzählt, stehen Kommentare und allgemeine Aussagen des Erzählers in <strong>allen</strong> Varianten im Präsens.</p>
+</div>
+
+<h3>b) Beteiligung des Erzählers</h3>
+
+<ul>
+<li><strong>Beteiligt</strong> → tritt als «Ich» handelnd auf = <em>Ich-Erzähler</em></li>
+<li><strong>Unbeteiligt</strong> → steht ausserhalb des Geschehens, kann sich aber trotzdem als «Ich» zeigen (kommentierend, strukturierend)</li>
+</ul>
+
+<h3>c) Standpunkt des Erzählers</h3>
+
+<ul>
+<li><strong>Ausserhalb</strong> der Geschichte → Erzähler- und Handlungsebene klar unterscheidbar</li>
+<li><strong>Innerhalb</strong> der Geschichte → eine Figur erzählt selbst eine Geschichte = <em>Rahmenerzählung</em> (aussen) + <em>Binnenerzählung</em> (innen)</li>
+</ul>
+
+<div class="beispiel">
+<div class="beispiel-title">Beispiel: Rahmenerzählung</div>
+<p>«Bleibt bei den Kartoffeln und lasst die Religionen ihren Göttern», wiederholte er und drängte sich in die Mitte der kleinen Menschenansammlung. «Man erzählt», rief er [...], «es war einmal ein grosser Wald.»</p>
+<p>— Rafik Schami, <em>Der Wald und das Streichholz</em> (1985)</p>
+</div>
+
+<!-- ===== 3. ZEIT ===== -->
+<h2 id="zeit">3. Anordnung: die Zeit</h2>
+
+<h3>a) Reihenfolge</h3>
+
+<table>
+<tr><th>Mittel</th><th>Funktion</th><th>Beispiel</th></tr>
+<tr><td><strong>Rückwendung</strong></td><td>Verwicklungen auflösen, Vorgeschichte erklären</td><td>Ende eines Kriminalromans</td></tr>
+<tr><td><strong>Erzählschlaufe</strong></td><td>Nebenhandlung parallel zur Haupthandlung</td><td>Parallelstrang aufnehmen</td></tr>
+<tr><td><strong>Vorausdeutung</strong></td><td>Erwartungen wecken, Spannung aufbauen</td><td>Schon der Titel kann eine sein</td></tr>
+</table>
+
+<h3>b) Erzähltempo</h3>
+
+<table>
+<tr><th>Tempo</th><th>Verhältnis</th><th>Wirkung</th><th>Extremfall</th></tr>
+<tr><td><strong>Zeitdeckend</strong></td><td>Erzählzeit = erzählte Zeit</td><td>Dialog, Echtzeit-Gefühl</td><td>—</td></tr>
+<tr><td><strong>Zeitraffend</strong></td><td>Erzählzeit < erzählte Zeit</td><td>Zusammenfassung, Überblick</td><td><em>Ellipse</em> (Zeitsprung)</td></tr>
+<tr><td><strong>Zeitdehnend</strong></td><td>Erzählzeit > erzählte Zeit</td><td>Zeitlupe, innere Vorgänge</td><td><em>Pause</em> (Stillstand)</td></tr>
+</table>
+
+<div class="beispiel">
+<div class="beispiel-title">Beispiel: Vorausdeutung</div>
+<p>«Es war einer jener langen, unbedeutenden Nachmittage, und es sollte doch der letzte seiner Art sein.»</p>
+<p>— Angelika Overath, <em>Flughafenfische</em> (2009)</p>
+</div>
+
+<!-- ===== 4. PERSPEKTIVE ===== -->
+<h2 id="perspektive">4. Perspektive: Distanz & Nähe</h2>
+
+<p>Die <strong>Erzählperspektive</strong> bestimmt, wie nah der Leser am Geschehen ist. Sie hängt ab von der <strong>Distanz</strong> zum Geschehen und dem <strong>Blickwinkel</strong>, den sich der Erzähler erlaubt.</p>
+
+<!-- ===== 5. DREI HALTUNGEN ===== -->
+<h2 id="drei-haltungen">5. Die drei Erzählhaltungen im Vergleich</h2>
+
+<table>
+<tr><th>Merkmal</th><th><span class="tag tag-narrativ">NARRATIV</span></th><th><span class="tag tag-neutral">NEUTRAL</span></th><th><span class="tag tag-dramatisch">DRAMATISCH</span></th></tr>
+<tr><td><strong>Erzählerstimme</strong></td><td>Präsent, kommentierend</td><td>Unsichtbar, wie eine Kamera</td><td>Zurückgenommen, in Figur aufgehend</td></tr>
+<tr><td><strong>Zeitpunkt</strong></td><td>Später (rückblickend)</td><td>Neutral, distanziert</td><td>Gleichzeitig (miterleben)</td></tr>
+<tr><td><strong>Beteiligung</strong></td><td>Unbeteiligt, allwissend</td><td>Unbeteiligt, beobachtend</td><td>Beteiligt, am Geschehen dran</td></tr>
+<tr><td><strong>Zeitliche Ordnung</strong></td><td>Klar, logisch, chronologisch</td><td>Chronologisch, sachlich</td><td>Wenig Gewicht auf Ordnung</td></tr>
+<tr><td><strong>Erzähltempo</strong></td><td>Zeitraffend (Überblick)</td><td>Zeitdeckend</td><td>Zeitdeckend oder -dehnend</td></tr>
+<tr><td><strong>Blickwinkel</strong></td><td>Unbeschränkt (allwissend)</td><td>Beschränkt auf Äusseres</td><td>Beschränkt auf Figur(en)</td></tr>
+<tr><td><strong>Typische Mittel</strong></td><td>Erklärungen, Kommentare, Rückwendungen</td><td>Reine Handlung, keine Wertung</td><td>Detaillierte Beschreibungen, Sinneseindrücke</td></tr>
+<tr><td><strong>Wirkung</strong></td><td>Überblick, Einordnung</td><td>Objektivität, Distanz</td><td>Unmittelbarkeit, Spannung</td></tr>
+</table>
+
+<div class="merke">
+<div class="merke-title">Merke: Mischen erlaubt</div>
+<p>Innerhalb derselben Erzählung kann die Distanz <strong>stark variieren</strong> — von einem Absatz zum nächsten, ja von einem Satz zum nächsten. Gute Autoren wechseln bewusst zwischen narrativ und dramatisch, um Tempo und Spannung zu steuern.</p>
+</div>
+
+<div class="beispiel">
+<div class="beispiel-title">Beispiel: Narrativ (Tieck, Die schöne Magelone, 1797)</div>
+<p>«In der Provence herrschte vor langer Zeit ein Graf, der einen überaus schönen und herrlichen Sohn hatte [...] Er war gross und stark, und glänzende blonde Haare flossen um seinen Nacken und beschatteten sein zartes jugendliches Gesicht.»</p>
+<p>→ Erzähler steht ausserhalb, berichtet rückblickend, allwissend, zeitraffend.</p>
+</div>
+
+<div class="beispiel">
+<div class="beispiel-title">Beispiel: Dramatisch (E.T.A. Hoffmann, Der goldene Topf, 1813)</div>
+<p>«Am Himmelfahrtstage, nachmittags um drei Uhr, rannte ein junger Mensch in Dresden durchs Schwarze Tor, und geradezu in einen Korb mit Äpfeln und Kuchen hinein, die ein altes hässliches Weib feil bot [...]»</p>
+<p>→ Erzähler gleichzeitig, nah dran, detailliert, szenisch, Sinneseindrücke.</p>
+</div>
+
+<div class="beispiel">
+<div class="beispiel-title">Beispiel: Neutral (Franz Hohler, Wind, 2000)</div>
+<p>«Während eines Herbststurms in Berlin wurde einem älteren Mann [...] die Mütze vom Kopfe gerissen, rollte auf die Mitte dieser Kreuzung [...] und blieb genau vor einer Reihe von Autos liegen.»</p>
+<p>→ Erzähler beobachtet nur von aussen, keine inneren Vorgänge, keine Wertung, kameraartiger Blick.</p>
+</div>
+
+<!-- ===== 6. REDEFORMEN ===== -->
+<h2 id="redeformen">6. Redeformen im Überblick</h2>
+
+<table>
+<tr><th>Form</th><th>Wer formuliert?</th><th>Distanz</th><th>Beispiel</th></tr>
+<tr>
+<td><strong>Erzählte Rede</strong></td>
+<td>Erzähler berichtet</td>
+<td><span class="tag tag-narrativ">narrativ</span></td>
+<td>«Er sagte, es sei alles in Ordnung.»</td>
+</tr>
+<tr>
+<td><strong>Indirekte Rede</strong></td>
+<td>Figur via Erzähler (Konj. I/II, 3. Pers.)</td>
+<td><span class="tag tag-narrativ">narrativ</span></td>
+<td>«Sie meinte, sie habe genug davon.»</td>
+</tr>
+<tr>
+<td><strong>Erlebte Rede</strong></td>
+<td>Mischung: Figur denkt, Erzähler formt</td>
+<td>Übergang</td>
+<td>«Ja, sie würde es tun. Morgen schon.»</td>
+</tr>
+<tr>
+<td><strong>Direkte Rede</strong></td>
+<td>Figur spricht, mit Anführungszeichen</td>
+<td><span class="tag tag-dramatisch">dramatisch</span></td>
+<td>«Ich habe genug davon!», rief sie.</td>
+</tr>
+<tr>
+<td><strong>Innerer Monolog</strong></td>
+<td>Figurengedanken, ohne Anführungszeichen</td>
+<td><span class="tag tag-dramatisch">dramatisch</span></td>
+<td>Ich habe genug davon. Morgen gehe ich.</td>
+</tr>
+</table>
+
+<div class="faktenbox">
+<div class="faktenbox-title">Skala der Distanz (narrativ → dramatisch)</div>
+<p>Erzählte Rede → Indirekte Rede → Erlebte Rede → Direkte Rede → Innerer Monolog</p>
+<p>Je weiter rechts, desto <strong>näher</strong> am Geschehen, desto <strong>dramatischer</strong>.</p>
+</div>
+
+<!-- ===== 7. STILMITTEL ===== -->
+<h2 id="stilmittel">7. Dichterische Bilder & Stilmittel</h2>
+
+<table>
+<tr><th>Stilmittel</th><th>Definition</th><th>Beispiel</th></tr>
+<tr><td><strong>Vergleich</strong></td><td>Sache wird einer anderen gegenübergestellt («wie»)</td><td>«Er war unerschütterlich <em>wie ein Fels</em>.»</td></tr>
+<tr><td><strong>Metapher</strong></td><td>Übertragene Bedeutung durch gemeinsames Merkmal</td><td>«Das <em>Feuer</em> seiner Rede» (Feuer = Leidenschaft)</td></tr>
+<tr><td><strong>Metonymie</strong></td><td>Ein Aspekt steht für das Ganze</td><td>«Das <em>Weisse Haus</em> erklärte...» (= US-Regierung)</td></tr>
+<tr><td><strong>Symbol</strong></td><td>Bildhaftes Zeichen für abstrakten Begriff</td><td>Weisse Fahne = Frieden</td></tr>
+<tr><td><strong>Allegorie</strong></td><td>Personifizierung einer Idee</td><td>Justitia mit Waage = Gerechtigkeit</td></tr>
+</table>
+
+<!-- ===== 8. MUSTERAUFSÄTZE ===== -->
+<h2 id="aufsaetze">8. Musteraufsätze (9 Themen)</h2>
+
+<p>Jeder Aufsatz demonstriert bewusst eine bestimmte Erzähltechnik. Alle im Präteritum (oder Präsens, wo angegeben).</p>
+
+<h3>Gruppe 1 — Titel vorgegeben</h3>
+
+<div class="aufsatz">
+<div class="aufsatz-title">1a) Der Taschenrechner</div>
+<div class="aufsatz-meta"><span class="tag tag-narrativ">narrativ</span> | Ich-Erzähler, rückblickend, zeitraffend</div>
+<p>Es war der Taschenrechner meines Grossvaters, der alles ins Rollen brachte. Ein klobiges Ding aus den Achtzigerjahren, mit vergilbten Tasten und einem Sprung im Display, das nur noch halb funktionierte.</p>
+<p>Grossvater hatte ihn mir vermacht, zusammen mit einem Karton voller Notizbücher. «Da steckt mein halbes Leben drin», hatte er gesagt, kurz bevor er einschlief und nicht mehr aufwachte. Ich stellte den Karton in die Ecke meines Zimmers und vergass ihn.</p>
+<p>Monate später, an einem verregneten Samstag, nahm ich den Taschenrechner heraus und drückte wahllos auf die Tasten. Es erschien eine Zahlenfolge, die keinen Sinn ergab — bis ich sie mit den Notizbüchern verglich. Die Zahlen waren Seitenzahlen. Auf jeder markierten Seite hatte Grossvater einen Satz unterstrichen. Aneinandergereiht ergaben die Sätze eine Nachricht: die Geschichte seiner Flucht aus Ungarn 1956, die er nie erzählt hatte.</p>
+<p>Ich sass den ganzen Nachmittag auf dem Boden, las und rechnete, rechnete und las. Der Taschenrechner wurde zum Schlüssel einer Vergangenheit, die mein Grossvater in Zahlen versteckt hatte, weil ihm die Worte dafür fehlten.</p>
+<p>Heute liegt er auf meinem Schreibtisch. Ich benutze ihn nicht zum Rechnen. Aber manchmal drücke ich die Tasten und denke an ihn.</p>
+</div>
+
+<div class="aufsatz">
+<div class="aufsatz-title">1b) Eine Pizza Calzone, bitte!</div>
+<div class="aufsatz-meta"><span class="tag tag-dramatisch">dramatisch</span> | Gleichzeitig, szenisch, viel direkte Rede</div>
+<p>«Eine Pizza Calzone, bitte!» Marco schob den Zettel über den Tresen und versuchte, dabei nicht zu zittern. Die Frau hinter der Kasse las den Zettel und wurde bleich.</p>
+<p>Es war Dienstagabend, kurz vor Ladenschluss. Ausser Marco und der Kassiererin war niemand in der Pizzeria. Auf dem Zettel stand nicht nur die Bestellung. Darunter, in krakeliger Schrift: <em>Im Ofen ist eine Bombe. Rufen Sie nicht die Polizei.</em></p>
+<p>«Das ist nicht witzig», flüsterte die Frau.</p>
+<p>«Ich weiss», sagte Marco. «Ich habe den Zettel nicht geschrieben. Ich habe ihn vor der Tür gefunden. Jemand will, dass wir in Panik geraten.»</p>
+<p>Die Kassiererin starrte ihn an. Dann starrte sie auf den Ofen, in dem sich eine Margherita langsam drehte. «Und warum bestellen Sie trotzdem eine Calzone?»</p>
+<p>«Weil ich Hunger habe. Und weil Leute, die echte Bomben legen, keine Bestellzettel verwenden.»</p>
+<p>Sie musterte ihn lange. Dann nahm sie den Zettel, zerknüllte ihn und warf ihn in den Abfall. «Mit Schinken oder Spinat?»</p>
+<p>«Schinken. Und extra Käse.»</p>
+<p>Draussen fuhr ein Polizeiauto vorbei, ohne anzuhalten. Die Margherita war fertig. Marco setzte sich an den Tisch am Fenster und wartete auf seine Calzone. Es roch nach Oregano und nach einem Abend, der gerade noch einmal gutgegangen war.</p>
+</div>
+
+<div class="aufsatz">
+<div class="aufsatz-title">1c) Der Wellensittich</div>
+<div class="aufsatz-meta"><span class="tag tag-neutral">neutral</span> | Kamera-Perspektive, keine innere Sicht, nur Beobachtung</div>
+<p>Der Wellensittich sass auf der Vorhangstange und beobachtete die Frau, die den Käfig putzte. Die Frau sprach mit dem Vogel, während sie das Zeitungspapier wechselte. Der Wellensittich legte den Kopf schief.</p>
+<p>Die Wohnungstür ging auf. Ein Junge kam herein, warf seinen Rucksack auf den Boden und ging in die Küche. Die Frau rief etwas. Der Junge antwortete nicht. Der Wellensittich flog von der Stange auf den Käfig.</p>
+<p>Gegen Abend kam ein Mann nach Hause. Er stellte eine Einkaufstüte auf den Tisch und sah den offenen Käfig. Er sah den Wellensittich auf dem Kühlschrank. Er sah die Frau, die am Fenster stand und rauchte, obwohl sie damit aufgehört hatte. Er sagte nichts und begann, die Einkäufe auszuräumen.</p>
+<p>Der Junge erschien in der Küchentür. «Der Vogel fliegt nicht mehr in den Käfig zurück», sagte er. «Seit drei Tagen nicht.»</p>
+<p>Der Mann sah den Wellensittich an. Der Wellensittich sah den Mann an. Die Frau drückte die Zigarette aus und schloss das Fenster.</p>
+<p>Am nächsten Morgen stand der Käfig offen, wie jeden Morgen. Der Wellensittich sass auf der Vorhangstange. Die Wohnung war still.</p>
+</div>
+
+<h3>Gruppe 2 — Anfang vorgegeben (Erzähltempus: Präteritum oder Präsens)</h3>
+
+<div class="aufsatz">
+<div class="aufsatz-title">2a) Pius Aufdermaur</div>
+<div class="aufsatz-meta"><span class="tag tag-narrativ">narrativ</span> | Erzähler berichtet rückblickend, zeitraffend, mit Kommentar</div>
+<p>Pius Aufdermaur war vier- oder fünfunddreissig Jahre alt, oft wusste er das selbst nicht genau. Er lebte in einer Zweizimmerwohnung mit einer Kochecke und einem kleinen Balkon. Von seinen Nachbarn unterschied ihn, dass er keinen Fernseher hatte. Stattdessen las er Abenteuerromane.</p>
+<p>Es waren immer dieselben: Ein Mann bricht auf, überwindet Hindernisse, findet einen Schatz oder eine Frau oder beides. Pius las sie nicht wegen der Handlung. Er las sie wegen der Aufbrüche. Denn Pius selbst brach nie auf. Er ging zur Arbeit in die Druckerei, kaufte samstags ein, ass sonntags bei seiner Mutter, und das war sein Leben, so weit er zurückdenken konnte.</p>
+<p>Eines Mittwochs fand er in einem gebrauchten Roman eine Postkarte. Darauf stand eine Adresse in Lissabon und ein einziger Satz: «Komm, bevor es zu spät ist.» Die Karte war sechzehn Jahre alt.</p>
+<p>Pius steckte sie in seine Jackentasche. Er trug sie drei Wochen mit sich herum. Dann, an einem gewöhnlichen Donnerstagmorgen, ging er nicht zur Arbeit, sondern zum Bahnhof, kaufte ein Billett und stieg in den Zug. Er hatte keinen Plan, keinen Koffer und keine Ahnung, wer die Karte geschrieben hatte.</p>
+<p>Aber zum ersten Mal in seinem Leben glich er den Männern in seinen Büchern.</p>
+</div>
+
+<div class="aufsatz">
+<div class="aufsatz-title">2b) «Folgen Sie diesem Heissluftballon!»</div>
+<div class="aufsatz-meta"><span class="tag tag-dramatisch">dramatisch</span> | Gleichzeitig, szenisch, innerer Monolog + direkte Rede</div>
+<p>Lena hatte es eilig. Der Flug ging in drei Stunden, und sie stand noch im Stau auf der Autobahn, irgendwo zwischen Dübendorf und dem Flughafen.</p>
+<p>Das Taxi roch nach Tannenbaum-Duftspender und Enttäuschung. Der Fahrer trommelte auf das Lenkrad. Lena starrte aus dem Fenster — und da sah sie ihn. Ein Heissluftballon, rot-golden gestreift, schwebte über den Feldern östlich der Autobahn, langsam und gleichmässig Richtung Norden. Richtung Flughafen.</p>
+<p>Es war ein Impuls. «Folgen Sie diesem Heissluftballon!»</p>
+<p>Der Taxifahrer drehte den Kopf und schaute in die Richtung, in die Lenas Arm wies. Tatsächlich war da ein Ballon zu sehen: ein fingerhutgrosser umgekehrter Wassertropfen im wolkenlosen Blau des Stadtrandhimmels.</p>
+<p>«Der fliegt über die Felder. Ich fahre auf der Strasse.»</p>
+<p>«Er fliegt in die richtige Richtung. Nehmen Sie die nächste Ausfahrt.»</p>
+<p>Der Fahrer zögerte. Dann riss er das Steuer nach rechts. Das Navigationsgerät protestierte. Lena sah den Ballon zwischen den Häusern verschwinden und wieder auftauchen, immer ein Stück voraus, wie ein langsamer, leuchtender Wegweiser.</p>
+<p>Sie erreichten den Flughafen elf Minuten vor Boarding. Der Ballon landete irgendwo bei Bülach. Lena gab zwanzig Franken Trinkgeld und rannte los.</p>
+</div>
+
+<div class="aufsatz">
+<div class="aufsatz-title">2c) Wer ich bin?</div>
+<div class="aufsatz-meta"><span class="tag tag-dramatisch">dramatisch</span> | Ich-Erzähler, gleichzeitig, innerer Monolog, Präsens</div>
+<p>Wer ich bin? Vielleicht wird es sich im Lauf dieser Geschichte herausstellen. Im Moment wüsste ich es selbst nicht mit Gewissheit zu sagen.</p>
+<p>Ich stehe vor einem Spiegel in einer Garderobe, die nicht meine ist. Ich trage einen Anzug, der nicht meiner ist. In der Brusttasche steckt eine Einladungskarte mit einem Namen, der nicht meiner ist: Dr. Thomas Wehrli, Stiftungsratspräsident.</p>
+<p>Vor einer Stunde war ich noch jemand anderes. Velokurier. Durchgeschwitzt, eine Sendung für die Veranstaltung im Kongresshaus. Die Tür zum Hintereingang stand offen. In der Garderobe hing dieser Anzug, auf einem Bügel mit einer Notiz: «Für Dr. Wehrli, Tisch 7.»</p>
+<p>Ich weiss nicht, warum ich ihn angezogen habe. Vielleicht, weil er passte. Vielleicht, weil ich schon immer wissen wollte, wie es sich anfühlt, jemand zu sein, dem man zuhört.</p>
+<p>Jetzt stehe ich im Saal. Dreihundert Menschen. Kristallleuchter. Ein Mann kommt auf mich zu, schüttelt meine Hand, sagt: «Thomas, schön, dass Sie da sind. Ihre Rede beginnt in zehn Minuten.»</p>
+<p>Ich nicke. Mein Herz schlägt bis in die Fingerspitzen. Eine Rede. Zehn Minuten.</p>
+<p>Wer ich bin, weiss ich immer noch nicht. Aber wer ich heute Abend sein werde — das entscheide ich jetzt.</p>
+</div>
+
+<h3>Gruppe 3 — Situation vorgegeben</h3>
+
+<div class="aufsatz">
+<div class="aufsatz-title">3a) Unverhofftes Geld</div>
+<div class="aufsatz-meta"><span class="tag tag-narrativ">narrativ</span> | Rückblickend, mit Erzählerkommentar, zeitraffend</div>
+<p>Die Geschichte, wie Miriam Bächler zu zwölftausend Franken kam und sie innerhalb von drei Tagen wieder los wurde, beginnt mit einem Fehler der Zuger Kantonalbank.</p>
+<p>Am Montag fand Miriam den Betrag auf ihrem Konto. Sie war Floristin, verdiente bescheiden und hatte zuletzt am Samstag sechzig Franken eingezahlt. Zwölftausend Franken gehörten nicht in ihr Leben.</p>
+<p>Sie hätte die Bank anrufen können. Stattdessen rief sie ihre Schwester an. «Es ist ein Zeichen», sagte die Schwester, die an Zeichen glaubte. «Kauf dir endlich den Lieferwagen.»</p>
+<p>Am Dienstag kaufte Miriam den Lieferwagen. Gebraucht, weiss, mit einer Delle an der Beifahrertür. Er roch nach Holz und Möglichkeiten. Am Dienstagabend rief die Bank an.</p>
+<p>Am Mittwoch verkaufte Miriam den Lieferwagen — an denselben Händler, mit zweihundert Franken Verlust. Sie überwies das Geld zurück, schrieb eine Entschuldigung und weinte kurz in der Mittagspause.</p>
+<p>Die Bank schickte ihr einen förmlichen Brief. Die Schwester sagte: «Immerhin weisst du jetzt, was du willst.» Miriam wusste es tatsächlich. Sie begann zu sparen. Der Lieferwagen mit der Delle wurde zwei Jahre später ihrer — diesmal mit eigenem Geld.</p>
+</div>
+
+<div class="aufsatz">
+<div class="aufsatz-title">3b) Die Ampel</div>
+<div class="aufsatz-meta"><span class="tag tag-dramatisch">dramatisch</span> | Zeitdehnend, Sinneseindrücke, erlebte Rede</div>
+<p>Rot. Immer noch rot. Seit einer Ewigkeit rot, oder so kam es ihm vor.</p>
+<p>Jonas stand an der Kreuzung Hardbrücke und sah auf die Ampel. Um ihn herum floss die Stadt: Trams ratterten über die Brücke, ein Velofahrer schlängelte sich durch den Verkehr, irgendwo hupte jemand. Aber die Fussgängerampel blieb rot.</p>
+<p>Er drückte den Knopf noch einmal. Nichts. Er sah sich um. Keine anderen Fussgänger. Nur er, allein an dieser Kreuzung, wartend auf ein grünes Licht, das nicht kommen wollte.</p>
+<p>Er könnte einfach gehen. Bei Rot über die Strasse, wie es alle taten. Aber etwas hielt ihn fest. Vielleicht die Tatsache, dass er heute Morgen seinen Job verloren hatte und das Einzige, was er noch kontrollieren konnte, seine Entscheidung war, an dieser verdammten Ampel zu warten.</p>
+<p>Ein Auto fuhr vorbei, zu schnell. Dann ein zweites. Dann keines mehr. Die Strasse lag leer vor ihm. Die Ampel: rot.</p>
+<p>Eine Taube landete neben seinem Fuss, pickte an etwas, flog wieder auf. Eine Wolke schob sich vor die Sonne. Jonas atmete aus.</p>
+<p>Dann sprang die Ampel auf Grün. Er ging nicht sofort. Er wartete noch zwei, drei Sekunden, einfach weil er es konnte. Dann setzte er sich in Bewegung, überquerte die Strasse und bog in eine Seitenstrasse ab, in der er noch nie gewesen war.</p>
+</div>
+
+<div class="aufsatz">
+<div class="aufsatz-title">3c) Sonntagmorgen</div>
+<div class="aufsatz-meta"><span class="tag tag-neutral">neutral</span> | Kamera-Perspektive, keine innere Sicht, rein beobachtend</div>
+<p>Um acht Uhr dreissig klingelte kein Wecker. Die Wohnung lag im dritten Stock eines Altbaus an der Weststrasse. Durch die Küchenfenster fiel Licht auf einen Tisch mit zwei Tassen und einer Kanne Kaffee.</p>
+<p>Die Frau stand am Herd und rührte in einem Topf. Der Mann sass am Tisch und las die Zeitung. Keiner von beiden sprach. Das Radio lief leise, ein Sonntagmorgen-Programm mit Musik und Nachrichten.</p>
+<p>Gegen neun stand der Mann auf, faltete die Zeitung zusammen und legte sie auf die Fensterbank. Er ging ins Schlafzimmer und kam mit einer Jacke zurück. Er stellte seine Tasse in die Spüle, zog die Jacke an und nahm die Schlüssel vom Haken neben der Tür.</p>
+<p>«Ich gehe raus», sagte er.</p>
+<p>Die Frau nickte, ohne sich umzudrehen. Der Topf auf dem Herd blubberte leise.</p>
+<p>Der Mann öffnete die Wohnungstür, trat auf den Flur hinaus und zog die Tür hinter sich zu. Seine Schritte hallten im Treppenhaus. Dann die Haustür. Dann Stille.</p>
+<p>Die Frau drehte den Herd aus. Sie setzte sich an den Tisch, auf den Stuhl, auf dem der Mann gesessen hatte. Die Zeitung lag auf der Fensterbank. Die zweite Tasse war halb voll. Das Radio spielte ein Lied, das sie nicht kannte.</p>
+</div>
+
+<p class="meta" style="margin-top: 2rem; text-align: center;">— Quelle: Rotes Heft, S. 20–31 | Musteraufsätze: Eigenproduktion zur Prüfungsvorbereitung —</p>
+
+</body>
+</html>

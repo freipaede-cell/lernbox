@@ -1,0 +1,124 @@
+{
+  "cards": [
+    {
+      "front": "Was ist die Grundvoraussetzung der Epik?",
+      "back": "Mittelbarkeit — die Geschichte gelangt zum Leser über einen Vermittler, den Erzähler."
+    },
+    {
+      "front": "Warum ist der Erzähler NICHT gleich der Autor?",
+      "back": "Der Erzähler ist eine vom Autor erfundene, fiktionale Figur. Er kann wenig bis nichts mit dem Autor gemein haben."
+    },
+    {
+      "front": "Was ist der Unterschied zwischen Geschehen (Stoff) und Geschichte (Plot)?",
+      "back": "Geschehen = das gesamte, unbegrenzte Material. Geschichte = der vom Erzähler ausgewählte, geordnete Ausschnitt, in dem jedes Element motiviert (kausal verknüpft) ist."
+    },
+    {
+      "front": "Welches Tempus verwendet man beim Erzählzeitpunkt «später»?",
+      "back": "Präteritum. Vorzeitig: Plusquamperfekt. Nachzeitig: Konjunktiv II mit «würde»."
+    },
+    {
+      "front": "Welches Tempus verwendet man beim Erzählzeitpunkt «gleichzeitig»?",
+      "back": "Präsens. Vorzeitig: Perfekt."
+    },
+    {
+      "front": "Was ist ein «gestaffelter» Erzählzeitpunkt?",
+      "back": "Der Erzähler wechselt den Zeitpunkt — Ereignis A wird von Zeitpunkt A erzählt, Ereignis B von Zeitpunkt B usw. Das Tempus wechselt entsprechend."
+    },
+    {
+      "front": "Wann steht der Erzähler in ALLEN Varianten im Präsens?",
+      "back": "Bei allgemeinen Aussagen und Kommentaren des Erzählers — weil er immer in seiner eigenen Gegenwart situiert ist."
+    },
+    {
+      "front": "Was ist ein Ich-Erzähler? Nenne zwei Varianten.",
+      "back": "Ein Erzähler, der als «Ich» in Erscheinung tritt. 1) Beteiligt: selbst handelnde Figur. 2) Unbeteiligt: steht ausserhalb, kommentiert oder strukturiert aber als «Ich»."
+    },
+    {
+      "front": "Was ist eine Rahmenerzählung?",
+      "back": "Die äussere Geschichte, in der eine Figur selbst wiederum eine Geschichte erzählt (= Binnenerzählung). So entsteht ein Erzählstandpunkt innerhalb der Handlung."
+    },
+    {
+      "front": "Was bedeutet «zeitdeckend» beim Erzähltempo?",
+      "back": "Erzählzeit = erzählte Zeit. Typisch bei Dialogen. Echtzeit-Gefühl."
+    },
+    {
+      "front": "Was bedeutet «zeitraffend»? Was ist der Extremfall?",
+      "back": "Erzählzeit < erzählte Zeit. Zusammenfassendes Erzählen. Extremfall: Ellipse — eine Zeitspanne wird komplett übersprungen."
+    },
+    {
+      "front": "Was bedeutet «zeitdehnend»? Was ist der Extremfall?",
+      "back": "Erzählzeit > erzählte Zeit. Wie eine Zeitlupe. Extremfall: Pause — Handlung steht völlig still (Beschreibung, Kommentar)."
+    },
+    {
+      "front": "Was ist eine Rückwendung? Nenne zwei Funktionen.",
+      "back": "Unterbrechung der Chronologie, um auf Vergangenes zurückzugreifen. 1) Verwicklungen auflösen (z.B. Krimi-Ende). 2) Vorgeschichte einer Figur erklären."
+    },
+    {
+      "front": "Was ist eine Vorausdeutung?",
+      "back": "Sie weckt Erwartungen an den Fortgang oder das Ende der Erzählung. Beeinflusst die Leserhaltung. Schon der Titel kann eine Vorausdeutung sein."
+    },
+    {
+      "front": "Was ist eine Erzählschlaufe?",
+      "back": "Der Faden einer Nebenhandlung wird aufgenommen, die parallel zur bereits erzählten Haupthandlung stattgefunden hat."
+    },
+    {
+      "front": "Nenne 4 Merkmale der NARRATIVEN Erzählhaltung.",
+      "back": "1) Präsente Erzählerstimme. 2) Erzählzeitpunkt: später. 3) Zeitraffendes Tempo. 4) Unbeschränkter Blickwinkel. 5) Erklärungen und Kommentare. 6) Klare zeitliche Ordnung."
+    },
+    {
+      "front": "Nenne 4 Merkmale der DRAMATISCHEN Erzählhaltung.",
+      "back": "1) Zurückgenommene Erzählerstimme. 2) Erzählzeitpunkt: gleichzeitig. 3) Zeitdeckendes/-dehnendes Tempo. 4) Beschränkter Blickwinkel. 5) Detaillierte Beschreibungen. 6) Wenig Gewicht auf zeitliche Ordnung."
+    },
+    {
+      "front": "Was kennzeichnet die NEUTRALE Erzählhaltung?",
+      "back": "Erzähler ist unsichtbar wie eine Kamera. Nur äussere Handlung wird beschrieben — keine inneren Vorgänge, keine Wertung, keine Kommentare. Sachlich und distanziert."
+    },
+    {
+      "front": "Was ist ERZÄHLTE REDE?",
+      "back": "Der Erzähler berichtet vom Figurentext, ohne ihn wörtlich wiederzugeben. Maximal narrativ/distanziert. Bsp.: «Er sagte, es sei alles in Ordnung.»"
+    },
+    {
+      "front": "Was ist INDIREKTE REDE?",
+      "back": "Die Figur spricht, aber vermittelt durch den Erzähler — in Konjunktiv I/II und 3. Person. Bsp.: «Sie meinte, sie habe genug davon.»"
+    },
+    {
+      "front": "Was ist ERLEBTE REDE?",
+      "back": "Mischform: Figur steuert den Inhalt (Gedanken), Erzähler steuert Tempus und Person (3. Pers.). Bsp.: «Ja, sie würde es tun. Morgen schon.» — Interferenz Figur/Erzähler."
+    },
+    {
+      "front": "Was ist DIREKTE REDE?",
+      "back": "Figurenrede in Anführungszeichen, 1. Person. Formulierung = Figur. Dramatisch. Bsp.: «Ich habe genug davon!», rief sie."
+    },
+    {
+      "front": "Was ist ein INNERER MONOLOG?",
+      "back": "Figurengedanken werden eins zu eins wiedergegeben, OHNE Anführungszeichen, in der 1. Person. Maximal dramatisch/nah. Bsp.: Ich habe genug davon. Morgen gehe ich."
+    },
+    {
+      "front": "Ordne die 5 Redeformen von narrativ (distanziert) nach dramatisch (nah).",
+      "back": "Erzählte Rede → Indirekte Rede → Erlebte Rede → Direkte Rede → Innerer Monolog"
+    },
+    {
+      "front": "Was ist ein VERGLEICH?",
+      "back": "Eine Sache wird veranschaulicht, indem sie ausdrücklich einer anderen gegenübergestellt wird (mit «wie»). Bsp.: «Er ist stark wie ein Fels.»"
+    },
+    {
+      "front": "Was ist eine METAPHER?",
+      "back": "Die gemeinte Sache wird durch ein Wort bezeichnet, das eigentlich etwas anderes meint, aber ein gemeinsames Merkmal hat. Nicht wörtlich, sondern «über-tragen». Bsp.: «Das Feuer seiner Rede.»"
+    },
+    {
+      "front": "Was ist eine METONYMIE?",
+      "back": "Ein Wort, das nur einen bestimmten Aspekt einer Sache bezeichnet, wird für die Sache insgesamt verwendet. Bsp.: «Das Weisse Haus erklärte...» (= US-Regierung)."
+    },
+    {
+      "front": "Was ist ein SYMBOL? Wie unterscheidet es sich von der Metapher?",
+      "back": "Bildhaftes Zeichen für einen abstrakten Begriff (z.B. weisse Fahne = Frieden). Im Unterschied zur Metapher kann man das Symbol NICHT anstelle des Begriffs in der Rede verwenden."
+    },
+    {
+      "front": "Was ist eine ALLEGORIE?",
+      "back": "Personifizierung einer Idee oder eines abstrakten Begriffs. Bsp.: Justitia (Figur mit Waage und verbundenen Augen) = Gerechtigkeit."
+    },
+    {
+      "front": "Was meint Reiner Kunze mit: «Dort, wohin der Begriff nicht reicht, nähern wir uns der Wirklichkeit im poetischen Bild»?",
+      "back": "Manche Aspekte der Wirklichkeit lassen sich mit logisch-begrifflicher Sprache nicht fassen. Dichterische Bilder (Metaphern, Symbole) können ausdrücken, was die Prosa nicht kann."
+    }
+  ]
+}
