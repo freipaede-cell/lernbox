@@ -67,6 +67,19 @@
         { "type": "wissen", "title": "Wissens-Kompakt", "file": "materials/deutsch-epik-erzaehltechnik-2026-wissen.html" },
         { "type": "pruefung", "title": "Übungsprüfung", "file": "materials/deutsch-epik-erzaehltechnik-2026-pruefung.html" }
       ]
+    },
+    {
+      "id": "eng-conditionals-prepositions-2026",
+      "file": "sets/eng-conditionals-prepositions-2026.json",
+      "title": "Conditionals, Regrets & Prepositions",
+      "subject": "Englisch",
+      "cardCount": 30,
+      "profiles": ["yannick"],
+      "examDate": "2026-03-25",
+      "materials": [
+        { "type": "wissen", "title": "Wissens-Kompakt", "file": "materials/eng-conditionals-prepositions-2026-wissen.html" },
+        { "type": "pruefung", "title": "Übungsprüfung", "file": "materials/eng-conditionals-prepositions-2026-pruefung.html" }
+      ]
     }
   ]
 }
