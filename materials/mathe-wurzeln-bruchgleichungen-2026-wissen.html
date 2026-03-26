@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wissens-Kompakt — Mathematik: Wurzeln, Wurzelgleichungen &amp; Bruchgleichungen</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0f172a; color: #e2e8f0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; padding: 2rem 1.5rem; max-width: 960px; margin: 0 auto; }
+h1 { font-size: 1.9rem; color: #f1f5f9; border-bottom: 3px solid #3b82f6; padding-bottom: 0.5rem; margin-bottom: 0.3rem; }
+.meta { color: #94a3b8; font-size: 0.85rem; margin-bottom: 2rem; }
+h2 { font-size: 1.5rem; color: #60a5fa; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.3rem; border-bottom: 2px solid #1e3a5f; }
+h3 { font-size: 1.15rem; color: #93c5fd; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+th { background: #1e293b; color: #60a5fa; padding: 0.6rem 0.8rem; text-align: left; border-bottom: 2px solid #334155; }
+td { padding: 0.5rem 0.8rem; border-bottom: 1px solid #1e293b; }
+.faktenbox { background: #1e293b; border-left: 4px solid #3b82f6; padding: 1rem 1.2rem; border-radius: 0 8px 8px 0; margin: 1rem 0; }
+.faktenbox.warning { border-left-color: #f59e0b; }
+.faktenbox.success { border-left-color: #22c55e; }
+.faktenbox-title { color: #60a5fa; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
+.faktenbox.warning .faktenbox-title { color: #f59e0b; }
+.faktenbox.success .faktenbox-title { color: #22c55e; }
+.example { background: #162032; border-left: 3px solid #475569; padding: 0.6rem 1rem; margin: 0.5rem 0; color: #94a3b8; font-style: italic; border-radius: 0 6px 6px 0; }
+.toc { background: #1e293b; border-radius: 10px; padding: 1.2rem 1.5rem; margin-bottom: 2rem; }
+.toc-title { color: #60a5fa; font-weight: 700; margin-bottom: 0.5rem; }
+.toc a { color: #93c5fd; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc ol { margin-left: 1.2rem; }
+.toc li { margin-bottom: 0.3rem; }
+strong { color: #f1f5f9; }
+em { color: #fbbf24; font-style: normal; }
+code { background: #334155; color: #fbbf24; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+ul, ol { margin-left: 1.3rem; margin-bottom: 0.8rem; }
+li { margin-bottom: 0.3rem; }
+p { margin-bottom: 0.7rem; }
+.math { font-family: 'Times New Roman', serif; font-size: 1.05em; color: #fbbf24; }
+.frac { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 2px; }
+.frac .num, .frac .den { display: block; text-align: center; line-height: 1.2; }
+.frac .num { border-bottom: 1px solid #fbbf24; padding-bottom: 1px; }
+.frac .den { padding-top: 1px; }
+.sqrt { white-space: nowrap; }
+.sqrt::before { content: "\221A"; }
+</style>
+</head>
+<body>
+
+<h1>Wissens-Kompakt — Mathematik: Wurzeln, Wurzelgleichungen &amp; Bruchgleichungen</h1>
+<div class="meta">Yannick | Mathematik | Algebra 1. Klasse KLW | März 2026</div>
+
+<div class="toc">
+  <div class="toc-title">Inhaltsverzeichnis</div>
+  <ol>
+    <li><a href="#kap1">Quadratwurzeln — Grundlagen (Kap. 11.1)</a></li>
+    <li><a href="#kap2">Normalform von Wurzeltermen (Kap. 11.4)</a></li>
+    <li><a href="#kap3">Wurzelgleichungen (Kap. 12)</a></li>
+    <li><a href="#kap4">Bruchgleichungen (Kap. 10)</a></li>
+    <li><a href="#kap5">Zusammenfassung &amp; Prüfungstipps</a></li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="kap1">1. Quadratwurzeln — Grundlagen</h2>
+<!-- ============================================================ -->
+
+<h3>1.1 Definition</h3>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Definition Quadratwurzel</div>
+  <p>Für <span class="math">a &ge; 0</span> ist die <strong>Quadratwurzel</strong> <span class="math"><span class="sqrt">a</span></span> die <em>nicht-negative</em> Zahl, deren Quadrat <span class="math">a</span> ergibt:</p>
+  <p><span class="math"><span class="sqrt">a</span> = x &ge; 0</span> &nbsp;mit&nbsp; <span class="math">x&sup2; = a</span></p>
+  <p>Der Ausdruck unter dem Wurzelzeichen heisst <strong>Radikand</strong>. Er muss <span class="math">&ge; 0</span> sein.</p>
+</div>
+
+<p>Die Gleichung <span class="math">x&sup2; = a</span> hat für <span class="math">a &gt; 0</span> <strong>zwei Lösungen</strong>: <span class="math">x = +<span class="sqrt">a</span></span> und <span class="math">x = &minus;<span class="sqrt">a</span></span>. Das Wurzelzeichen liefert aber <em>nur die positive</em>.</p>
+
+<div class="example">
+  Beispiel: <span class="math">x&sup2; = 9</span> hat die Lösungen <span class="math">x = 3</span> und <span class="math">x = &minus;3</span>. Aber: <span class="math"><span class="sqrt">9</span> = 3</span> (nie &minus;3).
+</div>
+
+<h3>1.2 Rechenregeln</h3>
+
+<table>
+  <tr><th>Regel</th><th>Formel</th><th>Beispiel</th></tr>
+  <tr>
+    <td>Produktregel</td>
+    <td><span class="math"><span class="sqrt">a</span> &middot; <span class="sqrt">b</span> = <span class="sqrt">a&middot;b</span></span></td>
+    <td><span class="math"><span class="sqrt">3</span> &middot; <span class="sqrt">12</span> = <span class="sqrt">36</span> = 6</span></td>
+  </tr>
+  <tr>
+    <td>Quotientenregel</td>
+    <td><span class="math"><span class="frac"><span class="num"><span class="sqrt">a</span></span><span class="den"><span class="sqrt">b</span></span></span> = <span class="sqrt"><span class="frac"><span class="num">a</span><span class="den">b</span></span></span></span></td>
+    <td><span class="math"><span class="frac"><span class="num"><span class="sqrt">50</span></span><span class="den"><span class="sqrt">2</span></span></span> = <span class="sqrt">25</span> = 5</span></td>
+  </tr>
+  <tr>
+    <td>Betragsregel</td>
+    <td><span class="math"><span class="sqrt">a&sup2;</span> = |a|</span></td>
+    <td><span class="math"><span class="sqrt">(&minus;5)&sup2;</span> = <span class="sqrt">25</span> = 5 = |&minus;5|</span></td>
+  </tr>
+  <tr>
+    <td>Potenzform</td>
+    <td><span class="math"><span class="sqrt">a</span> = a<sup>&frac12;</sup></span></td>
+    <td><span class="math">9<sup>&frac12;</sup> = 3</span></td>
+  </tr>
+</table>
+
+<div class="faktenbox warning">
+  <div class="faktenbox-title">Häufiger Fehler</div>
+  <p><span class="math"><span class="sqrt">a + b</span> &ne; <span class="sqrt">a</span> + <span class="sqrt">b</span></span></p>
+  <p>Die Wurzel darf <strong>nur über Produkte und Quotienten gezogen</strong> werden, <em>nie über Summen oder Differenzen</em>.</p>
+  <div class="example">
+    Gegenbeispiel: <span class="math"><span class="sqrt">9 + 16</span> = <span class="sqrt">25</span> = 5</span>, aber <span class="math"><span class="sqrt">9</span> + <span class="sqrt">16</span> = 3 + 4 = 7 &ne; 5</span>
+  </div>
+</div>
+
+<h3>1.3 Grössenvergleich</h3>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Wurzel vs. Radikand</div>
+  <ul>
+    <li>Für <span class="math">a &gt; 1</span>: <span class="math"><span class="sqrt">a</span> &lt; a</span> &nbsp;(die Wurzel verkleinert)</li>
+    <li>Für <span class="math">0 &lt; a &lt; 1</span>: <span class="math"><span class="sqrt">a</span> &gt; a</span> &nbsp;(die Wurzel vergrössert)</li>
+    <li>Fixpunkte: <span class="math"><span class="sqrt">0</span> = 0</span> und <span class="math"><span class="sqrt">1</span> = 1</span></li>
+  </ul>
+</div>
+
+<div class="example">
+  <span class="math"><span class="sqrt">4</span> = 2 &lt; 4</span> &nbsp;|&nbsp; <span class="math"><span class="sqrt">0.25</span> = 0.5 &gt; 0.25</span>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="kap2">2. Normalform von Wurzeltermen</h2>
+<!-- ============================================================ -->
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Definition Normalform</div>
+  <p>Ein Wurzelterm ist in <strong>Normalform</strong>, wenn:</p>
+  <ol>
+    <li>Alle Radikanden <em>quadratfrei</em> sind (kein Quadrat als Faktor)</li>
+    <li><em>Keine Wurzel im Nenner</em> steht</li>
+  </ol>
+</div>
+
+<h3>2.1 Schritt 1: Quadratzahlen ausziehen</h3>
+
+<p>Den Radikanden in Faktoren zerlegen und Quadrate herausziehen:</p>
+
+<div class="example">
+  <span class="math"><span class="sqrt">45</span> = <span class="sqrt">9 &middot; 5</span> = <span class="sqrt">9</span> &middot; <span class="sqrt">5</span> = 3<span class="sqrt">5</span></span><br>
+  <span class="math"><span class="sqrt">72</span> = <span class="sqrt">36 &middot; 2</span> = 6<span class="sqrt">2</span></span><br>
+  <span class="math"><span class="sqrt">200</span> = <span class="sqrt">100 &middot; 2</span> = 10<span class="sqrt">2</span></span>
+</div>
+
+<div class="faktenbox success">
+  <div class="faktenbox-title">Tipp: Quadratzahlen merken</div>
+  <p>Die wichtigsten Quadratzahlen auswendig: 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225.</p>
+</div>
+
+<h3>2.2 Schritt 2: Nenner wurzelfrei machen (Rationalisieren)</h3>
+
+<p>Einfacher Fall: Wurzel allein im Nenner — mit derselben Wurzel erweitern.</p>
+
+<div class="example">
+  <span class="math"><span class="frac"><span class="num">5</span><span class="den"><span class="sqrt">3</span></span></span> = <span class="frac"><span class="num">5 &middot; <span class="sqrt">3</span></span><span class="den"><span class="sqrt">3</span> &middot; <span class="sqrt">3</span></span></span> = <span class="frac"><span class="num">5<span class="sqrt">3</span></span><span class="den">3</span></span></span>
+</div>
+
+<h3>2.3 Schritt 3: Rationalisieren mit 3. binomischer Formel</h3>
+
+<p>Bei Summe oder Differenz im Nenner: mit dem <strong>konjugierten Ausdruck</strong> erweitern.</p>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">3. binomische Formel</div>
+  <p><span class="math">(a + b)(a &minus; b) = a&sup2; &minus; b&sup2;</span></p>
+  <p>Damit verschwinden die Wurzeln im Nenner, weil <span class="math">(<span class="sqrt">x</span>)&sup2; = x</span>.</p>
+</div>
+
+<div class="example">
+  <span class="math"><span class="frac"><span class="num">1</span><span class="den"><span class="sqrt">5</span> &minus; <span class="sqrt">3</span></span></span> = <span class="frac"><span class="num">1 &middot; (<span class="sqrt">5</span> + <span class="sqrt">3</span>)</span><span class="den">(<span class="sqrt">5</span> &minus; <span class="sqrt">3</span>)(<span class="sqrt">5</span> + <span class="sqrt">3</span>)</span></span> = <span class="frac"><span class="num"><span class="sqrt">5</span> + <span class="sqrt">3</span></span><span class="den">5 &minus; 3</span></span> = <span class="frac"><span class="num"><span class="sqrt">5</span> + <span class="sqrt">3</span></span><span class="den">2</span></span></span>
+</div>
+
+<div class="example">
+  <span class="math"><span class="frac"><span class="num">6</span><span class="den">3 + <span class="sqrt">7</span></span></span> = <span class="frac"><span class="num">6(3 &minus; <span class="sqrt">7</span>)</span><span class="den">(3 + <span class="sqrt">7</span>)(3 &minus; <span class="sqrt">7</span>)</span></span> = <span class="frac"><span class="num">6(3 &minus; <span class="sqrt">7</span>)</span><span class="den">9 &minus; 7</span></span> = <span class="frac"><span class="num">6(3 &minus; <span class="sqrt">7</span>)</span><span class="den">2</span></span> = 3(3 &minus; <span class="sqrt">7</span>) = 9 &minus; 3<span class="sqrt">7</span></span>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="kap3">3. Wurzelgleichungen</h2>
+<!-- ============================================================ -->
+
+<h3>3.1 Verlust- und Gewinnumformungen</h3>
+
+<div class="faktenbox warning">
+  <div class="faktenbox-title">Zentrale Unterscheidung</div>
+  <table>
+    <tr><th>Operation</th><th>Typ</th><th>Konsequenz</th></tr>
+    <tr>
+      <td><strong>Wurzelziehen</strong> aus <span class="math">x&sup2; = a</span></td>
+      <td><em>Verlustumformung</em></td>
+      <td>Man verliert eine Lösung (<span class="math">&minus;<span class="sqrt">a</span></span>). Beide Vorzeichen prüfen!</td>
+    </tr>
+    <tr>
+      <td><strong>Quadrieren</strong> einer Gleichung</td>
+      <td><em>Gewinnumformung</em></td>
+      <td>Kann <em>Scheinlösungen</em> erzeugen. <strong>Probe ist Pflicht!</strong></td>
+    </tr>
+  </table>
+</div>
+
+<h3>3.2 Standardverfahren: Wurzel isolieren &rarr; Quadrieren &rarr; Probe</h3>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Lösungsstrategie</div>
+  <ol>
+    <li><strong>Wurzel isolieren</strong> — den Wurzelterm allein auf eine Seite bringen</li>
+    <li><strong>Quadrieren</strong> — beide Seiten quadrieren, um die Wurzel zu eliminieren</li>
+    <li><strong>Lösen</strong> — die entstandene Gleichung lösen (linear oder quadratisch)</li>
+    <li><strong>Probe</strong> — jede Lösung in die <em>Originalgleichung</em> einsetzen</li>
+  </ol>
+</div>
+
+<h3>Beispiel 1: Einfache Wurzelgleichung</h3>
+
+<div class="example">
+  <span class="math"><span class="sqrt">2x + 1</span> = 3</span><br><br>
+  Quadrieren: <span class="math">2x + 1 = 9</span><br>
+  Lösen: <span class="math">2x = 8</span>, also <span class="math">x = 4</span><br>
+  Probe: <span class="math"><span class="sqrt">2&middot;4 + 1</span> = <span class="sqrt">9</span> = 3</span> &check;
+</div>
+
+<h3>Beispiel 2: Scheinlösung entlarven</h3>
+
+<div class="example">
+  <span class="math"><span class="sqrt">x + 5</span> = x &minus; 1</span><br><br>
+  Quadrieren: <span class="math">x + 5 = (x &minus; 1)&sup2; = x&sup2; &minus; 2x + 1</span><br>
+  Umformen: <span class="math">x&sup2; &minus; 3x &minus; 4 = 0</span><br>
+  Vieta/Formel: <span class="math">x = 4</span> oder <span class="math">x = &minus;1</span><br><br>
+  Probe <span class="math">x = 4</span>: <span class="math"><span class="sqrt">4 + 5</span> = 3</span> und <span class="math">4 &minus; 1 = 3</span> &check;<br>
+  Probe <span class="math">x = &minus;1</span>: <span class="math"><span class="sqrt">&minus;1 + 5</span> = 2</span> und <span class="math">&minus;1 &minus; 1 = &minus;2</span> &cross; &nbsp;(Scheinlösung!)
+</div>
+
+<h3>3.3 Doppeltes Quadrieren</h3>
+
+<p>Bei Gleichungen mit <strong>zwei Wurzeltermen</strong> muss man manchmal zweimal quadrieren.</p>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Strategie bei zwei Wurzeln</div>
+  <ol>
+    <li>Eine Wurzel isolieren</li>
+    <li>Erstes Quadrieren — die andere Wurzel bleibt übrig</li>
+    <li>Verbliebene Wurzel isolieren</li>
+    <li>Zweites Quadrieren</li>
+    <li><strong>Probe</strong> (besonders wichtig bei doppeltem Quadrieren!)</li>
+  </ol>
+</div>
+
+<div class="example">
+  <span class="math"><span class="sqrt">x + 7</span> &minus; <span class="sqrt">x</span> = 1</span><br><br>
+  Isolieren: <span class="math"><span class="sqrt">x + 7</span> = 1 + <span class="sqrt">x</span></span><br>
+  1. Quadrieren: <span class="math">x + 7 = 1 + 2<span class="sqrt">x</span> + x</span><br>
+  Vereinfachen: <span class="math">6 = 2<span class="sqrt">x</span></span>, also <span class="math"><span class="sqrt">x</span> = 3</span><br>
+  2. Quadrieren: <span class="math">x = 9</span><br>
+  Probe: <span class="math"><span class="sqrt">16</span> &minus; <span class="sqrt">9</span> = 4 &minus; 3 = 1</span> &check;
+</div>
+
+<div class="faktenbox warning">
+  <div class="faktenbox-title">Achtung: Definitionsbereich</div>
+  <p>Vor dem Lösen den <strong>Definitionsbereich</strong> bestimmen: Jeder Radikand muss <span class="math">&ge; 0</span> sein. Lösungen ausserhalb des Definitionsbereichs sind ungültig.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="kap4">4. Bruchgleichungen</h2>
+<!-- ============================================================ -->
+
+<h3>4.1 Definition</h3>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Bruchgleichung</div>
+  <p>Eine <strong>Bruchgleichung</strong> ist eine Gleichung, bei der die <em>Unbekannte im Nenner</em> vorkommt. Der <strong>Definitionsbereich</strong> schliesst alle Werte aus, die einen Nenner zu Null machen.</p>
+</div>
+
+<h3>4.2 Lösungsmethode</h3>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Standardverfahren</div>
+  <ol>
+    <li><strong>Nenner faktorisieren</strong> (Ausklammern, binomische Formeln, Vieta)</li>
+    <li><strong>Definitionsbereich</strong> bestimmen (Nenner &ne; 0)</li>
+    <li><strong>Hauptnenner</strong> bestimmen (kgV aller Nenner)</li>
+    <li>Beide Seiten mit dem Hauptnenner <strong>multiplizieren</strong></li>
+    <li>Entstandene Gleichung <strong>lösen</strong></li>
+    <li>Lösungen gegen den <strong>Definitionsbereich prüfen</strong></li>
+  </ol>
+</div>
+
+<h3>Beispiel 1: Einfache Bruchgleichung</h3>
+
+<div class="example">
+  <span class="math"><span class="frac"><span class="num">3</span><span class="den">x &minus; 2</span></span> = <span class="frac"><span class="num">5</span><span class="den">x + 1</span></span></span><br><br>
+  DB: <span class="math">x &ne; 2</span> und <span class="math">x &ne; &minus;1</span><br>
+  Hauptnenner: <span class="math">(x &minus; 2)(x + 1)</span><br>
+  Multiplizieren: <span class="math">3(x + 1) = 5(x &minus; 2)</span><br>
+  <span class="math">3x + 3 = 5x &minus; 10</span><br>
+  <span class="math">13 = 2x</span>, also <span class="math">x = 6.5</span><br>
+  DB-Check: <span class="math">6.5 &ne; 2</span> und <span class="math">6.5 &ne; &minus;1</span> &check;
+</div>
+
+<h3>4.3 Nenner faktorisieren</h3>
+
+<p>Oft müssen Nenner zuerst zerlegt werden, um den Hauptnenner zu finden:</p>
+
+<table>
+  <tr><th>Methode</th><th>Beispiel</th></tr>
+  <tr>
+    <td>Ausklammern</td>
+    <td><span class="math">x&sup2; &minus; 3x = x(x &minus; 3)</span></td>
+  </tr>
+  <tr>
+    <td>Binomische Formel</td>
+    <td><span class="math">x&sup2; &minus; 9 = (x + 3)(x &minus; 3)</span></td>
+  </tr>
+  <tr>
+    <td>Vieta / Zerlegungssatz</td>
+    <td><span class="math">x&sup2; &minus; 5x + 6 = (x &minus; 2)(x &minus; 3)</span></td>
+  </tr>
+</table>
+
+<h3>Beispiel 2: Bruchgleichung mit Faktorisierung</h3>
+
+<div class="example">
+  <span class="math"><span class="frac"><span class="num">2</span><span class="den">x&sup2; &minus; 4</span></span> + <span class="frac"><span class="num">1</span><span class="den">x &minus; 2</span></span> = <span class="frac"><span class="num">3</span><span class="den">x + 2</span></span></span><br><br>
+  Faktorisieren: <span class="math">x&sup2; &minus; 4 = (x &minus; 2)(x + 2)</span><br>
+  DB: <span class="math">x &ne; 2</span> und <span class="math">x &ne; &minus;2</span><br>
+  Hauptnenner: <span class="math">(x &minus; 2)(x + 2)</span><br>
+  Multiplizieren: <span class="math">2 + (x + 2) = 3(x &minus; 2)</span><br>
+  <span class="math">x + 4 = 3x &minus; 6</span><br>
+  <span class="math">10 = 2x</span>, also <span class="math">x = 5</span><br>
+  DB-Check: <span class="math">5 &ne; &plusmn;2</span> &check;
+</div>
+
+<h3>4.4 Scheinlösungen erkennen</h3>
+
+<div class="faktenbox warning">
+  <div class="faktenbox-title">Scheinlösungen bei Bruchgleichungen</div>
+  <p>Eine <strong>Scheinlösung</strong> entsteht, wenn die berechnete Lösung einen Nenner der Originalgleichung zu Null macht. Diese Lösung ist <em>nicht im Definitionsbereich</em> und muss verworfen werden.</p>
+</div>
+
+<div class="example">
+  <span class="math"><span class="frac"><span class="num">x</span><span class="den">x &minus; 3</span></span> = <span class="frac"><span class="num">3</span><span class="den">x &minus; 3</span></span> + 2</span><br><br>
+  DB: <span class="math">x &ne; 3</span><br>
+  Multiplizieren mit <span class="math">(x &minus; 3)</span>: <span class="math">x = 3 + 2(x &minus; 3)</span><br>
+  <span class="math">x = 3 + 2x &minus; 6 = 2x &minus; 3</span><br>
+  <span class="math">x = 3</span><br>
+  DB-Check: <span class="math">x = 3</span> ist ausgeschlossen! &cross; &nbsp;Keine Lösung. <span class="math">L = \{\}</span>
+</div>
+
+<h3>4.5 Bruchgleichungen mit Parameter</h3>
+
+<p>Bei Parametern muss der Definitionsbereich vom Parameter abhängen:</p>
+
+<div class="example">
+  <span class="math"><span class="frac"><span class="num">1</span><span class="den">x &minus; t</span></span> = 1 &minus; <span class="frac"><span class="num">1</span><span class="den">t</span></span></span> &nbsp;mit Parameter <span class="math">t &ne; 0</span><br><br>
+  DB: <span class="math">x &ne; t</span> und <span class="math">t &ne; 0</span><br>
+  Hauptnenner: <span class="math">t(x &minus; t)</span><br>
+  Multiplizieren: <span class="math">t = t(x &minus; t) &minus; (x &minus; t)</span><br>
+  <span class="math">t = (x &minus; t)(t &minus; 1)</span><br>
+  Falls <span class="math">t &ne; 1</span>: <span class="math">x &minus; t = <span class="frac"><span class="num">t</span><span class="den">t &minus; 1</span></span></span>, also <span class="math">x = t + <span class="frac"><span class="num">t</span><span class="den">t &minus; 1</span></span> = <span class="frac"><span class="num">t&sup2;</span><span class="den">t &minus; 1</span></span></span><br>
+  Falls <span class="math">t = 1</span>: <span class="math">1 = 0</span> — Widerspruch, keine Lösung.
+</div>
+
+<!-- ============================================================ -->
+<h2 id="kap5">5. Zusammenfassung &amp; Prüfungstipps</h2>
+<!-- ============================================================ -->
+
+<h3>5.1 Checkliste: Wann welche Methode?</h3>
+
+<table>
+  <tr><th>Aufgabentyp</th><th>Erkennungsmerkmal</th><th>Methode</th></tr>
+  <tr>
+    <td>Wurzelterm vereinfachen</td>
+    <td>Keine Gleichung, nur ein Term</td>
+    <td>Normalform herstellen (Quadrate ausziehen, Nenner rationalisieren)</td>
+  </tr>
+  <tr>
+    <td>Wurzelgleichung</td>
+    <td>Wurzel über der Unbekannten</td>
+    <td>Isolieren &rarr; Quadrieren &rarr; Lösen &rarr; <em>Probe</em></td>
+  </tr>
+  <tr>
+    <td>Bruchgleichung</td>
+    <td>Unbekannte im Nenner</td>
+    <td>Faktorisieren &rarr; DB &rarr; Hauptnenner &rarr; Multiplizieren &rarr; <em>DB-Check</em></td>
+  </tr>
+  <tr>
+    <td>Quadratische Gleichung (nach Umformung)</td>
+    <td><span class="math">ax&sup2; + bx + c = 0</span></td>
+    <td>Vieta, Lösungsformel oder quadratische Ergänzung</td>
+  </tr>
+</table>
+
+<h3>5.2 Typische Prüfungsfallen</h3>
+
+<div class="faktenbox warning">
+  <div class="faktenbox-title">Top 5 Fehlerquellen</div>
+  <ol>
+    <li><strong>Probe vergessen</strong> bei Wurzelgleichungen — Scheinlösungen nicht erkannt</li>
+    <li><strong>Definitionsbereich vergessen</strong> bei Bruchgleichungen — Scheinlösungen übersehen</li>
+    <li><span class="math"><span class="sqrt">a + b</span> &ne; <span class="sqrt">a</span> + <span class="sqrt">b</span></span> — Wurzel über Summe falsch aufgespalten</li>
+    <li><strong>Nur eine Lösung</strong> bei <span class="math">x&sup2; = a</span> — das negative Vorzeichen vergessen</li>
+    <li><strong>Binomische Formel falsch</strong> beim Quadrieren: <span class="math">(a + b)&sup2; = a&sup2; + 2ab + b&sup2;</span>, nicht <span class="math">a&sup2; + b&sup2;</span></li>
+  </ol>
+</div>
+
+<h3>5.3 Lösungsstrategien</h3>
+
+<div class="faktenbox success">
+  <div class="faktenbox-title">Prüfungstipps</div>
+  <ul>
+    <li><strong>Definitionsbereich zuerst</strong> — immer als Erstes notieren, bevor du rechnest</li>
+    <li><strong>Probe am Schluss</strong> — in die <em>Original</em>gleichung einsetzen, nicht in eine umgeformte Version</li>
+    <li><strong>Übersicht behalten:</strong> Schreibe bei Wurzelgleichungen über jeden Schritt, ob du quadrierst (= Gewinnumformung) oder Wurzel ziehst (= Verlustumformung)</li>
+    <li><strong>Nenner faktorisieren:</strong> Immer zuerst nach gemeinsamen Faktoren suchen — das vereinfacht den Hauptnenner</li>
+    <li><strong>Konjugierter Ausdruck:</strong> Bei Summe/Differenz mit Wurzeln im Nenner → 3. binomische Formel anwenden</li>
+    <li><strong>Zeitmanagement:</strong> Wenn eine Aufgabe nach 2x Quadrieren immer noch komplex ist, zur nächsten Aufgabe und später zurückkommen</li>
+  </ul>
+</div>
+
+<div class="faktenbox success">
+  <div class="faktenbox-title">Schnellcheck vor Abgabe</div>
+  <ul>
+    <li>Alle Proben gemacht?</li>
+    <li>Alle Definitionsbereiche notiert?</li>
+    <li>Lösungsmengen korrekt aufgeschrieben?</li>
+    <li>Wurzelterme in Normalform (quadratfrei, kein Wurzelnenner)?</li>
+    <li>Bei Parametern: Fallunterscheidung gemacht?</li>
+  </ul>
+</div>
+
+</body>
+</html>
