@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Übungsprüfung — Stromkreise</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0f1117;color:#e0e0e0;line-height:1.7;padding:20px;max-width:900px;margin:0 auto}
+h1{font-size:1.8em;color:#7eb8ff;border-bottom:2px solid #7eb8ff;padding-bottom:8px;margin-bottom:8px}
+h2{font-size:1.3em;color:#ff9f43;margin:28px 0 14px;border-left:4px solid #ff9f43;padding-left:12px}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 24px}
+li{margin:4px 0}
+.meta{color:#888;font-size:0.85em;margin-bottom:20px}
+.info-box{background:#1e293b;border:1px solid #334;border-radius:10px;padding:16px 20px;margin:16px 0}
+.aufgabe{background:#161b24;border:1px solid #334;border-radius:10px;padding:16px 20px;margin:16px 0}
+.aufgabe .nr{font-weight:700;color:#ff9f43;font-size:1.05em}
+.aufgabe .punkte{color:#888;font-size:0.9em;float:right}
+.aufgabe .text{margin:8px 0}
+details{margin-top:10px}
+summary{cursor:pointer;color:#4ade80;font-weight:600;padding:6px 0}
+summary:hover{color:#86efac}
+.loesung{background:#1e2a1e;border-left:3px solid #4ade80;padding:12px 16px;margin-top:8px;border-radius:0 8px 8px 0}
+.loesung .ergebnis{color:#4ade80;font-weight:700;margin-top:4px}
+.formel{font-family:'Courier New',monospace;color:#fff}
+strong{color:#fff}
+sub,sup{font-size:0.75em}
+.noten-tabelle{background:#1e293b;border-radius:10px;padding:16px 20px;margin:24px 0}
+.noten-tabelle table{width:100%;border-collapse:collapse}
+.noten-tabelle th{background:#263348;color:#7eb8ff;padding:6px 10px;text-align:center;border:1px solid #334}
+.noten-tabelle td{padding:6px 10px;text-align:center;border:1px solid #334}
+.total{font-size:1.2em;color:#7eb8ff;font-weight:700;text-align:right;margin-top:16px}
+table.zuordnung{width:100%;border-collapse:collapse;margin:10px 0}
+table.zuordnung th{background:#263348;color:#7eb8ff;padding:8px 12px;text-align:left;border:1px solid #334}
+table.zuordnung td{padding:8px 12px;border:1px solid #334}
+.lz-tag{display:inline-block;background:#263348;color:#7eb8ff;font-size:0.75em;padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:middle}
+</style>
+</head>
+<body>
+
+<h1>Übungsprüfung — Stromkreise</h1>
+<p class="meta">RZG / NaTech | ~45 Minuten | 50 Punkte | Livia | 29.03.2026</p>
+
+<div class="info-box">
+<strong>Prüfungsinformationen</strong>
+<ul>
+<li>Thema: Stromkreise untersuchen (12 Lernziele)</li>
+<li>Dauer: ca. 45 Minuten</li>
+<li>Total: 50 Punkte</li>
+<li>Hilfsmittel: Taschenrechner</li>
+<li>Wichtig: Haushaltsspannung Schweiz = 230 V</li>
+<li>Lösungsweg bei Rechnungen immer angeben!</li>
+</ul>
+</div>
+
+<!-- ===== TEIL A: GRUNDWISSEN (12 P) ===== -->
+<h2>Teil A — Grundwissen (12 Punkte)</h2>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 1 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 1</span></div>
+<div class="text">
+Erkläre die folgenden zwei Begriffe in je einem Satz:<br>
+a) Elektrizität [1 P]<br>
+b) Elektron [1 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>a) Elektrizität ist eine Energieform, die durch die Bewegung von elektrischen Ladungen (Elektronen) entsteht und z. B. Licht, Wärme oder Bewegung erzeugen kann. [1 P]</p>
+<p>b) Ein Elektron ist ein winziges, negativ geladenes Teilchen, das den Atomkern umkreist und bei Stromfluss durch den Leiter wandert. [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 2 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 2</span></div>
+<div class="text">
+Nenne die vier zwingend nötigen Bestandteile eines geschlossenen Stromkreises. [2 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>1. <strong>Stromquelle</strong> (z. B. Batterie) — liefert die Energie</p>
+<p>2. <strong>Leitungen</strong> (Kabel) — transportieren den Strom</p>
+<p>3. <strong>Verbraucher</strong> (z. B. Lampe, Motor) — wandelt Energie um</p>
+<p>4. <strong>Schalter</strong> — öffnet/schliesst den Stromkreis</p>
+<p>[je 0.5 P, total 2 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 3 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 9</span></div>
+<div class="text">
+Fülle die Lücken aus:
+<table class="zuordnung">
+<tr><th>Grösse</th><th>Buchstabe</th><th>Einheit</th><th>Messgerät</th></tr>
+<tr><td>Spannung</td><td>____</td><td>____</td><td>____</td></tr>
+<tr><td>Stromstärke</td><td>____</td><td>____</td><td>____</td></tr>
+<tr><td>Widerstand</td><td>____</td><td>____</td><td>____</td></tr>
+<tr><td>Ladung</td><td>____</td><td>____</td><td>—</td></tr>
+</table>
+[2 P: 0.5 P pro korrekte Zeile]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<table class="zuordnung">
+<tr><th>Grösse</th><th>Buchstabe</th><th>Einheit</th><th>Messgerät</th></tr>
+<tr><td>Spannung</td><td><strong>U</strong></td><td><strong>Volt (V)</strong></td><td><strong>Voltmeter</strong></td></tr>
+<tr><td>Stromstärke</td><td><strong>I</strong></td><td><strong>Ampere (A)</strong></td><td><strong>Amperemeter</strong></td></tr>
+<tr><td>Widerstand</td><td><strong>R</strong></td><td><strong>Ohm (Ω)</strong></td><td><strong>Ohmmeter</strong></td></tr>
+<tr><td>Ladung</td><td><strong>Q</strong></td><td><strong>Coulomb (C)</strong></td><td>—</td></tr>
+</table>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 4 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 9</span></div>
+<div class="text">
+a) Wie wird ein <strong>Amperemeter</strong> in einen Stromkreis eingebaut — in Serie oder parallel zum Verbraucher? [0.5 P]<br>
+b) Wie wird ein <strong>Voltmeter</strong> eingebaut? [0.5 P]<br>
+c) Begründe, warum das Voltmeter so eingebaut wird. [1 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>a) Das Amperemeter wird <strong>in Serie</strong> (hintereinander) geschaltet — der gesamte Strom muss durch das Messgerät fliessen. [0.5 P]</p>
+<p>b) Das Voltmeter wird <strong>parallel</strong> (als Abzweigung) zum Verbraucher geschaltet. [0.5 P]</p>
+<p>c) Das Voltmeter misst die Spannung (den Druckunterschied) zwischen zwei Punkten. Dafür muss es an beiden Seiten des Verbrauchers angeschlossen sein, also parallel. [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 5 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 7</span></div>
+<div class="text">
+Nenne vier Regeln, die beim Zeichnen von Schaltplänen gelten. [2 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>Mögliche Antworten (4 aus folgenden, je 0.5 P):</p>
+<ul>
+<li>Nur genormte Schaltsymbole verwenden (keine Bildchen)</li>
+<li>Leitungen als gerade Linien zeichnen (rechtwinklig)</li>
+<li>Leitungen dürfen sich nicht unnötig kreuzen</li>
+<li>Schaltsymbole korrekt beschriften</li>
+<li>Der Stromkreis muss geschlossen sein</li>
+<li>Übersichtlich und sauber zeichnen</li>
+</ul>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 6 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 7</span></div>
+<div class="text">
+Ordne die folgenden Schaltsymbole dem richtigen Bauteil zu:
+<table class="zuordnung">
+<tr><th>Symbol-Beschreibung</th><th>Bauteil</th></tr>
+<tr><td>Zwei parallele Striche (einer lang, einer kurz)</td><td>____</td></tr>
+<tr><td>Kreis mit Kreuz darin</td><td>____</td></tr>
+<tr><td>Zickzack-Linie (oder Rechteck)</td><td>____</td></tr>
+<tr><td>Unterbrochene Linie mit Kontaktpunkt</td><td>____</td></tr>
+</table>
+[2 P: 0.5 P pro korrekte Zuordnung]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<table class="zuordnung">
+<tr><th>Symbol-Beschreibung</th><th>Bauteil</th></tr>
+<tr><td>Zwei parallele Striche (lang/kurz)</td><td><strong>Batterie / Spannungsquelle</strong></td></tr>
+<tr><td>Kreis mit Kreuz</td><td><strong>Glühlampe</strong></td></tr>
+<tr><td>Zickzack-Linie / Rechteck</td><td><strong>Widerstand</strong></td></tr>
+<tr><td>Unterbrochene Linie mit Kontakt</td><td><strong>Schalter</strong></td></tr>
+</table>
+</div>
+</details>
+</div>
+
+<!-- ===== TEIL B: VERSTÄNDNIS (18 P) ===== -->
+<h2>Teil B — Verständnis (18 Punkte)</h2>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 7 <span class="punkte">[3 P]</span> <span class="lz-tag">LZ 3</span></div>
+<div class="text">
+Vergleiche Serieschaltung und Parallelschaltung. Fülle die Tabelle aus:
+<table class="zuordnung">
+<tr><th>Merkmal</th><th>Serieschaltung</th><th>Parallelschaltung</th></tr>
+<tr><td>Aufbau (wie sind Verbraucher verbunden?)</td><td>____</td><td>____</td></tr>
+<tr><td>Was passiert, wenn ein Lämpchen ausfällt?</td><td>____</td><td>____</td></tr>
+<tr><td>Alltagsbeispiel</td><td>____</td><td>____</td></tr>
+</table>
+[3 P: 0.5 P pro korrektes Feld]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<table class="zuordnung">
+<tr><th>Merkmal</th><th>Serieschaltung</th><th>Parallelschaltung</th></tr>
+<tr><td>Aufbau</td><td><strong>Hintereinander, ein Stromweg</strong></td><td><strong>Nebeneinander, mehrere Stromwege</strong></td></tr>
+<tr><td>Lämpchen fällt aus</td><td><strong>Alle aus (Stromkreis unterbrochen)</strong></td><td><strong>Nur das defekte aus, Rest leuchtet weiter</strong></td></tr>
+<tr><td>Alltagsbeispiel</td><td><strong>Alte Lichterkette</strong></td><td><strong>Steckdosen im Haushalt</strong></td></tr>
+</table>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 8 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 3</span></div>
+<div class="text">
+Erkläre, warum man die Serieschaltung auch <strong>UND-Schaltung</strong> und die Parallelschaltung auch <strong>ODER-Schaltung</strong> nennt. Je ein Satz genügt.
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p><strong>UND-Schaltung (Serie):</strong> Schalter A <em>und</em> Schalter B müssen geschlossen sein, damit Strom fliesst — fällt einer aus, ist alles unterbrochen. [1 P]</p>
+<p><strong>ODER-Schaltung (Parallel):</strong> Es genügt, wenn Schalter A <em>oder</em> Schalter B geschlossen ist — der Strom hat mehrere Wege. [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 9 <span class="punkte">[3 P]</span> <span class="lz-tag">LZ 5</span></div>
+<div class="text">
+Beurteile die folgenden Aussagen. Schreibe <strong>wahr</strong> oder <strong>falsch</strong> und begründe falsche Aussagen in einem Satz.<br><br>
+a) Strom fliesst auch, wenn der Stromkreis offen ist. [1 P]<br>
+b) In einer Parallelschaltung ist die Spannung an jedem Verbraucher gleich gross. [1 P]<br>
+c) Ein dickerer Draht hat einen grösseren Widerstand als ein dünner Draht gleicher Länge. [1 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>a) <strong>Falsch.</strong> Strom kann nur fliessen, wenn der Stromkreis geschlossen ist — sonst gibt es keinen durchgehenden Weg für die Elektronen. [1 P]</p>
+<p>b) <strong>Wahr.</strong> In einer Parallelschaltung liegt an jedem Verbraucher dieselbe Spannung an. [1 P]</p>
+<p>c) <strong>Falsch.</strong> Ein dickerer Draht hat einen <em>kleineren</em> Widerstand, weil die Elektronen mehr Platz zum Durchfliessen haben. [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 10 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 8</span></div>
+<div class="text">
+<strong>Blackbox-Aufgabe:</strong> Du hast eine geschlossene Box mit zwei Lämpchen (A und B) und einer Batterie darin. Du kannst nur beobachten, ob die Lämpchen leuchten.<br><br>
+<strong>Beobachtung:</strong> Beide Lämpchen leuchten. Du schraubst Lämpchen A heraus. Lämpchen B leuchtet weiter.<br><br>
+a) Welche Schaltungsart liegt vor? [0.5 P]<br>
+b) Begründe deine Antwort. [1 P]<br>
+c) Was würdest du beobachten, wenn die Lämpchen in Serie geschaltet wären und du A herausschraubst? [0.5 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>a) <strong>Parallelschaltung.</strong> [0.5 P]</p>
+<p>b) In einer Parallelschaltung hat jedes Lämpchen einen eigenen Stromweg. Wenn A entfernt wird, bleibt der Stromweg von B intakt — B leuchtet weiter. [1 P]</p>
+<p>c) Bei einer Serieschaltung würde B ebenfalls ausgehen, weil der einzige Stromweg unterbrochen wäre. [0.5 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 11 <span class="punkte">[3 P]</span> <span class="lz-tag">LZ 11</span></div>
+<div class="text">
+Ordne die Begriffe des Wasserkreislaufs den passenden Begriffen des Stromkreises zu:
+<table class="zuordnung">
+<tr><th>Wasserkreislauf</th><th>Stromkreis</th></tr>
+<tr><td>Wasserpumpe</td><td>____</td></tr>
+<tr><td>Wasserrohr</td><td>____</td></tr>
+<tr><td>Wasserrad / Turbine</td><td>____</td></tr>
+<tr><td>Wassermenge pro Sekunde (Durchfluss)</td><td>____</td></tr>
+<tr><td>Druckunterschied</td><td>____</td></tr>
+<tr><td>Engstelle im Rohr</td><td>____</td></tr>
+</table>
+[3 P: 0.5 P pro korrekte Zuordnung]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<table class="zuordnung">
+<tr><th>Wasserkreislauf</th><th>Stromkreis</th></tr>
+<tr><td>Wasserpumpe</td><td><strong>Batterie / Spannungsquelle</strong></td></tr>
+<tr><td>Wasserrohr</td><td><strong>Elektrische Leitung (Kabel)</strong></td></tr>
+<tr><td>Wasserrad / Turbine</td><td><strong>Verbraucher (Lampe, Motor)</strong></td></tr>
+<tr><td>Durchfluss (Wassermenge/s)</td><td><strong>Stromstärke I (Ampere)</strong></td></tr>
+<tr><td>Druckunterschied</td><td><strong>Spannung U (Volt)</strong></td></tr>
+<tr><td>Engstelle im Rohr</td><td><strong>Widerstand R (Ohm)</strong></td></tr>
+</table>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 12 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 4</span></div>
+<div class="text">
+<strong>Fehlersuche:</strong> In einem Zimmer sind drei Lampen (L1, L2, L3) an denselben Stromkreis angeschlossen. L1 und L3 leuchten normal. L2 ist dunkel.<br><br>
+a) Sind die Lampen in Serie oder parallel geschaltet? Begründe. [1 P]<br>
+b) Nenne zwei mögliche Ursachen, warum L2 nicht leuchtet. [1 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>a) <strong>Parallel geschaltet.</strong> Bei einer Serieschaltung würden bei einem Defekt alle Lampen ausgehen — hier leuchten L1 und L3 aber weiter. [1 P]</p>
+<p>b) Mögliche Ursachen (2 aus folgenden, je 0.5 P):</p>
+<ul>
+<li>Die Glühbirne von L2 ist durchgebrannt</li>
+<li>Der Schalter von L2 ist offen / defekt</li>
+<li>Ein Kabel zu L2 ist lose / unterbrochen</li>
+<li>Die Fassung von L2 hat einen Wackelkontakt</li>
+</ul>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 13 <span class="punkte">[3 P]</span> <span class="lz-tag">LZ 1, 3</span></div>
+<div class="text">
+<strong>Multiple Choice</strong> — Kreuze die richtige Antwort an und begründe:<br><br>
+a) Was bedeutet «geschlossener Stromkreis»? [1 P]<br>
+☐ Der Stromkreis hat einen Deckel<br>
+☐ Der Strom kann vom Plus- zum Minuspol und zurück fliessen<br>
+☐ Der Schalter ist ausgeschaltet<br>
+☐ Die Batterie ist voll geladen<br><br>
+b) In einer Serieschaltung mit 3 gleichen Lämpchen an einer 9-V-Batterie — wie gross ist die Spannung an jedem Lämpchen? [1 P]<br>
+☐ 9 V<br>
+☐ 3 V<br>
+☐ 27 V<br>
+☐ 0 V<br><br>
+c) Warum sind Steckdosen im Haushalt parallel geschaltet? [1 P]<br>
+☐ Weil es billiger ist<br>
+☐ Weil jedes Gerät die volle Spannung (230 V) braucht und unabhängig funktionieren soll<br>
+☐ Weil Parallelschaltung weniger Strom verbraucht<br>
+☐ Weil es sicherer für den Stromzähler ist
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>a) <strong>Der Strom kann vom Plus- zum Minuspol und zurück fliessen.</strong> Ein geschlossener Stromkreis ist ein durchgehender, ununterbrochener Weg für den Strom. [1 P]</p>
+<p>b) <strong>3 V.</strong> In der Serieschaltung teilt sich die Spannung gleichmässig auf: 9 V ÷ 3 = 3 V pro Lämpchen. [1 P]</p>
+<p>c) <strong>Weil jedes Gerät die volle Spannung (230 V) braucht und unabhängig funktionieren soll.</strong> Bei Parallelschaltung liegt an jeder Steckdose 230 V an, und ein Gerät kann ausgeschaltet werden, ohne die anderen zu beeinflussen. [1 P]</p>
+</div>
+</details>
+</div>
+
+<!-- ===== TEIL C: RECHNEN & ANWENDEN (20 P) ===== -->
+<h2>Teil C — Rechnen &amp; Anwenden (20 Punkte)</h2>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 14 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 6</span></div>
+<div class="text">
+Ein Wasserkocher hat eine Leistung von 2300 W. Er wird an der Haushaltssteckdose (230 V) betrieben.<br>
+Berechne die Stromstärke I.
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>Gegeben: P = 2300 W, U = 230 V</p>
+<p>Gesucht: I</p>
+<p>Formel: P = U × I → <span class="formel">I = P / U</span></p>
+<p>I = 2300 W / 230 V</p>
+<p class="ergebnis">I = 10 A [2 P: 1 P Formel/Weg, 1 P Ergebnis]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 15 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 6</span></div>
+<div class="text">
+Eine Schreibtischlampe zieht 0.5 A bei 230 V.<br>
+Berechne die Leistung P der Lampe.
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>Gegeben: I = 0.5 A, U = 230 V</p>
+<p>Gesucht: P</p>
+<p>Formel: <span class="formel">P = U × I</span></p>
+<p>P = 230 V × 0.5 A</p>
+<p class="ergebnis">P = 115 W [2 P: 1 P Formel/Weg, 1 P Ergebnis]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 16 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 10, 12</span></div>
+<div class="text">
+An einem Widerstand von 20 Ω liegt eine Spannung von 12 V an.<br>
+Berechne die Stromstärke I.
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>Gegeben: R = 20 Ω, U = 12 V</p>
+<p>Gesucht: I</p>
+<p>Formel: U = R × I → <span class="formel">I = U / R</span></p>
+<p>I = 12 V / 20 Ω</p>
+<p class="ergebnis">I = 0.6 A [2 P: 1 P Formel/Weg, 1 P Ergebnis]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 17 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 10, 12</span></div>
+<div class="text">
+Durch einen Widerstand fliesst ein Strom von 2 A. Die Spannung beträgt 24 V.<br>
+Berechne den Widerstand R.
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>Gegeben: I = 2 A, U = 24 V</p>
+<p>Gesucht: R</p>
+<p>Formel: <span class="formel">R = U / I</span></p>
+<p>R = 24 V / 2 A</p>
+<p class="ergebnis">R = 12 Ω [2 P: 1 P Formel/Weg, 1 P Ergebnis]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 18 <span class="punkte">[3 P]</span> <span class="lz-tag">LZ 10, 12</span></div>
+<div class="text">
+Ein Föhn hat einen Widerstand von 46 Ω und wird an 230 V betrieben.<br>
+a) Berechne die Stromstärke I. [1.5 P]<br>
+b) Berechne die Leistung P. [1.5 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p><strong>a)</strong></p>
+<p>I = U / R = 230 V / 46 Ω</p>
+<p class="ergebnis">I = 5 A [1.5 P]</p>
+<p><strong>b)</strong></p>
+<p>P = U × I = 230 V × 5 A</p>
+<p class="ergebnis">P = 1150 W [1.5 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 19 <span class="punkte">[3 P]</span> <span class="lz-tag">LZ 12</span></div>
+<div class="text">
+An einer LED-Lichterkette (Serieschaltung) mit 10 gleichen LEDs liegt eine Gesamtspannung von 30 V an. Jede LED hat einen Widerstand von 50 Ω.<br>
+a) Wie gross ist die Spannung an jeder einzelnen LED? [1 P]<br>
+b) Wie gross ist der Gesamtwiderstand? [1 P]<br>
+c) Wie gross ist die Stromstärke im Stromkreis? [1 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p><strong>a)</strong> U<sub>LED</sub> = U<sub>ges</sub> / 10 = 30 V / 10</p>
+<p class="ergebnis">U<sub>LED</sub> = 3 V [1 P]</p>
+<p><strong>b)</strong> R<sub>ges</sub> = 10 × 50 Ω</p>
+<p class="ergebnis">R<sub>ges</sub> = 500 Ω [1 P]</p>
+<p><strong>c)</strong> I = U / R<sub>ges</sub> = 30 V / 500 Ω</p>
+<p class="ergebnis">I = 0.06 A = 60 mA [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 20 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 8</span></div>
+<div class="text">
+<strong>Blackbox-Aufgabe 2:</strong> Eine Box enthält drei Lämpchen (X, Y, Z) und eine Batterie. Du beobachtest Folgendes:<br><br>
+— Alle drei leuchten.<br>
+— Du schraubst X heraus → Y geht aus, Z leuchtet weiter.<br><br>
+Beschreibe die Schaltung in der Box so genau wie möglich. [2 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p><strong>X und Y</strong> sind <strong>in Serie</strong> geschaltet (hintereinander auf einem Stromweg). Wenn X herausgeschraubt wird, ist dieser Stromweg unterbrochen → Y geht auch aus. [1 P]</p>
+<p><strong>Z</strong> liegt <strong>parallel</strong> zu X+Y (eigener Stromweg). Deshalb leuchtet Z weiter, obwohl X entfernt wurde. [1 P]</p>
+<p>Es handelt sich um eine <strong>gemischte Schaltung</strong>: X und Y in Serie, Z parallel dazu.</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 21 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 4</span></div>
+<div class="text">
+<strong>Fehlersuche:</strong> Du baust im Unterricht einen Stromkreis mit Batterie, Schalter und Lämpchen. Du schliesst den Schalter, aber das Lämpchen leuchtet nicht.<br><br>
+Beschreibe systematisch vier Schritte, wie du den Fehler findest. [2 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>Systematische Fehlersuche (je 0.5 P):</p>
+<ol>
+<li><strong>Batterie prüfen:</strong> Ist sie geladen? Mit einem anderen Verbraucher testen oder Spannung messen.</li>
+<li><strong>Lämpchen prüfen:</strong> Ist die Glühbirne intakt? Mit einer funktionierenden Batterie testen oder austauschen.</li>
+<li><strong>Verbindungen prüfen:</strong> Sind alle Kabel fest angeschlossen? Kein loses Kabel, kein Wackelkontakt?</li>
+<li><strong>Schalter prüfen:</strong> Funktioniert der Schalter? Überbrücken und schauen, ob das Lämpchen leuchtet.</li>
+</ol>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 22 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 5, 11</span></div>
+<div class="text">
+Beurteile die folgenden Aussagen mit <strong>wahr</strong> oder <strong>falsch</strong>. Begründe falsche Aussagen.<br><br>
+a) Im Wassermodell entspricht der Wasserdruck der Stromstärke. [1 P]<br>
+b) Wenn man den Widerstand in einem Stromkreis verdoppelt (bei gleicher Spannung), halbiert sich die Stromstärke. [1 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>a) <strong>Falsch.</strong> Der Wasserdruck entspricht der <em>Spannung</em> (U), nicht der Stromstärke. Die Stromstärke entspricht der Wassermenge, die pro Sekunde durchfliesst (Durchfluss). [1 P]</p>
+<p>b) <strong>Wahr.</strong> Nach dem Ohmschen Gesetz: I = U / R. Bei doppeltem R und gleichem U wird I halb so gross. [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 23 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 6, 12</span></div>
+<div class="text">
+Ein Bügeleisen hat eine Leistung von 2760 W und wird an 230 V betrieben.<br>
+a) Berechne die Stromstärke. [1 P]<br>
+b) Eine Haushaltssicherung ist auf 10 A ausgelegt. Hält die Sicherung? Begründe. [1 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p><strong>a)</strong> I = P / U = 2760 W / 230 V</p>
+<p class="ergebnis">I = 12 A [1 P]</p>
+<p><strong>b)</strong> Nein, die Sicherung hält <strong>nicht</strong>. Das Bügeleisen zieht 12 A, die Sicherung ist aber nur auf 10 A ausgelegt → die Sicherung löst aus (fliegt raus). [1 P]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 24 <span class="punkte">[1 P]</span> <span class="lz-tag">LZ 1</span></div>
+<div class="text">
+<strong>Lückentext:</strong> Vervollständige den Satz:<br><br>
+In einem geschlossenen Stromkreis bewegen sich die __________ vom __________-Pol der Batterie durch den Leiter zum __________-Pol. Die Richtung des <em>technischen</em> Stroms ist umgekehrt definiert: von __________ nach __________.
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p>In einem geschlossenen Stromkreis bewegen sich die <strong>Elektronen</strong> vom <strong>Minus</strong>-Pol der Batterie durch den Leiter zum <strong>Plus</strong>-Pol. Die Richtung des <em>technischen</em> Stroms ist umgekehrt definiert: von <strong>Plus</strong> nach <strong>Minus</strong>. [1 P: je 0.2 P pro Lücke]</p>
+</div>
+</details>
+</div>
+
+<div class="aufgabe">
+<div class="nr">Aufgabe 25 <span class="punkte">[2 P]</span> <span class="lz-tag">LZ 10, 12</span></div>
+<div class="text">
+<strong>Knobelaufgabe:</strong> Zwei Widerstände (R<sub>1</sub> = 10 Ω und R<sub>2</sub> = 20 Ω) sind in Serie an eine 6-V-Batterie angeschlossen.<br>
+a) Wie gross ist der Gesamtwiderstand? [0.5 P]<br>
+b) Wie gross ist die Stromstärke im Stromkreis? [0.5 P]<br>
+c) Wie gross ist die Spannung an R<sub>1</sub>? Und an R<sub>2</sub>? [1 P]
+</div>
+<details>
+<summary>Lösung anzeigen</summary>
+<div class="loesung">
+<p><strong>a)</strong> R<sub>ges</sub> = R<sub>1</sub> + R<sub>2</sub> = 10 + 20</p>
+<p class="ergebnis">R<sub>ges</sub> = 30 Ω [0.5 P]</p>
+<p><strong>b)</strong> I = U / R<sub>ges</sub> = 6 V / 30 Ω</p>
+<p class="ergebnis">I = 0.2 A [0.5 P]</p>
+<p><strong>c)</strong></p>
+<p>U<sub>1</sub> = R<sub>1</sub> × I = 10 × 0.2 = <strong>2 V</strong> [0.5 P]</p>
+<p>U<sub>2</sub> = R<sub>2</sub> × I = 20 × 0.2 = <strong>4 V</strong> [0.5 P]</p>
+<p><em>Kontrolle: U<sub>1</sub> + U<sub>2</sub> = 2 + 4 = 6 V ✓</em></p>
+</div>
+</details>
+</div>
+
+<!-- ===== TOTAL & NOTENSCHLÜSSEL ===== -->
+<div class="total">Total: 50 Punkte</div>
+
+<div class="noten-tabelle">
+<strong>Notenschlüssel (CH, Note 1–6)</strong>
+<table>
+<tr><th>Note</th><th>6</th><th>5.5</th><th>5</th><th>4.5</th><th>4</th><th>3.5</th><th>3</th><th>&lt;3</th></tr>
+<tr><td>Punkte</td><td>47–50</td><td>43–46</td><td>38–42</td><td>33–37</td><td>28–32</td><td>23–27</td><td>18–22</td><td>&lt;18</td></tr>
+<tr><td>Prozent</td><td>94–100%</td><td>86–92%</td><td>76–84%</td><td>66–74%</td><td>56–64%</td><td>46–54%</td><td>36–44%</td><td>&lt;36%</td></tr>
+</table>
+</div>
+
+<div class="info-box" style="margin-top:24px;">
+<strong>Lernziel-Übersicht</strong>
+<table class="zuordnung" style="font-size:0.9em;">
+<tr><th>LZ</th><th>Thema</th><th>Aufgaben</th></tr>
+<tr><td>1</td><td>Grundbegriffe</td><td>1, 13, 24</td></tr>
+<tr><td>2</td><td>Bestandteile geschlossener Stromkreis</td><td>2</td></tr>
+<tr><td>3</td><td>Serie- vs. Parallelschaltung</td><td>7, 8, 13</td></tr>
+<tr><td>4</td><td>Fehlersuche</td><td>12, 21</td></tr>
+<tr><td>5</td><td>Wahr/Falsch beurteilen</td><td>9, 22</td></tr>
+<tr><td>6</td><td>P = U × I</td><td>14, 15, 23</td></tr>
+<tr><td>7</td><td>Schaltsymbole und Schaltpläne</td><td>5, 6</td></tr>
+<tr><td>8</td><td>Blackbox-Aufgaben</td><td>10, 20</td></tr>
+<tr><td>9</td><td>Elektrische Grössen (Q, I, U, R)</td><td>3, 4</td></tr>
+<tr><td>10</td><td>Berechnungen (U=R×I)</td><td>16, 17, 19, 25</td></tr>
+<tr><td>11</td><td>Wasserkreis-Stromkreis-Vergleich</td><td>11, 22</td></tr>
+<tr><td>12</td><td>Ohmsches Gesetz anwenden</td><td>16, 17, 18, 19, 23, 25</td></tr>
+</table>
+</div>
+
+<p style="text-align:center;color:#666;margin-top:40px;font-size:0.85em;">Übungsprüfung | Stromkreise untersuchen | RZG/NaTech | Version 1.0 | 29.03.2026</p>
+
+</body>
+</html>

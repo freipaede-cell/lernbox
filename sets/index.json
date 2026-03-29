@@ -93,6 +93,19 @@
         { "type": "wissen", "title": "Wissens-Kompakt", "file": "materials/mathe-wurzeln-bruchgleichungen-2026-wissen.html" },
         { "type": "pruefung", "title": "Übungsprüfung", "file": "materials/mathe-wurzeln-bruchgleichungen-2026-pruefung.html" }
       ]
+    },
+    {
+      "id": "rzg-stromkreise-2026",
+      "file": "sets/rzg-stromkreise-2026.json",
+      "title": "Stromkreise untersuchen",
+      "subject": "RZG",
+      "cardCount": 30,
+      "profiles": ["livia"],
+      "examDate": "",
+      "materials": [
+        { "type": "wissen", "title": "Wissens-Kompakt", "file": "materials/rzg-stromkreise-2026-wissen.html" },
+        { "type": "pruefung", "title": "Übungsprüfung", "file": "materials/rzg-stromkreise-2026-pruefung.html" }
+      ]
     }
   ]
 }

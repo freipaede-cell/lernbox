@@ -1,0 +1,126 @@
+{
+  "title": "Stromkreise untersuchen",
+  "subject": "RZG",
+  "cards": [
+    {
+      "front": "Was ist Elektrizität?",
+      "back": "Elektrizität ist eine Energieform, die durch die Bewegung von elektrischen Ladungen (Elektronen) entsteht.\nSie kann in andere Energieformen umgewandelt werden: Licht, Wärme, Bewegung, Schall."
+    },
+    {
+      "front": "Was ist ein Elektron?",
+      "back": "Ein Elektron ist ein winziges, negativ geladenes Teilchen.\nEs kreist um den Atomkern und kann sich in Metallen frei bewegen.\nDiese freien Elektronen ermöglichen den elektrischen Strom."
+    },
+    {
+      "front": "Was ist ein Stromkreis und wann ist er geschlossen?",
+      "back": "Ein Stromkreis ist ein geschlossener Weg, auf dem Strom fliessen kann.\nEr ist geschlossen, wenn alle Teile lückenlos miteinander verbunden sind — vom Pluspol der Batterie über die Leitung und das Gerät zurück zum Minuspol.\nIst der Kreis unterbrochen (z.B. Schalter offen), fliesst kein Strom."
+    },
+    {
+      "front": "Welche Bestandteile braucht ein geschlossener Stromkreis mindestens?",
+      "back": "1. Stromquelle (z.B. Batterie)\n2. Leitungen (Kabel)\n3. Verbraucher (z.B. Lampe, Motor)\n4. Schalter (zum Ein-/Ausschalten)\nAlle müssen lückenlos verbunden sein."
+    },
+    {
+      "front": "Welche Aufgabe hat jeder Bestandteil im Stromkreis?",
+      "back": "Stromquelle: Liefert die Energie (treibt Elektronen an)\nLeitung: Transportiert den Strom\nVerbraucher: Wandelt elektrische Energie um (z.B. in Licht)\nSchalter: Öffnet/schliesst den Stromkreis"
+    },
+    {
+      "front": "Was ist eine Serieschaltung (Reihenschaltung)?",
+      "back": "Die Verbraucher sind hintereinander geschaltet — der Strom hat nur einen Weg.\nFällt ein Verbraucher aus (z.B. Lampe kaputt), ist der Stromkreis unterbrochen → alle Geräte gehen aus.\nBeispiel: Alte Weihnachtslichterkette."
+    },
+    {
+      "front": "Was ist eine Parallelschaltung?",
+      "back": "Die Verbraucher sind nebeneinander geschaltet — der Strom hat mehrere Wege.\nFällt ein Verbraucher aus, funktionieren die anderen weiter.\nBeispiel: Steckdosen im Haushalt, Strassenbeleuchtung."
+    },
+    {
+      "front": "Wie unterscheidet sich die Helligkeit der Lampen in Serie- vs. Parallelschaltung?",
+      "back": "Serieschaltung: Je mehr Lampen, desto dunkler leuchtet jede einzelne (Spannung wird aufgeteilt).\nParallelschaltung: Jede Lampe leuchtet gleich hell, egal wie viele angeschlossen sind (jede bekommt die volle Spannung)."
+    },
+    {
+      "front": "Warum heisst die Serieschaltung UND-Schaltung und die Parallelschaltung ODER-Schaltung?",
+      "back": "Serieschaltung = UND: Lampe A UND Lampe B müssen funktionieren, damit Strom fliesst.\nParallelschaltung = ODER: Lampe A ODER Lampe B kann funktionieren — der Strom findet immer einen Weg."
+    },
+    {
+      "front": "Eine Lampe in der Lichterkette geht nicht. Wie gehst du bei der Fehlersuche vor?",
+      "back": "1. Ist die Lichterkette eingesteckt / Batterie geladen?\n2. Serieschaltung? → Jede Lampe einzeln prüfen (herausdrehen, Ersatzlampe einsetzen)\n3. Kabel auf Bruchstellen / lose Kontakte prüfen\n4. Schalter testen\nTipp: Systematisch vorgehen — eine Stelle nach der anderen."
+    },
+    {
+      "front": "In einer Parallelschaltung funktioniert nur ein Gerät nicht. Wo liegt der Fehler?",
+      "back": "Der Fehler liegt im Gerät selbst oder in seiner eigenen Zuleitung.\nDie anderen Geräte funktionieren ja — also ist die Hauptleitung und die Stromquelle in Ordnung.\nPrüfe: Lampe durchgebrannt? Kabel zum Gerät lose? Sicherung des Geräts defekt?"
+    },
+    {
+      "front": "Beurteile: «Strom wird in der Lampe verbraucht.» — richtig oder falsch?",
+      "back": "Falsch. Der Strom (= Elektronenfluss) wird nicht verbraucht — er fliesst durch die Lampe hindurch und zurück zur Quelle.\nWas verbraucht wird, ist die elektrische Energie: Sie wird in Licht und Wärme umgewandelt."
+    },
+    {
+      "front": "Beurteile: «Strom fliesst vom Pluspol zum Minuspol.» — richtig oder falsch?",
+      "back": "Kommt auf die Betrachtung an:\n• Konventionelle Stromrichtung (technisch): Plus → Minus. So steht es in Schaltplänen.\n• Physikalische Elektronenflussrichtung: Minus → Plus (Elektronen wandern vom Minus- zum Pluspol).\nBeide Beschreibungen sind korrekt — man muss angeben, welche Richtung gemeint ist."
+    },
+    {
+      "front": "Wie lautet die Formel für die elektrische Leistung? (Buchstaben + Einheiten)",
+      "back": "P = U × I\n\nP = Leistung in Watt [W]\nU = Spannung in Volt [V]\nI = Stromstärke in Ampere [A]\n\nBeispiel: 230 V × 10 A = 2'300 W"
+    },
+    {
+      "front": "Ein Föhn hat 230 V und zieht 8 A Strom. Wie gross ist seine Leistung?",
+      "back": "P = U × I = 230 V × 8 A = 1'840 W\n\nDer Föhn hat eine Leistung von 1'840 Watt (= 1,84 kW)."
+    },
+    {
+      "front": "Zeichne (oder beschreibe) die Schaltsymbole für: Batterie, Lampe, Schalter, Leitung.",
+      "back": "Batterie: Langer Strich (Plus) und kurzer Strich (Minus) parallel\nLampe: Kreis mit Kreuz darin (×)\nSchalter: Lücke mit einem Hebel, der die Lücke schliessen kann\nLeitung: Gerader Strich"
+    },
+    {
+      "front": "Wozu dient ein Schaltplan?",
+      "back": "Ein Schaltplan zeigt einen Stromkreis mit genormten Schaltsymbolen.\nVorteile:\n• Jeder versteht ihn (international gleich)\n• Übersichtlicher als ein Foto\n• Zeigt, wie die Bauteile verbunden sind (Serie/Parallel)\n• Ermöglicht Fehlersuche auf Papier"
+    },
+    {
+      "front": "Was ist eine Blackbox-Aufgabe?",
+      "back": "Man sieht eine Schachtel (Blackbox) mit Anschlüssen, aber nicht, was drin ist.\nDurch Messen und Testen (z.B. Lampe anschliessen, Spannung messen) muss man herausfinden, welche Bauteile und Schaltungen sich im Innern verbergen."
+    },
+    {
+      "front": "Wie gehst du eine Blackbox-Aufgabe an? (3 Schritte)",
+      "back": "1. Anschlüsse systematisch durchprobieren (Lampe oder Messgerät anschliessen)\n2. Beobachtungen notieren (leuchtet? wie hell? bei welchen Anschlüssen?)\n3. Schaltplan ableiten: Welche Schaltung (Serie/Parallel) und welche Bauteile erklären die Beobachtungen?"
+    },
+    {
+      "front": "Was ist die elektrische Ladung Q? (Einheit + Bedeutung)",
+      "back": "Q = elektrische Ladung, Einheit: Coulomb [C]\nSie gibt an, wie viele Elektronen insgesamt geflossen sind.\n1 Coulomb = ca. 6,24 × 10¹⁸ Elektronen.\nFormel: Q = I × t (Stromstärke × Zeit)"
+    },
+    {
+      "front": "Was ist die Stromstärke I? (Einheit + Messgerät + Einbau)",
+      "back": "I = Stromstärke, Einheit: Ampere [A]\nSie gibt an, wie viele Elektronen pro Sekunde durch den Leiter fliessen.\nMessgerät: Amperemeter\nEinbau: In Serie (in Reihe) zum Verbraucher — der Strom muss durch das Messgerät hindurchfliessen."
+    },
+    {
+      "front": "Was ist die Spannung U? (Einheit + Messgerät + Einbau)",
+      "back": "U = Spannung, Einheit: Volt [V]\nSie ist der «Antrieb» für die Elektronen — je höher die Spannung, desto stärker werden die Elektronen angetrieben.\nMessgerät: Voltmeter\nEinbau: Parallel zum Verbraucher — das Voltmeter wird links und rechts des Verbrauchers angeschlossen."
+    },
+    {
+      "front": "Was ist der Widerstand R? (Einheit + Bedeutung)",
+      "back": "R = Widerstand, Einheit: Ohm [Ω]\nEr gibt an, wie stark ein Bauteil den Stromfluss bremst.\nJe grösser der Widerstand, desto weniger Strom fliesst (bei gleicher Spannung).\nFormel: R = U / I"
+    },
+    {
+      "front": "Durch eine Lampe fliesst 2 A Strom bei 12 V Spannung. Wie gross ist der Widerstand?",
+      "back": "R = U / I = 12 V / 2 A = 6 Ω\n\nDer Widerstand der Lampe beträgt 6 Ohm."
+    },
+    {
+      "front": "Eine Batterie liefert 9 V, der Widerstand beträgt 3 Ω. Wie gross ist die Stromstärke?",
+      "back": "I = U / R = 9 V / 3 Ω = 3 A\n\nEs fliessen 3 Ampere durch den Stromkreis."
+    },
+    {
+      "front": "Vergleich Wasserkreislauf — Stromkreis: Was entspricht der Pumpe?",
+      "back": "Die Pumpe entspricht der Batterie (Stromquelle).\nDie Pumpe treibt das Wasser an → die Batterie treibt die Elektronen an.\nBeide liefern die Energie für den Kreislauf."
+    },
+    {
+      "front": "Vergleich Wasserkreislauf — Stromkreis: Was entspricht dem Wasserrad und den Rohren?",
+      "back": "Wasserrad = Verbraucher (z.B. Lampe): wandelt die Energie um.\nRohre = Leitungen (Kabel): transportieren das Medium.\nDas Wasser selbst = Elektronen: fliesst im Kreis und wird nicht verbraucht."
+    },
+    {
+      "front": "Vergleich Wasserkreislauf — Stromkreis: Was entspricht dem Wasserdruck und der Wassermenge?",
+      "back": "Wasserdruck = Spannung (U in Volt): Je höher der Druck, desto stärker wird angetrieben.\nWassermenge pro Sekunde = Stromstärke (I in Ampere): Wie viel pro Zeiteinheit fliesst.\nEnge Stelle im Rohr = Widerstand (R in Ohm): Bremst den Fluss."
+    },
+    {
+      "front": "Wie lautet das Ohmsche Gesetz? (Formel + alle drei Umstellungen)",
+      "back": "U = R × I\n\nUmstellungen:\nR = U / I (Widerstand berechnen)\nI = U / R (Stromstärke berechnen)\n\nMerkhilfe: URI — in dieser Reihenfolge: U = R × I"
+    },
+    {
+      "front": "Was sagt das Ohmsche Gesetz in Worten aus?",
+      "back": "Bei einem ohmschen Widerstand ist die Spannung proportional zur Stromstärke.\nDoppelte Spannung → doppelte Stromstärke (bei gleichem Widerstand).\nDoppelter Widerstand → halbe Stromstärke (bei gleicher Spannung).\nDas gilt für Metalle bei konstanter Temperatur."
+    }
+  ]
+}

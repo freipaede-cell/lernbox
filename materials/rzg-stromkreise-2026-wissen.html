@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stromkreise untersuchen | Wissens-Kompakt</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0f1117;color:#e0e0e0;line-height:1.7;padding:20px;max-width:900px;margin:0 auto}
+h1{font-size:1.8em;color:#7eb8ff;border-bottom:2px solid #7eb8ff;padding-bottom:8px;margin-bottom:24px}
+h2{font-size:1.4em;color:#ff9f43;margin:32px 0 16px;border-left:4px solid #ff9f43;padding-left:12px}
+h3{font-size:1.15em;color:#a8d8ea;margin:20px 0 10px}
+h4{font-size:1em;color:#c4b5fd;margin:16px 0 8px}
+p{margin:8px 0}
+ul,ol{margin:8px 0 8px 24px}
+li{margin:4px 0}
+.formel-box{background:#1a2332;border:2px solid #7eb8ff;border-radius:10px;padding:16px 20px;margin:16px 0;text-align:center}
+.formel-box .titel{font-weight:700;color:#7eb8ff;margin-bottom:8px;font-size:1.1em}
+.formel-box .formel{font-size:1.3em;color:#fff;font-family:'Courier New',monospace;margin:8px 0}
+.formel-box .einheit{color:#a0a0a0;font-size:0.9em}
+.satz-box{background:#1e2a1e;border:2px solid #4ade80;border-radius:10px;padding:16px 20px;margin:16px 0}
+.satz-box .titel{font-weight:700;color:#4ade80;margin-bottom:6px;font-size:1.05em}
+.experiment-box{background:#2a1e2e;border:2px solid #c084fc;border-radius:10px;padding:16px 20px;margin:16px 0}
+.experiment-box .titel{font-weight:700;color:#c084fc;margin-bottom:6px;font-size:1.05em}
+.experiment-box .beobachtung{color:#e9d5ff;margin:6px 0}
+.experiment-box .erklaerung{color:#d4d4d4;margin:6px 0;border-top:1px solid #444;padding-top:8px}
+.anwendung-box{background:#1e2630;border:2px solid #38bdf8;border-radius:10px;padding:16px 20px;margin:16px 0}
+.anwendung-box .titel{font-weight:700;color:#38bdf8;margin-bottom:6px;font-size:1.05em}
+.merkregel{background:#332b1e;border:2px solid #fbbf24;border-radius:10px;padding:14px 18px;margin:16px 0}
+.merkregel .titel{font-weight:700;color:#fbbf24;margin-bottom:6px}
+.warnung-box{background:#2e1e1e;border:2px solid #f87171;border-radius:10px;padding:16px 20px;margin:16px 0}
+.warnung-box .titel{font-weight:700;color:#f87171;margin-bottom:6px;font-size:1.05em}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th{background:#1e293b;color:#7eb8ff;padding:8px 12px;text-align:left;border:1px solid #334}
+td{padding:8px 12px;border:1px solid #334}
+tr:nth-child(even){background:#161b24}
+.toc{background:#161b24;border-radius:10px;padding:16px 24px;margin:16px 0}
+.toc a{color:#7eb8ff;text-decoration:none}
+.toc a:hover{text-decoration:underline}
+.toc ol{margin-left:20px}
+.toc li{margin:4px 0}
+.meta{color:#888;font-size:0.85em;margin-bottom:20px}
+strong{color:#fff}
+.highlight{color:#fbbf24}
+sub,sup{font-size:0.75em}
+.dreieck{display:inline-block;background:#1a2332;border:2px solid #7eb8ff;border-radius:8px;padding:12px 20px;margin:12px auto;text-align:center;font-family:'Courier New',monospace;font-size:1.2em;color:#fff}
+.vergleich-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.vergleich-grid .box{border-radius:10px;padding:16px 20px}
+.vergleich-grid .serie{background:#1e2630;border:2px solid #38bdf8}
+.vergleich-grid .serie .titel{color:#38bdf8;font-weight:700;margin-bottom:8px;font-size:1.05em}
+.vergleich-grid .parallel{background:#1e2a1e;border:2px solid #4ade80}
+.vergleich-grid .parallel .titel{color:#4ade80;font-weight:700;margin-bottom:8px;font-size:1.05em}
+@media(max-width:600px){.vergleich-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<h1>Stromkreise untersuchen &mdash; Wissens-Kompakt</h1>
+<p class="meta">RZG / NaTech | Livia, 2a | Erstellt: 29.03.2026</p>
+
+<div class="toc">
+<strong>Inhaltsverzeichnis</strong>
+<ol>
+<li><a href="#k1">Grundbegriffe der Elektrizit&auml;t</a></li>
+<li><a href="#k2">Bestandteile eines geschlossenen Stromkreises</a></li>
+<li><a href="#k3">Serieschaltung vs. Parallelschaltung</a></li>
+<li><a href="#k4">Fehlersuche: Wenn ein Ger&auml;t nicht funktioniert</a></li>
+<li><a href="#k5">Aussagen beurteilen &mdash; Wahr oder Falsch?</a></li>
+<li><a href="#k6">Elektrische Leistung</a></li>
+<li><a href="#k7">Schaltsymbole und Schaltpl&auml;ne</a></li>
+<li><a href="#k8">Blackbox-Aufgaben</a></li>
+<li><a href="#k9">Elektrische Gr&ouml;ssen</a></li>
+<li><a href="#k10">Berechnungen &mdash; Ohmsches Gesetz anwenden</a></li>
+<li><a href="#k11">Die Wasserkreis-Analogie</a></li>
+<li><a href="#k12">Ohmsches Gesetz in Aufgaben</a></li>
+<li><a href="#zusatz">Zusatz: Kurzschluss</a></li>
+</ol>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k1">1. Grundbegriffe der Elektrizit&auml;t</h2>
+
+<p><strong>Elektrizit&auml;t</strong> ist eine Energieform, die auf der Bewegung von elektrisch geladenen Teilchen beruht. Im Alltag begegnet sie uns &uuml;berall: Licht, W&auml;rme, Bewegung, Kommunikation.</p>
+
+<div class="satz-box">
+<div class="titel">Wichtige Grundbegriffe</div>
+<ul>
+<li><strong>Elektron:</strong> Winziges, negativ geladenes Teilchen. Elektronen bewegen sich durch Leiter (z.B. Kupferdraht) und transportieren so elektrische Energie.</li>
+<li><strong>Stromkreis:</strong> Ein geschlossener Weg, durch den Elektronen fliessen k&ouml;nnen &mdash; von der Energiequelle durch den Leiter zum Verbraucher und zur&uuml;ck.</li>
+<li><strong>Geschlossener Stromkreis:</strong> Nur wenn der Kreis l&uuml;ckenlos geschlossen ist, fliesst Strom. Jede Unterbrechung stoppt den Stromfluss sofort.</li>
+<li><strong>Serieschaltung:</strong> Alle Bauteile hintereinander in einem einzigen Stromkreis.</li>
+<li><strong>Parallelschaltung:</strong> Jedes Bauteil in einem eigenen Stromkreis &mdash; mehrere Wege nebeneinander.</li>
+</ul>
+</div>
+
+<div class="merkregel">
+<div class="titel">Merkregel</div>
+<p>Strom fliesst nur, wenn der Stromkreis geschlossen ist &mdash; wie Wasser in einem Rohrsystem, das keine L&uuml;cke haben darf.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k2">2. Bestandteile eines geschlossenen Stromkreises</h2>
+
+<p>Jeder funktionierender Stromkreis braucht mindestens vier Bestandteile:</p>
+
+<table>
+<tr><th>Bestandteil</th><th>Funktion</th><th>Beispiele</th></tr>
+<tr><td><strong>Energiequelle</strong></td><td>Liefert die elektrische Energie (Spannung)</td><td>Batterie, Netzger&auml;t, Steckdose</td></tr>
+<tr><td><strong>Leiter</strong></td><td>Transportiert den Strom (Elektronen)</td><td>Kupferkabel, Draht</td></tr>
+<tr><td><strong>Verbraucher</strong></td><td>Wandelt elektrische Energie um (Licht, W&auml;rme, Bewegung)</td><td>Lampe, Motor, Heizung</td></tr>
+<tr><td><strong>Schalter</strong></td><td>&Ouml;ffnet oder schliesst den Stromkreis</td><td>Lichtschalter, Taster</td></tr>
+</table>
+
+<div class="merkregel">
+<div class="titel">Kernregel</div>
+<p>Der Stromkreis muss geschlossen sein, damit Strom fliesst. Fehlt ein Bestandteil oder ist ein Kabel lose, ist der Kreis unterbrochen &mdash; kein Strom.</p>
+</div>
+
+<div class="anwendung-box">
+<div class="titel">Stromkabel im Haushalt</div>
+<p>Ein normales Stromkabel enth&auml;lt mindestens <strong>2 Dr&auml;hte</strong>: einen f&uuml;r den Hinweg und einen f&uuml;r den R&uuml;ckweg des Stroms. So entsteht ein geschlossener Kreis. Der dritte Draht (gr&uuml;n-gelb) ist der Schutzleiter (Erdung).</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k3">3. Serieschaltung vs. Parallelschaltung</h2>
+
+<div class="vergleich-grid">
+<div class="box serie">
+<div class="titel">Serieschaltung (Reihenschaltung)</div>
+<ul>
+<li><strong>Ein</strong> einziger Stromkreis</li>
+<li>Alle Bauteile <strong>hintereinander</strong></li>
+<li>Lampen werden <strong>dunkler</strong>, je mehr man einbaut</li>
+<li><strong>UND-Schaltung:</strong> Beide Schalter m&uuml;ssen EIN sein</li>
+<li>F&auml;llt eine Lampe aus &rarr; <strong>alle aus</strong></li>
+</ul>
+<p style="margin-top:10px"><strong>Beispiele:</strong></p>
+<ul>
+<li>Alte Lichterkette (eine Lampe kaputt = alle dunkel)</li>
+<li>Batteriefach (Batterien hintereinander)</li>
+</ul>
+</div>
+<div class="box parallel">
+<div class="titel">Parallelschaltung</div>
+<ul>
+<li><strong>Mehrere</strong> Stromkreise nebeneinander</li>
+<li>Jedes Bauteil hat <strong>eigenen Weg</strong></li>
+<li>Lampen bleiben <strong>gleich hell</strong></li>
+<li><strong>ODER-Schaltung:</strong> Ein Schalter reicht</li>
+<li>F&auml;llt eine Lampe aus &rarr; <strong>andere leuchten weiter</strong></li>
+</ul>
+<p style="margin-top:10px"><strong>Beispiele:</strong></p>
+<ul>
+<li>Steckdosenleiste</li>
+<li>Stadionbeleuchtung</li>
+<li>Deckenbeleuchtung (mehrere Spots)</li>
+</ul>
+</div>
+</div>
+
+<table>
+<tr><th>Eigenschaft</th><th>Serieschaltung</th><th>Parallelschaltung</th></tr>
+<tr><td>Stromwege</td><td>1 einziger</td><td>Mehrere nebeneinander</td></tr>
+<tr><td>Helligkeit</td><td>Wird dunkler bei mehr Lampen</td><td>Bleibt gleich hell</td></tr>
+<tr><td>Ausfall einer Lampe</td><td>Alle aus</td><td>Andere leuchten weiter</td></tr>
+<tr><td>Schalter-Logik</td><td>UND (alle m&uuml;ssen EIN sein)</td><td>ODER (einer reicht)</td></tr>
+<tr><td>Spannung</td><td>Teilt sich auf die Verbraucher auf</td><td>An jedem Verbraucher gleich</td></tr>
+<tr><td>Stromst&auml;rke</td><td>&Uuml;berall gleich</td><td>Teilt sich auf die Zweige auf</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="k4">4. Fehlersuche: Wenn ein Ger&auml;t nicht funktioniert</h2>
+
+<p>Systematisch vorgehen &mdash; von der Quelle zum Ger&auml;t:</p>
+
+<div class="anwendung-box">
+<div class="titel">Fehlersuch-Schema (5 Schritte)</div>
+<ol>
+<li><strong>Stecker:</strong> Steckt der Stecker in der Steckdose? Sitzt er fest?</li>
+<li><strong>Kabel:</strong> Ist das Kabel besch&auml;digt, geknickt oder gebrochen?</li>
+<li><strong>Sicherung:</strong> Ist die Sicherung im Sicherungskasten rausgeflogen? &rarr; Zur&uuml;ckschalten</li>
+<li><strong>Schalter:</strong> Ist der Schalter eingeschaltet? Funktioniert der Schalter selbst?</li>
+<li><strong>Ger&auml;t:</strong> Ist das Ger&auml;t selbst defekt? (z.B. Gl&uuml;hbirne durchgebrannt, Motor kaputt)</li>
+</ol>
+</div>
+
+<div class="merkregel">
+<div class="titel">Merkregel: Von aussen nach innen</div>
+<p>Immer zuerst die einfachsten Ursachen pr&uuml;fen (Stecker, Kabel), bevor man das Ger&auml;t &ouml;ffnet oder ersetzt.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k5">5. Aussagen beurteilen &mdash; Wahr oder Falsch?</h2>
+
+<p>Typische Pr&uuml;fungsfragen zur Elektrizit&auml;tslehre &mdash; mit Begr&uuml;ndung:</p>
+
+<table>
+<tr><th>Aussage</th><th>W/F</th><th>Begr&uuml;ndung</th></tr>
+<tr>
+<td>Elektronen fliessen durch den ganzen Stromkreis</td>
+<td style="color:#4ade80;font-weight:700">WAHR</td>
+<td>Elektronen bewegen sich tats&auml;chlich durch den gesamten geschlossenen Stromkreis &mdash; von der Quelle durch den Leiter zum Verbraucher und zur&uuml;ck.</td>
+</tr>
+<tr>
+<td>Bei einer Serieschaltung: Geht die hinterste Lampe aus, gehen alle aus</td>
+<td style="color:#f87171;font-weight:700">FALSCH</td>
+<td>Es ist egal, <strong>wo</strong> die Unterbrechung ist &mdash; bei einer Serieschaltung gehen immer ALLE Lampen aus, egal welche ausf&auml;llt. Nicht nur bei der &laquo;hintersten&raquo;.</td>
+</tr>
+<tr>
+<td>Ein Stromkabel hat 2 Dr&auml;hte, damit ein geschlossener Kreis entsteht</td>
+<td style="color:#4ade80;font-weight:700">WAHR</td>
+<td>F&uuml;r einen geschlossenen Stromkreis braucht es einen Hin- und einen R&uuml;ckweg &mdash; daher mindestens 2 Dr&auml;hte.</td>
+</tr>
+<tr>
+<td>Wenn die Batterie leer ist, sind die Elektronen verbraucht</td>
+<td style="color:#f87171;font-weight:700">FALSCH</td>
+<td>Elektronen werden nie verbraucht &mdash; sie bleiben erhalten. Was verbraucht wird, ist die <strong>chemische Energie</strong> in der Batterie. Die Elektronen kreisen weiterhin, haben aber keine Energie mehr.</td>
+</tr>
+<tr>
+<td>Eine Sicherung sch&uuml;tzt, wenn man zwei blanke Kabel ber&uuml;hrt</td>
+<td style="color:#f87171;font-weight:700">FALSCH</td>
+<td>Die Sicherung sch&uuml;tzt <strong>nicht</strong> bei direktem Kontakt mit stromf&uuml;hrenden Kabeln. Der Stromkreis schliesst sich &uuml;ber den K&ouml;rper &mdash; das ist lebensgef&auml;hrlich. Die Sicherung reagiert erst bei &Uuml;berlast/Kurzschluss.</td>
+</tr>
+<tr>
+<td>Die Position des Schalters im Stromkreis ist egal</td>
+<td style="color:#4ade80;font-weight:700">WAHR</td>
+<td>Egal ob der Schalter vor oder nach dem Verbraucher sitzt &mdash; er unterbricht den Stromkreis an jeder Stelle gleich wirksam.</td>
+</tr>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="k6">6. Elektrische Leistung</h2>
+
+<p>Die <strong>elektrische Leistung</strong> gibt an, wie viel elektrische Energie pro Sekunde umgewandelt wird. Je h&ouml;her die Leistung, desto mehr Energie verbraucht ein Ger&auml;t.</p>
+
+<div class="formel-box">
+<div class="titel">Elektrische Leistung</div>
+<div class="formel">P = U &times; I</div>
+<div class="einheit">P = Leistung [W, Watt] &nbsp;|&nbsp; U = Spannung [V, Volt] &nbsp;|&nbsp; I = Stromst&auml;rke [A, Ampere]</div>
+</div>
+
+<div class="merkregel">
+<div class="titel">Haushaltsspannung Schweiz</div>
+<p>U = <strong>230 V</strong> (Wechselstrom, 50 Hz). Alle Ger&auml;te an der Steckdose arbeiten mit dieser Spannung.</p>
+</div>
+
+<h3>Typische Berechnung: Stromst&auml;rke bestimmen</h3>
+<p>Umgestellt nach I:</p>
+
+<div class="formel-box">
+<div class="titel">Stromst&auml;rke berechnen</div>
+<div class="formel">I = P / U</div>
+<div class="einheit">Beispiel: Wasserkocher 2300 W an 230 V &rarr; I = 2300 / 230 = <strong>10 A</strong></div>
+</div>
+
+<h3>Typische Leistungen im Haushalt</h3>
+<table>
+<tr><th>Ger&auml;t</th><th>Leistung (ca.)</th><th>Stromst&auml;rke bei 230 V</th></tr>
+<tr><td>LED-Lampe</td><td>10 W</td><td>0.04 A</td></tr>
+<tr><td>Laptop</td><td>60 W</td><td>0.26 A</td></tr>
+<tr><td>Staubsauger</td><td>1'600 W</td><td>7.0 A</td></tr>
+<tr><td>Wasserkocher</td><td>2'300 W</td><td>10.0 A</td></tr>
+<tr><td>Backofen</td><td>3'500 W</td><td>15.2 A</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="k7">7. Schaltsymbole und Schaltpl&auml;ne</h2>
+
+<p>In Schaltpl&auml;nen werden elektrische Bauteile durch standardisierte <strong>Symbole</strong> dargestellt. Jedes Bauteil hat ein eindeutiges Symbol.</p>
+
+<h3>&Uuml;bersicht Schaltsymbole</h3>
+<table>
+<tr><th>Bauteil</th><th>Symbol-Beschreibung</th><th>Funktion</th></tr>
+<tr><td><strong>Leiter (Kabel)</strong></td><td>Gerade Linie</td><td>Verbindet die Bauteile</td></tr>
+<tr><td><strong>Lampe (Gl&uuml;hbirne)</strong></td><td>Kreis mit Kreuz darin</td><td>Wandelt Strom in Licht</td></tr>
+<tr><td><strong>Widerstand</strong></td><td>Rechteck (leer)</td><td>Begrenzt den Stromfluss</td></tr>
+<tr><td><strong>Schalter</strong></td><td>Linie mit L&uuml;cke (klappbar)</td><td>&Ouml;ffnet/schliesst den Kreis dauerhaft</td></tr>
+<tr><td><strong>Taster</strong></td><td>&Auml;hnlich wie Schalter, mit Feder</td><td>Schliesst nur solange gedr&uuml;ckt</td></tr>
+<tr><td><strong>Batterie</strong></td><td>Lange + kurze Parallellinie</td><td>Gleichspannungsquelle (DC)</td></tr>
+<tr><td><strong>Netzger&auml;t</strong></td><td>Kreis mit Wechselstrom-Zeichen (~)</td><td>Externe Spannungsquelle</td></tr>
+<tr><td><strong>Voltmeter</strong></td><td>Kreis mit V</td><td>Misst Spannung (parallel einbauen)</td></tr>
+<tr><td><strong>Amperemeter</strong></td><td>Kreis mit A</td><td>Misst Stromst&auml;rke (in Serie einbauen)</td></tr>
+<tr><td><strong>Ohmmeter</strong></td><td>Kreis mit &Omega;</td><td>Misst Widerstand</td></tr>
+</table>
+
+<h3>Regeln f&uuml;r Schaltpl&auml;ne</h3>
+
+<div class="satz-box">
+<div class="titel">Zeichenregeln</div>
+<ul>
+<li>Jedes Bauteil hat sein <strong>eigenes Symbol</strong> &mdash; keine Abk&uuml;rzungen</li>
+<li>Kabel werden als <strong>gerade Linien</strong> gezeichnet</li>
+<li>Richtungs&auml;nderungen immer im <strong>90&deg;-Winkel</strong> (rechter Winkel)</li>
+<li>Symbole <strong>nicht in die Ecken</strong> setzen &mdash; immer auf geraden Strecken</li>
+<li>Kreuzungen von Kabeln vermeiden oder deutlich markieren</li>
+</ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k8">8. Blackbox-Aufgaben</h2>
+
+<p>Bei Blackbox-Aufgaben siehst du eine Schaltung als &laquo;schwarze Box&raquo; &mdash; du weisst nicht, wie die Lampen drin verschaltet sind. Durch <strong>Beobachtung</strong> (Entfernen einer Lampe) musst du auf den Schaltungstyp schliessen.</p>
+
+<div class="anwendung-box">
+<div class="titel">Methode: Lampe entfernen und beobachten</div>
+<table>
+<tr><th>Beobachtung</th><th>Schaltungstyp</th><th>Begr&uuml;ndung</th></tr>
+<tr><td>Alle anderen Lampen gehen <strong>aus</strong></td><td><strong>Serieschaltung</strong></td><td>Ein Stromkreis &mdash; Unterbrechung stoppt alles</td></tr>
+<tr><td>Alle anderen Lampen leuchten <strong>weiter</strong></td><td><strong>Parallelschaltung</strong></td><td>Jede Lampe hat eigenen Kreis</td></tr>
+<tr><td>Einige aus, andere leuchten weiter</td><td><strong>Gemischte Schaltung</strong></td><td>Teils Serie, teils Parallel</td></tr>
+</table>
+</div>
+
+<div class="merkregel">
+<div class="titel">Vorgehensweise</div>
+<p>1. Eine Lampe entfernen (Stromkreis dort unterbrechen). 2. Beobachten, welche Lampen noch leuchten. 3. F&uuml;r jede entfernte Lampe wiederholen. 4. R&uuml;ckschluss auf die Schaltung ziehen.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k9">9. Elektrische Gr&ouml;ssen</h2>
+
+<p>Es gibt vier grundlegende elektrische Gr&ouml;ssen. Jede hat eine Einheit, ein Formelzeichen und ein Messger&auml;t.</p>
+
+<table>
+<tr><th>Gr&ouml;sse</th><th>Formel&shy;zeichen</th><th>Einheit</th><th>Messger&auml;t</th><th>Einbau</th></tr>
+<tr>
+<td><strong>Ladung</strong></td>
+<td>Q</td>
+<td>Coulomb (C)</td>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+<tr>
+<td><strong>Stromst&auml;rke</strong></td>
+<td>I</td>
+<td>Ampere (A)</td>
+<td>Amperemeter</td>
+<td><strong>In Serie</strong> (im Stromkreis)</td>
+</tr>
+<tr>
+<td><strong>Spannung</strong></td>
+<td>U</td>
+<td>Volt (V)</td>
+<td>Voltmeter</td>
+<td><strong>Parallel</strong> (zwischen zwei Stellen)</td>
+</tr>
+<tr>
+<td><strong>Widerstand</strong></td>
+<td>R</td>
+<td>Ohm (&Omega;)</td>
+<td>Ohmmeter</td>
+<td>Am ausgebauten Bauteil</td>
+</tr>
+</table>
+
+<h3>Was bedeuten die Gr&ouml;ssen?</h3>
+
+<div class="satz-box">
+<div class="titel">Stromst&auml;rke I</div>
+<p>Die Stromst&auml;rke gibt an, <strong>wie viele Elektronen pro Sekunde</strong> durch den Leiter fliessen. Formel: <strong>I = Q / t</strong> (Ladung pro Zeit). Einheit: Ampere (A). Das Amperemeter wird <strong>in Serie</strong> (hintereinander) in den Stromkreis eingebaut.</p>
+</div>
+
+<div class="satz-box">
+<div class="titel">Spannung U</div>
+<p>Die Spannung ist der <strong>Antrieb</strong> f&uuml;r den Strom &mdash; sie dr&uuml;ckt die Elektronen durch den Leiter. Einheit: Volt (V). Das Voltmeter wird <strong>parallel</strong> eingebaut &mdash; es misst den Unterschied zwischen zwei Stellen im Stromkreis.</p>
+</div>
+
+<div class="satz-box">
+<div class="titel">Widerstand R</div>
+<p>Der Widerstand bestimmt, <strong>wie stark der Strom bei einer gegebenen Spannung fliesst</strong>. Hoher Widerstand = wenig Strom. Formel: <strong>R = U / I</strong>. Einheit: Ohm (&Omega;).</p>
+</div>
+
+<div class="merkregel">
+<div class="titel">Einbau-Merkregel</div>
+<p><strong>Amperemeter = in Serie</strong> (wie eine Perle auf der Kette). <strong>Voltmeter = parallel</strong> (wie eine Br&uuml;cke zwischen zwei Punkten).</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k10">10. Berechnungen &mdash; Ohmsches Gesetz anwenden</h2>
+
+<p>Das <strong>Ohmsche Gesetz</strong> verkn&uuml;pft die drei Gr&ouml;ssen Spannung, Stromst&auml;rke und Widerstand:</p>
+
+<div class="formel-box">
+<div class="titel">Das Ohmsche Gesetz &mdash; 3 Formen</div>
+<div class="formel">U = R &times; I &nbsp;&nbsp;&nbsp;&nbsp; I = U / R &nbsp;&nbsp;&nbsp;&nbsp; R = U / I</div>
+<div class="einheit">U = Spannung [V] &nbsp;|&nbsp; R = Widerstand [&Omega;] &nbsp;|&nbsp; I = Stromst&auml;rke [A]</div>
+</div>
+
+<h3>Formel-Dreieck (Merkhilfe)</h3>
+
+<div style="text-align:center;margin:20px 0">
+<div class="dreieck">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;U&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;<br>
+R &nbsp;&times;&nbsp; I
+</div>
+</div>
+
+<div class="merkregel">
+<div class="titel">So funktioniert das Dreieck</div>
+<p>Decke die gesuchte Gr&ouml;sse ab:<br>
+&bull; <strong>U gesucht:</strong> R &times; I (nebeneinander = multiplizieren)<br>
+&bull; <strong>I gesucht:</strong> U / R (U steht &uuml;ber R = dividieren)<br>
+&bull; <strong>R gesucht:</strong> U / I (U steht &uuml;ber I = dividieren)</p>
+</div>
+
+<h3>Beispielrechnung</h3>
+<div class="experiment-box">
+<div class="titel">Aufgabe: Widerstand berechnen</div>
+<p class="beobachtung"><strong>Gegeben:</strong> U = 12 V, I = 0.5 A</p>
+<p class="beobachtung"><strong>Gesucht:</strong> R</p>
+<p class="erklaerung"><strong>L&ouml;sung:</strong> R = U / I = 12 V / 0.5 A = <strong>24 &Omega;</strong></p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Aufgabe: Stromst&auml;rke berechnen</div>
+<p class="beobachtung"><strong>Gegeben:</strong> U = 230 V, R = 46 &Omega;</p>
+<p class="beobachtung"><strong>Gesucht:</strong> I</p>
+<p class="erklaerung"><strong>L&ouml;sung:</strong> I = U / R = 230 V / 46 &Omega; = <strong>5 A</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k11">11. Die Wasserkreis-Analogie</h2>
+
+<p>Der elektrische Stromkreis l&auml;sst sich gut mit einem Wasserkreislauf vergleichen. Diese Analogie hilft, abstrakte Konzepte greifbar zu machen.</p>
+
+<table>
+<tr><th>Wasserkreis</th><th>&harr;</th><th>Stromkreis</th></tr>
+<tr><td>Pumpe</td><td>&harr;</td><td>Batterie / Netzger&auml;t</td></tr>
+<tr><td>Rohr (Wasserleitung)</td><td>&harr;</td><td>Kupferkabel (Leiter)</td></tr>
+<tr><td>Ventil / Engstelle</td><td>&harr;</td><td>Widerstand</td></tr>
+<tr><td>Wasserteilchen</td><td>&harr;</td><td>Elektron</td></tr>
+<tr><td>Fliessrate (V/t)</td><td>&harr;</td><td>Stromst&auml;rke (Q/t)</td></tr>
+<tr><td>Druckunterschied</td><td>&harr;</td><td>Spannung (Volt)</td></tr>
+</table>
+
+<div class="satz-box">
+<div class="titel">Wichtige Parallele: Erhaltung</div>
+<p><strong>Wasser bleibt erhalten</strong> &mdash; es wird nicht &laquo;verbraucht&raquo;, sondern fliesst im Kreis. Genauso bleiben <strong>Elektronen erhalten</strong> &mdash; sie werden nicht verbraucht. Was verbraucht wird, ist die <strong>Energie</strong> (im Widerstand/Verbraucher umgewandelt in W&auml;rme, Licht etc.).</p>
+</div>
+
+<div class="merkregel">
+<div class="titel">Merkregel</div>
+<p>Die Pumpe (= Batterie) gibt den Antrieb. Das Ventil (= Widerstand) bremst den Fluss. Das Wasser (= Elektronen) kreist immer weiter &mdash; nur die Energie wird umgewandelt.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="k12">12. Ohmsches Gesetz in Aufgaben</h2>
+
+<p>Bei Pr&uuml;fungsaufgaben musst du h&auml;ufig Einheiten umrechnen, bevor du die Formel anwendest.</p>
+
+<h3>Einheiten umrechnen</h3>
+<table>
+<tr><th>Von</th><th>Nach</th><th>Faktor</th><th>Beispiel</th></tr>
+<tr><td>mA (Milliampere)</td><td>A (Ampere)</td><td>&div; 1000</td><td>500 mA = 0.5 A</td></tr>
+<tr><td>k&Omega; (Kiloohm)</td><td>&Omega; (Ohm)</td><td>&times; 1000</td><td>2.2 k&Omega; = 2200 &Omega;</td></tr>
+<tr><td>kV (Kilovolt)</td><td>V (Volt)</td><td>&times; 1000</td><td>0.23 kV = 230 V</td></tr>
+<tr><td>M&Omega; (Megaohm)</td><td>&Omega; (Ohm)</td><td>&times; 1'000'000</td><td>1 M&Omega; = 1'000'000 &Omega;</td></tr>
+</table>
+
+<h3>Typische Aufgaben</h3>
+
+<div class="experiment-box">
+<div class="titel">Aufgabe 1: Haushalt</div>
+<p class="beobachtung"><strong>Gegeben:</strong> Ein Toaster hat eine Leistung von 920 W. Haushaltsspannung = 230 V.</p>
+<p class="beobachtung"><strong>Gesucht:</strong> Stromst&auml;rke I und Widerstand R</p>
+<p class="erklaerung"><strong>L&ouml;sung:</strong><br>
+I = P / U = 920 W / 230 V = <strong>4 A</strong><br>
+R = U / I = 230 V / 4 A = <strong>57.5 &Omega;</strong></p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Aufgabe 2: Mit Einheiten-Umrechnung</div>
+<p class="beobachtung"><strong>Gegeben:</strong> U = 9 V, I = 20 mA</p>
+<p class="beobachtung"><strong>Gesucht:</strong> Widerstand R</p>
+<p class="erklaerung"><strong>L&ouml;sung:</strong><br>
+Zuerst umrechnen: 20 mA = 0.02 A<br>
+R = U / I = 9 V / 0.02 A = <strong>450 &Omega;</strong></p>
+</div>
+
+<div class="experiment-box">
+<div class="titel">Aufgabe 3: Spannung berechnen</div>
+<p class="beobachtung"><strong>Gegeben:</strong> R = 1.5 k&Omega;, I = 200 mA</p>
+<p class="beobachtung"><strong>Gesucht:</strong> Spannung U</p>
+<p class="erklaerung"><strong>L&ouml;sung:</strong><br>
+Umrechnen: 1.5 k&Omega; = 1500 &Omega;, 200 mA = 0.2 A<br>
+U = R &times; I = 1500 &Omega; &times; 0.2 A = <strong>300 V</strong></p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="zusatz">Zusatz: Kurzschluss</h2>
+
+<div class="warnung-box">
+<div class="titel">Kurzschluss &mdash; Was passiert?</div>
+<p>Ein Kurzschluss entsteht, wenn der Strom <strong>ohne Widerstand</strong> (ohne Verbraucher) direkt vom Plus- zum Minuspol fliesst. Der Weg ist &laquo;zu kurz&raquo; &mdash; daher der Name.</p>
+<ul style="margin-top:10px">
+<li><strong>Kein Widerstand</strong> zwischen + und &minus; Pol</li>
+<li><strong>Extremer Stromfluss</strong> &mdash; viel mehr als normal</li>
+<li><strong>Starke Hitzeentwicklung</strong> &mdash; Kabel k&ouml;nnen schmelzen, Brandgefahr</li>
+<li><strong>Sicherung l&ouml;st aus</strong> &mdash; sie unterbricht den Stromkreis zum Schutz</li>
+<li><strong>Gef&auml;hrlich:</strong> Ohne Sicherung kann ein Kurzschluss zu Brand oder Explosion f&uuml;hren</li>
+</ul>
+</div>
+
+<div class="merkregel">
+<div class="titel">Merkregel: Warum Kurzschluss?</div>
+<p>Ohne Widerstand (R &asymp; 0) wird laut I = U / R die Stromst&auml;rke theoretisch unendlich gross. In der Praxis wird sie extrem hoch &rarr; &Uuml;berhitzung &rarr; Sicherung fliegt raus.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2>Formel&uuml;bersicht auf einen Blick</h2>
+
+<table>
+<tr><th>Formel</th><th>Bedeutung</th><th>Einheiten</th></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">U = R &times; I</td><td>Ohmsches Gesetz (Spannung)</td><td>V = &Omega; &times; A</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">I = U / R</td><td>Ohmsches Gesetz (Stromst&auml;rke)</td><td>A = V / &Omega;</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">R = U / I</td><td>Ohmsches Gesetz (Widerstand)</td><td>&Omega; = V / A</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">P = U &times; I</td><td>Elektrische Leistung</td><td>W = V &times; A</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">I = P / U</td><td>Stromst&auml;rke aus Leistung</td><td>A = W / V</td></tr>
+<tr><td style="font-family:monospace;font-size:1.1em;color:#fff;">I = Q / t</td><td>Stromst&auml;rke aus Ladung</td><td>A = C / s</td></tr>
+</table>
+
+<p style="text-align:center;color:#666;margin-top:40px;font-size:0.85em;">Wissens-Kompakt | Stromkreise untersuchen | Version 1.0 | 29.03.2026</p>
+
+</body>
+</html>
