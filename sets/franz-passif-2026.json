@@ -1,0 +1,126 @@
+{
+  "title": "Le passif",
+  "subject": "Französisch",
+  "cards": [
+    {
+      "front": "Comment forme-t-on le passif en français?",
+      "back": "être (konjugiert in der entsprechenden Zeit) + participe passé.\nDas participe passé wird an das Subjekt angeglichen (Geschlecht + Zahl).\nBeispiel: La lettre est écrite par Marie."
+    },
+    {
+      "front": "Woran erkennst du einen Passivsatz im Text?",
+      "back": "Signalwörter:\n1. Eine Form von «être» + participe passé\n2. Complément d'agent mit «par» oder «de»\nBeispiel: Le gâteau est mangé par les enfants.\nAchtung: Nicht jedes «être + p.p.» ist Passiv (siehe passé composé mit être)!"
+    },
+    {
+      "front": "Verwechslungsgefahr: Wie unterscheidest du passé composé mit être vom Passiv?",
+      "back": "Passé composé mit être: Verben der Bewegung/Zustandsänderung (aller, venir, partir, mourir...).\nDiese Verben sind INTRANSITIV — sie haben kein direktes Objekt.\n\nPassiv: être + p.p. eines TRANSITIVEN Verbs, oft mit «par/de».\n\nTest: Kann man «par quelqu'un» ergänzen?\n• Elle est partie. → *Elle est partie par quelqu'un. → NEIN → Passé composé\n• La porte est ouverte par le vent. → JA → Passiv"
+    },
+    {
+      "front": "Ist dieser Satz Passiv? Begründe.\n«Elle est partie hier soir.»",
+      "back": "NEIN, kein Passiv.\n«Partir» ist ein intransitives Verb (Bewegungsverb) — es bildet das passé composé mit être.\nEs gibt kein direktes Objekt, also ist Passiv unmöglich.\nÜbersetzung: Sie ist gestern Abend weggegangen."
+    },
+    {
+      "front": "Ist dieser Satz Passiv? Begründe.\n«La porte est ouverte par le vent.»",
+      "back": "JA, das ist Passiv.\n• «est ouverte» = être (présent) + participe passé von «ouvrir»\n• «par le vent» = Complément d'agent\n• «ouvrir» ist transitiv (on ouvre quelque chose)\nÜbersetzung: Die Tür wird vom Wind geöffnet."
+    },
+    {
+      "front": "Ist dieser Satz Passiv? Begründe.\n«Les résultats sont arrivés ce matin.»",
+      "back": "NEIN, kein Passiv.\n«Arriver» ist intransitiv (Bewegungsverb) → passé composé mit être.\nMan kann nicht sagen: *Les résultats sont arrivés par quelqu'un.\nÜbersetzung: Die Ergebnisse sind heute Morgen angekommen."
+    },
+    {
+      "front": "Welche Verben können NICHT ins Passiv gesetzt werden?",
+      "back": "1. Intransitive Verben (kein direktes Objekt):\ndormir, aller, venir, partir, mourir, rester...\n\n2. Verben mit indirektem Objekt (à qqn):\nobéir à, téléphoner à, ressembler à, parler à...\n\nRegel: Nur Verben mit DIREKTEM Objekt (COD) können ins Passiv."
+    },
+    {
+      "front": "Pourquoi «obéir à» ne peut-il pas être mis au passif?",
+      "back": "Weil «obéir» ein indirektes Objekt verlangt (obéir À quelqu'un).\nNur Verben mit direktem Objekt (COD) können passiviert werden.\n\nWeitere Beispiele: téléphoner à, ressembler à, plaire à, nuire à.\nAusnahme (veraltet): «Il est obéi de tous.» — gilt als literarisch, nicht Standardgrammatik."
+    },
+    {
+      "front": "Welche 3 Schritte brauchst du für die Umwandlung Aktiv → Passiv?",
+      "back": "1. Das COD (direktes Objekt) wird zum Subjekt.\n2. Das Verb wird zu «être» (in derselben Zeit) + participe passé (angeglichen!).\n3. Das Subjekt wird zum Complément d'agent (mit «par» oder «de»).\n\nAktiv: Le chat mange la souris.\nPassiv: La souris est mangée par le chat."
+    },
+    {
+      "front": "Passiv im Présent — Bilde den Passivsatz.\nAktiv: Le professeur corrige les examens.",
+      "back": "Les examens sont corrigés par le professeur.\n\nRegel: être im Présent + participe passé\nsont (présent von être) + corrigés (angeglichen: maskulin Plural)"
+    },
+    {
+      "front": "Passiv im Passé composé — Wie wird es gebildet? Beispiel?",
+      "back": "avoir été + participe passé (angeglichen)\n\nBildung: être im passé composé (= a/ont été) + p.p.\n\nAktiv: Le directeur a signé la lettre.\nPassiv: La lettre a été signée par le directeur.\n(«signée» angeglichen an «la lettre» = feminin Singular)"
+    },
+    {
+      "front": "Passiv im Imparfait — Bilde den Passivsatz.\nAktiv: Les élèves lisaient le roman.",
+      "back": "Le roman était lu par les élèves.\n\nRegel: être im Imparfait + participe passé\nétait (imparfait von être) + lu (angeglichen: maskulin Singular)"
+    },
+    {
+      "front": "Passiv im Futur simple — Bilde den Passivsatz.\nAktiv: On construira un nouveau pont.",
+      "back": "Un nouveau pont sera construit.\n\nRegel: être im Futur simple + participe passé\nsera (futur von être) + construit\n(Kein «par on» — bei «on» als Subjekt fällt der Complément d'agent weg.)"
+    },
+    {
+      "front": "Passiv im Conditionnel présent — Bilde den Passivsatz.\nAktiv: Le gouvernement prendrait cette décision.",
+      "back": "Cette décision serait prise par le gouvernement.\n\nRegel: être im Conditionnel + participe passé\nserait (conditionnel von être) + prise (angeglichen: feminin Singular)"
+    },
+    {
+      "front": "Passiv im Subjonctif présent — Bilde den Passivsatz.\nIl faut que le directeur signe ce document.",
+      "back": "Il faut que ce document soit signé par le directeur.\n\nRegel: être im Subjonctif + participe passé\nsoit (subjonctif von être) + signé"
+    },
+    {
+      "front": "Angleichung des participe passé im Passiv — Wann und wie?",
+      "back": "Im Passiv wird das participe passé IMMER an das Subjekt angeglichen (Geschlecht + Zahl).\n\n• La porte est fermée. (f. Sg. → -ée)\n• Les portes sont fermées. (f. Pl. → -ées)\n• Le livre est lu. (m. Sg. → keine Endung)\n• Les livres sont lus. (m. Pl. → -s)\n\nDas ist anders als beim Aktiv mit avoir!"
+    },
+    {
+      "front": "Complément d'agent: Wann «par», wann «de»?",
+      "back": "«par» = Standardfall (Handlung, Aktion):\nLe voleur est arrêté par la police.\n\n«de» = bei Zuständen, Gefühlen, Beschreibungen:\nElle est aimée de tous.\nLa maison est entourée de fleurs.\n\nFaustregel: Aktion → par | Zustand/Gefühl → de"
+    },
+    {
+      "front": "Nenne 5 Verben/Ausdrücke, die «de» statt «par» als Complément d'agent verlangen.",
+      "back": "1. accompagné de — begleitet von\n2. entouré de — umgeben von\n3. couvert de — bedeckt mit\n4. composé de — zusammengesetzt aus\n5. aimé de / respecté de / connu de — geliebt/respektiert/bekannt von\n\nGemeinsam: Es sind Zustände, keine Aktionen."
+    },
+    {
+      "front": "Transforme à la voix passive:\nLes spectateurs applaudissent les acteurs.",
+      "back": "Les acteurs sont applaudis par les spectateurs.\n\n• Les acteurs = neues Subjekt (ehemaliges COD)\n• sont applaudis = être (présent) + p.p. (m. Pl.)\n• par les spectateurs = Complément d'agent"
+    },
+    {
+      "front": "Transforme à la voix passive:\nMon père avait repeint la cuisine.",
+      "back": "La cuisine avait été repeinte par mon père.\n\n• Plus-que-parfait passif: être im plus-que-parfait (avait été) + p.p.\n• repeinte: angeglichen an «la cuisine» (f. Sg.)"
+    },
+    {
+      "front": "Passiversatz: «on + verbe actif» — Erklärung + Beispiel",
+      "back": "Häufigster Passiversatz im Alltag.\n«On» ersetzt das unbekannte/allgemeine Subjekt.\n\nPassiv: Le français est parlé au Québec.\nErsatz: On parle français au Québec.\n\nVerwendung: Wenn der Handelnde unwichtig oder allgemein ist."
+    },
+    {
+      "front": "Passiversatz: «se faire + infinitif» — Erklärung + Beispiel",
+      "back": "Drückt aus, dass jemandem etwas widerfährt (oft negativ/unerwartet).\n\nPassiv: Il a été volé.\nErsatz: Il s'est fait voler.\n(Er wurde bestohlen. / Er hat sich bestehlen lassen.)\n\nWeiteres Beispiel: Elle s'est fait renvoyer. (Sie wurde entlassen.)"
+    },
+    {
+      "front": "Passiversatz: «se laisser + infinitif» — Erklärung + Beispiel",
+      "back": "Drückt Passivität/Duldung aus — man lässt etwas mit sich geschehen.\n\nPassiv: Elle a été convaincue.\nErsatz: Elle s'est laissé convaincre.\n(Sie hat sich überzeugen lassen.)\n\nNuance: Das Subjekt hätte sich wehren können, tat es aber nicht."
+    },
+    {
+      "front": "Passiversatz: «se voir + infinitif» — Erklärung + Beispiel",
+      "back": "Formell/administrativ. Drückt aus, dass jemandem etwas offiziell zukommt.\n\nPassiv: Il a été refusé l'entrée.\nErsatz: Il s'est vu refuser l'entrée.\n(Ihm wurde der Eintritt verweigert.)\n\nWeiteres Beispiel: Elle s'est vu attribuer le prix. (Ihr wurde der Preis verliehen.)"
+    },
+    {
+      "front": "Passiversatz: Forme pronominale (se + verbe) — Erklärung + Beispiel",
+      "back": "Ein reflexives Verb ersetzt den Passivsatz. Sehr häufig im Französischen.\n\nPassiv: Le vin est bu en France.\nErsatz: Le vin se boit en France.\n(Wein wird in Frankreich getrunken.)\n\nWeitere Beispiele:\nCe mot ne se dit plus. (Dieses Wort wird nicht mehr gesagt.)\nCe livre se lit facilement. (Dieses Buch lässt sich leicht lesen.)"
+    },
+    {
+      "front": "Wann nutzt man welchen Passiversatz? Übersicht.",
+      "back": "• on + actif: Allgemein, Handelnder unwichtig\n  → On mange bien ici.\n• se faire + inf.: Negatives Widerfahrnis\n  → Il s'est fait arrêter.\n• se laisser + inf.: Duldung, man hätte sich wehren können\n  → Elle s'est laissé tromper.\n• se voir + inf.: Formell, offiziell\n  → Il s'est vu décerner un prix.\n• Forme pronominale: Allgemeine Aussagen, Gewohnheiten\n  → Ça ne se fait pas."
+    },
+    {
+      "front": "Réécris avec «on»:\nLe suspect a été arrêté hier.",
+      "back": "On a arrêté le suspect hier.\n\n«On» wird Subjekt, das Verb steht im Aktiv (passé composé).\nDer ehemalige Agent (hier: unbekannt) verschwindet."
+    },
+    {
+      "front": "Réécris avec «se faire»:\nLe joueur a été expulsé du terrain.",
+      "back": "Le joueur s'est fait expulser du terrain.\n\nDer Spieler wurde vom Platz gestellt.\n(«se faire» betont, dass es ihm widerfahren ist — negatives Erlebnis.)"
+    },
+    {
+      "front": "Réécris avec la forme pronominale:\nCe plat est mangé froid.",
+      "back": "Ce plat se mange froid.\n\nDieses Gericht wird kalt gegessen. / Dieses Gericht isst man kalt.\n(Forme pronominale für allgemeine Aussagen über Gewohnheiten.)"
+    },
+    {
+      "front": "Réécris avec «se laisser» ou «se voir»:\nElle a été persuadée par ses amis.",
+      "back": "Elle s'est laissé persuader par ses amis.\n(Sie hat sich von ihren Freundinnen überreden lassen.)\n\n«Se laisser» passt hier, weil sie die Überredung zugelassen hat (Duldung).\nAlternativ (formeller): Elle s'est vu persuader par ses amis."
+    }
+  ]
+}

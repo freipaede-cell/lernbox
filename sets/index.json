@@ -106,6 +106,16 @@
         { "type": "wissen", "title": "Wissens-Kompakt", "file": "materials/rzg-stromkreise-2026-wissen.html" },
         { "type": "pruefung", "title": "Übungsprüfung", "file": "materials/rzg-stromkreise-2026-pruefung.html" }
       ]
+    },
+    {
+      "id": "franz-passif-2026",
+      "file": "sets/franz-passif-2026.json",
+      "title": "Le passif",
+      "subject": "Französisch",
+      "cardCount": 30,
+      "profiles": ["yannick"],
+      "examDate": "",
+      "materials": []
     }
   ]
 }

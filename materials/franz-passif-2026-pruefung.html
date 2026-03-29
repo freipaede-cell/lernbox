@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Übungsprüfung — Le passif</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0f172a;
+    color: #e2e8f0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    padding: 2rem 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.9rem; color: #f1f5f9; border-bottom: 3px solid #3b82f6; padding-bottom: 0.5rem; margin-bottom: 0.3rem; }
+  .meta { color: #94a3b8; font-size: 0.85rem; margin-bottom: 2rem; }
+  h2 { font-size: 1.4rem; color: #60a5fa; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.3rem; border-bottom: 2px solid #1e3a5f; }
+  p { margin-bottom: 0.7rem; }
+  strong { color: #f1f5f9; }
+  em { color: #fbbf24; font-style: normal; }
+
+  .frage {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin: 1rem 0;
+  }
+  .frage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+  }
+  .frage-nr { color: #60a5fa; font-weight: 700; font-size: 1rem; }
+  .frage-punkte { background: #334155; color: #94a3b8; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; }
+  .frage-typ { background: #312e81; color: #a5b4fc; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; margin-left: 0.5rem; }
+
+  .loesung { margin-top: 0.8rem; }
+  .loesung summary { cursor: pointer; color: #22c55e; font-weight: 600; font-size: 0.9rem; padding: 0.3rem 0; }
+  .loesung summary:hover { color: #4ade80; }
+  .loesung-content {
+    background: #162032;
+    border-left: 4px solid #22c55e;
+    padding: 0.8rem 1rem;
+    border-radius: 0 6px 6px 0;
+    margin-top: 0.4rem;
+    font-size: 0.92rem;
+  }
+
+  .luecke { display: inline-block; min-width: 180px; border-bottom: 2px solid #60a5fa; margin: 0 4px; }
+
+  .text-block {
+    background: #162032;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0;
+    font-style: italic;
+    line-height: 1.8;
+  }
+
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+  th { background: #1e293b; color: #60a5fa; padding: 0.6rem 0.8rem; text-align: left; border-bottom: 2px solid #334155; }
+  td { padding: 0.5rem 0.8rem; border-bottom: 1px solid #1e293b; }
+
+  .notenschluessel { background: #1e293b; border-radius: 10px; padding: 1.2rem 1.5rem; margin: 2rem 0; }
+  .notenschluessel-title { color: #60a5fa; font-weight: 700; margin-bottom: 0.5rem; }
+
+  .total-box { background: #1e293b; border: 2px solid #3b82f6; border-radius: 10px; padding: 1rem 1.5rem; margin: 1.5rem 0; text-align: center; }
+  .total-box strong { font-size: 1.2rem; color: #60a5fa; }
+
+  .zuordnung-left, .zuordnung-right { display: inline-block; vertical-align: top; }
+  .zuordnung-left { width: 45%; }
+  .zuordnung-right { width: 50%; }
+
+  ol.alpha { list-style-type: lower-alpha; padding-left: 1.5rem; }
+  ol.alpha li { margin-bottom: 0.5rem; }
+</style>
+</head>
+<body>
+
+<h1>Übungsprüfung — Le passif</h1>
+<div class="meta">Französisch | ~30 Minuten | 40 Punkte</div>
+
+<div class="total-box">
+  <strong>Teil A:</strong> Erkennen (8 P.) &nbsp;|&nbsp; <strong>Teil B:</strong> Transformation (16 P.) &nbsp;|&nbsp; <strong>Teil C:</strong> Passiversatz (10 P.) &nbsp;|&nbsp; <strong>Teil D:</strong> Gemischt (6 P.) &nbsp;|&nbsp; <strong>Total: 40 P.</strong>
+</div>
+
+<!-- ============ TEIL A: ERKENNEN ============ -->
+<h2>Teil A — Reconnaître le passif (8 Punkte)</h2>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">1</span><span class="frage-typ">Erkennen</span><span class="frage-punkte">4 P.</span>
+  </div>
+  <p>Passif ou non ? Indique pour chaque phrase s'il s'agit de la voix passive ou non. Justifie ta réponse.</p>
+  <ol class="alpha">
+    <li>La lettre <strong>est envoyée</strong> par le directeur.</li>
+    <li>Marie <strong>est tombée</strong> dans l'escalier.</li>
+    <li>Les résultats <strong>sont annoncés</strong> à la radio.</li>
+    <li>Nous <strong>sommes arrivés</strong> en retard.</li>
+  </ol>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      a) <strong>Passiv.</strong> <em>être</em> (présent) + participe passé <em>envoyée</em> + complément d'agent <em>par le directeur</em>. Die Handlung wird am Subjekt ausgeführt.<br>
+      b) <strong>Kein Passiv.</strong> <em>tomber</em> bildet das passé composé mit <em>être</em> (Bewegungsverb). Marie hat die Handlung selbst ausgeführt.<br>
+      c) <strong>Passiv.</strong> <em>être</em> (présent) + participe passé <em>annoncés</em>. Die Ergebnisse werden verkündet (jemand verkündet sie).<br>
+      d) <strong>Kein Passiv.</strong> <em>arriver</em> bildet das passé composé mit <em>être</em> (Bewegungsverb). <em>Nous</em> hat die Handlung selbst ausgeführt.<br>
+      (1 P. pro richtige Bestimmung mit Begründung)
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">2</span><span class="frage-typ">Textarbeit</span><span class="frage-punkte">4 P.</span>
+  </div>
+  <p>Lis le texte suivant. Identifie les quatre formes passives et détermine le temps de chaque forme.</p>
+  <div class="text-block">
+    La nouvelle école a été construite en 2024. Les cours sont donnés par des professeurs expérimentés. L'année prochaine, une bibliothèque sera ouverte au public. Autrefois, les élèves étaient transportés en bus.
+  </div>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      1. <strong>a été construite</strong> — passé composé passif (avoir été + p.p.)<br>
+      2. <strong>sont donnés</strong> — présent passif (être au présent + p.p.)<br>
+      3. <strong>sera ouverte</strong> — futur simple passif (être au futur + p.p.)<br>
+      4. <strong>étaient transportés</strong> — imparfait passif (être à l'imparfait + p.p.)<br>
+      (1 P. pro korrekt identifizierte Form mit Zeitform)
+    </div>
+  </details>
+</div>
+
+<!-- ============ TEIL B: TRANSFORMATION ============ -->
+<h2>Teil B — Transformer les phrases (16 Punkte)</h2>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">3</span><span class="frage-typ">Aktiv → Passiv</span><span class="frage-punkte">2 P.</span>
+  </div>
+  <p>Transforme cette phrase active en phrase passive. (Présent)</p>
+  <p><strong>Le professeur corrige les examens.</strong></p>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      <strong>Les examens sont corrigés par le professeur.</strong><br>
+      Subjekt und Objekt tauschen. <em>être</em> im présent (sont) + participe passé <em>corrigés</em> (Angleichung: maskulin Plural). Agent mit <em>par</em>.
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">4</span><span class="frage-typ">Aktiv → Passiv</span><span class="frage-punkte">2 P.</span>
+  </div>
+  <p>Transforme cette phrase active en phrase passive. (Passé composé)</p>
+  <p><strong>Le policier a arrêté le voleur.</strong></p>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      <strong>Le voleur a été arrêté par le policier.</strong><br>
+      Passé composé passif: <em>avoir</em> (a) + <em>été</em> + participe passé <em>arrêté</em>. Angleichung an <em>le voleur</em> (maskulin Singular).
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">5</span><span class="frage-typ">Aktiv → Passiv</span><span class="frage-punkte">2 P.</span>
+  </div>
+  <p>Transforme cette phrase active en phrase passive. (Futur simple)</p>
+  <p><strong>Le maire inaugurera le nouveau stade.</strong></p>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      <strong>Le nouveau stade sera inauguré par le maire.</strong><br>
+      Futur passif: <em>être</em> im futur simple (sera) + participe passé <em>inauguré</em>. Angleichung an <em>le stade</em> (maskulin Singular).
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">6</span><span class="frage-typ">Aktiv → Passiv</span><span class="frage-punkte">2 P.</span>
+  </div>
+  <p>Transforme cette phrase active en phrase passive. (Imparfait)</p>
+  <p><strong>Les élèves respectaient cette règle.</strong></p>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      <strong>Cette règle était respectée par les élèves.</strong><br>
+      Imparfait passif: <em>être</em> im imparfait (était) + participe passé <em>respectée</em>. Angleichung an <em>cette règle</em> (feminin Singular).
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">7</span><span class="frage-typ">Passiv → Aktiv</span><span class="frage-punkte">2 P.</span>
+  </div>
+  <p>Transforme cette phrase passive en phrase active.</p>
+  <p><strong>Le gâteau est préparé par ma grand-mère.</strong></p>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      <strong>Ma grand-mère prépare le gâteau.</strong><br>
+      Agent (<em>ma grand-mère</em>) wird zum Subjekt. Verb im présent aktiv. Ehemaliges Subjekt (<em>le gâteau</em>) wird zum direkten Objekt.
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">8</span><span class="frage-typ">Passiv → Aktiv</span><span class="frage-punkte">2 P.</span>
+  </div>
+  <p>Transforme cette phrase passive en phrase active.</p>
+  <p><strong>Les fenêtres ont été cassées par les enfants.</strong></p>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      <strong>Les enfants ont cassé les fenêtres.</strong><br>
+      Passé composé aktiv: <em>avoir</em> (ont) + participe passé <em>cassé</em> (keine Angleichung, da <em>avoir</em>). Agent wird Subjekt.
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">9</span><span class="frage-typ">Passiv → Aktiv</span><span class="frage-punkte">2 P.</span>
+  </div>
+  <p>Transforme cette phrase passive en phrase active.</p>
+  <p><strong>Cette chanson sera interprétée par une artiste célèbre.</strong></p>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      <strong>Une artiste célèbre interprétera cette chanson.</strong><br>
+      Futur simple aktiv. Agent wird Subjekt, ehemaliges Subjekt wird Objekt.
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">10</span><span class="frage-typ">Passiv → Aktiv</span><span class="frage-punkte">2 P.</span>
+  </div>
+  <p>Transforme cette phrase passive en phrase active.</p>
+  <p><strong>Les devoirs étaient vérifiés par le professeur chaque jour.</strong></p>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      <strong>Le professeur vérifiait les devoirs chaque jour.</strong><br>
+      Imparfait aktiv. Agent wird Subjekt. <em>Chaque jour</em> bleibt als Zeitangabe stehen.
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">11</span><span class="frage-typ">Analyse</span><span class="frage-punkte">1 P.</span>
+  </div>
+  <p>Peut-on mettre cette phrase au passif ? Réponds par oui ou non et justifie.</p>
+  <p><strong>Le chat dort sur le canapé.</strong></p>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      <strong>Non.</strong> <em>Dormir</em> ist ein intransitives Verb (kein direktes Objekt). Nur Sätze mit einem direkten Objekt (COD) können ins Passiv gesetzt werden.
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">12</span><span class="frage-typ">Analyse</span><span class="frage-punkte">1 P.</span>
+  </div>
+  <p>Peut-on mettre cette phrase au passif ? Réponds par oui ou non et justifie.</p>
+  <p><strong>Marie téléphone à son frère.</strong></p>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      <strong>Non.</strong> <em>Téléphoner à</em> hat nur ein indirektes Objekt (COI: <em>à son frère</em>). Im Französischen kann man nur Sätze mit einem direkten Objekt (COD) ins Passiv setzen. (Anders als im Englischen!)
+    </div>
+  </details>
+</div>
+
+<!-- ============ TEIL C: PASSIVERSATZ ============ -->
+<h2>Teil C — Les substituts du passif (10 Punkte)</h2>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">13</span><span class="frage-typ">Umschreibung mit «on»</span><span class="frage-punkte">3 P.</span>
+  </div>
+  <p>Réécris les phrases passives suivantes en utilisant <em>«on»</em>.</p>
+  <ol class="alpha">
+    <li>Le français est parlé dans beaucoup de pays.</li>
+    <li>Les billets ont été vendus en une heure.</li>
+    <li>Le musée sera fermé pendant les vacances.</li>
+  </ol>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      a) <strong>On parle français dans beaucoup de pays.</strong> — <em>on</em> ersetzt den unbekannten Agent. Présent aktiv.<br>
+      b) <strong>On a vendu les billets en une heure.</strong> — Passé composé aktiv mit <em>on</em>.<br>
+      c) <strong>On fermera le musée pendant les vacances.</strong> — Futur simple aktiv mit <em>on</em>.<br>
+      (1 P. pro korrekte Umschreibung)
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">14</span><span class="frage-typ">se faire + infinitif</span><span class="frage-punkte">2 P.</span>
+  </div>
+  <p>Réécris les phrases en utilisant la construction <em>«se faire + infinitif»</em>.</p>
+  <ol class="alpha">
+    <li>Il a été renversé par une voiture.</li>
+    <li>Elle sera opérée par un spécialiste.</li>
+  </ol>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      a) <strong>Il s'est fait renverser par une voiture.</strong> — <em>se faire</em> im passé composé + Infinitiv. Drückt aus, dass dem Subjekt etwas widerfährt (oft negativ).<br>
+      b) <strong>Elle se fera opérer par un spécialiste.</strong> — <em>se faire</em> im futur simple + Infinitiv.<br>
+      (1 P. pro korrekte Umschreibung)
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">15</span><span class="frage-typ">Forme pronominale</span><span class="frage-punkte">2 P.</span>
+  </div>
+  <p>Réécris les phrases en utilisant la <em>forme pronominale à sens passif</em>.</p>
+  <ol class="alpha">
+    <li>Le vin rouge est bu avec la viande.</li>
+    <li>Ces livres sont vendus partout.</li>
+  </ol>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      a) <strong>Le vin rouge se boit avec la viande.</strong> — Pronominale Form mit passiver Bedeutung: <em>se boire</em>. Drückt eine allgemeine Gewohnheit/Regel aus.<br>
+      b) <strong>Ces livres se vendent partout.</strong> — <em>se vendre</em>. Kein Agent nötig, da allgemeine Aussage.<br>
+      (1 P. pro korrekte Umschreibung)
+    </div>
+  </details>
+</div>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">16</span><span class="frage-typ">Zuordnung</span><span class="frage-punkte">3 P.</span>
+  </div>
+  <p>Ordne jede Passiversatz-Form (1–4) der passenden Beschreibung (A–D) zu.</p>
+  <table>
+    <tr><th>Nr.</th><th>Form</th></tr>
+    <tr><td>1</td><td><em>on</em> + verbe actif</td></tr>
+    <tr><td>2</td><td><em>se faire</em> + infinitif</td></tr>
+    <tr><td>3</td><td>forme pronominale à sens passif</td></tr>
+    <tr><td>4</td><td><em>se laisser</em> + infinitif</td></tr>
+  </table>
+  <table>
+    <tr><th>Buchstabe</th><th>Beschreibung</th></tr>
+    <tr><td>A</td><td>Drückt eine allgemeine Gewohnheit oder Regel aus, kein Agent nötig. (<em>Ça se dit souvent.</em>)</td></tr>
+    <tr><td>B</td><td>Dem Subjekt widerfährt etwas, oft negativ oder unerwartet. (<em>Il s'est fait voler.</em>)</td></tr>
+    <tr><td>C</td><td>Das Subjekt lässt etwas bewusst zu oder duldet es passiv. (<em>Elle se laisse convaincre.</em>)</td></tr>
+    <tr><td>D</td><td>Ersetzt einen unbekannten oder unwichtigen Agent. (<em>On parle français ici.</em>)</td></tr>
+  </table>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      1 → <strong>D</strong> — <em>on</em> ersetzt einen unbekannten/unwichtigen Agent<br>
+      2 → <strong>B</strong> — <em>se faire</em> + inf.: dem Subjekt widerfährt etwas<br>
+      3 → <strong>A</strong> — forme pronominale: allgemeine Gewohnheit/Regel<br>
+      4 → <strong>C</strong> — <em>se laisser</em> + inf.: das Subjekt duldet/lässt zu<br>
+      (0.75 P. pro richtige Zuordnung, aufgerundet auf ganze/halbe Punkte)
+    </div>
+  </details>
+</div>
+
+<!-- ============ TEIL D: GEMISCHTE AUFGABE ============ -->
+<h2>Teil D — Texte à trous (6 Punkte)</h2>
+
+<div class="frage">
+  <div class="frage-header">
+    <span class="frage-nr">17</span><span class="frage-typ">Lückentext</span><span class="frage-punkte">6 P.</span>
+  </div>
+  <p>Complète le texte avec la forme passive correcte. Conjugue <em>être</em> au temps indiqué et accorde le participe passé.</p>
+  <div class="text-block">
+    Un accident grave s'est produit hier soir à Zurich. Deux personnes <span class="luecke"></span> (blesser, passé composé passif) dans la collision. Elles <span class="luecke"></span> (transporter, passé composé passif) à l'hôpital en urgence. La route <span class="luecke"></span> (fermer, présent passif) depuis ce matin. Les causes de l'accident <span class="luecke"></span> (analyser, présent passif) par la police. Un rapport détaillé <span class="luecke"></span> (publier, futur simple passif) la semaine prochaine. Les victimes <span class="luecke"></span> (soigner, imparfait passif) encore à minuit.
+  </div>
+  <details class="loesung"><summary>Lösung anzeigen</summary>
+    <div class="loesung-content">
+      1. <strong>ont été blessées</strong> — passé composé passif, feminin Plural (<em>deux personnes</em>)<br>
+      2. <strong>ont été transportées</strong> — passé composé passif, feminin Plural (<em>elles</em>)<br>
+      3. <strong>est fermée</strong> — présent passif, feminin Singular (<em>la route</em>)<br>
+      4. <strong>sont analysées</strong> — présent passif, feminin Plural (<em>les causes</em>)<br>
+      5. <strong>sera publié</strong> — futur simple passif, maskulin Singular (<em>un rapport</em>)<br>
+      6. <strong>étaient soignées</strong> — imparfait passif, feminin Plural (<em>les victimes</em>)<br>
+      (1 P. pro korrekte Form: 0.5 P. für richtige <em>être</em>-Konjugation, 0.5 P. für richtige Angleichung des participe passé)
+    </div>
+  </details>
+</div>
+
+<!-- ============ NOTENSCHLÜSSEL ============ -->
+<div class="notenschluessel">
+  <div class="notenschluessel-title">Notenschlüssel (Schweiz, 1–6)</div>
+  <table>
+    <tr><th>Punkte</th><th>Note</th></tr>
+    <tr><td>38 – 40</td><td>6.0</td></tr>
+    <tr><td>35 – 37</td><td>5.5</td></tr>
+    <tr><td>32 – 34</td><td>5.0</td></tr>
+    <tr><td>28 – 31</td><td>4.5</td></tr>
+    <tr><td>24 – 27</td><td>4.0</td></tr>
+    <tr><td>20 – 23</td><td>3.5</td></tr>
+    <tr><td>16 – 19</td><td>3.0</td></tr>
+    <tr><td>12 – 15</td><td>2.5</td></tr>
+    <tr><td>8 – 11</td><td>2.0</td></tr>
+    <tr><td>0 – 7</td><td>1.5</td></tr>
+  </table>
+</div>
+
+</body>
+</html>
