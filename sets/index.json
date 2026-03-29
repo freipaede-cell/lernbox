@@ -104,7 +104,9 @@
       "examDate": "",
       "materials": [
         { "type": "wissen", "title": "Wissens-Kompakt", "file": "materials/rzg-stromkreise-2026-wissen.html" },
-        { "type": "pruefung", "title": "Übungsprüfung", "file": "materials/rzg-stromkreise-2026-pruefung.html" }
+        { "type": "pruefung", "title": "Übungsprüfung", "file": "materials/rzg-stromkreise-2026-pruefung.html" },
+        { "type": "podcast", "title": "Podcast 1 — Grundlagen", "file": "materials/rzg-stromkreise-podcast-1-grundlagen.txt" },
+        { "type": "podcast", "title": "Podcast 2 — Formeln", "file": "materials/rzg-stromkreise-podcast-2-formeln-anwendung.txt" }
       ]
     }
   ]
