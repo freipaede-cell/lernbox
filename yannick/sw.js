@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lernbox-yannick-v4';
+const CACHE_NAME = 'lernbox-yannick-v5';
 const ASSETS = [
   './',
   './index.html',
