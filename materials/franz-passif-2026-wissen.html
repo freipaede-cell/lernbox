@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wissens-Kompakt — Le passif</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0f172a;
+    color: #e2e8f0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    padding: 2rem 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.9rem; color: #f1f5f9; border-bottom: 3px solid #3b82f6; padding-bottom: 0.5rem; margin-bottom: 0.3rem; }
+  .meta { color: #94a3b8; font-size: 0.85rem; margin-bottom: 2rem; }
+  h2 { font-size: 1.5rem; color: #60a5fa; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.3rem; border-bottom: 2px solid #1e3a5f; }
+  h3 { font-size: 1.15rem; color: #93c5fd; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+  h4 { font-size: 1rem; color: #a5b4fc; margin-top: 1rem; margin-bottom: 0.4rem; }
+  p { margin-bottom: 0.7rem; }
+  ul, ol { margin-left: 1.3rem; margin-bottom: 0.8rem; }
+  li { margin-bottom: 0.3rem; }
+  strong { color: #f1f5f9; }
+  em { color: #fbbf24; font-style: normal; }
+
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+  th { background: #1e293b; color: #60a5fa; padding: 0.6rem 0.8rem; text-align: left; border-bottom: 2px solid #334155; }
+  td { padding: 0.5rem 0.8rem; border-bottom: 1px solid #1e293b; }
+  tr:hover { background: rgba(96, 165, 250, 0.05); }
+
+  .faktenbox {
+    background: #1e293b;
+    border-left: 4px solid #3b82f6;
+    padding: 1rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+  }
+  .faktenbox.warning {
+    border-left-color: #f59e0b;
+  }
+  .faktenbox.success {
+    border-left-color: #22c55e;
+  }
+  .faktenbox-title {
+    color: #60a5fa;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+  }
+  .faktenbox.warning .faktenbox-title { color: #f59e0b; }
+  .faktenbox.success .faktenbox-title { color: #22c55e; }
+
+  code {
+    background: #334155;
+    color: #fbbf24;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  .example {
+    background: #162032;
+    border-left: 3px solid #475569;
+    padding: 0.6rem 1rem;
+    margin: 0.5rem 0;
+    color: #94a3b8;
+    font-style: italic;
+    border-radius: 0 6px 6px 0;
+  }
+  .example strong { color: #c4b5fd; }
+
+  .toc {
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .toc-title { color: #60a5fa; font-weight: 700; margin-bottom: 0.5rem; }
+  .toc a { color: #93c5fd; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .toc ol { margin-left: 1.2rem; }
+  .toc li { margin-bottom: 0.2rem; }
+
+  .lernziele {
+    background: #1a2744;
+    border: 1px solid #2563eb;
+    border-radius: 10px;
+    padding: 1rem 1.3rem;
+    margin-bottom: 2rem;
+  }
+  .lernziele-title { color: #60a5fa; font-weight: 700; margin-bottom: 0.5rem; }
+  .lernziele ol { margin-left: 1.2rem; }
+
+  .formel {
+    background: #1e293b;
+    border: 2px solid #3b82f6;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .arrow { color: #60a5fa; font-weight: bold; }
+  .fr { color: #c4b5fd; }
+</style>
+</head>
+<body>
+
+<h1>Le passif -- Wissens-Kompakt</h1>
+<div class="meta">Französisch | Yannick, Gymnasium | Wissens-Kompakt v1.0 | 29.03.2026</div>
+
+<div class="lernziele">
+  <div class="lernziele-title">Lernziele</div>
+  <ol>
+    <li><strong>Je reconnais la voix passive dans un texte.</strong> -- Passivform erkennen</li>
+    <li><strong>Je sais transformer des phrases de la voix active à la voix passive.</strong> -- Aktiv zu Passiv umwandeln</li>
+    <li><strong>Je connais les formes substitutives du passif.</strong> -- Ersatzformen des Passivs</li>
+  </ol>
+</div>
+
+<div class="toc">
+  <div class="toc-title">Inhaltsverzeichnis</div>
+  <ol>
+    <li><a href="#bildung">Bildung des Passivs</a></li>
+    <li><a href="#zeitformen">Le passif in allen Zeitformen</a></li>
+    <li><a href="#transformation">Transformation Aktiv zu Passiv</a></li>
+    <li><a href="#kein-passiv">Wann kann man KEIN Passiv bilden?</a></li>
+    <li><a href="#agent">Complément d'agent: par vs. de</a></li>
+    <li><a href="#ersatzformen">Passiversatz (Formes substitutives)</a></li>
+    <li><a href="#erkennung">Erkennung im Text -- Signalwörter</a></li>
+  </ol>
+</div>
+
+<!-- ======================================== -->
+<h2 id="bildung">1. Bildung des Passivs</h2>
+
+<div class="formel">
+  Subjekt + <em>être</em> (konjugiert) + <em>participe passé</em> (+ <em>par</em> + Agent)
+</div>
+
+<div class="faktenbox success">
+  <div class="faktenbox-title">Kernregel</div>
+  Das Passiv wird mit dem Hilfsverb <em>être</em> gebildet, konjugiert in der entsprechenden Zeitform, gefolgt vom <em>participe passé</em>. Das participe passé richtet sich in <strong>Geschlecht und Zahl</strong> nach dem Subjekt (Angleichung!).
+</div>
+
+<h3>Grundbeispiel</h3>
+
+<table>
+  <tr><th>Voix active</th><th></th><th>Voix passive</th></tr>
+  <tr>
+    <td><span class="fr">Le chat mange <strong>la souris</strong>.</span></td>
+    <td class="arrow">&rarr;</td>
+    <td><span class="fr"><strong>La souris</strong> est mangé<em>e</em> par le chat.</span></td>
+  </tr>
+</table>
+<p>Beachte: <em>mangée</em> mit -e, weil <em>la souris</em> weiblich ist.</p>
+
+<h3>Angleichung des participe passé</h3>
+<table>
+  <tr><th>Subjekt</th><th>Participe passé</th><th>Beispiel</th></tr>
+  <tr><td>maskulin Singular</td><td><em>mangé</em></td><td><span class="fr">Le gâteau est mangé.</span></td></tr>
+  <tr><td>feminin Singular</td><td><em>mangée</em></td><td><span class="fr">La pomme est mangée.</span></td></tr>
+  <tr><td>maskulin Plural</td><td><em>mangés</em></td><td><span class="fr">Les gâteaux sont mangés.</span></td></tr>
+  <tr><td>feminin Plural</td><td><em>mangées</em></td><td><span class="fr">Les pommes sont mangées.</span></td></tr>
+</table>
+
+<!-- ======================================== -->
+<h2 id="zeitformen">2. Le passif in allen Zeitformen</h2>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Prinzip</div>
+  Nur das Hilfsverb <em>être</em> ändert sich je nach Zeitform. Das <em>participe passé</em> bleibt gleich (mit Angleichung).
+</div>
+
+<p>Beispielverb: <em>manger</em> -- Subjekt: <span class="fr">la souris</span> (f. Sg.)</p>
+
+<table>
+  <tr><th>Zeitform</th><th>Formel</th><th>Beispiel</th></tr>
+  <tr><td><strong>Présent</strong></td><td>est + p.p.</td><td><span class="fr">La souris <em>est mangée</em>.</span></td></tr>
+  <tr><td><strong>Passé composé</strong></td><td>a été + p.p.</td><td><span class="fr">La souris <em>a été mangée</em>.</span></td></tr>
+  <tr><td><strong>Imparfait</strong></td><td>était + p.p.</td><td><span class="fr">La souris <em>était mangée</em>.</span></td></tr>
+  <tr><td><strong>Plus-que-parfait</strong></td><td>avait été + p.p.</td><td><span class="fr">La souris <em>avait été mangée</em>.</span></td></tr>
+  <tr><td><strong>Futur simple</strong></td><td>sera + p.p.</td><td><span class="fr">La souris <em>sera mangée</em>.</span></td></tr>
+  <tr><td><strong>Futur antérieur</strong></td><td>aura été + p.p.</td><td><span class="fr">La souris <em>aura été mangée</em>.</span></td></tr>
+  <tr><td><strong>Conditionnel présent</strong></td><td>serait + p.p.</td><td><span class="fr">La souris <em>serait mangée</em>.</span></td></tr>
+  <tr><td><strong>Conditionnel passé</strong></td><td>aurait été + p.p.</td><td><span class="fr">La souris <em>aurait été mangée</em>.</span></td></tr>
+  <tr><td><strong>Subjonctif présent</strong></td><td>soit + p.p.</td><td><span class="fr">Il faut que la souris <em>soit mangée</em>.</span></td></tr>
+</table>
+
+<div class="faktenbox warning">
+  <div class="faktenbox-title">Achtung: Zusammengesetzte Zeiten</div>
+  Bei zusammengesetzten Zeitformen (passé composé, plus-que-parfait, futur antérieur, conditionnel passé) steht <em>être</em> selbst im passé composé, also mit <em>avoir</em> + <em>été</em>:
+  <br><span class="fr">a été, avait été, aura été, aurait été</span>
+  <br>Das ist <strong>kein Fehler</strong> -- <em>être</em> bildet sein passé composé regulär mit <em>avoir</em>.
+</div>
+
+<!-- ======================================== -->
+<h2 id="transformation">3. Transformation Aktiv &rarr; Passiv</h2>
+
+<div class="faktenbox success">
+  <div class="faktenbox-title">4 Schritte</div>
+  <ol>
+    <li>Das <strong>direkte Objekt</strong> (COD) wird zum neuen <strong>Subjekt</strong>.</li>
+    <li>Das Verb wird zu <em>être</em> + <em>participe passé</em> (in der <strong>gleichen Zeitform</strong> wie im Aktiv).</li>
+    <li>Das ehemalige <strong>Subjekt</strong> wird zum <em>complément d'agent</em> (<em>par</em> + ...).</li>
+    <li><strong>Angleichung</strong> des participe passé an das neue Subjekt (Geschlecht + Zahl).</li>
+  </ol>
+</div>
+
+<h3>Beispiel: Présent</h3>
+<div class="example">
+  <strong>Aktiv:</strong> Les élèves lisent le livre.<br>
+  <strong>Passiv:</strong> Le livre est lu par les élèves.
+</div>
+<p>Zeitform bleibt Présent. <em>lu</em> maskulin Singular (le livre = m. Sg.).</p>
+
+<h3>Beispiel: Passé composé</h3>
+<div class="example">
+  <strong>Aktiv:</strong> Marie a écrit cette lettre.<br>
+  <strong>Passiv:</strong> Cette lettre a été écrite par Marie.
+</div>
+<p>Passé composé &rarr; <em>a été</em> + p.p. <em>écrite</em> mit -e (cette lettre = f. Sg.).</p>
+
+<h3>Beispiel: Imparfait</h3>
+<div class="example">
+  <strong>Aktiv:</strong> Les enfants mangeaient les gâteaux.<br>
+  <strong>Passiv:</strong> Les gâteaux étaient mangés par les enfants.
+</div>
+<p>Imparfait &rarr; <em>étaient</em> + p.p. <em>mangés</em> mit -s (les gâteaux = m. Pl.).</p>
+
+<h3>Beispiel: Futur simple</h3>
+<div class="example">
+  <strong>Aktiv:</strong> On construira un nouveau pont.<br>
+  <strong>Passiv:</strong> Un nouveau pont sera construit.
+</div>
+<p>Futur simple &rarr; <em>sera</em> + p.p. Kein <em>complément d'agent</em>, weil <em>on</em> unbestimmt ist.</p>
+
+<h3>Beispiel: Plus-que-parfait</h3>
+<div class="example">
+  <strong>Aktiv:</strong> Le professeur avait corrigé les examens.<br>
+  <strong>Passiv:</strong> Les examens avaient été corrigés par le professeur.
+</div>
+<p>Plus-que-parfait &rarr; <em>avaient été</em> + p.p. <em>corrigés</em> mit -s (les examens = m. Pl.).</p>
+
+<div class="faktenbox warning">
+  <div class="faktenbox-title">Häufiger Fehler</div>
+  Den <em>complément d'agent</em> (<em>par</em> + ...) vergessen oder die Zeitform im Passiv ändern. Die Zeitform muss <strong>identisch</strong> bleiben!
+</div>
+
+<!-- ======================================== -->
+<h2 id="kein-passiv">4. Wann kann man KEIN Passiv bilden?</h2>
+
+<div class="faktenbox warning">
+  <div class="faktenbox-title">Grundregel</div>
+  Nur <strong>transitive Verben</strong> (= Verben mit einem <strong>direkten Objekt / COD</strong>) können ins Passiv gesetzt werden.
+</div>
+
+<h3>NICHT möglich: Intransitive Verben</h3>
+<p>Verben ohne direktes Objekt können kein Passiv bilden:</p>
+<ul>
+  <li><em>dormir</em> (schlafen)</li>
+  <li><em>aller</em> (gehen)</li>
+  <li><em>venir</em> (kommen)</li>
+  <li><em>partir</em> (abfahren)</li>
+  <li><em>arriver</em> (ankommen)</li>
+  <li><em>mourir</em> (sterben)</li>
+</ul>
+
+<h3>NICHT möglich: Verben mit indirektem Objekt (COI)</h3>
+<p>Verben, die ihr Objekt mit <em>à</em> anschliessen (= indirektes Objekt), können im Französischen <strong>nicht</strong> passiviert werden:</p>
+<table>
+  <tr><th>Verb</th><th>Konstruktion</th><th>Passiv möglich?</th></tr>
+  <tr><td><em>obéir à</em></td><td><span class="fr">Les enfants obéissent au professeur.</span></td><td>Nein</td></tr>
+  <tr><td><em>téléphoner à</em></td><td><span class="fr">Marie téléphone à son ami.</span></td><td>Nein</td></tr>
+  <tr><td><em>parler à</em></td><td><span class="fr">Il parle à sa mère.</span></td><td>Nein</td></tr>
+  <tr><td><em>répondre à</em></td><td><span class="fr">Il répond à la question.</span></td><td>Nein</td></tr>
+  <tr><td><em>ressembler à</em></td><td><span class="fr">Elle ressemble à sa mère.</span></td><td>Nein</td></tr>
+  <tr><td><em>plaire à</em></td><td><span class="fr">Ce film plaît aux enfants.</span></td><td>Nein</td></tr>
+</table>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Unterschied zum Deutschen</div>
+  Im Deutschen ist "dem Lehrer wird gehorcht" möglich (unpersönliches Passiv). Im Französischen <strong>nicht</strong>: <span class="fr">*Le professeur est obéi</span> ist falsch!
+</div>
+
+<!-- ======================================== -->
+<h2 id="agent">5. Complément d'agent: par vs. de</h2>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Hauptregel</div>
+  Normalerweise wird der Agent mit <em>par</em> eingeführt. Bei Gefühlen, Zuständen und bestimmten Verben steht <em>de</em>.
+</div>
+
+<h3>par -- der Normalfall (Handlungen)</h3>
+<div class="example">
+  <span class="fr">Le gâteau est mangé <strong>par</strong> les enfants.</span><br>
+  <span class="fr">La lettre a été écrite <strong>par</strong> Marie.</span><br>
+  <span class="fr">Le voleur a été arrêté <strong>par</strong> la police.</span>
+</div>
+
+<h3>de -- bei Gefühlen, Zuständen, Beschreibungen</h3>
+<div class="example">
+  <span class="fr">Elle est aimée <strong>de</strong> tous.</span> (Sie wird von allen geliebt.)<br>
+  <span class="fr">La maison est entourée <strong>d'</strong>arbres.</span> (Das Haus ist von Bäumen umgeben.)<br>
+  <span class="fr">Il est respecté <strong>de</strong> ses collègues.</span> (Er wird von seinen Kollegen respektiert.)
+</div>
+
+<h3>Typische Verben mit de</h3>
+<table>
+  <tr><th>Verb</th><th>Beispiel</th></tr>
+  <tr><td><em>accompagné de</em></td><td><span class="fr">Elle est accompagnée de son ami.</span></td></tr>
+  <tr><td><em>entouré de</em></td><td><span class="fr">Le jardin est entouré de fleurs.</span></td></tr>
+  <tr><td><em>couvert de</em></td><td><span class="fr">La montagne est couverte de neige.</span></td></tr>
+  <tr><td><em>précédé de</em></td><td><span class="fr">Le discours est précédé d'une introduction.</span></td></tr>
+  <tr><td><em>suivi de</em></td><td><span class="fr">Le cours est suivi d'un examen.</span></td></tr>
+  <tr><td><em>composé de</em></td><td><span class="fr">L'équipe est composée de dix joueurs.</span></td></tr>
+  <tr><td><em>aimé de</em></td><td><span class="fr">Il est aimé de ses élèves.</span></td></tr>
+  <tr><td><em>connu de</em></td><td><span class="fr">Ce chanteur est connu de tout le monde.</span></td></tr>
+  <tr><td><em>respecté de</em></td><td><span class="fr">Elle est respectée de ses voisins.</span></td></tr>
+</table>
+
+<div class="faktenbox success">
+  <div class="faktenbox-title">Faustregel</div>
+  <em>par</em> = konkrete Handlung (jemand <strong>tut</strong> etwas)<br>
+  <em>de</em> = Zustand, Gefühl, Beschreibung (jemand <strong>ist</strong> etwas)
+</div>
+
+<!-- ======================================== -->
+<h2 id="ersatzformen">6. Passiversatz (Formes substitutives du passif)</h2>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Warum Ersatzformen?</div>
+  Im Französischen wird das Passiv seltener verwendet als im Deutschen. Häufig greift man auf elegantere Alternativen zurück -- besonders in der gesprochenen Sprache.
+</div>
+
+<h3>6.1 on + verbe actif</h3>
+<p>Die häufigste Ersatzform. <em>on</em> ersetzt einen unbestimmten Handelnden.</p>
+<table>
+  <tr><th>Passiv</th><th>Ersatzform mit on</th></tr>
+  <tr><td><span class="fr">Le français est parlé ici.</span></td><td><span class="fr"><em>On</em> parle français ici.</span></td></tr>
+  <tr><td><span class="fr">Les résultats seront publiés demain.</span></td><td><span class="fr"><em>On</em> publiera les résultats demain.</span></td></tr>
+  <tr><td><span class="fr">La porte a été ouverte.</span></td><td><span class="fr"><em>On</em> a ouvert la porte.</span></td></tr>
+</table>
+
+<h3>6.2 se faire + infinitif</h3>
+<p>Das Subjekt "erleidet" die Handlung (oft negativ oder unfreiwillig).</p>
+<div class="example">
+  <span class="fr">Il <em>s'est fait</em> voler son vélo.</span> (Ihm wurde sein Fahrrad gestohlen.)<br>
+  <span class="fr">Elle <em>s'est fait</em> renvoyer.</span> (Sie wurde entlassen.)<br>
+  <span class="fr">Ils <em>se sont fait</em> arrêter par la police.</span> (Sie wurden von der Polizei verhaftet.)
+</div>
+
+<div class="faktenbox warning">
+  <div class="faktenbox-title">Achtung: Keine Angleichung!</div>
+  Bei <em>se faire + infinitif</em> bleibt <em>fait</em> unveränderlich: <span class="fr">Elle s'est <strong>fait</strong> voler</span> (nicht: <span class="fr">*faite</span>). Seit der Rechtschreibreform 1990 gilt diese Regel verbindlich.
+</div>
+
+<h3>6.3 se laisser + infinitif</h3>
+<p>Das Subjekt "lässt etwas mit sich geschehen" (toleriert die Handlung).</p>
+<div class="example">
+  <span class="fr">Elle <em>s'est laissé</em> convaincre.</span> (Sie liess sich überzeugen.)<br>
+  <span class="fr">Il <em>se laisse</em> influencer.</span> (Er lässt sich beeinflussen.)<br>
+  <span class="fr">Ne te <em>laisse</em> pas décourager!</span> (Lass dich nicht entmutigen!)
+</div>
+
+<h3>6.4 Forme pronominale (se + verbe)</h3>
+<p>Das reflexive Verb drückt eine passive Bedeutung aus -- besonders bei Sachen (nicht Personen).</p>
+<table>
+  <tr><th>Passiv</th><th>Pronominale Ersatzform</th><th>Deutsch</th></tr>
+  <tr><td><span class="fr">Ce livre est lu facilement.</span></td><td><span class="fr">Ce livre <em>se lit</em> facilement.</span></td><td>Dieses Buch liest sich leicht.</td></tr>
+  <tr><td><span class="fr">Le vin est bu frais.</span></td><td><span class="fr">Le vin <em>se boit</em> frais.</span></td><td>Der Wein wird kalt getrunken.</td></tr>
+  <tr><td><span class="fr">Ce mot est utilisé souvent.</span></td><td><span class="fr">Ce mot <em>s'utilise</em> souvent.</span></td><td>Dieses Wort wird oft verwendet.</td></tr>
+  <tr><td><span class="fr">Cela n'est pas fait.</span></td><td><span class="fr">Cela ne <em>se fait</em> pas.</span></td><td>Das tut man nicht.</td></tr>
+</table>
+
+<h3>6.5 se voir + infinitif</h3>
+<p>Eher formell/schriftlich. Das Subjekt "sieht sich einer Handlung ausgesetzt".</p>
+<div class="example">
+  <span class="fr">Il <em>s'est vu</em> offrir un cadeau.</span> (Ihm wurde ein Geschenk gemacht.)<br>
+  <span class="fr">Elle <em>s'est vu</em> refuser l'entrée.</span> (Ihr wurde der Eintritt verweigert.)<br>
+  <span class="fr">Ils <em>se sont vu</em> attribuer le prix.</span> (Ihnen wurde der Preis verliehen.)
+</div>
+
+<h3>Übersicht: Alle Ersatzformen</h3>
+<table>
+  <tr><th>Ersatzform</th><th>Nuance</th><th>Beispiel</th></tr>
+  <tr><td><em>on + verbe actif</em></td><td>unbestimmter Handelnder</td><td><span class="fr">On parle français ici.</span></td></tr>
+  <tr><td><em>se faire + inf.</em></td><td>Subjekt erleidet etwas (oft negativ)</td><td><span class="fr">Il s'est fait voler.</span></td></tr>
+  <tr><td><em>se laisser + inf.</em></td><td>Subjekt toleriert / lässt zu</td><td><span class="fr">Elle s'est laissé convaincre.</span></td></tr>
+  <tr><td><em>se + verbe</em></td><td>passive Bedeutung (bei Sachen)</td><td><span class="fr">Ce livre se lit facilement.</span></td></tr>
+  <tr><td><em>se voir + inf.</em></td><td>formell, Subjekt wird "betroffen"</td><td><span class="fr">Il s'est vu offrir un cadeau.</span></td></tr>
+</table>
+
+<!-- ======================================== -->
+<h2 id="erkennung">7. Erkennung im Text -- Signalwörter</h2>
+
+<div class="faktenbox success">
+  <div class="faktenbox-title">So erkennst du das Passiv</div>
+  <ol>
+    <li>Suche nach einer Form von <em>être</em> + <em>participe passé</em>.</li>
+    <li>Prüfe, ob <em>par</em> oder <em>de</em> nach dem Partizip folgt (complément d'agent).</li>
+    <li>Prüfe, ob das Subjekt die Handlung <strong>erleidet</strong> (nicht selbst ausführt).</li>
+  </ol>
+</div>
+
+<h3>Signalwörter und Strukturen</h3>
+<table>
+  <tr><th>Signal</th><th>Beispiel</th></tr>
+  <tr><td><em>être</em> + participe passé</td><td><span class="fr">La maison <em>est construite</em>.</span></td></tr>
+  <tr><td><em>par</em> + Agent</td><td><span class="fr">... construite <em>par</em> l'architecte.</span></td></tr>
+  <tr><td><em>de</em> + Agent (Zustand)</td><td><span class="fr">... entourée <em>de</em> fleurs.</span></td></tr>
+  <tr><td><em>a été / avait été</em> etc.</td><td><span class="fr">Le voleur <em>a été arrêté</em>.</span></td></tr>
+</table>
+
+<div class="faktenbox warning">
+  <div class="faktenbox-title">Verwechslungsgefahr: Passé composé mit être</div>
+  Nicht jedes <em>être</em> + participe passé ist ein Passiv! Manche Verben bilden ihr <strong>passé composé mit être</strong> (Bewegungsverben, reflexive Verben):
+  <ul>
+    <li><span class="fr">Il <em>est parti</em>.</span> = Er ist weggegangen. <strong>Kein Passiv!</strong> (partir = intransitiv)</li>
+    <li><span class="fr">Elle <em>est arrivée</em>.</span> = Sie ist angekommen. <strong>Kein Passiv!</strong></li>
+    <li><span class="fr">Ils <em>se sont levés</em>.</span> = Sie sind aufgestanden. <strong>Kein Passiv!</strong> (reflexiv)</li>
+  </ul>
+</div>
+
+<div class="faktenbox">
+  <div class="faktenbox-title">Test: Passiv oder nicht?</div>
+  Frage dich: <strong>Kann ich den Satz ins Aktiv umformulieren?</strong> Wenn ja und dabei ein Subjekt + COD entsteht, ist es Passiv.
+  <br><br>
+  <span class="fr">La porte est ouverte par le vent.</span> &rarr; <span class="fr">Le vent ouvre la porte.</span> &rarr; <strong>Passiv!</strong><br>
+  <span class="fr">Il est parti hier.</span> &rarr; Kein COD möglich. &rarr; <strong>Kein Passiv</strong> (passé composé mit être).
+</div>
+
+<div class="faktenbox success">
+  <div class="faktenbox-title">Zusammenfassung: Die 3 Schlüsselkompetenzen</div>
+  <ol>
+    <li><strong>Erkennen:</strong> <em>être</em> + p.p. + eventuell <em>par/de</em> -- aber aufpassen bei passé composé mit être (intransitive/reflexive Verben).</li>
+    <li><strong>Umwandeln:</strong> COD wird Subjekt, Verb wird <em>être</em> + p.p. (gleiche Zeitform!), Subjekt wird <em>par</em> + Agent, p.p. angleichen.</li>
+    <li><strong>Ersatzformen:</strong> <em>on</em>, <em>se faire/laisser/voir + inf.</em>, <em>forme pronominale</em> -- im Französischen oft bevorzugt.</li>
+  </ol>
+</div>
+
+</body>
+</html>
