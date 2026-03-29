@@ -115,7 +115,10 @@
       "cardCount": 30,
       "profiles": ["yannick"],
       "examDate": "",
-      "materials": []
+      "materials": [
+        { "type": "wissen", "title": "Wissens-Kompakt", "file": "materials/franz-passif-2026-wissen.html" },
+        { "type": "pruefung", "title": "Übungsprüfung", "file": "materials/franz-passif-2026-pruefung.html" }
+      ]
     }
   ]
 }
